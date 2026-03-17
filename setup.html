@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en" data-page="setup">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#06101a" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" href="favicon-48.png" type="image/png" sizes="48x48" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <title>TubeWitch Setup | Quarq TyreWiz and Zipp 303 SW Setup</title>
+  <meta name="description" content="Install TubeWitch and show tire pressure data from Quarq TyreWiz 1.0 and 2.0 sensors, Quarq TyreWiz for Moto sensors, or Zipp 303 SW wheels with the integrated Zipp AXS Wheel Sensor on Garmin devices." />
+  <link rel="canonical" href="https://tubewitch.com/setup.html" />
+  <meta property="og:site_name" content="TubeWitch" />
+  <meta property="og:title" content="TubeWitch Setup | Quarq TyreWiz and Zipp 303 SW Setup" />
+  <meta property="og:description" content="Install TubeWitch and show tire pressure data from Quarq TyreWiz sensors on Garmin devices." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tubewitch.com/setup.html" />
+  <meta property="og:image" content="https://tubewitch.com/assets/img/tw_hero.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TubeWitch Setup | Quarq TyreWiz and Zipp 303 SW Setup" />
+  <meta name="twitter:description" content="Install TubeWitch and show tire pressure data from Quarq TyreWiz sensors on Garmin devices." />
+  <meta name="twitter:image" content="https://tubewitch.com/assets/img/tw_hero.jpg" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap nav-row">
+      <a class="brand" href="index.html"><img src="assets/img/tw_icon_128.jpg" alt="TubeWitch icon" /><span>TUBEWITCH</span></a>
+      <nav class="nav-links" aria-label="Primary">
+        <a data-nav="index" href="index.html">Home</a>
+        <a data-nav="advanced" href="advanced.html">Features</a>
+        <a data-nav="alerts" href="alerts.html">Alerts</a>
+        <a data-nav="setup" href="setup.html">Setup</a>
+        <a data-nav="settings" href="settings.html">Settings</a>
+        <a data-nav="faq" href="faq.html">FAQ</a>
+        <a data-nav="gallery" href="gallery.html">Gallery</a>
+        <a class="btn-inline" href="https://apps.garmin.com/apps/9b512e62-f3b0-4aea-a932-63670e0dfe75?tid=0" target="_blank" rel="noopener noreferrer">Garmin Store</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero wrap reveal">
+      <div class="page-hero-copy">
+        <p class="kicker">First ride setup</p>
+        <h1>Get from install to live pressure in one session</h1>
+        <p>
+          TubeWitch setup is for riders who already own Quarq TyreWiz 1.0 or 2.0 sensors,
+          Quarq TyreWiz for Moto sensors, or Zipp 303 SW wheels and want that tire pressure data on a Garmin device.
+          TubeWitch stores the sensor IDs and display behavior,
+          while the SRAM app still controls the target pressure on the sensors themselves.
+        </p>
+        <p>
+          TubeWitch setup centers on sensor ID entry, device restart, adding the field to a data screen,
+          and confirming live pressure from both wheels before the ride.
+        </p>
+        <div class="cta-row">
+          <a class="btn" href="#checklist">Quick Checklist</a>
+          <a class="btn ghost" href="settings.html">Settings Reference</a>
+        </div>
+      </div>
+      <figure class="page-hero-media shot">
+        <img class="fullshot" src="assets/img/sensor_ids.jpg" alt="TubeWitch sensor ID setup" />
+        <figcaption>Enter only the numeric part of each TyreWiz sensor ID</figcaption>
+      </figure>
+    </section>
+
+    <nav class="page-links wrap reveal" aria-label="Setup sections">
+      <a href="#checklist">Checklist</a>
+      <a href="#roles">TubeWitch vs SRAM</a>
+      <a href="#troubleshooting">If it will not connect</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+
+    <section class="section wrap reveal" id="checklist">
+      <h2>Quick setup checklist</h2>
+      <article class="card">
+        <ol class="steps">
+          <li>Install TubeWitch from Connect IQ.</li>
+          <li>Fully reboot the Garmin device and restart the Connect IQ app.</li>
+          <li>Open TubeWitch settings and enter the numeric part of each sensor ID.</li>
+          <li>Add TubeWitch to a data page, start an activity, and rotate the wheels.</li>
+          <li>Confirm live pressure appears before ride use.</li>
+        </ol>
+      </article>
+    </section>
+
+    <section class="section wrap reveal" id="roles">
+      <div class="split two-up">
+        <article class="card">
+          <p class="eyebrow">Two separate jobs</p>
+          <h2>What goes in TubeWitch vs. what stays in SRAM</h2>
+          <ul>
+            <li>TubeWitch stores the numeric sensor IDs, active sensor set, labels, timeout behavior, and alerts.</li>
+            <li>The SRAM mobile app is still where target pressure is defined for the sensors.</li>
+            <li>If live pressure appears but high/low status looks wrong, check the pressure target in SRAM first.</li>
+            <li>For multiple bikes or wheelsets, clear set names help distinguish configurations before using Auto mode.</li>
+          </ul>
+        </article>
+        <figure class="card shot">
+          <img class="fullshot" src="assets/img/sram_phone_app.jpg" alt="SRAM app showing tire pressure target settings" />
+          <figcaption>Pressure targets are managed in the SRAM mobile app</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section wrap reveal" id="troubleshooting">
+      <h2>If one or both sensors do not connect</h2>
+      <div class="card-grid card-grid-3">
+        <article class="card">
+          <h3>Reboot again</h3>
+          <p>After first install or after sensor changes, a full Garmin reboot solves more startup issues than partial retries.</p>
+        </article>
+        <article class="card">
+          <h3>Acknowledge open connection prompts</h3>
+          <p>The message about a sensor using an open connection is expected during initial setup and often appears once per sensor.</p>
+        </article>
+        <article class="card">
+          <h3>Remove competing data fields</h3>
+          <p>If another TyreWiz data field is installed, it will block TubeWitch from reading the sensors. Uninstall the other field and reboot.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section wrap reveal">
+      <div class="callout">
+        <p>The FAQ page covers compatibility, sensor ID entry, and pressure target questions. The Alerts page covers popup, tone, vibration, and timing behavior. For the focused product overview, see <a href="garmin-tyrewiz.html">SRAM/Quarq TyreWiz on Garmin</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-stack">
+      <div class="footer-grid">
+        <img src="assets/img/tpms_indicator_full.png" alt="TPMS icon" />
+        <div>
+          <p>TubeWitch is built for reliable ride-day startup and clear pressure visibility.</p>
+          <p class="muted">Includes installation steps, sensor ID entry, startup checks, and connection troubleshooting.</p>
+        </div>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="setup.html">Setup</a>
+        <a href="alerts.html">Alerts</a>
+        <a href="settings.html">Settings</a>
+        <a href="faq.html">FAQ</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="advanced.html">Features</a>
+        <a href="https://apps.garmin.com/apps/9b512e62-f3b0-4aea-a932-63670e0dfe75?tid=0" target="_blank" rel="noopener noreferrer">Garmin Store</a>
+      </nav>
+      <p class="legal-note">TubeWitch is an independent third-party Garmin Connect IQ data field and is not affiliated with, endorsed by, or sponsored by Garmin, SRAM, Quarq, Zipp or TyreWiz. All trademarks are the property of their respective owners.</p>
+    </div>
+  </footer>
+
+  <div id="lightbox" class="lightbox" hidden>
+    <button class="lightbox-close" aria-label="Close image">x</button>
+    <img alt="Screenshot preview" />
+    <p class="lightbox-caption"></p>
+  </div>
+</body>
+</html>

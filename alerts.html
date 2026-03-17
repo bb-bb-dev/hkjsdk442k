@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en" data-page="alerts">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#06101a" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" href="favicon-48.png" type="image/png" sizes="48x48" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <title>TubeWitch Alerts | Garmin Tire Pressure Warning Guide</title>
+  <meta name="description" content="Configure TubeWitch popup, audible, and vibration warnings for Garmin tire pressure monitoring with Quarq TyreWiz sensors." />
+  <link rel="canonical" href="https://tubewitch.com/alerts.html" />
+  <meta property="og:site_name" content="TubeWitch" />
+  <meta property="og:title" content="TubeWitch Alerts | Garmin Tire Pressure Warning Guide" />
+  <meta property="og:description" content="Configure TubeWitch popup, audible, and vibration warnings for Garmin tire pressure monitoring with Quarq TyreWiz sensors." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tubewitch.com/alerts.html" />
+  <meta property="og:image" content="https://tubewitch.com/assets/img/tw_hero.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TubeWitch Alerts | Garmin Tire Pressure Warning Guide" />
+  <meta name="twitter:description" content="Configure TubeWitch popup, audible, and vibration warnings for Garmin tire pressure monitoring with Quarq TyreWiz sensors." />
+  <meta name="twitter:image" content="https://tubewitch.com/assets/img/tw_hero.jpg" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap nav-row">
+      <a class="brand" href="index.html"><img src="assets/img/tw_icon_128.jpg" alt="TubeWitch icon" /><span>TUBEWITCH</span></a>
+      <nav class="nav-links" aria-label="Primary">
+        <a data-nav="index" href="index.html">Home</a>
+        <a data-nav="advanced" href="advanced.html">Features</a>
+        <a data-nav="alerts" href="alerts.html">Alerts</a>
+        <a data-nav="setup" href="setup.html">Setup</a>
+        <a data-nav="settings" href="settings.html">Settings</a>
+        <a data-nav="faq" href="faq.html">FAQ</a>
+        <a data-nav="gallery" href="gallery.html">Gallery</a>
+        <a class="btn-inline" href="https://apps.garmin.com/apps/9b512e62-f3b0-4aea-a932-63670e0dfe75?tid=0" target="_blank" rel="noopener noreferrer">Garmin Store</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero wrap reveal">
+      <div class="page-hero-copy">
+        <p class="kicker">Pressure warning system</p>
+        <h1>Get warned before pressure becomes a ride problem</h1>
+        <p>
+          TubeWitch can show popup alerts, play tones, and trigger watch vibration. The real value is not just that alerts exist,
+          but that the delay and reset behavior can be tuned so warnings feel useful instead of noisy.
+        </p>
+        <div class="pill-row">
+          <span class="pill">Popup Alerts</span>
+          <span class="pill">Audible Tones</span>
+          <span class="pill">Watch Vibration</span>
+        </div>
+      </div>
+      <figure class="page-hero-media shot">
+        <img class="fullshot" src="assets/img/device_shots/device_0.png" alt="TubeWitch popup alert on a Garmin Edge device" />
+        <figcaption>High and low pressure warning while riding</figcaption>
+      </figure>
+    </section>
+
+    <nav class="page-links wrap reveal" aria-label="Alert sections">
+      <a href="#starting-points">Starting points</a>
+      <a href="#timing">Timing controls</a>
+      <a href="#views">On-device views</a>
+      <a href="#markers">Status markers</a>
+    </nav>
+
+    <section class="section wrap reveal" id="starting-points">
+      <h2>Choose a sensible starting point</h2>
+      <p class="section-lead">Exact numbers depend on pressure target, ambient temperature, and terrain, but the pattern below is a sensible starting point.</p>
+      <div class="card-grid card-grid-3">
+        <article class="card">
+          <p class="eyebrow">Road</p>
+          <h3>Shorter delay, faster reset</h3>
+          <p>Road pressure is usually more stable, but temperature swings can still move the baseline enough to matter. Shorter alert timing usually stays responsive without much noise.</p>
+        </article>
+        <article class="card">
+          <p class="eyebrow">Gravel</p>
+          <h3>Moderate delay</h3>
+          <p>Mixed surfaces create more transient pressure changes, while temperature still shifts the baseline pressure. Slightly longer timing helps avoid repetitive alerts.</p>
+        </article>
+        <article class="card">
+          <p class="eyebrow">MTB or rough terrain</p>
+          <h3>Longest delay and reset</h3>
+          <p>Rough terrain creates more momentary variation, and heat can stack on top of that during a ride. Calmer timing helps reserve alerts for changes that are real and sustained.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section wrap reveal" id="timing">
+      <h2>How riders usually tune alerts</h2>
+      <p class="section-lead">Alert timing controls are designed to catch real pressure events while reducing repeat noise.</p>
+      <div class="card-grid card-grid-3">
+        <article class="card">
+          <h3>Alert delay</h3>
+          <p>Choose how long pressure must stay high or low before a warning triggers.</p>
+        </article>
+        <article class="card">
+          <h3>Reset delay</h3>
+          <p>Set how long pressure stays back in range before that alert state fully clears.</p>
+        </article>
+        <article class="card">
+          <h3>Signal style</h3>
+          <p>Select popup, tone, color, and vibration behavior for each device type and riding context.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section wrap reveal" id="views">
+      <h2>What alerting looks like on-device</h2>
+      <div class="gallery gallery-3">
+        <figure class="shot">
+          <img class="fullshot" src="assets/img/device_shots/device_0.png" alt="Popup alert on a Garmin Edge device" />
+          <figcaption>Popup warning while riding</figcaption>
+        </figure>
+        <figure class="shot">
+          <img class="fullshot" src="assets/img/tw_screen7.jpg" alt="Alert delay and reset settings" />
+          <figcaption>Delay and reset controls</figcaption>
+        </figure>
+        <figure class="shot">
+          <img class="fullshot" src="assets/img/tw_screen9.jpg" alt="Alarm tone and color settings" />
+          <figcaption>Tone and color settings</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section wrap reveal" id="markers">
+      <h2>Status markers on screen</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Marker</th>
+              <th>Meaning</th>
+              <th>Typical next action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>L / H</td>
+              <td>Pressure is below or above the configured sensor target</td>
+              <td>Adjust pressure or inspect for leak and temperature effects</td>
+            </tr>
+            <tr>
+              <td>?</td>
+              <td>Data is stale and TubeWitch is trying to reconnect</td>
+              <td>Keep riding and watch whether reconnect succeeds quickly</td>
+            </tr>
+            <tr>
+              <td>X</td>
+              <td>Sensor timeout was reached during activity</td>
+              <td>Use touch rescan or the stop and resume activity rescan path</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section wrap reveal">
+      <div class="callout">
+        <p>The Settings page includes the full list of alert, timeout, display, and recording options available in TubeWitch.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-stack">
+      <div class="footer-grid">
+        <img src="assets/img/tpms_indicator_full.png" alt="TPMS icon" />
+        <div>
+          <p>Alert behavior can be tuned to match road, gravel, MTB, or watch-based riding.</p>
+          <p class="muted">Delay and reset timing matter more than adding more warning types.</p>
+        </div>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="setup.html">Setup</a>
+        <a href="alerts.html">Alerts</a>
+        <a href="settings.html">Settings</a>
+        <a href="faq.html">FAQ</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="advanced.html">Features</a>
+        <a href="https://apps.garmin.com/apps/9b512e62-f3b0-4aea-a932-63670e0dfe75?tid=0" target="_blank" rel="noopener noreferrer">Garmin Store</a>
+      </nav>
+      <p class="legal-note">TubeWitch is an independent third-party Garmin Connect IQ data field and is not affiliated with, endorsed by, or sponsored by Garmin, SRAM, Quarq, Zipp or TyreWiz. All trademarks are the property of their respective owners.</p>
+    </div>
+  </footer>
+
+  <div id="lightbox" class="lightbox" hidden>
+    <button class="lightbox-close" aria-label="Close image">x</button>
+    <img alt="Screenshot preview" />
+    <p class="lightbox-caption"></p>
+  </div>
+</body>
+</html>

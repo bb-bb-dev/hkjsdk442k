@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://tubewitch.com/</loc>
+    <lastmod>2026-03-16</lastmod>
+    <image:image>
+      <image:loc>https://tubewitch.com/assets/img/tubewitch-garmin-tyrewiz-preview.jpg</image:loc>
+      <image:title>TubeWitch Garmin TyreWiz preview image</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://tubewitch.com/assets/img/tubewitch-garmin-edge-pressure-alert.png</image:loc>
+      <image:title>TubeWitch pressure alert on a Garmin Edge device</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tubewitch.com/setup.html</loc>
+    <lastmod>2026-03-16</lastmod>
+  </url>
+  <url>
+    <loc>https://tubewitch.com/settings.html</loc>
+    <lastmod>2026-03-16</lastmod>
+  </url>
+  <url>
+    <loc>https://tubewitch.com/alerts.html</loc>
+    <lastmod>2026-03-16</lastmod>
+  </url>
+  <url>
+    <loc>https://tubewitch.com/advanced.html</loc>
+    <lastmod>2026-03-16</lastmod>
+  </url>
+  <url>
+    <loc>https://tubewitch.com/faq.html</loc>
+    <lastmod>2026-03-16</lastmod>
+  </url>
+  <url>
+    <loc>https://tubewitch.com/gallery.html</loc>
+    <lastmod>2026-03-16</lastmod>
+  </url>
+  <url>
+    <loc>https://tubewitch.com/garmin-tyrewiz.html</loc>
+    <lastmod>2026-03-16</lastmod>
+  </url>
+</urlset>
