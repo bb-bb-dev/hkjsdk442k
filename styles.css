@@ -530,6 +530,17 @@ h3 {
   background: #08121d;
 }
 
+.gallery img.stats-shot-image,
+.card.shot .stats-shot-image {
+  width: auto;
+  max-width: 100%;
+  max-height: 292px;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
 .device-gallery {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
