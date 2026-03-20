@@ -495,6 +495,10 @@ h3 {
   box-shadow: var(--shadow);
 }
 
+.section > * + .callout {
+  margin-top: 0.52rem;
+}
+
 .callout p {
   margin: 0;
   color: #d6eee2;
