@@ -71,7 +71,7 @@
       <a href="#sensor-sets">Sensor sets</a>
       <a href="#display">Display</a>
       <a href="#alerts">Alerts</a>
-      <a href="#recovery">Timeouts</a>
+      <a href="#reconnect">Timeouts</a>
       <a href="#recording">Recording</a>
       <a href="#examples">Examples</a>
     </nav>
@@ -184,7 +184,7 @@
       </div>
     </section>
 
-    <section class="section wrap reveal" id="recovery">
+    <section class="section wrap reveal" id="reconnect">
       <h2>Timeout, stale data, and rescan behavior</h2>
       <div class="card-grid card-grid-3">
         <article class="card">
@@ -200,6 +200,9 @@
           <h3>Manual rescan</h3>
           <p>After timeout, scanning can be restarted with Touch Data Field on supported devices or by using Stop and Resume on the activity.</p>
         </article>
+      </div>
+      <div class="callout">
+        <p>Ever stop for a quick lunch but want to check your tire pressures on your Garmin before you get going again? Instead of just showing "--" while your sensors are inactive or out of range, TubeWitch keeps the last known pressures on screen and shows a "?" while it tries to reconnect.</p>
       </div>
     </section>
 
