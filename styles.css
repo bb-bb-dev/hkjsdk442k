@@ -891,6 +891,23 @@ td {
   cursor: pointer;
 }
 
+.reference-list {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.reference-list li {
+  color: #cbdced;
+}
+
+.reference-list li + li {
+  margin-top: 0.72rem;
+}
+
+.reference-list strong {
+  color: #f4fbff;
+}
+
 @media (max-width: 1024px) {
   .page-hero,
   .two-up {
