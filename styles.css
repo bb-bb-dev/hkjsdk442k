@@ -155,6 +155,14 @@ section[id] {
   background: linear-gradient(120deg, var(--accent), var(--accent-2));
 }
 
+.nav-links a.btn-inline:hover,
+.nav-links a.btn-inline:focus-visible,
+.btn[href*="apps.garmin.com"]:hover,
+.btn[href*="apps.garmin.com"]:focus-visible {
+  color: #ffffff !important;
+  background: linear-gradient(120deg, #1ebf86, #11955e);
+}
+
 .hero-full {
   position: relative;
   min-height: calc(100vh - 64px);
