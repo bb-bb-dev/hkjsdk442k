@@ -730,6 +730,16 @@ td {
   color: #cbfff0;
 }
 
+.link-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.link-stack .text-link + .text-link {
+  margin-top: 0.2rem;
+}
+
 .text-link-button {
   border: 0;
   padding: 0;
