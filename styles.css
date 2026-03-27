@@ -600,11 +600,15 @@ h3 {
 
 .video-embed {
   display: block;
-  width: min(100%, 390px);
+  width: 100%;
   aspect-ratio: 16 / 9;
   border: 0;
   border-radius: 12px;
   background: #000;
+}
+
+.video-stage {
+  padding: 0.55rem;
 }
 
 .shot img {
