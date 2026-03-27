@@ -598,6 +598,15 @@ h3 {
   background: transparent;
 }
 
+.video-embed {
+  display: block;
+  width: min(100%, 390px);
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 12px;
+  background: #000;
+}
+
 .shot img {
   cursor: zoom-in;
 }
