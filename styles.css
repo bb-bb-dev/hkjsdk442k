@@ -733,7 +733,7 @@ td {
 .hero-media-link {
   display: flex;
   width: fit-content;
-  margin: 0 auto 0.68rem;
+  margin: 0 0 0.68rem 0.66rem;
 }
 
 .link-stack {
