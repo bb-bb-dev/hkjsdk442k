@@ -39,7 +39,7 @@
           "name": "Do I need TubeWitch to show tire pressure on a Garmin?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Because Garmin does not support TyreWiz sensors natively, you need to use a Garmin Connect IQ app. TubeWitch is a tire pressure monitoring data field for compatible Quarq TyreWiz sensors and Zipp 303 SW wheels with the integrated Zipp AXS Wheel Sensor."
+            "text": "Garmin does not support TyreWiz sensors natively, so showing TyreWiz pressure on a Garmin requires a Garmin Connect IQ data field. TubeWitch provides that capability as a Garmin Connect IQ tire pressure monitoring data field for compatible Quarq TyreWiz sensors and Zipp 303 SW wheels with the integrated Zipp AXS Wheel Sensor."
           }
         },
         {
@@ -113,6 +113,14 @@
             "@type": "Answer",
             "text": "Those are alternate spellings riders use in search. Tube Witch, TyreWitch, and TireWitch refer to the TubeWitch data field. Tyre Wiz, TireWiz, and Tire Wiz refer to the SRAM/Quarq tire pressure sensors. TubeWitch is the Garmin Connect IQ data field that brings TyreWiz pressure and alerts to compatible Garmin devices."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "Where do I find the TyreWiz sensor IDs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "They are printed on the sensor and can also be found in the SRAM AXS mobile app. See the screenshot below for an example."
+          }
         }
       ]
     }
@@ -174,8 +182,8 @@
         </article>
         <article class="card">
           <h3>Do I need TubeWitch to show tire pressure on a Garmin?</h3>
-          <p>Because Garmin does not support TyreWiz sensors natively, you need to use a Garmin Connect IQ app.</p>
-          <p>TubeWitch is a tire pressure monitoring data field for compatible Quarq TyreWiz sensors and Zipp 303 SW wheels with the integrated Zipp AXS Wheel Sensor.</p>
+          <p>Garmin does not support TyreWiz sensors natively, so showing TyreWiz pressure on a Garmin requires a Garmin Connect IQ data field.</p>
+          <p>TubeWitch provides that capability as a Garmin Connect IQ tire pressure monitoring data field for compatible Quarq TyreWiz sensors and Zipp 303 SW wheels with the integrated Zipp AXS Wheel Sensor.</p>
         </article>
         <article class="card">
           <h3>Will it work with Quarq TyreWiz sensors, Quarq TyreWiz for Moto, or Zipp 303 SW wheels with the integrated Zipp AXS Wheel Sensor?</h3>
@@ -230,12 +238,12 @@
         </article>
         <article class="card">
           <h3>Does the TubeWitch Data Field offer features that the SRAM Data Field doesn't have?</h3>
-          <p>Yes. It adds audible and pop-up alarms, labels, colors, stale data indicators, and more.</p>
+          <p>Yes. TubeWitch adds audible, pop-up, and vibration alerts; customizable labels and colors; stale-data indicators that keep showing the last known pressure after a disconnect; support for multiple bikes and wheel sets; more layout options; support for newer Edge devices and Garmin watches; touchscreen features; and sensor timeouts to save battery.</p>
         </article>
         <article class="card">
           <h3>Why does this exist if SRAM already has a TyreWiz Data Field?</h3>
           <p>SRAM has not updated their TyreWiz Data Field for newer Garmin devices or added new features in quite some time.</p>
-          <p>TubeWitch fills that gap until they do.</p>
+          <p>TubeWitch fills that gap.</p>
         </article>
       </div>
       <div class="callout">
@@ -252,13 +260,18 @@
           <p>Only the numeric part of the sensor ID is required in settings. For example, if the sensor ID is HGL12345, enter 12345.</p>
         </article>
         <article class="card">
-          <h3>Why can the Garmin Connect IQ mobile app still show "Updating" after an upgrade?</h3>
+          <h3>When upgrading the data field version and the Garmin Connect IQ mobile app is still show "Updating"?</h3>
           <p>If upgrading from an earlier version, the Garmin Connect IQ mobile app may appear stuck on "Updating."</p>
           <p>It may also queue and update the data field while continuing to show that an update is still available. When this occurs, reboot the Garmin device and restart the Garmin mobile apps so the update can complete and any new settings can appear in the Connect IQ data field settings.</p>
         </article>
+        <article class="card">
+          <h3>Where do I find the TyreWiz sensor IDs?</h3>
+          <p>They are printed on the sensor and can also be found in the SRAM AXS mobile app.</p>
+          <p>See the screenshot for an example.</p>
+        </article>
         <figure class="card shot sensor-card">
           <img class="fullshot" src="assets/img/sensor_ids.jpg" alt="TubeWitch sensor ID entry fields" />
-          <figcaption>Enter the numeric portion of the sensor ID in TubeWitch settings</figcaption>
+          <figcaption>TyreWiz sensor IDs can be found on the sensor or in the SRAM AXS mobile app</figcaption>
         </figure>
       </div>
     </section>
