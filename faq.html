@@ -92,6 +92,22 @@
         },
         {
           "@type": "Question",
+          "name": "Where do I set the pressure targets for my TyreWiz sensors?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use the SRAM AXS mobile app. That is where you set the target pressure and alert range for each TyreWiz sensor. TyreWiz stores that behavior in the sensor itself, so the TyreWiz LED and TubeWitch stay in sync. Slow green flashing means tire pressure is within the suggested range. Slow red flashing means low tire pressure is detected. Fast red flashing means high tire pressure is detected. TubeWitch follows that same sensor status on Garmin. The SRAM AXS app is also where firmware updates are managed and where SRAM provides pressure guidance to help you choose a starting point for your tires."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do the TubeWitch tire pressure alerts seem wrong?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "First check the SRAM AXS mobile app. That is where the target pressure and alert range are defined for each TyreWiz sensor, and TubeWitch follows that same sensor status. Because those settings are stored in the sensor, TubeWitch stays in sync with the TyreWiz LED behavior: slow green flashing means pressure is within range, slow red flashing means low pressure is detected, and fast red flashing means high pressure is detected. If TubeWitch is showing live pressure but the high or low status seems wrong, the most common cause is that the target pressure or alert range in SRAM AXS does not match the setup you expect. Also confirm that the correct sensor IDs are entered in TubeWitch."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "Is TubeWitch the same as Tube Witch, TyreWitch, TireWitch, Tyre Wiz, or Tire Wiz?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -174,9 +190,16 @@
           <p>"X" indicates TubeWitch timed out for that sensor and turned off the radio to save battery. Default timeout is 15 minutes.</p>
         </article>
         <article class="card">
-          <h3>How do I set the low and high pressure alarm points for each sensor?</h3>
-          <p>Use the SRAM mobile app to set the target pressures for each TyreWiz sensor.</p>
-          <p>This keeps the flashing LED on the sensor (red/green) in sync with the alarms on the Garmin.</p>
+          <h3>Where do I set the pressure targets for my TyreWiz sensors?</h3>
+          <p>Use the SRAM AXS mobile app. That is where you set the target pressure and alert range for each TyreWiz sensor.</p>
+          <p>TyreWiz stores that behavior in the sensor itself, so the TyreWiz LED and TubeWitch stay in sync. Slow green flashing means tire pressure is within the suggested range. Slow red flashing means low tire pressure is detected. Fast red flashing means high tire pressure is detected.</p>
+          <p>TubeWitch follows that same sensor status on Garmin. The SRAM AXS app is also where firmware updates are managed and where SRAM provides pressure guidance to help you choose a starting point for your tires.</p>
+        </article>
+        <article class="card">
+          <h3>Why do the TubeWitch tire pressure alerts seem wrong?</h3>
+          <p>First check the SRAM AXS mobile app. That is where the target pressure and alert range are defined for each TyreWiz sensor, and TubeWitch follows that same sensor status.</p>
+          <p>Because those settings are stored in the sensor, TubeWitch stays in sync with the TyreWiz LED behavior: slow green flashing means pressure is within range, slow red flashing means low pressure is detected, and fast red flashing means high pressure is detected.</p>
+          <p>If TubeWitch is showing live pressure but the high or low status seems wrong, the most common cause is that the target pressure or alert range in SRAM AXS does not match the setup you expect. Also confirm that the correct sensor IDs are entered in TubeWitch.</p>
         </article>
         <article class="card">
           <h3>Is TubeWitch the same as Tube Witch, TyreWitch, TireWitch, Tyre Wiz, or Tire Wiz?</h3>
