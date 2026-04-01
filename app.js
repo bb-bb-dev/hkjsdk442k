@@ -175,15 +175,36 @@
     `;
     document.body.appendChild(modal);
 
-    const frame = modal.querySelector("iframe");
+    const frameWrap = modal.querySelector(".video-modal-frame");
     const title = modal.querySelector(".video-modal-title");
     const close = modal.querySelector(".video-modal-close");
     let lastTrigger = null;
+    let frame = null;
+
+    function buildVideoFrame(videoId, videoTitle) {
+      const nextFrame = document.createElement("iframe");
+      nextFrame.title = videoTitle || "TubeWitch demo video";
+      nextFrame.loading = "lazy";
+      nextFrame.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      nextFrame.referrerPolicy = "strict-origin-when-cross-origin";
+      nextFrame.allowFullscreen = true;
+      nextFrame.src = `https://www.youtube-nocookie.com/embed/${videoId}?enablejsapi=1&autoplay=1&rel=0&playsinline=1`;
+      frameWrap.replaceChildren(nextFrame);
+      frame = nextFrame;
+    }
 
     function closeVideoModal() {
+      if (frame?.contentWindow) {
+        const stopMessage = JSON.stringify({ event: "command", func: "stopVideo", args: [] });
+        const pauseMessage = JSON.stringify({ event: "command", func: "pauseVideo", args: [] });
+        frame.contentWindow.postMessage(stopMessage, "*");
+        frame.contentWindow.postMessage(pauseMessage, "*");
+      }
+
       modal.hidden = true;
       document.body.style.overflow = "";
-      frame.src = "about:blank";
+      frameWrap.replaceChildren();
+      frame = null;
       title.textContent = "";
       lastTrigger?.focus();
       lastTrigger = null;
@@ -197,7 +218,7 @@
         trigger.getAttribute("data-video-title") ||
         (trigger.textContent || "TubeWitch demo video").replace(/\s+/g, " ").trim();
 
-      frame.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&playsinline=1`;
+      buildVideoFrame(videoId, videoTitle);
       title.textContent = videoTitle;
       lastTrigger = trigger;
       modal.hidden = false;
