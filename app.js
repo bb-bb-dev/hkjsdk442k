@@ -151,4 +151,76 @@
       if (e.key === "Escape" && !infoModal.hidden) closeInfoModal();
     });
   }
+
+  const videoTriggers = Array.from(document.querySelectorAll("[data-video-modal][data-video-id]"));
+  if (videoTriggers.length) {
+    const modal = document.createElement("div");
+    modal.id = "video-modal";
+    modal.className = "video-modal";
+    modal.hidden = true;
+    modal.innerHTML = `
+      <div class="video-modal-panel" role="dialog" aria-modal="true" aria-labelledby="video-modal-title">
+        <button class="video-modal-close" type="button" aria-label="Close video">x</button>
+        <div class="video-modal-frame">
+          <iframe
+            title="TubeWitch demo video"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <p id="video-modal-title" class="video-modal-title"></p>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    const frame = modal.querySelector("iframe");
+    const title = modal.querySelector(".video-modal-title");
+    const close = modal.querySelector(".video-modal-close");
+    let lastTrigger = null;
+
+    function closeVideoModal() {
+      modal.hidden = true;
+      document.body.style.overflow = "";
+      frame.src = "about:blank";
+      title.textContent = "";
+      lastTrigger?.focus();
+      lastTrigger = null;
+    }
+
+    function openVideoModal(trigger) {
+      const videoId = trigger.getAttribute("data-video-id");
+      if (!videoId) return;
+
+      const videoTitle =
+        trigger.getAttribute("data-video-title") ||
+        (trigger.textContent || "TubeWitch demo video").replace(/\s+/g, " ").trim();
+
+      frame.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&playsinline=1`;
+      title.textContent = videoTitle;
+      lastTrigger = trigger;
+      modal.hidden = false;
+      document.body.style.overflow = "hidden";
+      close.focus();
+    }
+
+    videoTriggers.forEach((trigger) => {
+      trigger.addEventListener("click", (event) => {
+        if (event.button !== 0) return;
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+        event.preventDefault();
+        openVideoModal(trigger);
+      });
+    });
+
+    close?.addEventListener("click", closeVideoModal);
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) closeVideoModal();
+    });
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !modal.hidden) closeVideoModal();
+    });
+  }
 })();
