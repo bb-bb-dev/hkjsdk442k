@@ -199,6 +199,11 @@ section[id] {
   padding: 1rem;
 }
 
+.hero-overlay-sensor {
+  padding-right: clamp(8rem, 16vw, 11rem);
+  padding-bottom: 1.2rem;
+}
+
 .hero-link {
   color: #ffffff;
   text-decoration-color: rgba(255, 255, 255, 0.92);
@@ -209,6 +214,17 @@ section[id] {
 .hero-link:hover {
   color: #ffffff;
   text-decoration-color: #ffffff;
+}
+
+.hero-sensor {
+  position: absolute;
+  right: 0.85rem;
+  bottom: 0.7rem;
+  width: clamp(92px, 10vw, 150px);
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 14px 26px rgba(0, 0, 0, 0.46));
 }
 
 .hero-points {
@@ -1035,6 +1051,10 @@ td {
     margin: 0 0 0.82rem 1rem;
   }
 
+  .hero-overlay-sensor {
+    padding-right: clamp(7rem, 20vw, 10rem);
+  }
+
   .hero-device-stack {
     position: relative;
     right: auto;
@@ -1100,6 +1120,17 @@ td {
     width: calc(100% - 1rem);
     margin: clamp(11rem, 38vh, 20rem) 0 0.75rem 0.5rem;
     padding: 0.86rem 0.76rem 0.92rem;
+  }
+
+  .hero-overlay-sensor {
+    padding-right: 5.75rem;
+    padding-bottom: 0.92rem;
+  }
+
+  .hero-sensor {
+    right: 0.6rem;
+    bottom: 0.56rem;
+    width: 72px;
   }
 
   .hero-device-stack {
