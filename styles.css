@@ -286,13 +286,8 @@ section[id] {
 
 .hero-device figcaption {
   min-height: 46px;
-  display: block;
-  line-height: 1.35;
-}
-
-.hero-device figcaption .caption-link {
-  display: inline-block;
-  margin-top: 0.16rem;
+  display: flex;
+  align-items: center;
 }
 
 .hero-device figcaption,
@@ -310,7 +305,6 @@ section[id] {
   color: #9bf4d8;
   font-weight: 700;
   text-decoration: none;
-  white-space: nowrap;
 }
 
 .caption-link:hover {
