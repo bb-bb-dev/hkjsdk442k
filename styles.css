@@ -286,8 +286,7 @@ section[id] {
 
 .hero-device figcaption {
   min-height: 46px;
-  display: flex;
-  align-items: center;
+  display: block;
 }
 
 .hero-device figcaption,
