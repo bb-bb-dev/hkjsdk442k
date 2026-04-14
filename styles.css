@@ -533,6 +533,11 @@ h3 {
   line-height: 1.45;
 }
 
+.setup-demo-link {
+  display: inline-block;
+  margin-bottom: 1.1rem;
+}
+
 .gallery {
   display: grid;
   gap: 0.72rem;
