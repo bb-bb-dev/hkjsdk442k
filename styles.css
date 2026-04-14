@@ -534,8 +534,8 @@ h3 {
 }
 
 .setup-demo-link {
-  display: inline-block;
-  margin-bottom: 1.5rem;
+  display: block;
+  margin-bottom: 2.2rem;
 }
 
 .gallery {
