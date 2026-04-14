@@ -526,7 +526,7 @@ h3 {
   font-weight: 700;
 }
 
-.setup-warning-note {
+.card p.setup-warning-note {
   margin: 1.35rem 0 0;
   color: #ff6f7f;
   font-size: 0.9rem;
