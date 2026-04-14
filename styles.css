@@ -526,6 +526,13 @@ h3 {
   font-weight: 700;
 }
 
+.setup-warning-note {
+  margin: 0.72rem 0 0;
+  color: #ff8e8e;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
 .gallery {
   display: grid;
   gap: 0.72rem;
