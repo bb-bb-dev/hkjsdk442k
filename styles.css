@@ -516,6 +516,10 @@ h3 {
   margin-top: 0.52rem;
 }
 
+#setup-answers .callout + .card-grid {
+  margin-top: 0.76rem;
+}
+
 .callout p {
   margin: 0;
   color: #d6eee2;
