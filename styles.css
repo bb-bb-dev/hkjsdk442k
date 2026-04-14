@@ -526,6 +526,17 @@ h3 {
   font-weight: 700;
 }
 
+
+.callout-red {
+  border: 1px solid rgba(237, 27, 36, 0.34);
+  border-left: 4px solid #ed1b24;
+  background: linear-gradient(180deg, rgba(58, 12, 16, 0.9), rgba(26, 10, 12, 0.92));
+}
+
+.callout-red p {
+  color: #ffd8db;
+}
+
 .card p.setup-warning-note {
   margin: 1.7rem 0 0;
   color: #ed1b24;
