@@ -541,11 +541,14 @@ h3 {
   color: #ffd8db;
 }
 
-.card p.setup-warning-note {
-  margin: 1.7rem 0 0;
-  color: #ed1b24;
-  font-size: 0.9rem;
-  line-height: 1.45;
+.sensor-demo-stack {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 0.8rem;
+}
+
+.sensor-demo-stack .card {
+  height: 100%;
 }
 
 .setup-demo-link {
