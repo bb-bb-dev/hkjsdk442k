@@ -577,9 +577,13 @@ h3 {
   margin-top: 0.8rem;
 }
 
-.setup-demo-link {
-  display: block;
+.text-link.setup-demo-link {
+  display: flex;
   margin-bottom: 0;
+}
+
+.setup-demo-link + .setup-demo-link {
+  margin-top: 0.2rem;
 }
 
 .gallery {
