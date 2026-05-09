@@ -160,7 +160,7 @@ section[id] {
 .btn[href*="apps.garmin.com"]:hover,
 .btn[href*="apps.garmin.com"]:focus-visible {
   color: #ffffff !important;
-  background: linear-gradient(120deg, #1ebf86, #11955e);
+  background: linear-gradient(120deg, #1f9fff, #56d7ff);
 }
 
 .hero-full {
