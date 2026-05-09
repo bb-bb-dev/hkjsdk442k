@@ -713,8 +713,8 @@ h3 {
 }
 
 .sensor-card-inline {
-  width: 100%;
-  margin: 0.2rem 0 0;
+  width: calc(100% - 0.8rem);
+  margin: 0.2rem auto 0;
 }
 
 .faq-placeholder {
