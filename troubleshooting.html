@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en" data-page="troubleshooting">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#06101a" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" href="favicon-48.png" type="image/png" sizes="48x48" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <title>TubeWitch Troubleshooting | TyreWiz and Garmin Setup Problems</title>
+  <meta name="description" content="Fix TubeWitch settings saves, missing pressure data, wrong pressure status, and Garmin Connect IQ upgrade problems for Quarq TyreWiz sensors on Garmin." />
+  <link rel="canonical" href="https://tubewitch.com/troubleshooting.html" />
+  <meta property="og:site_name" content="TubeWitch" />
+  <meta property="og:title" content="TubeWitch Troubleshooting | TyreWiz and Garmin Setup Problems" />
+  <meta property="og:description" content="Troubleshooting steps for TubeWitch settings saves, missing pressure data, wrong pressure status, and Garmin Connect IQ upgrade issues." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tubewitch.com/troubleshooting.html" />
+  <meta property="og:image" content="https://tubewitch.com/assets/img/tw_hero.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TubeWitch Troubleshooting | TyreWiz and Garmin Setup Problems" />
+  <meta name="twitter:description" content="Troubleshooting steps for TubeWitch settings saves, missing pressure data, wrong pressure status, and Garmin Connect IQ upgrade issues." />
+  <meta name="twitter:image" content="https://tubewitch.com/assets/img/tw_hero.jpg" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+  <script data-goatcounter="https://tubewitch.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap nav-row">
+      <a class="brand" href="index.html"><img src="assets/img/tw_icon_128.jpg" alt="TubeWitch icon" /><span>TUBEWITCH</span></a>
+      <nav class="nav-links" aria-label="Primary">
+        <a data-nav="index" href="index.html">Home</a>
+        <a data-nav="advanced" href="advanced.html">Features</a>
+        <a data-nav="alerts" href="alerts.html">Alerts</a>
+        <a data-nav="setup" href="setup.html">Setup</a>
+        <a data-nav="settings" href="settings.html">Settings</a>
+        <a data-nav="faq" href="faq.html">FAQ</a>
+        <a data-nav="gallery" href="gallery.html">Gallery</a>
+        <a class="btn-inline" href="https://apps.garmin.com/en-US/apps/9b512e62-f3b0-4aea-a932-63670e0dfe75" target="_blank" rel="noopener noreferrer">Garmin App Store</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero wrap reveal">
+      <div class="page-hero-copy">
+        <p class="kicker">Troubleshooting</p>
+        <h1>Fix the four setup problems that come up most often</h1>
+        <p>
+          This page focuses on the TubeWitch issues that show up most often during support:
+          settings that do not save, pressure data that never appears, pressure status that looks wrong,
+          and Garmin Connect IQ upgrades that still look stuck.
+        </p>
+        <p>
+          Start with the symptom you see on Garmin, then work through the matching checks in order.
+          Most failures come down to saved sensor IDs, open-connection prompts, SRAM AXS sensor setup, or a Garmin app state that needs a clean restart.
+        </p>
+        <div class="cta-row">
+          <a class="btn" href="#settings-not-saving">Settings Not Saving</a>
+          <a class="btn ghost" href="setup.html">Setup Page</a>
+        </div>
+      </div>
+      <figure class="page-hero-media shot">
+        <img class="fullshot" src="assets/img/tw_settings_combined.jpg" alt="TubeWitch settings overview" />
+        <figcaption>Troubleshooting starts with saved sensor IDs, correct SRAM AXS setup, and a clean Garmin restart</figcaption>
+      </figure>
+    </section>
+
+    <nav class="page-links wrap reveal" aria-label="Troubleshooting sections">
+      <a href="#settings-not-saving">Settings Not Saving</a>
+      <a href="#no-pressure-data">No Pressure Data</a>
+      <a href="#wrong-pressure-status">Wrong Pressure Status</a>
+      <a href="#app-upgrade-problems">App Upgrade Problems</a>
+    </nav>
+
+    <section class="section wrap reveal" id="settings-not-saving">
+      <h2>Settings Not Saving</h2>
+      <p class="section-lead">If sensor IDs or related settings do not stick, fix the save path first before troubleshooting the sensors themselves.</p>
+      <div class="callout callout-red">
+        <p>If sensor IDs or other settings are not being saved by the Garmin Connect IQ mobile app, try entering one sensor ID first and saving immediately before entering the second. Garmin's save process can be inconsistent when many settings are changed at once.</p>
+        <p class="callout-icon-line"><img class="callout-inline-icon" src="assets/img/tpms_indicator_full.png" alt="" aria-hidden="true" /><span>Use Garmin Express for the most reliable way to save settings.</span></p>
+        <a class="callout-link" href="#settings-not-saving" data-video-modal data-video-id="Dq7z9Xdej28" data-video-title="TyreWiz on Garmin: Set TyreWiz Sensor IDs in TubeWitch using Garmin Express" aria-haspopup="dialog">View Sensor ID Demo - Garmin Express</a>
+      </div>
+      <div class="card-grid card-grid-2">
+        <article class="card">
+          <h3>Why did 01536 become 1536 after save?</h3>
+          <p>The settings input box trims leading zeroes, but that does not break TyreWiz pairing. Garmin uses the sensor ID as an integer value for ANT+ matching, so the leading zeroes are not needed.</p>
+          <p>If the rest of the setup is correct, the sensor can still connect successfully.</p>
+        </article>
+        <article class="card">
+          <h3>It will not let me enter HGL15841</h3>
+          <p>TubeWitch sensor ID fields accept numbers only.</p>
+          <p>Enter only the numeric five-digit portion of the sensor ID. For HGL15841, enter 15841.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section wrap reveal" id="no-pressure-data">
+      <h2>No Pressure Data</h2>
+      <p class="section-lead">If no pressure is shown after setup, work from the sensor outward before changing other settings.</p>
+      <div class="card-grid card-grid-2">
+        <article class="card">
+          <h3>Start with the sensor and the saved ID</h3>
+          <ul>
+            <li>Rotate the wheels to wake the sensors and look for a flashing LED.</li>
+            <li>Replace the battery if the sensor does not wake up.</li>
+            <li>Confirm the sensor can be reached through the SRAM AXS mobile app.</li>
+            <li>Make sure each sensor is assigned to the front or rear wheel in SRAM AXS.</li>
+            <li>Open TubeWitch settings and confirm the sensor ID was actually saved.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Acknowledge the open-connection message</h3>
+          <p>Messages about sensors using open connections are expected during initial setup and appear once per sensor.</p>
+          <p>You must acknowledge that message for each sensor before data can be received. If the prompt was missed, reboot the Garmin device to trigger it again.</p>
+        </article>
+        <article class="card">
+          <h3>Remove other TyreWiz data fields</h3>
+          <p>If another TyreWiz data field is also installed on the Garmin device, it will block TubeWitch from reading the sensors.</p>
+          <p>Uninstall any other TyreWiz data field, then reboot the Garmin device.</p>
+        </article>
+        <article class="card">
+          <h3>Try compatibility mode and a full reboot</h3>
+          <p>In TubeWitch settings under TubeWitch Labs, enable Sensor Compatibility mode, then reboot the Garmin device.</p>
+          <p>On Edge devices, hold the left-side power button for 10 to 15 seconds to force a full reboot.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section wrap reveal" id="wrong-pressure-status">
+      <h2>Wrong Pressure Status</h2>
+      <p class="section-lead">Live pressure can appear while the high or low status is still wrong if the sensor itself was configured differently in SRAM AXS.</p>
+      <div class="split two-up">
+        <article class="card">
+          <h3>Alerts or pressure status look wrong</h3>
+          <p>First, use the SRAM AXS mobile app to assign the Front/Rear position and pressure target for each sensor.</p>
+          <p>TyreWiz stores the target pressure and alert range in the sensor itself, and TubeWitch follows that same sensor status on Garmin.</p>
+          <ul>
+            <li>Confirm each sensor is assigned to the correct wheel position.</li>
+            <li>Confirm the target pressure matches the tire and setup you expect.</li>
+            <li>If live pressure appears but the status still looks wrong, confirm the correct sensor IDs are entered in TubeWitch.</li>
+          </ul>
+        </article>
+        <figure class="card shot">
+          <img class="fullshot" src="assets/img/sram_phone_app.jpg" alt="SRAM AXS app showing tire pressure target settings" />
+          <figcaption>Wheel position and pressure targets are managed in the SRAM AXS mobile app</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section wrap reveal" id="app-upgrade-problems">
+      <h2>App Upgrade Problems</h2>
+      <p class="section-lead">The most common upgrade issue is the Garmin Connect IQ mobile app continuing to show an update even after the data field was already queued or installed.</p>
+      <div class="card-grid card-grid-2">
+        <article class="card">
+          <h3>Connect IQ still shows "Updating"</h3>
+          <p>If upgrading from an earlier version, the Garmin Connect IQ mobile app may appear stuck on "Updating."</p>
+          <p>It may also queue and update the data field while continuing to show that an update is still available.</p>
+          <p>When this happens, reboot the Garmin device and restart the Garmin phone apps so the update can complete and any new settings can appear in the Connect IQ data field settings.</p>
+        </article>
+        <article class="card">
+          <h3>After the reboot</h3>
+          <p>Open the TubeWitch data field settings again and confirm the updated settings are now present.</p>
+          <p>If the settings screen looked stale before the reboot, Garmin likely had the update queued but had not refreshed the settings view yet.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section wrap reveal">
+      <div class="callout">
+        <p>Need the full installation order or the sensor ID demo videos? Go back to <a href="setup.html">Setup</a>. For compatibility, features, and broader product questions, keep using the <a href="faq.html">FAQ</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-stack">
+      <div class="footer-grid">
+        <img src="assets/img/tpms_indicator_full.png" alt="TPMS icon" />
+        <div>
+          <p>TubeWitch troubleshooting focuses on save issues, missing pressure data, wrong status, and upgrade problems.</p>
+          <p class="muted">Use this page after initial setup if the sensors or settings still do not behave as expected.</p>
+        </div>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="setup.html">Setup</a>
+        <a href="alerts.html">Alerts</a>
+        <a href="settings.html">Settings</a>
+        <a href="faq.html">FAQ</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="advanced.html">Features</a>
+        <a href="https://apps.garmin.com/en-US/apps/9b512e62-f3b0-4aea-a932-63670e0dfe75" target="_blank" rel="noopener noreferrer">Garmin App Store</a>
+        <a href="https://www.youtube.com/@TubeWitch" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </nav>
+      <p class="legal-note">TubeWitch is an independent third-party Garmin Connect IQ data field and is not affiliated with, endorsed by, or sponsored by Garmin, SRAM, Quarq, Zipp or TyreWiz. All trademarks are the property of their respective owners.</p>
+    </div>
+  </footer>
+
+  <div id="lightbox" class="lightbox" hidden>
+    <button class="lightbox-close" aria-label="Close image">x</button>
+    <img alt="Screenshot preview" />
+    <p class="lightbox-caption"></p>
+  </div>
+</body>
+</html>
