@@ -708,7 +708,7 @@ h3 {
 }
 
 .sensor-card-inline {
-  width: min(100%, calc(50% - 0.38rem));
+  width: 100%;
   margin-top: 0.2rem;
 }
 
