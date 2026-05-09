@@ -529,6 +529,18 @@ h3 {
   margin-top: 0.72rem;
 }
 
+.callout-icon-line {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.callout-inline-icon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+
 .callout a {
   color: #cbfff0;
   font-weight: 700;
