@@ -712,6 +712,10 @@ h3 {
   margin-top: 0.2rem;
 }
 
+.faq-placeholder {
+  min-height: 1px;
+}
+
 .sensor-card .fullshot {
   display: block;
   width: 100%;
@@ -1223,6 +1227,10 @@ td {
 
   .sensor-card-inline {
     width: 100%;
+  }
+
+  .faq-placeholder {
+    display: none;
   }
 
   .lightbox img {
