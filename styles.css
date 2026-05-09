@@ -1171,17 +1171,18 @@ td {
 
   .nav-links {
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, max-content);
-    justify-content: start;
-    gap: 0.3rem 0.26rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 0.22rem 0.18rem;
     padding-bottom: 0;
   }
 
   .nav-links a {
+    flex: 0 0 auto;
     white-space: nowrap;
-    font-size: 0.78rem;
-    padding: 0.36rem 0.5rem;
+    font-size: 0.71rem;
+    padding: 0.3rem 0.4rem;
   }
 
   .page-links {
