@@ -551,9 +551,19 @@ h3 {
   height: 100%;
 }
 
+.sensor-demo-videos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+#sensor-id-demo .callout + .sensor-demo-videos {
+  margin-top: 0.8rem;
+}
+
 .setup-demo-link {
   display: block;
-  margin-bottom: 2.2rem;
+  margin-bottom: 0;
 }
 
 .gallery {
@@ -1042,7 +1052,8 @@ td {
 
 @media (max-width: 1024px) {
   .page-hero,
-  .two-up {
+  .two-up,
+  .sensor-demo-videos {
     grid-template-columns: 1fr;
   }
 
