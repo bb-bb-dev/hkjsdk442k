@@ -606,14 +606,6 @@ h3 {
   margin-top: 0.8rem;
 }
 
-.sensor-demo-videos .device-card > h3 {
-  margin: -0.84rem -0.84rem 0;
-  padding: 0.84rem 0.84rem 0.5rem;
-  background:
-    radial-gradient(440px 220px at 50% -6%, rgba(88, 215, 255, 0.14), transparent 58%),
-    linear-gradient(180deg, #0a1623 0%, #102031 100%);
-}
-
 .text-link.setup-demo-link {
   display: flex;
   margin-bottom: 0;
@@ -714,7 +706,16 @@ h3 {
 }
 
 .video-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 0.55rem;
   padding: 0.55rem;
+}
+
+.video-stage h3 {
+  margin: 0;
 }
 
 .shot img {
