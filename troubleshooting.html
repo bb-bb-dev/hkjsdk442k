@@ -133,19 +133,29 @@
     </section>
 
     <section class="section wrap reveal" id="wrong-pressure-status">
-      <h2>Wrong Pressure Status</h2>
+      <h2>Wrong Pressure Status/Alerts</h2>
       <p class="section-lead">Live pressure can appear while the high or low status is still wrong if the sensor itself was configured differently in SRAM AXS.</p>
       <div class="split two-up">
-        <article class="card">
-          <h3>Alerts or pressure status look wrong</h3>
-          <p>First, use the SRAM AXS mobile app to assign the Front/Rear position and pressure target for each sensor.</p>
-          <p>TyreWiz stores the target pressure and alert range in the sensor itself, and TubeWitch follows that same sensor status on Garmin.</p>
-          <ul>
-            <li>Confirm each sensor is assigned to the correct wheel position.</li>
-            <li>Confirm the target pressure matches the tire and setup you expect.</li>
-            <li>If live pressure appears but the status still looks wrong, confirm the correct sensor IDs are entered in TubeWitch.</li>
-          </ul>
-        </article>
+        <div class="card-grid">
+          <article class="card">
+            <h3>Pressure status looks wrong</h3>
+            <p>First, use the SRAM AXS mobile app to assign the Front/Rear position and pressure target for each sensor.</p>
+            <ul>
+              <li>Confirm each sensor is assigned to the correct wheel position.</li>
+              <li>Confirm the target pressure matches the tire and setup you expect.</li>
+              <li>If live pressure appears but the status still looks wrong, confirm the correct sensor IDs are entered in TubeWitch.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Pop up and/or vibration alerts are not working</h3>
+            <ul>
+              <li>Make sure alerts are enabled in the TubeWitch Settings for both high and low pressure alerts.</li>
+              <li>Check the Alert Delay setting. If it is too large, the alert may not trigger when expected. The default is 10 seconds.</li>
+              <li>Vibration alerts are available on Garmin watches only.</li>
+              <li>Popup alerts are available on Edge x40 devices and newer, and on newer Garmin watches.</li>
+            </ul>
+          </article>
+        </div>
         <figure class="card shot">
           <img class="fullshot" src="assets/img/sram_phone_app.jpg" alt="SRAM AXS app showing tire pressure target settings" />
           <figcaption>Wheel position and pressure targets are managed in the SRAM AXS mobile app</figcaption>
