@@ -536,6 +536,21 @@ h3 {
   flex-wrap: wrap;
 }
 
+.callout-link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.35rem;
+  color: #cbfff0;
+  font-weight: 700;
+  text-decoration: none;
+  background: transparent;
+  border: 0;
+}
+
+.callout-link:hover {
+  color: #ffffff;
+}
+
 .callout-inline-icon {
   width: 18px;
   height: 18px;
@@ -713,7 +728,7 @@ h3 {
 }
 
 .sensor-card-inline {
-  width: calc(100% - 0.8rem);
+  width: calc(100% - 1.3rem);
   margin: 0.2rem auto 0;
 }
 
