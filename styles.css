@@ -146,8 +146,8 @@ section[id] {
 }
 
 .nav-links a.active {
-  color: #05171c;
-  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  color: #04131f;
+  background: linear-gradient(120deg, #58d7ff, #8adff5);
 }
 
 .btn-inline {
