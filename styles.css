@@ -527,6 +527,18 @@ h3 {
   letter-spacing: 0.02em;
 }
 
+.temporary-alert-link {
+  color: #fff0f2;
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.16em;
+  white-space: nowrap;
+}
+
+.temporary-alert-link:hover {
+  color: #ffffff;
+}
+
 .temporary-alert-date {
   color: #fff0f2;
   font-weight: 700;
@@ -575,8 +587,27 @@ h3 {
   color: #d6eee2;
 }
 
+.callout h3 {
+  margin: 0 0 0.45rem;
+  color: #f4fbff;
+}
+
+.callout .eyebrow {
+  margin: 0 0 0.22rem;
+}
+
 .callout p + p {
   margin-top: 0.72rem;
+}
+
+.callout ol {
+  margin: 0.2rem 0 0;
+  padding-left: 1.15rem;
+}
+
+.callout li {
+  margin: 0.42rem 0;
+  color: #d6eee2;
 }
 
 .callout-icon-line {
@@ -624,13 +655,21 @@ h3 {
   color: #ffd8db;
 }
 
+.callout-red h3,
+.callout-red .eyebrow,
+.callout-red li {
+  color: #ffd8db;
+}
+
 .callout-caution {
   border: 1px solid rgba(255, 171, 70, 0.34);
   border-left: 4px solid #ffab46;
   background: linear-gradient(180deg, rgba(61, 34, 11, 0.9), rgba(30, 19, 10, 0.92));
 }
 
-.callout-caution p {
+.callout-caution p,
+.callout-caution h3,
+.callout-caution li {
   color: #ffe2bc;
 }
 
