@@ -505,6 +505,47 @@ h3 {
   background: rgba(26, 44, 65, 0.92);
 }
 
+.temporary-alert-wrap {
+  padding: 0.78rem 0 0;
+}
+
+.temporary-alert {
+  border: 1px solid rgba(255, 193, 89, 0.36);
+  border-left: 4px solid #ffbf59;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(52, 36, 13, 0.96), rgba(24, 18, 10, 0.96));
+  padding: 0.82rem 0.9rem;
+  box-shadow: var(--shadow);
+}
+
+.temporary-alert-eyebrow {
+  margin: 0 0 0.28rem;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffd690;
+}
+
+.temporary-alert p {
+  margin: 0;
+  color: #fff0cf;
+}
+
+.temporary-alert strong {
+  color: #fff8ea;
+}
+
+.temporary-alert-date {
+  color: #ffd690;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.section > * + .temporary-alert {
+  margin-top: 0.52rem;
+}
+
 .callout {
   border: 1px solid rgba(89, 241, 143, 0.28);
   border-left: 4px solid var(--accent-2);
@@ -527,6 +568,10 @@ h3 {
 }
 
 #settings-not-saving .callout + .card-grid {
+  margin-top: 0.76rem;
+}
+
+#settings-not-saving .temporary-alert + .callout {
   margin-top: 0.76rem;
 }
 
