@@ -48,11 +48,11 @@
     <section class="page-hero wrap reveal">
       <div class="page-hero-copy">
         <p class="kicker">Troubleshooting</p>
-        <h1>Fix the four setup problems that come up most often</h1>
+        <h1>Fix the five setup problems that come up most often</h1>
         <p>
           This page focuses on the TubeWitch issues that show up most often:
           settings that do not save, pressure data that never appears, pressure status that looks wrong,
-          and TubeWitch app upgrades that appear stuck.
+          FIT recording problems, and TubeWitch app upgrades that appear stuck.
         </p>
         <p>
           Start with the symptom you see on Garmin, then work through the matching checks in order.
@@ -69,6 +69,7 @@
       <a href="#settings-not-saving">Settings Not Saving</a>
       <a href="#no-pressure-data">No Pressure Data</a>
       <a href="#wrong-pressure-status">Wrong Pressure Status</a>
+      <a href="#fit-recording-problems">FIT Recording</a>
       <a href="#app-upgrade-problems">App Upgrade Problems</a>
     </nav>
 
@@ -164,6 +165,30 @@
       </div>
     </section>
 
+    <section class="section wrap reveal" id="fit-recording-problems">
+      <h2>FIT Recording Problems</h2>
+      <p class="section-lead">If Garmin shows the IQ logo or one of your Connect IQ apps restarts during recording, the combined FIT recording load may be too high.</p>
+      <div class="card-grid">
+        <article class="card">
+          <h3>Garmin data fields are recording too many FIT data points</h3>
+          <p>Garmin limits how many custom FIT data points Connect IQ apps can record at once. TubeWitch records 5 custom FIT fields by default and up to 10 when all Activity Recording options are enabled.</p>
+          <p>Other IQ data fields or apps may also record custom FIT fields. If the combined total gets too high, one or more apps may restart and show the IQ logo.</p>
+          <p>To reduce TubeWitch FIT recording, disable items in the Activity Recording section of TubeWitch Settings, then reboot Garmin before testing again.</p>
+          <p>Activity Recording field counts:</p>
+          <ul>
+            <li>Record Front Pressure: 2 fields (Front Pressure, Avg Front Pressure)</li>
+            <li>Record Rear Pressure: 2 fields (Rear Pressure, Avg Rear Pressure)</li>
+            <li>Record Front Pressure Alarm: 1 field</li>
+            <li>Record Rear Pressure Alarm: 1 field</li>
+            <li>Record Front Pressure Stale Data Indicator: 1 field</li>
+            <li>Record Rear Pressure Stale Data Indicator: 1 field</li>
+            <li>Record Sensor Set #: 1 field</li>
+            <li>Sensor Set Name: 1 field whenever any Activity Recording option is enabled</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
     <section class="section wrap reveal" id="app-upgrade-problems">
       <h2>App Upgrade Problems</h2>
       <p class="section-lead">The most common TubeWitch upgrade issue is the Garmin Connect IQ mobile app continuing to show an update even after the data field was already queued or installed.</p>
@@ -188,7 +213,7 @@
       <div class="footer-grid">
         <img src="assets/img/tpms_indicator_full.png" alt="TPMS icon" />
         <div>
-          <p>TubeWitch troubleshooting focuses on save issues, missing pressure data, wrong status, and upgrade problems.</p>
+          <p>TubeWitch troubleshooting focuses on save issues, missing pressure data, wrong status, FIT recording problems, and upgrade problems.</p>
           <p class="muted">Use this page after initial setup if the sensors or settings still do not behave as expected.</p>
         </div>
       </div>
