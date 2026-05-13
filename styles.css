@@ -575,6 +575,10 @@ h3 {
 }
 
 #settings-not-saving .temporary-alert + .callout {
+  margin-top: 0.52rem;
+}
+
+#current-settings-bug-workaround + .callout {
   margin-top: 0.76rem;
 }
 
