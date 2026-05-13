@@ -624,6 +624,24 @@ h3 {
   color: #ffd8db;
 }
 
+.callout-caution {
+  border: 1px solid rgba(255, 171, 70, 0.34);
+  border-left: 4px solid #ffab46;
+  background: linear-gradient(180deg, rgba(61, 34, 11, 0.9), rgba(30, 19, 10, 0.92));
+}
+
+.callout-caution p {
+  color: #ffe2bc;
+}
+
+.callout-caution .callout-link {
+  color: #fff0d8;
+}
+
+.callout-caution .callout-link:hover {
+  color: #ffffff;
+}
+
 .sensor-demo-stack {
   display: grid;
   grid-template-rows: 1fr auto;
