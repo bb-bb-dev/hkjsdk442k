@@ -1019,6 +1019,10 @@ td {
   color: var(--text);
 }
 
+.support-emphasis {
+  color: #9bf4d8;
+}
+
 .legal-note {
   margin: 0;
   color: #bfd2e5;
