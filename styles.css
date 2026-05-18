@@ -843,6 +843,10 @@ h3 {
   margin: 0.2rem auto 0;
 }
 
+.support-card-inline {
+  width: calc(100% - 2.2rem);
+}
+
 .faq-placeholder {
   min-height: 1px;
 }
@@ -1357,6 +1361,10 @@ td {
   }
 
   .sensor-card-inline {
+    width: 100%;
+  }
+
+  .support-card-inline {
     width: 100%;
   }
 
