@@ -844,7 +844,7 @@ h3 {
 }
 
 .support-card-inline {
-  width: calc(100% - 2.2rem);
+  width: min(72%, 300px);
 }
 
 .faq-placeholder {
