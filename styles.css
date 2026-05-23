@@ -613,6 +613,10 @@ h3 {
   padding-left: 1.15rem;
 }
 
+#current-settings-bug-workaround .steps {
+  margin-top: 0.72rem;
+}
+
 .callout li {
   margin: 0.42rem 0;
   color: #d6eee2;
