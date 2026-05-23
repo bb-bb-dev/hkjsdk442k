@@ -90,6 +90,7 @@
       box.hidden = true;
       document.body.style.overflow = "";
       boxImg.src = "";
+      boxImg.alt = "";
       boxCap.textContent = "";
     }
 
@@ -97,6 +98,7 @@
       img.addEventListener("click", () => {
         boxImg.src = img.currentSrc || img.src;
         boxCap.textContent = (img.closest("figure")?.querySelector("figcaption")?.textContent || img.alt || "").trim();
+        boxImg.alt = (img.alt || boxCap.textContent || "").trim();
         box.hidden = false;
         document.body.style.overflow = "hidden";
       });
