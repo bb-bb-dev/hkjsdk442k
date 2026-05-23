@@ -211,6 +211,19 @@ section[id] {
   text-decoration-color: #ffffff;
 }
 
+.inline-video-link {
+  color: #cbfff0;
+  font-weight: 700;
+  text-decoration-color: rgba(203, 255, 240, 0.92);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+}
+
+.inline-video-link:hover {
+  color: #ffffff;
+  text-decoration-color: #ffffff;
+}
+
 .hero-points {
   margin: 0.85rem 0 0;
   padding: 0;
