@@ -823,6 +823,19 @@ h3 {
   line-height: 1.25;
 }
 
+.video-stage-trigger {
+  cursor: pointer;
+}
+
+.video-stage-trigger:focus-visible {
+  outline: 2px solid #8adff5;
+  outline-offset: 2px;
+}
+
+.video-stage-trigger .video-embed {
+  pointer-events: none;
+}
+
 .shot img {
   cursor: zoom-in;
 }

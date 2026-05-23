@@ -236,6 +236,13 @@
         event.preventDefault();
         openVideoModal(trigger);
       });
+
+      trigger.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter" && event.key !== " ") return;
+
+        event.preventDefault();
+        openVideoModal(trigger);
+      });
     });
 
     close?.addEventListener("click", closeVideoModal);
