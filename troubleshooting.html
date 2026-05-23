@@ -103,6 +103,19 @@
       </div>
       <div class="card-grid card-grid-2">
         <article class="card">
+          <h3 class="card-title-line"><img class="card-title-icon" src="assets/img/tpms_indicator_full.png" alt="TPMS warning icon" /><span>Nested settings revert before saving</span></h3>
+          <p>If you back out of a Sensor Set or other nested settings group in the Garmin Connect IQ mobile app and then go back into it before saving, Garmin will revert to the old values.</p>
+          <p>This behavior is confusing, but it is normal for Garmin's nested settings screens.</p>
+          <p>To force a save, back out of the nested settings group and tap Save immediately from the main settings screen.</p>
+          <p>After saving, reopen TubeWitch settings in the Garmin Connect IQ mobile app and drill back down into the nested settings group to confirm the new values are there.</p>
+        </article>
+        <article class="card">
+          <h3>When opening TubeWitch settings, an error message is shown</h3>
+          <p>Garmin Connect IQ mobile app: "Cannot Load the web page. Try again later."</p>
+          <p>Garmin Express: "Error Loading Settings - We had a problem loading settings from this device. Please try again."</p>
+          <p>This usually means Garmin's settings service is temporarily unavailable. Try again later.</p>
+        </article>
+        <article class="card">
           <h3>My Sensor ID starts with a leading 0, but after I save it in the settings it only shows 4 digits?</h3>
           <p>The settings input box trims leading zeroes, but that does not break TyreWiz pairing. Garmin uses the sensor ID as an integer value for ANT+ matching, so the leading zeroes are not needed.</p>
           <p>If the rest of the setup is correct, the sensor can still connect successfully.</p>
@@ -111,12 +124,6 @@
           <h3>It will not let me enter my full sensor ID: HGL15841</h3>
           <p>TubeWitch sensor ID fields accept numbers only.</p>
           <p>Enter only the numeric five-digit portion of the sensor ID. For HGL15841, enter 15841.</p>
-        </article>
-        <article class="card">
-          <h3>When opening TubeWitch settings, an error message is shown</h3>
-          <p>Garmin Connect IQ mobile app: "Cannot Load the web page. Try again later."</p>
-          <p>Garmin Express: "Error Loading Settings - We had a problem loading settings from this device. Please try again."</p>
-          <p>This usually means Garmin's settings service is temporarily unavailable. Try again later.</p>
         </article>
       </div>
     </section>

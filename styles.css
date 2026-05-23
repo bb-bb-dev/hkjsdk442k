@@ -461,6 +461,18 @@ h3 {
   margin-top: 0.2rem;
 }
 
+.card-title-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.52rem;
+}
+
+.card-title-icon {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 auto;
+}
+
 .split {
   display: grid;
   gap: 0.8rem;
