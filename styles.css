@@ -1315,8 +1315,11 @@ td {
   text-decoration: none;
 }
 
-.text-link:hover {
+.text-link:visited,
+.text-link:hover,
+.text-link:focus {
   color: #cbfff0;
+  text-decoration: none;
 }
 
 .hero-media-link {
