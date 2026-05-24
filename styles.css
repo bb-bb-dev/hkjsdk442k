@@ -1759,6 +1759,10 @@ td {
     max-height: 210px;
   }
 
+  .compat-opentpms-media {
+    padding-top: 2.2rem;
+  }
+
   .compat-card-head {
     flex-direction: column;
   }
