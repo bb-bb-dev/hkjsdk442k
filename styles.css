@@ -732,6 +732,7 @@ h3 {
   font-weight: 800;
   letter-spacing: 0.07em;
   text-transform: uppercase;
+  text-decoration: none;
   white-space: nowrap;
 }
 
