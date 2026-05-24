@@ -819,6 +819,13 @@ h3 {
   min-height: 240px;
 }
 
+.compat-card-media-dark {
+  background:
+    radial-gradient(320px 180px at 50% -6%, rgba(130, 155, 194, 0.08), transparent 58%),
+    linear-gradient(180deg, #090c15 0%, #131728 100%);
+  border-color: #262c3f;
+}
+
 .compat-card-media img,
 .compat-feature-media img {
   display: block;
