@@ -792,6 +792,37 @@ h3 {
   background: transparent;
 }
 
+.compat-card-media-duo {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 0.7rem;
+}
+
+.compat-duo-item {
+  margin: 0;
+  display: grid;
+  gap: 0.38rem;
+  justify-items: center;
+}
+
+.compat-duo-item img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: 170px;
+  height: auto;
+  object-fit: contain;
+}
+
+.compat-duo-item figcaption {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
 #quarq-sram .compat-card-media {
   min-height: 248px;
   padding: 0.45rem;
