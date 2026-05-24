@@ -865,6 +865,14 @@ h3 {
   object-fit: contain;
 }
 
+.compat-airspy-tl-media {
+  min-height: 272px;
+}
+
+.compat-airspy-tl-media img {
+  max-height: 236px;
+}
+
 .compat-duo-card figcaption {
   color: var(--muted);
   font-size: 0.78rem;
