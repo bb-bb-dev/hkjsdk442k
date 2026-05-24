@@ -798,7 +798,7 @@ h3 {
 
 .compat-new-text {
   display: block;
-  transform: translate(0.03rem, -0.08rem) rotate(-16deg);
+  transform: translate(0.03rem, -0.08rem) rotate(-18deg);
   transform-origin: center;
 }
 
