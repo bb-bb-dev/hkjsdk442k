@@ -211,6 +211,12 @@ section[id] {
   text-decoration-color: #ffffff;
 }
 
+.hero-compat-links {
+  margin: 0.55rem 0 0;
+  color: #cfe1f3;
+  font-weight: 700;
+}
+
 .inline-video-link {
   color: #cbfff0;
   font-weight: 700;
