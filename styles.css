@@ -837,15 +837,15 @@ h3 {
   display: grid;
   gap: 0.38rem;
   justify-items: center;
-  min-height: 220px;
-  padding: 0.7rem;
+  min-height: 248px;
+  padding: 0.45rem;
 }
 
 .compat-duo-card img {
   display: block;
   width: auto;
   max-width: 100%;
-  max-height: 150px;
+  max-height: 210px;
   height: auto;
   object-fit: contain;
 }
