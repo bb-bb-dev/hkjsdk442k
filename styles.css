@@ -220,11 +220,13 @@ section[id] {
 .hero-compat-links .hero-link {
   color: #9bf4d8;
   text-decoration-color: rgba(155, 244, 216, 0.86);
+  text-decoration: none;
 }
 
 .hero-compat-links .hero-link:hover {
   color: #cbfff0;
   text-decoration-color: #cbfff0;
+  text-decoration: none;
 }
 
 .inline-video-link {
@@ -1315,11 +1317,8 @@ td {
   text-decoration: none;
 }
 
-.text-link:visited,
-.text-link:hover,
-.text-link:focus {
+.text-link:hover {
   color: #cbfff0;
-  text-decoration: none;
 }
 
 .hero-media-link {
