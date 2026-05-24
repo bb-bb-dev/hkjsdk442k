@@ -865,11 +865,6 @@ h3 {
   object-fit: contain;
 }
 
-.compat-airspy-presta-media img {
-  transform: scale(1.17);
-  transform-origin: center;
-}
-
 .compat-airspy-tl-media {
   min-height: 272px;
 }
