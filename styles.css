@@ -865,6 +865,10 @@ h3 {
   object-fit: contain;
 }
 
+.compat-airspy-schrader-media img {
+  transform: translateY(0.7rem);
+}
+
 .compat-airspy-tl-media {
   min-height: 272px;
 }
