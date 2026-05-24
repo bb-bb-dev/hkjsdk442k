@@ -831,6 +831,13 @@ h3 {
   margin-bottom: 0.28rem;
 }
 
+.compat-status-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.4rem;
+}
+
 .compat-card h3,
 .compat-feature-copy h3,
 .compat-info-card h3 {
@@ -1628,6 +1635,10 @@ td {
 
   .compat-card-head {
     flex-direction: column;
+  }
+
+  .compat-status-group {
+    justify-content: flex-start;
   }
 
   .compat-warning-title {
