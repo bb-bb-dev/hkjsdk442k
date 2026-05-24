@@ -704,6 +704,14 @@ h3 {
     linear-gradient(180deg, #091420 0%, #0f1f31 100%);
 }
 
+.page-hero-single {
+  grid-template-columns: 1fr;
+}
+
+.page-hero-single .page-hero-copy {
+  grid-column: 1 / -1;
+}
+
 .compat-status-callout .compat-status-row {
   margin-top: 0.8rem;
 }
@@ -795,8 +803,10 @@ h3 {
 
 .compat-wheel-media {
   min-height: 260px;
-  background: linear-gradient(180deg, #f3f6fa 0%, #d8e0e8 100%);
-  border-color: #90a0b0;
+  background:
+    radial-gradient(320px 180px at 50% -6%, rgba(88, 215, 255, 0.12), transparent 58%),
+    linear-gradient(180deg, #0a1623 0%, #102031 100%);
+  border-color: #2a3f58;
 }
 
 .compat-wheel-media img {
