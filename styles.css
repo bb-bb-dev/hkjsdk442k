@@ -833,6 +833,20 @@ h3 {
   max-height: 260px;
 }
 
+.compat-section-pair {
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+}
+
+.compat-section-pane {
+  min-width: 0;
+}
+
+.compat-section-pane.section {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .compat-card-head {
   display: flex;
   align-items: flex-start;
@@ -1474,6 +1488,10 @@ td {
   }
 
   .compat-feature-card {
+    grid-template-columns: 1fr;
+  }
+
+  .compat-section-pair {
     grid-template-columns: 1fr;
   }
 
