@@ -772,10 +772,6 @@ h3 {
   min-height: 240px;
 }
 
-.compat-wheel-media {
-  min-height: 260px;
-}
-
 .compat-card-media img,
 .compat-feature-media img {
   display: block;
@@ -786,6 +782,21 @@ h3 {
   object-fit: contain;
   margin: 0 auto;
   background: transparent;
+}
+
+#quarq-sram .compat-card-media {
+  min-height: 248px;
+  padding: 0.45rem;
+}
+
+#quarq-sram .compat-card-media img {
+  max-height: 248px;
+}
+
+.compat-wheel-media {
+  min-height: 260px;
+  background: linear-gradient(180deg, #f3f6fa 0%, #d8e0e8 100%);
+  border-color: #90a0b0;
 }
 
 .compat-wheel-media img {
