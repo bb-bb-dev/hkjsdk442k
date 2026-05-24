@@ -748,6 +748,12 @@ h3 {
   overflow: hidden;
 }
 
+.compat-card,
+.compat-info-card {
+  display: flex;
+  flex-direction: column;
+}
+
 .compat-card-media,
 .compat-feature-media {
   display: grid;
@@ -766,6 +772,10 @@ h3 {
   min-height: 240px;
 }
 
+.compat-wheel-media {
+  min-height: 260px;
+}
+
 .compat-card-media img,
 .compat-feature-media img {
   display: block;
@@ -776,6 +786,10 @@ h3 {
   object-fit: contain;
   margin: 0 auto;
   background: transparent;
+}
+
+.compat-wheel-media img {
+  max-height: 260px;
 }
 
 .compat-feature-grid {
