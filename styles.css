@@ -217,6 +217,16 @@ section[id] {
   font-weight: 700;
 }
 
+.hero-compat-links .hero-link {
+  color: var(--accent-2);
+  text-decoration-color: rgba(89, 241, 143, 0.86);
+}
+
+.hero-compat-links .hero-link:hover {
+  color: #cbffd9;
+  text-decoration-color: #cbffd9;
+}
+
 .inline-video-link {
   color: #cbfff0;
   font-weight: 700;
