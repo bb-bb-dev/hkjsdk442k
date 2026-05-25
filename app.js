@@ -215,26 +215,24 @@
 
       const range = Math.max(metrics.expandedHeight - metrics.collapsedHeight, 1);
       if (deltaY > 0 && navOpenAmount > 0) {
-        const consumedDelta = Math.min(deltaY, navOpenAmount * range);
-        const remainingDelta = deltaY - consumedDelta;
+        const deltaToCollapsed = navOpenAmount * range;
         clearTimeout(navAnimationTimer);
-        setMobileNavAmount(navOpenAmount - (consumedDelta / range), false);
-        if (remainingDelta > 0.5) {
-          window.scrollBy(0, remainingDelta);
-          lastScrollY = window.scrollY;
+
+        if (deltaY >= deltaToCollapsed) {
+          setMobileNavAmount(0, false);
+          return false;
         }
+
+        setMobileNavAmount(navOpenAmount - (deltaY / range), false);
         return true;
       }
 
       if (deltaY < 0 && navOpenAmount < 1) {
+        if (window.scrollY > 1) return false;
+
         const consumedDelta = Math.min(-deltaY, (1 - navOpenAmount) * range);
-        const remainingDelta = deltaY + consumedDelta;
         clearTimeout(navAnimationTimer);
         setMobileNavAmount(navOpenAmount + (consumedDelta / range), false);
-        if (remainingDelta < -0.5) {
-          window.scrollBy(0, remainingDelta);
-          lastScrollY = window.scrollY;
-        }
         return true;
       }
 
