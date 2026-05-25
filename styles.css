@@ -195,7 +195,7 @@ section[id] {
   z-index: 2;
   width: min(660px, calc(100% - 2rem));
   left: clamp(1rem, 4vw, 4rem);
-  bottom: clamp(1rem, 5vh, 2.9rem);
+  bottom: clamp(0.55rem, 2.6vh, 1.7rem);
   margin: 0;
   border: 1px solid #3a5977;
   border-radius: 16px;
@@ -282,7 +282,7 @@ section[id] {
 .hero-device-stack {
   position: absolute;
   right: clamp(1rem, 4vw, 4rem);
-  bottom: clamp(1rem, 5vh, 2.9rem);
+  bottom: clamp(0.55rem, 2.6vh, 1.7rem);
   width: clamp(300px, 29vw, 420px);
   display: grid;
   gap: 0.7rem;
