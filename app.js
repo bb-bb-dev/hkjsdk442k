@@ -62,6 +62,7 @@
 
     const mobileNavQuery = window.matchMedia("(max-width: 700px)");
     const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+    const touchScrollCarry = 1.8;
     let lastScrollY = window.scrollY;
     let navOpenAmount = 1;
     let mobileNavMetrics = null;
@@ -264,12 +265,12 @@
         touchManualScroll = true;
         event.preventDefault();
         if (Math.abs(navScroll.remainingDelta) > 0.5) {
-          window.scrollBy(0, navScroll.remainingDelta);
+          window.scrollBy(0, navScroll.remainingDelta * touchScrollCarry);
           lastScrollY = window.scrollY;
         }
       } else if (touchManualScroll) {
         event.preventDefault();
-        window.scrollBy(0, deltaY);
+        window.scrollBy(0, deltaY * touchScrollCarry);
         lastScrollY = window.scrollY;
       }
       touchLastY = currentTouchY;
