@@ -1878,8 +1878,13 @@ td {
   }
 
   .strip-row {
-    flex-direction: column;
-    gap: 0.35rem;
+    display: block;
+    min-height: 0.48rem;
+    padding: 0.24rem 0;
+  }
+
+  .strip-row span {
+    display: none;
   }
 
   h1 {
