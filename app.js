@@ -45,74 +45,194 @@
   const siteHeader = document.querySelector(".site-header");
   const primaryNav = siteHeader?.querySelector(".nav-links");
   if (siteHeader && primaryNav) {
+    const navTrack = document.createElement("div");
+    navTrack.className = "nav-links-track";
+    while (primaryNav.firstChild) {
+      navTrack.appendChild(primaryNav.firstChild);
+    }
+
+    const navToggle = document.createElement("button");
+    navToggle.type = "button";
+    navToggle.className = "nav-toggle";
+    navToggle.setAttribute("aria-label", "Expand navigation");
+    navToggle.setAttribute("aria-expanded", "false");
+    primaryNav.append(navTrack, navToggle);
+
     siteHeader.classList.add("mobile-nav-ready");
 
     const mobileNavQuery = window.matchMedia("(max-width: 700px)");
+    const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
     let lastScrollY = window.scrollY;
+    let navOpenAmount = 0;
+    let mobileNavMetrics = null;
+    let navAnimationTimer = 0;
+    let resizeRaf = 0;
 
     function isMobileNav() {
       return mobileNavQuery.matches;
     }
 
-    function setMobileNavExpanded(expanded) {
+    function getActiveNavLink() {
+      return navTrack.querySelector("[aria-current='page']")
+        || navTrack.querySelector(".active")
+        || navTrack.querySelector("a");
+    }
+
+    function getMobileNavMetrics() {
+      if (!isMobileNav()) return null;
+
+      siteHeader.classList.add("nav-measuring");
+      const previousHeight = primaryNav.style.height;
+      const previousMarginTop = navTrack.style.marginTop;
+      primaryNav.style.height = "auto";
+      navTrack.style.marginTop = "0";
+
+      const links = Array.from(navTrack.querySelectorAll("a"));
+      const trackRect = navTrack.getBoundingClientRect();
+      const rows = [];
+
+      links.forEach((link) => {
+        const rect = link.getBoundingClientRect();
+        const top = Math.round((rect.top - trackRect.top) * 10) / 10;
+        const bottom = rect.bottom - trackRect.top;
+        let row = rows.find((item) => Math.abs(item.top - top) < 3);
+        if (!row) {
+          row = { top, bottom };
+          rows.push(row);
+        } else {
+          row.bottom = Math.max(row.bottom, bottom);
+        }
+      });
+
+      const activeLink = getActiveNavLink();
+      const activeRect = activeLink?.getBoundingClientRect();
+      const activeTop = activeRect ? Math.round((activeRect.top - trackRect.top) * 10) / 10 : 0;
+      const activeRow = rows.find((row) => Math.abs(row.top - activeTop) < 3) || rows[0] || { top: 0, bottom: 30 };
+      const expandedHeight = Math.ceil(Math.max(navTrack.scrollHeight, ...rows.map((row) => row.bottom), 30));
+      const collapsedHeight = Math.ceil(Math.max(activeRow.bottom - activeRow.top, 30));
+      const activeShift = -Math.max(0, Math.floor(activeRow.top));
+
+      siteHeader.classList.remove("nav-measuring");
+      primaryNav.style.height = previousHeight;
+      navTrack.style.marginTop = previousMarginTop;
+      mobileNavMetrics = {
+        activeShift,
+        collapsedHeight,
+        expandedHeight: Math.max(expandedHeight, collapsedHeight),
+      };
+      return mobileNavMetrics;
+    }
+
+    function applyMobileNav(animate = false) {
+      if (!isMobileNav()) {
+        clearTimeout(navAnimationTimer);
+        siteHeader.classList.remove("nav-expanded");
+        siteHeader.classList.remove("nav-no-transition");
+        siteHeader.classList.remove("nav-measuring");
+        siteHeader.removeAttribute("aria-expanded");
+        primaryNav.removeAttribute("aria-hidden");
+        primaryNav.style.height = "";
+        navTrack.style.marginTop = "";
+        navToggle.removeAttribute("style");
+        navToggle.setAttribute("aria-expanded", "false");
+        return;
+      }
+
+      const metrics = mobileNavMetrics || getMobileNavMetrics();
+      if (!metrics) return;
+
+      if (animate) {
+        siteHeader.classList.remove("nav-no-transition");
+        primaryNav.getBoundingClientRect();
+      } else {
+        siteHeader.classList.add("nav-no-transition");
+      }
+
+      const amount = clamp(navOpenAmount, 0, 1);
+      const range = metrics.expandedHeight - metrics.collapsedHeight;
+      const height = metrics.collapsedHeight + (range * amount);
+      const shift = metrics.activeShift * (1 - amount);
+      const expanded = amount > 0.98;
+
+      primaryNav.style.height = `${height}px`;
+      navTrack.style.marginTop = `${shift}px`;
+      navToggle.style.transform = `rotate(${Math.round(amount * 180)}deg)`;
+      navToggle.setAttribute("aria-expanded", String(expanded));
+      navToggle.setAttribute("aria-label", expanded ? "Collapse navigation" : "Expand navigation");
       siteHeader.classList.toggle("nav-expanded", expanded);
       siteHeader.setAttribute("aria-expanded", String(expanded));
       primaryNav.removeAttribute("aria-hidden");
     }
 
-    function syncMobileNav() {
-      if (isMobileNav()) {
-        setMobileNavExpanded(siteHeader.classList.contains("nav-expanded"));
-      } else {
-        siteHeader.classList.remove("nav-expanded");
-        siteHeader.removeAttribute("aria-expanded");
-        primaryNav.removeAttribute("aria-hidden");
-      }
+    function setMobileNavAmount(amount, animate = false) {
+      navOpenAmount = clamp(amount, 0, 1);
+      applyMobileNav(animate);
     }
 
-    function collapseMobileNav() {
-      if (isMobileNav() && siteHeader.classList.contains("nav-expanded")) {
-        setMobileNavExpanded(false);
-      }
-    }
-
-    siteHeader.addEventListener("click", (event) => {
+    function animateMobileNavTo(targetAmount) {
       if (!isMobileNav()) return;
-      if (siteHeader.classList.contains("nav-expanded")) return;
+      clearTimeout(navAnimationTimer);
 
+      const startAmount = navOpenAmount;
+      const endAmount = clamp(targetAmount, 0, 1);
+      const duration = 220;
+      const startTime = performance.now();
+
+      function step(now) {
+        const progress = clamp((now - startTime) / duration, 0, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        setMobileNavAmount(startAmount + ((endAmount - startAmount) * eased), false);
+
+        if (progress < 1) {
+          navAnimationTimer = setTimeout(() => step(performance.now()), 16);
+        } else {
+          setMobileNavAmount(endAmount, false);
+        }
+      }
+
+      step(startTime);
+    }
+
+    function syncMobileNav(animate = false) {
+      mobileNavMetrics = null;
+      applyMobileNav(animate);
+    }
+
+    navToggle.addEventListener("click", (event) => {
+      if (!isMobileNav()) return;
       event.preventDefault();
       event.stopPropagation();
-      setMobileNavExpanded(true);
+      lastScrollY = window.scrollY;
+      animateMobileNavTo(navOpenAmount > 0.98 ? 0 : 1);
     });
 
     window.addEventListener("scroll", () => {
       const currentScrollY = window.scrollY;
-      if (
-        isMobileNav()
-        && siteHeader.classList.contains("nav-expanded")
-        && currentScrollY > lastScrollY + 4
-      ) {
-        setMobileNavExpanded(false);
-      }
+      const delta = currentScrollY - lastScrollY;
       lastScrollY = currentScrollY;
+
+      if (!isMobileNav() || Math.abs(delta) < 1) return;
+
+      const metrics = mobileNavMetrics || getMobileNavMetrics();
+      if (!metrics) return;
+
+      clearTimeout(navAnimationTimer);
+      const range = Math.max(metrics.expandedHeight - metrics.collapsedHeight, 1);
+      if (delta > 0 && navOpenAmount > 0) {
+        setMobileNavAmount(navOpenAmount - (delta / range), false);
+      } else if (delta < 0 && navOpenAmount < 1) {
+        setMobileNavAmount(navOpenAmount + ((-delta) / range), false);
+      }
     }, { passive: true });
 
-    window.addEventListener("wheel", (event) => {
-      if (event.deltaY > 0) collapseMobileNav();
+    window.addEventListener("resize", () => {
+      cancelAnimationFrame(resizeRaf);
+      resizeRaf = requestAnimationFrame(() => syncMobileNav(false));
     }, { passive: true });
 
-    let touchStartY = null;
-    window.addEventListener("touchstart", (event) => {
-      touchStartY = event.touches[0]?.clientY ?? null;
-    }, { passive: true });
-
-    window.addEventListener("touchmove", (event) => {
-      if (touchStartY === null) return;
-      const currentTouchY = event.touches[0]?.clientY ?? touchStartY;
-      if (touchStartY - currentTouchY > 4) collapseMobileNav();
-    }, { passive: true });
-
-    mobileNavQuery.addEventListener?.("change", syncMobileNav);
+    mobileNavQuery.addEventListener?.("change", () => syncMobileNav(false));
+    window.addEventListener("load", () => syncMobileNav(false), { once: true });
+    document.fonts?.ready?.then(() => syncMobileNav(false)).catch(() => {});
     syncMobileNav();
   }
 

@@ -131,6 +131,16 @@ section[id] {
   gap: 0.38rem;
 }
 
+.nav-links-track {
+  display: flex;
+  align-items: center;
+  gap: 0.38rem;
+}
+
+.nav-toggle {
+  display: none;
+}
+
 .nav-links a {
   text-decoration: none;
   color: var(--muted);
@@ -1745,18 +1755,24 @@ td {
     position: relative;
     width: 100%;
     box-sizing: border-box;
+    display: block;
+    height: 1.88rem;
+    overflow: hidden;
+    padding-bottom: 0;
+    padding-right: 1.9rem;
+    transition: height 220ms ease;
+  }
+
+  .nav-links-track {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
     gap: 0.22rem 0.18rem;
-    max-height: 1.88rem;
-    overflow: hidden;
-    padding-bottom: 0;
-    padding-right: 1.9rem;
-    transition: max-height 220ms ease;
+    margin-top: 0;
+    transition: margin-top 220ms ease;
   }
 
-  .nav-links::after {
+  .nav-toggle {
     content: "\25BE";
     position: absolute;
     right: 0.1rem;
@@ -1769,17 +1785,36 @@ td {
     font-size: 0.92rem;
     font-weight: 900;
     line-height: 1;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
     opacity: 0.86;
     transform: rotate(0deg);
     transform-origin: 50% 50%;
     transition: transform 220ms ease;
   }
 
-  .site-header.nav-expanded .nav-links {
-    max-height: 8rem;
+  .nav-toggle::before {
+    content: "\25BE";
   }
 
-  .site-header.nav-expanded .nav-links::after {
+  .site-header.nav-no-transition .nav-links,
+  .site-header.nav-no-transition .nav-links-track,
+  .site-header.nav-no-transition .nav-toggle {
+    transition: none;
+  }
+
+  .site-header.nav-measuring .nav-links {
+    height: auto;
+    overflow: visible;
+  }
+
+  .site-header.nav-measuring .nav-links-track {
+    margin-top: 0;
+    transition: none;
+  }
+
+  .site-header.nav-expanded .nav-toggle {
     transform: rotate(180deg);
   }
 
