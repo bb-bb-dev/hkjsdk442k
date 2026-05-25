@@ -70,7 +70,6 @@
     let resizeRaf = 0;
     let touchLastY = null;
     let touchManualScroll = false;
-    let nativeTopScroll = false;
 
     function isMobileNav() {
       return mobileNavQuery.matches;
@@ -202,21 +201,6 @@
       applyMobileNav(animate);
     }
 
-    function syncMobileNavToTopScroll(currentScrollY) {
-      if (!isMobileNav()) return;
-
-      const metrics = mobileNavMetrics || getMobileNavMetrics();
-      if (!metrics) return;
-
-      const range = Math.max(metrics.expandedHeight - metrics.collapsedHeight, 1);
-      if (!nativeTopScroll && (currentScrollY > range || navOpenAmount <= 0)) return;
-
-      setMobileNavAmount(1 - (currentScrollY / range), false);
-      if (currentScrollY >= range) {
-        nativeTopScroll = false;
-      }
-    }
-
     navToggle.addEventListener("click", (event) => {
       if (!isMobileNav()) return;
       event.preventDefault();
@@ -260,30 +244,6 @@
     }
 
     window.addEventListener("wheel", (event) => {
-      if (isMobileNav() && event.deltaY > 0.5 && navOpenAmount > 0) {
-        const metrics = mobileNavMetrics || getMobileNavMetrics();
-        const range = metrics ? Math.max(metrics.expandedHeight - metrics.collapsedHeight, 1) : 0;
-        if (window.scrollY <= range + 1) {
-          nativeTopScroll = true;
-          return;
-        }
-      }
-
-      if (
-        isMobileNav()
-        && event.deltaY < -0.5
-        && navOpenAmount < 1
-        && window.scrollY > 0
-        && window.scrollY + event.deltaY <= 0
-      ) {
-        const remainingDelta = event.deltaY + window.scrollY;
-        event.preventDefault();
-        window.scrollBy(0, -window.scrollY);
-        lastScrollY = window.scrollY;
-        applyMobileNavScrollDelta(remainingDelta);
-        return;
-      }
-
       const navScroll = applyMobileNavScrollDelta(event.deltaY);
       if (navScroll.consumed && Math.abs(navScroll.remainingDelta) < 0.5) {
         event.preventDefault();
@@ -293,12 +253,6 @@
     window.addEventListener("touchstart", (event) => {
       touchLastY = event.touches[0]?.clientY ?? null;
       touchManualScroll = false;
-      nativeTopScroll = false;
-      if (isMobileNav() && navOpenAmount > 0) {
-        const metrics = mobileNavMetrics || getMobileNavMetrics();
-        const range = metrics ? Math.max(metrics.expandedHeight - metrics.collapsedHeight, 1) : 0;
-        nativeTopScroll = window.scrollY <= range + 1;
-      }
     }, { passive: true });
 
     window.addEventListener("touchmove", (event) => {
@@ -306,28 +260,6 @@
 
       const currentTouchY = event.touches[0]?.clientY ?? touchLastY;
       const deltaY = touchLastY - currentTouchY;
-      if (nativeTopScroll && deltaY > 0.5) {
-        touchLastY = currentTouchY;
-        return;
-      }
-
-      if (
-        isMobileNav()
-        && deltaY < -0.5
-        && navOpenAmount < 1
-        && window.scrollY > 0
-        && window.scrollY + (deltaY * touchScrollCarry) <= 0
-      ) {
-        const remainingDelta = deltaY + (window.scrollY / touchScrollCarry);
-        event.preventDefault();
-        window.scrollBy(0, -window.scrollY);
-        lastScrollY = window.scrollY;
-        applyMobileNavScrollDelta(remainingDelta);
-        touchManualScroll = true;
-        touchLastY = currentTouchY;
-        return;
-      }
-
       const navScroll = applyMobileNavScrollDelta(deltaY);
       if (navScroll.consumed) {
         touchManualScroll = true;
@@ -347,19 +279,15 @@
     window.addEventListener("touchend", () => {
       touchLastY = null;
       touchManualScroll = false;
-      nativeTopScroll = false;
     }, { passive: true });
 
     window.addEventListener("touchcancel", () => {
       touchLastY = null;
       touchManualScroll = false;
-      nativeTopScroll = false;
     }, { passive: true });
 
     window.addEventListener("scroll", () => {
-      const currentScrollY = window.scrollY;
-      syncMobileNavToTopScroll(currentScrollY);
-      lastScrollY = currentScrollY;
+      lastScrollY = window.scrollY;
     }, { passive: true });
 
     window.addEventListener("resize", () => {
