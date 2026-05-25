@@ -57,7 +57,7 @@
     function setMobileNavExpanded(expanded) {
       siteHeader.classList.toggle("nav-expanded", expanded);
       siteHeader.setAttribute("aria-expanded", String(expanded));
-      primaryNav.setAttribute("aria-hidden", String(isMobileNav() && !expanded));
+      primaryNav.removeAttribute("aria-hidden");
     }
 
     function syncMobileNav() {
