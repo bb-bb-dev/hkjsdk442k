@@ -42,6 +42,80 @@
     }
   });
 
+  const siteHeader = document.querySelector(".site-header");
+  const primaryNav = siteHeader?.querySelector(".nav-links");
+  if (siteHeader && primaryNav) {
+    siteHeader.classList.add("mobile-nav-ready");
+
+    const mobileNavQuery = window.matchMedia("(max-width: 700px)");
+    let lastScrollY = window.scrollY;
+
+    function isMobileNav() {
+      return mobileNavQuery.matches;
+    }
+
+    function setMobileNavExpanded(expanded) {
+      siteHeader.classList.toggle("nav-expanded", expanded);
+      siteHeader.setAttribute("aria-expanded", String(expanded));
+      primaryNav.setAttribute("aria-hidden", String(isMobileNav() && !expanded));
+    }
+
+    function syncMobileNav() {
+      if (isMobileNav()) {
+        setMobileNavExpanded(siteHeader.classList.contains("nav-expanded"));
+      } else {
+        siteHeader.classList.remove("nav-expanded");
+        siteHeader.removeAttribute("aria-expanded");
+        primaryNav.removeAttribute("aria-hidden");
+      }
+    }
+
+    function collapseMobileNav() {
+      if (isMobileNav() && siteHeader.classList.contains("nav-expanded")) {
+        setMobileNavExpanded(false);
+      }
+    }
+
+    siteHeader.addEventListener("click", (event) => {
+      if (!isMobileNav()) return;
+      if (siteHeader.classList.contains("nav-expanded")) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+      setMobileNavExpanded(true);
+    });
+
+    window.addEventListener("scroll", () => {
+      const currentScrollY = window.scrollY;
+      if (
+        isMobileNav()
+        && siteHeader.classList.contains("nav-expanded")
+        && currentScrollY > lastScrollY + 4
+      ) {
+        setMobileNavExpanded(false);
+      }
+      lastScrollY = currentScrollY;
+    }, { passive: true });
+
+    window.addEventListener("wheel", (event) => {
+      if (event.deltaY > 0) collapseMobileNav();
+    }, { passive: true });
+
+    let touchStartY = null;
+    window.addEventListener("touchstart", (event) => {
+      touchStartY = event.touches[0]?.clientY ?? null;
+    }, { passive: true });
+
+    window.addEventListener("touchmove", (event) => {
+      if (touchStartY === null) return;
+      const currentTouchY = event.touches[0]?.clientY ?? touchStartY;
+      if (touchStartY - currentTouchY > 4) collapseMobileNav();
+    }, { passive: true });
+
+    mobileNavQuery.addEventListener?.("change", syncMobileNav);
+    syncMobileNav();
+  }
+
   const reveals = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window) {
     const io = new IntersectionObserver((entries) => {

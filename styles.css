@@ -1718,19 +1718,63 @@ td {
   }
 
   .nav-row {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 0.7rem;
-    padding: 0.55rem 0;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 0.55rem;
+    min-height: 54px;
+    padding: 0.48rem 0;
+  }
+
+  .site-header.mobile-nav-ready .nav-row::after {
+    content: "Menu v";
+    grid-column: 2;
+    grid-row: 1;
+    width: auto;
+    height: 32px;
+    display: grid;
+    place-items: center;
+    border: 1px solid #314963;
+    border-radius: 999px;
+    color: #cbfff0;
+    padding: 0 0.72rem;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    background: rgba(14, 24, 37, 0.72);
+  }
+
+  .site-header.mobile-nav-ready.nav-expanded .nav-row::after {
+    content: "Menu ^";
+  }
+
+  .site-header.mobile-nav-ready {
+    cursor: pointer;
+  }
+
+  .site-header.mobile-nav-ready.nav-expanded {
+    cursor: default;
+  }
+
+  .brand {
+    grid-column: 1;
+    grid-row: 1;
   }
 
   .nav-links {
+    grid-column: 1 / -1;
+    grid-row: 2;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
     gap: 0.22rem 0.18rem;
     padding-bottom: 0;
+  }
+
+  .site-header.mobile-nav-ready:not(.nav-expanded) .nav-links {
+    display: none;
   }
 
   .nav-links a {
