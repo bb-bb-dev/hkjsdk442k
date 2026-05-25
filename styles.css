@@ -1861,11 +1861,11 @@ td {
   }
 
   .strip-row {
-    padding: 0.36rem 0;
+    padding: 0.18rem 0;
   }
 
   .strip-row::before {
-    font-size: 0.44rem;
+    font-size: 0.22rem;
     line-height: 1.25;
   }
 
