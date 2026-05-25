@@ -67,6 +67,7 @@
     let mobileNavMetrics = null;
     let navAnimationTimer = 0;
     let resizeRaf = 0;
+    let touchLastY = null;
 
     function isMobileNav() {
       return mobileNavQuery.matches;
@@ -206,23 +207,59 @@
       animateMobileNavTo(navOpenAmount > 0.98 ? 0 : 1);
     });
 
-    window.addEventListener("scroll", () => {
-      const currentScrollY = window.scrollY;
-      const delta = currentScrollY - lastScrollY;
-      lastScrollY = currentScrollY;
-
-      if (!isMobileNav() || Math.abs(delta) < 1) return;
+    function consumeMobileNavScroll(deltaY) {
+      if (!isMobileNav() || Math.abs(deltaY) < 0.5) return false;
 
       const metrics = mobileNavMetrics || getMobileNavMetrics();
-      if (!metrics) return;
+      if (!metrics) return false;
 
-      clearTimeout(navAnimationTimer);
       const range = Math.max(metrics.expandedHeight - metrics.collapsedHeight, 1);
-      if (delta > 0 && navOpenAmount > 0) {
-        setMobileNavAmount(navOpenAmount - (delta / range), false);
-      } else if (delta < 0 && navOpenAmount < 1) {
-        setMobileNavAmount(navOpenAmount + ((-delta) / range), false);
+      if (deltaY > 0 && navOpenAmount > 0) {
+        clearTimeout(navAnimationTimer);
+        setMobileNavAmount(navOpenAmount - (deltaY / range), false);
+        return true;
       }
+
+      if (deltaY < 0 && navOpenAmount < 1) {
+        clearTimeout(navAnimationTimer);
+        setMobileNavAmount(navOpenAmount + ((-deltaY) / range), false);
+        return true;
+      }
+
+      return false;
+    }
+
+    window.addEventListener("wheel", (event) => {
+      if (consumeMobileNavScroll(event.deltaY)) {
+        event.preventDefault();
+      }
+    }, { passive: false });
+
+    window.addEventListener("touchstart", (event) => {
+      touchLastY = event.touches[0]?.clientY ?? null;
+    }, { passive: true });
+
+    window.addEventListener("touchmove", (event) => {
+      if (touchLastY === null) return;
+
+      const currentTouchY = event.touches[0]?.clientY ?? touchLastY;
+      const deltaY = touchLastY - currentTouchY;
+      if (consumeMobileNavScroll(deltaY)) {
+        event.preventDefault();
+      }
+      touchLastY = currentTouchY;
+    }, { passive: false });
+
+    window.addEventListener("touchend", () => {
+      touchLastY = null;
+    }, { passive: true });
+
+    window.addEventListener("touchcancel", () => {
+      touchLastY = null;
+    }, { passive: true });
+
+    window.addEventListener("scroll", () => {
+      lastScrollY = window.scrollY;
     }, { passive: true });
 
     window.addEventListener("resize", () => {
