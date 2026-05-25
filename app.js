@@ -63,7 +63,7 @@
     const mobileNavQuery = window.matchMedia("(max-width: 700px)");
     const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
     let lastScrollY = window.scrollY;
-    let navOpenAmount = 0;
+    let navOpenAmount = 1;
     let mobileNavMetrics = null;
     let navAnimationTimer = 0;
     let resizeRaf = 0;
@@ -215,14 +215,26 @@
 
       const range = Math.max(metrics.expandedHeight - metrics.collapsedHeight, 1);
       if (deltaY > 0 && navOpenAmount > 0) {
+        const consumedDelta = Math.min(deltaY, navOpenAmount * range);
+        const remainingDelta = deltaY - consumedDelta;
         clearTimeout(navAnimationTimer);
-        setMobileNavAmount(navOpenAmount - (deltaY / range), false);
+        setMobileNavAmount(navOpenAmount - (consumedDelta / range), false);
+        if (remainingDelta > 0.5) {
+          window.scrollBy(0, remainingDelta);
+          lastScrollY = window.scrollY;
+        }
         return true;
       }
 
       if (deltaY < 0 && navOpenAmount < 1) {
+        const consumedDelta = Math.min(-deltaY, (1 - navOpenAmount) * range);
+        const remainingDelta = deltaY + consumedDelta;
         clearTimeout(navAnimationTimer);
-        setMobileNavAmount(navOpenAmount + ((-deltaY) / range), false);
+        setMobileNavAmount(navOpenAmount + (consumedDelta / range), false);
+        if (remainingDelta < -0.5) {
+          window.scrollBy(0, remainingDelta);
+          lastScrollY = window.scrollY;
+        }
         return true;
       }
 
