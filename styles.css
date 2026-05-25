@@ -1656,8 +1656,15 @@ td {
 
   .strip-row {
     display: block;
-    min-height: 0.48rem;
-    padding: 0.24rem 0;
+    padding: 0.72rem 0;
+  }
+
+  .strip-row::before {
+    content: "\00a0\00a0\00a0";
+    display: block;
+    color: transparent;
+    font-size: 0.88rem;
+    font-weight: 700;
   }
 
   .strip-row span {
@@ -1810,7 +1817,7 @@ td {
     left: auto;
     bottom: auto;
     width: calc(100% - 1rem);
-    margin: clamp(8.5rem, 26vh, 12.5rem) 0 0.75rem 0.5rem;
+    margin: clamp(10.5rem, calc(50vw + 0.35rem), 15.5rem) 0 0.75rem 0.5rem;
     padding: 0.86rem 0.76rem 0.92rem;
   }
 
