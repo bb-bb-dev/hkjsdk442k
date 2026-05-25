@@ -1653,6 +1653,16 @@ td {
     width: min(540px, calc(100% - 2rem));
     margin: 0 1rem 0 auto;
   }
+
+  .strip-row {
+    display: block;
+    min-height: 0.48rem;
+    padding: 0.24rem 0;
+  }
+
+  .strip-row span {
+    display: none;
+  }
 }
 
 @media (min-width: 1025px) and (max-height: 880px) {
@@ -1756,7 +1766,7 @@ td {
     left: auto;
     bottom: auto;
     width: calc(100% - 1rem);
-    margin: clamp(11rem, 38vh, 20rem) 0 0.75rem 0.5rem;
+    margin: clamp(8.5rem, 26vh, 12.5rem) 0 0.75rem 0.5rem;
     padding: 0.86rem 0.76rem 0.92rem;
   }
 
@@ -1875,16 +1885,6 @@ td {
   .card-grid-3,
   .gallery-3 {
     grid-template-columns: 1fr;
-  }
-
-  .strip-row {
-    display: block;
-    min-height: 0.48rem;
-    padding: 0.24rem 0;
-  }
-
-  .strip-row span {
-    display: none;
   }
 
   h1 {
