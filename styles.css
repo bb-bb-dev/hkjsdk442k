@@ -170,6 +170,10 @@ section[id] {
   border-bottom: 1px solid var(--line);
 }
 
+.temporary-alert-wrap + main .hero-full {
+  min-height: calc(100vh - 64px - 5.4rem);
+}
+
 .hero-bg {
   position: absolute;
   inset: 0;
@@ -278,7 +282,7 @@ section[id] {
 .hero-device-stack {
   position: absolute;
   right: clamp(1rem, 4vw, 4rem);
-  top: clamp(1rem, 6vh, 3.5rem);
+  bottom: clamp(1rem, 5vh, 2.9rem);
   width: clamp(300px, 29vw, 420px);
   display: grid;
   gap: 0.7rem;
@@ -1645,8 +1649,56 @@ td {
     position: relative;
     right: auto;
     top: auto;
+    bottom: auto;
     width: min(540px, calc(100% - 2rem));
     margin: 0 1rem 0 auto;
+  }
+}
+
+@media (min-width: 1025px) and (max-height: 880px) {
+  .hero-device-stack {
+    width: clamp(280px, 26vw, 360px);
+    gap: 0.55rem;
+  }
+
+  .hero-device-stage {
+    min-height: clamp(200px, 27vh, 236px);
+    padding: 0.65rem;
+  }
+
+  .hero-device img,
+  .hero-device-watch img {
+    max-height: clamp(185px, 25vh, 218px);
+  }
+
+  .hero-device figcaption {
+    min-height: 40px;
+    font-size: 0.78rem;
+    padding: 0.42rem 0.58rem 0.48rem;
+  }
+}
+
+@media (min-width: 1025px) and (max-height: 760px) {
+  .hero-device-stack {
+    width: clamp(250px, 23vw, 310px);
+    gap: 0.45rem;
+  }
+
+  .hero-device-stage {
+    min-height: 176px;
+    padding: 0.52rem;
+  }
+
+  .hero-device img,
+  .hero-device-watch img {
+    max-height: 160px;
+  }
+
+  .hero-device figcaption {
+    min-height: 34px;
+    font-size: 0.72rem;
+    line-height: 1.25;
+    padding: 0.36rem 0.5rem 0.42rem;
   }
 }
 
