@@ -244,6 +244,21 @@
     }
 
     window.addEventListener("wheel", (event) => {
+      if (
+        isMobileNav()
+        && event.deltaY < -0.5
+        && navOpenAmount < 1
+        && window.scrollY > 0
+        && window.scrollY + event.deltaY <= 0
+      ) {
+        const remainingDelta = event.deltaY + window.scrollY;
+        event.preventDefault();
+        window.scrollBy(0, -window.scrollY);
+        lastScrollY = window.scrollY;
+        applyMobileNavScrollDelta(remainingDelta);
+        return;
+      }
+
       const navScroll = applyMobileNavScrollDelta(event.deltaY);
       if (navScroll.consumed && Math.abs(navScroll.remainingDelta) < 0.5) {
         event.preventDefault();
@@ -260,6 +275,23 @@
 
       const currentTouchY = event.touches[0]?.clientY ?? touchLastY;
       const deltaY = touchLastY - currentTouchY;
+      if (
+        isMobileNav()
+        && deltaY < -0.5
+        && navOpenAmount < 1
+        && window.scrollY > 0
+        && window.scrollY + (deltaY * touchScrollCarry) <= 0
+      ) {
+        const remainingDelta = deltaY + (window.scrollY / touchScrollCarry);
+        event.preventDefault();
+        window.scrollBy(0, -window.scrollY);
+        lastScrollY = window.scrollY;
+        applyMobileNavScrollDelta(remainingDelta);
+        touchManualScroll = true;
+        touchLastY = currentTouchY;
+        return;
+      }
+
       const navScroll = applyMobileNavScrollDelta(deltaY);
       if (navScroll.consumed) {
         touchManualScroll = true;
