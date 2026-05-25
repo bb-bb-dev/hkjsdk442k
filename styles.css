@@ -1860,6 +1860,15 @@ td {
     margin: 0 0.5rem 0 auto;
   }
 
+  .strip-row {
+    padding: 0.36rem 0;
+  }
+
+  .strip-row::before {
+    font-size: 0.44rem;
+    line-height: 1.25;
+  }
+
   .page-hero-media img,
   .gallery img,
   .hero-device img,
