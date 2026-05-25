@@ -271,6 +271,10 @@ section[id] {
   box-shadow: 0 0 0 4px rgba(55, 224, 201, 0.14);
 }
 
+.hero-overlay .cta-row {
+  margin-top: 1rem;
+}
+
 .hero-device-stack {
   position: absolute;
   right: clamp(1rem, 4vw, 4rem);
