@@ -211,6 +211,10 @@ section[id] {
   text-decoration-color: #ffffff;
 }
 
+.hero-overlay h1 + p {
+  margin: 0;
+}
+
 .hero-compat-links {
   margin: 0.25rem 0 0;
   color: #cfe1f3;
