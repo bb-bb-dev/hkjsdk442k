@@ -68,6 +68,7 @@
     let navAnimationTimer = 0;
     let resizeRaf = 0;
     let touchLastY = null;
+    let touchManualScroll = false;
 
     function isMobileNav() {
       return mobileNavQuery.matches;
@@ -207,11 +208,13 @@
       animateMobileNavTo(navOpenAmount > 0.98 ? 0 : 1);
     });
 
-    function consumeMobileNavScroll(deltaY) {
-      if (!isMobileNav() || Math.abs(deltaY) < 0.5) return false;
+    function applyMobileNavScrollDelta(deltaY) {
+      if (!isMobileNav() || Math.abs(deltaY) < 0.5) {
+        return { consumed: false, remainingDelta: deltaY };
+      }
 
       const metrics = mobileNavMetrics || getMobileNavMetrics();
-      if (!metrics) return false;
+      if (!metrics) return { consumed: false, remainingDelta: deltaY };
 
       const range = Math.max(metrics.expandedHeight - metrics.collapsedHeight, 1);
       if (deltaY > 0 && navOpenAmount > 0) {
@@ -220,33 +223,35 @@
 
         if (deltaY >= deltaToCollapsed) {
           setMobileNavAmount(0, false);
-          return false;
+          return { consumed: true, remainingDelta: deltaY - deltaToCollapsed };
         }
 
         setMobileNavAmount(navOpenAmount - (deltaY / range), false);
-        return true;
+        return { consumed: true, remainingDelta: 0 };
       }
 
       if (deltaY < 0 && navOpenAmount < 1) {
-        if (window.scrollY > 1) return false;
+        if (window.scrollY > 1) return { consumed: false, remainingDelta: deltaY };
 
         const consumedDelta = Math.min(-deltaY, (1 - navOpenAmount) * range);
         clearTimeout(navAnimationTimer);
         setMobileNavAmount(navOpenAmount + (consumedDelta / range), false);
-        return true;
+        return { consumed: consumedDelta > 0.5, remainingDelta: deltaY + consumedDelta };
       }
 
-      return false;
+      return { consumed: false, remainingDelta: deltaY };
     }
 
     window.addEventListener("wheel", (event) => {
-      if (consumeMobileNavScroll(event.deltaY)) {
+      const navScroll = applyMobileNavScrollDelta(event.deltaY);
+      if (navScroll.consumed && Math.abs(navScroll.remainingDelta) < 0.5) {
         event.preventDefault();
       }
     }, { passive: false });
 
     window.addEventListener("touchstart", (event) => {
       touchLastY = event.touches[0]?.clientY ?? null;
+      touchManualScroll = false;
     }, { passive: true });
 
     window.addEventListener("touchmove", (event) => {
@@ -254,18 +259,30 @@
 
       const currentTouchY = event.touches[0]?.clientY ?? touchLastY;
       const deltaY = touchLastY - currentTouchY;
-      if (consumeMobileNavScroll(deltaY)) {
+      const navScroll = applyMobileNavScrollDelta(deltaY);
+      if (navScroll.consumed) {
+        touchManualScroll = true;
         event.preventDefault();
+        if (Math.abs(navScroll.remainingDelta) > 0.5) {
+          window.scrollBy(0, navScroll.remainingDelta);
+          lastScrollY = window.scrollY;
+        }
+      } else if (touchManualScroll) {
+        event.preventDefault();
+        window.scrollBy(0, deltaY);
+        lastScrollY = window.scrollY;
       }
       touchLastY = currentTouchY;
     }, { passive: false });
 
     window.addEventListener("touchend", () => {
       touchLastY = null;
+      touchManualScroll = false;
     }, { passive: true });
 
     window.addEventListener("touchcancel", () => {
       touchLastY = null;
+      touchManualScroll = false;
     }, { passive: true });
 
     window.addEventListener("scroll", () => {
