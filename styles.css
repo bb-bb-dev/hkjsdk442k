@@ -1025,6 +1025,12 @@ h3 {
   margin-top: 0.72rem;
 }
 
+.compat-card-links-stacked {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.28rem;
+}
+
 .compat-info-card {
   display: flex;
   flex-direction: column;
