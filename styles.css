@@ -888,6 +888,7 @@ h3 {
 }
 
 .compat-duo-card {
+  position: relative;
   margin: 0;
   display: grid;
   gap: 0.38rem;
