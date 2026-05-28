@@ -192,6 +192,13 @@
               <li>Popup alerts are available on Edge x40 devices and newer, and on newer Garmin watches.</li>
             </ul>
           </article>
+          <article class="card">
+            <h3>Duplicate pressure alerts and data field restarts after returning from the Garmin home screen</h3>
+            <p>With Edge firmware 31.29, Garmin changed how Connect IQ data fields behave. The release notes included this line: "Fixed CIQ data fields causing UI lag/freeze. CIQ data fields will now start when you enter the timer loop or when an activity is started."</p>
+            <p>With this firmware, if you go to the Garmin home screen and then return to a data screen with the TubeWitch data field while no activity is recording, TubeWitch will restart, search for sensors again, and may trigger a duplicate pressure alert. If an activity is running or paused, TubeWitch should not restart when returning to the data screen and should not trigger another alert.</p>
+            <p>Work is in progress to compensate for this new behavior and prevent these duplicate alerts.</p>
+            <p>This firmware change also means the TubeWitch data field must be visible on your Garmin device when changing TubeWitch settings in the Connect IQ mobile app.</p>
+          </article>
         </div>
         <figure class="card shot">
           <img class="fullshot" src="assets/img/sram_phone_app.jpg" alt="SRAM AXS app showing tire pressure target settings" />
