@@ -350,14 +350,17 @@
       document.body.style.overflow = "";
       boxImg.src = "";
       boxImg.alt = "";
+      boxImg.classList.remove("lightbox-transparent-shot");
       boxCap.textContent = "";
     }
 
     document.querySelectorAll(".shot img").forEach((img) => {
       img.addEventListener("click", () => {
-        boxImg.src = img.currentSrc || img.src;
+        const imageSrc = img.currentSrc || img.src;
+        boxImg.src = imageSrc;
         boxCap.textContent = (img.closest("figure")?.querySelector("figcaption")?.textContent || img.alt || "").trim();
         boxImg.alt = (img.alt || boxCap.textContent || "").trim();
+        boxImg.classList.toggle("lightbox-transparent-shot", imageSrc.includes("sensor_ids.png"));
         box.hidden = false;
         document.body.style.overflow = "hidden";
       });

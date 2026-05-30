@@ -1493,6 +1493,10 @@ td {
   border-radius: 8px;
 }
 
+.lightbox img.lightbox-transparent-shot {
+  background: linear-gradient(180deg, var(--surface), var(--surface-2));
+}
+
 .lightbox-caption {
   margin: 0.52rem 0 0;
   color: #cbdced;
