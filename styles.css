@@ -119,19 +119,10 @@ section[id] {
   font-weight: 700;
 }
 
-.brand-icon {
+.brand img {
   width: 34px;
   height: 34px;
   border-radius: 8px;
-  display: block;
-  flex: 0 0 auto;
-}
-
-.brand-wordmark {
-  width: 79px;
-  height: auto;
-  display: block;
-  flex: 0 0 auto;
 }
 
 .nav-links {
