@@ -398,6 +398,10 @@ section[id] {
   background: #08121d;
 }
 
+.page-hero-media img.transparent-shot {
+  background: transparent;
+}
+
 .strip {
   border-bottom: 1px solid var(--line);
   border-top: 1px solid var(--line);
