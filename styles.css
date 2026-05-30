@@ -120,9 +120,9 @@ section[id] {
 }
 
 .brand img {
-  width: 34px;
-  height: 34px;
-  border-radius: 8px;
+  width: 138px;
+  height: auto;
+  display: block;
 }
 
 .nav-links {
