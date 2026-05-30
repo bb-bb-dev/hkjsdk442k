@@ -1282,6 +1282,12 @@ h3 {
   border-radius: 8px;
 }
 
+.card.shot .fullshot.transparent-shot,
+.sensor-card .fullshot.transparent-shot,
+.page-hero-media img.transparent-shot {
+  background: transparent;
+}
+
 .sensor-card figcaption {
   margin: 0.5rem 0 0;
   border-top: 1px solid #2a3f58;
