@@ -945,6 +945,14 @@ h3 {
   max-height: 248px;
 }
 
+#quarq-sram .compat-card-media img.compat-img-scale-75 {
+  transform: scale(0.75);
+}
+
+#quarq-sram .compat-card-media img.compat-img-scale-125 {
+  transform: scale(1.25);
+}
+
 .compat-wheel-media {
   min-height: 260px;
   background:
