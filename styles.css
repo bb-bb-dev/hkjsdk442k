@@ -949,8 +949,8 @@ h3 {
   transform: scale(0.9);
 }
 
-#quarq-sram .compat-card-media img.compat-img-scale-110 {
-  transform: scale(1.1);
+#quarq-sram .compat-card-media img.compat-img-scale-105 {
+  transform: scale(1.05);
 }
 
 .compat-wheel-media {
