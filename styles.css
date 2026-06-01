@@ -720,6 +720,26 @@ h3 {
   flex: 0 0 auto;
 }
 
+.field-visible-emphasis {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #ff3b30;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.field-visible-emphasis strong {
+  color: inherit;
+  font-weight: inherit;
+}
+
+.field-visible-icon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+
 .callout a {
   color: #cbfff0;
   font-weight: 700;
