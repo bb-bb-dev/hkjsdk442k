@@ -721,12 +721,8 @@ h3 {
 }
 
 .field-visible-emphasis {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
   color: #ff3b30;
   font-weight: 800;
-  white-space: nowrap;
 }
 
 .field-visible-emphasis strong {
@@ -737,7 +733,8 @@ h3 {
 .field-visible-icon {
   width: 18px;
   height: 18px;
-  flex: 0 0 auto;
+  margin: 0 0.2rem;
+  vertical-align: -0.2em;
 }
 
 .callout a {
