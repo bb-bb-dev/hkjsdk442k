@@ -677,7 +677,9 @@ h3 {
   margin: 0 0 0.22rem;
 }
 
-#current-settings-bug-workaround .eyebrow {
+#current-settings-bug-workaround .eyebrow,
+#current-settings-garmin-express-workaround .eyebrow {
+  font-size: 1rem;
   margin-bottom: 0.42rem;
 }
 
