@@ -651,6 +651,14 @@ h3 {
   margin-top: 0.76rem;
 }
 
+#current-settings-bug-workaround + #current-settings-garmin-express-workaround {
+  margin-top: 0.52rem;
+}
+
+#current-settings-garmin-express-workaround + .callout {
+  margin-top: 0.76rem;
+}
+
 .troubleshooting-followup-grid {
   margin-top: 0.76rem;
 }
