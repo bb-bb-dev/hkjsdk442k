@@ -679,8 +679,13 @@ h3 {
 
 #current-settings-bug-workaround .eyebrow,
 #current-settings-garmin-express-workaround .eyebrow {
+  display: inline-block;
+  color: #ffffff;
   font-size: 1rem;
   margin-bottom: 0.42rem;
+  padding-bottom: 0.14rem;
+  border-bottom: 1px solid rgba(255, 59, 48, 0.78);
+  text-shadow: 0 0 12px rgba(255, 59, 48, 0.45);
 }
 
 .callout p + p {
