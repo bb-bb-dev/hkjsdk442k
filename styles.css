@@ -1049,6 +1049,11 @@ h3 {
   gap: 0.4rem;
 }
 
+.compat-status-group-stacked {
+  flex-direction: column;
+  align-items: flex-end;
+}
+
 .compat-card h3,
 .compat-feature-copy h3,
 .compat-info-card h3 {
@@ -2016,6 +2021,10 @@ td {
 
   .compat-status-group {
     justify-content: flex-start;
+  }
+
+  .compat-status-group-stacked {
+    align-items: flex-start;
   }
 
   .compat-warning-title {
