@@ -631,6 +631,15 @@ html[data-page="garmin-setup-help-article"] main {
   color: #f4fbff;
 }
 
+.help-sidebar-group a.active {
+  color: #f4fbff;
+  font-weight: 800;
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  padding-left: 0.55rem;
+  background: rgba(55, 224, 201, 0.09);
+}
+
 .help-article {
   max-width: 860px;
 }

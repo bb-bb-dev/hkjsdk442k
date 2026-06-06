@@ -301,6 +301,61 @@
     syncMobileNav();
   }
 
+  const helpSidebar = document.querySelector(".help-sidebar");
+  if (helpSidebar) {
+    const helpTargets = Array.from(helpSidebar.querySelectorAll("a[href^='#']"))
+      .map((link) => {
+        const targetId = link.getAttribute("href").slice(1);
+        return { link, target: document.getElementById(targetId) };
+      })
+      .filter((item) => item.target);
+
+    let activeHelpId = "";
+    let helpScrollRaf = 0;
+
+    function setActiveHelpLink(activeId) {
+      if (!activeId || activeId === activeHelpId) return;
+      activeHelpId = activeId;
+
+      helpTargets.forEach(({ link, target }) => {
+        const active = target.id === activeId;
+        link.classList.toggle("active", active);
+        if (active) {
+          link.setAttribute("aria-current", "location");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
+    }
+
+    function updateActiveHelpLink() {
+      const offset = Math.min(window.innerHeight * 0.35, 220);
+      let activeId = helpTargets[0]?.target.id || "";
+
+      helpTargets.forEach(({ target }) => {
+        if (target.getBoundingClientRect().top <= offset) {
+          activeId = target.id;
+        }
+      });
+
+      setActiveHelpLink(activeId);
+    }
+
+    function requestActiveHelpUpdate() {
+      if (helpScrollRaf) return;
+      helpScrollRaf = requestAnimationFrame(() => {
+        helpScrollRaf = 0;
+        updateActiveHelpLink();
+      });
+    }
+
+    if (helpTargets.length) {
+      updateActiveHelpLink();
+      window.addEventListener("scroll", requestActiveHelpUpdate, { passive: true });
+      window.addEventListener("resize", requestActiveHelpUpdate, { passive: true });
+    }
+  }
+
   const reveals = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window) {
     const io = new IntersectionObserver((entries) => {
