@@ -805,7 +805,7 @@ html.article-review-page .settings-overview-media {
 }
 
 html.article-review-page .settings-overview-media img {
-  width: min(100%, 220px);
+  width: min(100%, 200px);
   border: 0;
   background: transparent;
 }
