@@ -152,14 +152,22 @@
         <section id="no-pressure-data">
           <h2>No Pressure Data</h2>
           <p>If no pressure is shown after setup, work from the sensor outward before changing other settings.</p>
-          <h3>Check the sensor, SRAM setup, and saved ID</h3>
-          <ul>
-            <li>Rotate the wheels to wake the sensors and look for a flashing LED.</li>
-            <li>Replace the battery if the sensor does not wake up.</li>
-            <li>Confirm the sensor can be reached through the SRAM AXS mobile app.</li>
-            <li>In the SRAM mobile app, make sure each sensor is assigned to the front or rear wheel and a target pressure is specified.</li>
-            <li>Open TubeWitch settings and confirm the correct sensor ID was actually saved.</li>
-          </ul>
+          <div class="help-inline-media">
+            <div>
+              <h3>Check the sensor, SRAM setup, and saved ID</h3>
+              <ul>
+                <li>Rotate the wheels to wake the sensors and look for a flashing LED.</li>
+                <li>Replace the battery if the sensor does not wake up.</li>
+                <li>Confirm the sensor can be reached through the SRAM AXS mobile app.</li>
+                <li>In the SRAM mobile app, make sure each sensor is assigned to the front or rear wheel and a target pressure is specified.</li>
+                <li>Open TubeWitch settings and confirm the correct sensor ID was actually saved.</li>
+              </ul>
+            </div>
+            <figure class="help-figure help-phone-figure shot">
+              <img src="assets/img/sram_phone_app.jpg" alt="SRAM AXS app showing tire pressure target settings" />
+              <figcaption>Wheel position and pressure targets are managed in the SRAM AXS mobile app</figcaption>
+            </figure>
+          </div>
           <h3>Acknowledge the open-connection message</h3>
           <p>Messages about sensors using open connections are expected during initial setup and appear once per sensor.</p>
           <p>You must acknowledge that message for each sensor before data can be received. If the prompt was missed, reboot the Garmin device to trigger it again.</p>
@@ -196,10 +204,6 @@
           <p>With this firmware, if you go to the Garmin home screen and then return to a data screen with the TubeWitch data field while no activity is recording, TubeWitch will restart, search for sensors again, and may trigger a duplicate pressure alert. If an activity is running or paused, TubeWitch should not restart when returning to the data screen and should not trigger another alert.</p>
           <p>A TubeWitch update is in progress to handle this new Garmin behavior and prevent these duplicate alerts.</p>
           <p>This firmware change also means the <span class="field-visible-emphasis"><img class="field-visible-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" />TubeWitch data field must be visible on your Garmin device<img class="field-visible-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" /></span> when changing TubeWitch settings in the Connect IQ mobile app.</p>
-          <figure class="help-figure help-phone-figure shot">
-            <img src="assets/img/sram_phone_app.jpg" alt="SRAM AXS app showing tire pressure target settings" />
-            <figcaption>Wheel position and pressure targets are managed in the SRAM AXS mobile app</figcaption>
-          </figure>
         </section>
 
         <section id="fit-recording-problems">
