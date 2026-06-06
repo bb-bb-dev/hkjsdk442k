@@ -574,7 +574,8 @@ h3 {
   background: rgba(26, 44, 65, 0.92);
 }
 
-html[data-page="garmin-setup-help-article"] main {
+html[data-page="garmin-setup-help-article"] main,
+html.article-review-page main {
   overflow: visible;
 }
 
