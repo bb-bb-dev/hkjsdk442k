@@ -748,7 +748,7 @@ html.article-review-page .help-phone-figure {
 
 .support-inline-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(190px, 240px);
+  grid-template-columns: minmax(190px, 240px) minmax(0, 1fr);
   align-items: start;
   gap: 1.1rem;
 }
