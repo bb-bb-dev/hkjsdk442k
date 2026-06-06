@@ -1442,9 +1442,9 @@ html.article-review-page #sensor-id-demo .sensor-demo-videos .video-stage {
 }
 
 html.article-review-page #sensor-id-demo .sensor-demo-videos .video-stage h3 {
-  min-height: 2.45em;
+  min-height: 3.75em;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 html.article-review-page #sensor-id-demo .sensor-demo-videos .video-embed {
