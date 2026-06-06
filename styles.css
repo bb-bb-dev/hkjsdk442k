@@ -780,7 +780,7 @@ html.article-review-page .help-phone-figure {
 
 .settings-overview-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(340px, 500px);
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
   align-items: start;
   gap: 1.2rem;
 }
@@ -790,7 +790,7 @@ html.article-review-page .help-phone-figure {
 }
 
 html.article-review-page .settings-overview-figure {
-  width: min(100%, 500px);
+  width: min(100%, 420px);
 }
 
 html.article-review-page .settings-overview-media {
@@ -2431,4 +2431,3 @@ html.article-review-page .help-article .text-link-button[data-info-trigger] {
     font-size: clamp(1.9rem, 11vw, 2.7rem);
   }
 }
-/* deploy-check-20260606-170538 */
