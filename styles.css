@@ -780,7 +780,7 @@ html.article-review-page .help-phone-figure {
 
 .settings-overview-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(160px, 200px);
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
   align-items: start;
   gap: 1.2rem;
 }
@@ -790,7 +790,24 @@ html.article-review-page .help-phone-figure {
 }
 
 html.article-review-page .settings-overview-figure {
-  width: min(100%, 200px);
+  width: min(100%, 340px);
+}
+
+html.article-review-page .settings-overview-media {
+  display: flex;
+  justify-content: center;
+  padding: 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background:
+    radial-gradient(340px 220px at 50% 0%, rgba(88, 215, 255, 0.1), transparent 58%),
+    linear-gradient(180deg, #091420 0%, #0f1f31 100%);
+}
+
+html.article-review-page .settings-overview-media img {
+  width: min(100%, 220px);
+  border: 0;
+  background: transparent;
 }
 
 .setup-overview-layout {
