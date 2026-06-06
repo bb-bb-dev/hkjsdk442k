@@ -1384,6 +1384,10 @@ html.article-review-page .help-article .callout + h3 {
   gap: 0.76rem;
 }
 
+html[data-page="gallery"] .split.two-up {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .device-card {
   margin: 0;
   border: 1px solid var(--line);
