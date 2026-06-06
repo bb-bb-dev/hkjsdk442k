@@ -1436,6 +1436,8 @@ html.article-review-page #sensor-id-demo .sensor-demo-videos .help-video-figure 
 
 html.article-review-page #sensor-id-demo .sensor-demo-videos .video-stage {
   gap: 0.55rem;
+  min-height: 0;
+  margin: 0;
 }
 
 html.article-review-page #sensor-id-demo .sensor-demo-videos .video-stage h3 {
