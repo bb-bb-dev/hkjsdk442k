@@ -793,6 +793,18 @@ html.article-review-page .settings-overview-figure {
   width: min(100%, 200px);
 }
 
+.setup-overview-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
+  align-items: start;
+  gap: 1.2rem;
+}
+
+.setup-overview-layout .help-figure {
+  width: min(100%, 360px);
+  margin: 0.15rem 0 0;
+}
+
 .help-inline-media {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(120px, 200px);
@@ -2194,6 +2206,10 @@ html.article-review-page .help-article .text-link-button[data-info-trigger] {
   }
 
   .settings-overview-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .setup-overview-layout {
     grid-template-columns: 1fr;
   }
 
