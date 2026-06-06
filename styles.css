@@ -723,7 +723,7 @@ html.article-review-page .help-video-figure {
 }
 
 html.article-review-page .help-phone-figure {
-  width: min(100%, 160px);
+  width: min(100%, 200px);
 }
 
 .help-figure img {
@@ -780,7 +780,7 @@ html.article-review-page .help-phone-figure {
 
 .settings-overview-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(160px, 236px);
+  grid-template-columns: minmax(0, 1fr) minmax(160px, 200px);
   align-items: start;
   gap: 1.2rem;
 }
@@ -790,12 +790,12 @@ html.article-review-page .help-phone-figure {
 }
 
 html.article-review-page .settings-overview-figure {
-  width: min(100%, 236px);
+  width: min(100%, 200px);
 }
 
 .help-inline-media {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(120px, 160px);
+  grid-template-columns: minmax(0, 1fr) minmax(120px, 200px);
   align-items: start;
   gap: 1rem;
   margin-top: 2.35rem;
