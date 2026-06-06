@@ -777,6 +777,15 @@ html.article-review-page .settings-overview-figure {
   grid-template-columns: minmax(0, 1fr) minmax(120px, 160px);
   align-items: start;
   gap: 1rem;
+  margin-top: 2.35rem;
+  padding-top: 1.05rem;
+  border-top: 1px solid var(--line);
+}
+
+.help-inline-media h2 {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
 }
 
 .help-inline-media .help-figure {
