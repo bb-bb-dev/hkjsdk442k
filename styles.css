@@ -802,7 +802,7 @@ html.article-review-page .settings-overview-figure {
 
 .setup-overview-layout .help-figure {
   width: min(100%, 360px);
-  margin: 0.15rem 0 0;
+  margin: -0.5rem 0 0;
 }
 
 .help-inline-media {
