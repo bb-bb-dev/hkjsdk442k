@@ -786,7 +786,7 @@ html.article-review-page .help-phone-figure {
 }
 
 .settings-overview-layout .help-figure {
-  margin-top: 0;
+  margin-top: -1.65rem;
 }
 
 html.article-review-page .settings-overview-figure {
@@ -2232,6 +2232,10 @@ html.article-review-page .help-article .text-link-button[data-info-trigger] {
 
   .settings-overview-layout {
     grid-template-columns: 1fr;
+  }
+
+  .settings-overview-layout .help-figure {
+    margin-top: 0;
   }
 
   .setup-overview-layout {
