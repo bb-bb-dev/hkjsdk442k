@@ -586,6 +586,11 @@ html.article-review-page main {
   padding: 1.4rem 0 1rem;
 }
 
+html.article-review-page .help-doc {
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 1.85rem;
+}
+
 .help-sidebar {
   position: sticky;
   top: 86px;
@@ -730,6 +735,17 @@ html.article-review-page .help-figure {
 
 .help-figure.contact-developer-figure img {
   max-width: 240px;
+  margin: 0;
+}
+
+.support-inline-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(190px, 240px);
+  align-items: start;
+  gap: 1.1rem;
+}
+
+.support-inline-layout .help-figure {
   margin: 0;
 }
 
@@ -2103,6 +2119,10 @@ td {
   .help-doc {
     display: block;
     padding-top: 0.9rem;
+  }
+
+  .support-inline-layout {
+    grid-template-columns: 1fr;
   }
 
   .help-sidebar {
