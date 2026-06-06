@@ -1656,6 +1656,10 @@ td {
   font: inherit;
 }
 
+html.article-review-page .help-article .text-link-button[data-info-trigger] {
+  margin-left: 1.22rem;
+}
+
 .pill-row {
   display: flex;
   flex-wrap: wrap;
