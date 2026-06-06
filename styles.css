@@ -723,6 +723,11 @@ html[data-page="garmin-setup-help-article"] main {
     linear-gradient(180deg, #091420 0%, #0f1f31 100%);
 }
 
+.help-figure.contact-developer-figure img {
+  max-width: 200px;
+  margin: 0 auto;
+}
+
 .help-figure figcaption {
   color: #7f98b4;
   font-size: 0.85rem;
@@ -1469,7 +1474,7 @@ html[data-page="garmin-setup-help-article"] main {
 }
 
 .support-card-inline {
-  width: min(72%, 300px);
+  width: min(56%, 200px);
 }
 
 .faq-placeholder {
@@ -2186,7 +2191,7 @@ td {
   }
 
   .support-card-inline {
-    width: 100%;
+    width: min(76%, 200px);
   }
 
   .compat-card-media,
