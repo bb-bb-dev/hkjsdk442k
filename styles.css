@@ -650,18 +650,6 @@ html.article-review-page .help-doc {
   max-width: 860px;
 }
 
-.article-intro-card {
-  margin: 0 0 1.25rem;
-  padding: 1rem;
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  background: linear-gradient(180deg, rgba(13, 25, 38, 0.92), rgba(13, 25, 38, 0.72));
-}
-
-.article-intro-card p:last-child {
-  margin-bottom: 0;
-}
-
 .help-breadcrumbs {
   margin: 0 0 0.55rem;
   color: #7f98b4;
