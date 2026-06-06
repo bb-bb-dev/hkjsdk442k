@@ -723,7 +723,7 @@ html.article-review-page .help-video-figure {
 }
 
 html.article-review-page .help-phone-figure {
-  width: min(100%, 320px);
+  width: min(100%, 160px);
 }
 
 .help-figure img {
