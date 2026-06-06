@@ -802,7 +802,7 @@ html.article-review-page .settings-overview-figure {
 
 .setup-overview-layout .help-figure {
   width: min(100%, 360px);
-  margin: -0.5rem 0 0;
+  margin: -4.1rem 0 0;
 }
 
 .help-inline-media {
@@ -1423,6 +1423,36 @@ html.article-review-page .help-article .callout + h3 {
 
 #sensor-id-demo .callout + .sensor-demo-videos {
   margin-top: 0.8rem;
+}
+
+html.article-review-page #sensor-id-demo .sensor-demo-videos {
+  align-items: stretch;
+}
+
+html.article-review-page #sensor-id-demo .sensor-demo-videos .help-video-figure {
+  width: 100%;
+  margin: 0;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+html.article-review-page #sensor-id-demo .sensor-demo-videos .video-stage {
+  height: 100%;
+  gap: 0.55rem;
+}
+
+html.article-review-page #sensor-id-demo .sensor-demo-videos .video-stage h3 {
+  min-height: 2.45em;
+  display: flex;
+  align-items: center;
+}
+
+html.article-review-page #sensor-id-demo .sensor-demo-videos .video-embed {
+  aspect-ratio: 16 / 8;
+}
+
+html.article-review-page #sensor-id-demo .sensor-demo-videos figcaption {
+  min-height: 2.7em;
 }
 
 .text-link.setup-demo-link {
@@ -2211,6 +2241,10 @@ html.article-review-page .help-article .text-link-button[data-info-trigger] {
 
   .setup-overview-layout {
     grid-template-columns: 1fr;
+  }
+
+  .setup-overview-layout .help-figure {
+    margin: 0.15rem 0 0;
   }
 
   .help-inline-media {
