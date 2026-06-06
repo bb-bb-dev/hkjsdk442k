@@ -574,6 +574,10 @@ h3 {
   background: rgba(26, 44, 65, 0.92);
 }
 
+html[data-page="garmin-setup-help-article"] main {
+  overflow: visible;
+}
+
 .help-doc {
   display: grid;
   grid-template-columns: 260px minmax(0, 1fr);
@@ -585,6 +589,8 @@ h3 {
   position: sticky;
   top: 86px;
   align-self: start;
+  max-height: calc(100vh - 104px);
+  overflow-y: auto;
   border-right: 1px solid var(--line);
   padding: 0.15rem 1.15rem 1rem 0;
   color: var(--muted);
@@ -2054,6 +2060,8 @@ td {
 
   .help-sidebar {
     position: static;
+    max-height: none;
+    overflow: visible;
     border-right: 0;
     border-bottom: 1px solid var(--line);
     padding: 0 0 0.85rem;
