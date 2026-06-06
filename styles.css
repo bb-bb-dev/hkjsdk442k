@@ -1425,35 +1425,6 @@ html.article-review-page .help-article .callout + h3 {
   margin-top: 0.8rem;
 }
 
-html.article-review-page #sensor-id-demo .sensor-demo-videos {
-  align-items: stretch;
-}
-
-html.article-review-page #sensor-id-demo .sensor-demo-videos .help-video-figure {
-  width: 100%;
-  margin: 0;
-}
-
-html.article-review-page #sensor-id-demo .sensor-demo-videos .video-stage {
-  gap: 0.55rem;
-  min-height: 0;
-  margin: 0;
-}
-
-html.article-review-page #sensor-id-demo .sensor-demo-videos .video-stage h3 {
-  min-height: 3.75em;
-  display: flex;
-  align-items: flex-start;
-}
-
-html.article-review-page #sensor-id-demo .sensor-demo-videos .video-embed {
-  aspect-ratio: 16 / 8;
-}
-
-html.article-review-page #sensor-id-demo .sensor-demo-videos figcaption {
-  min-height: 2.7em;
-}
-
 .text-link.setup-demo-link {
   display: flex;
   margin-bottom: 0;
