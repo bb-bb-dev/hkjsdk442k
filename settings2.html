@@ -163,9 +163,7 @@
           <ul class="reference-list">
             <li><strong>Sensor Timeout</strong> Default 15 Minutes. During an activity, TubeWitch times out if no sensors are found. No timeout is applied if an activity is not started.</li>
           </ul>
-          <p>If a Garmin activity is started but sensors are not being used, the data field keeps searching until the timeout, default 15 minutes. Then it shows &quot;Sensors Not Found&quot; and stops scanning to save battery. Tapping the Data Field or Stop and Resume can restart the scan.</p>
-          <p>If a Garmin activity is started and sensors were found but the signals drop, the field shows the last received pressure with a &quot;?&quot; to indicate stale data. If the signal stays missing long enough, the sensor times out after the default 15 minutes. It then shows an &quot;X&quot; next to the pressure, meaning it has stopped searching for that sensor to save battery.</p>
-          <p>If Auto Switch mode is active and both sensors become stale, TubeWitch starts scanning other configured sensor sets before showing an &quot;X&quot;. It will still time out after 15 minutes if no sensors are found.</p>
+          <button type="button" class="text-link text-link-button" data-info-trigger="sensor-timeout">More Info</button>
         </section>
 
         <section id="auto-scan-delay">
@@ -173,8 +171,7 @@
           <ul class="reference-list">
             <li><strong>Auto Switch Scan Delay</strong> Default 60 Seconds. If both sensors disconnect while Active Sensor Set = Auto, TubeWitch waits for this delay before scanning other sets again at 10 seconds each.</li>
           </ul>
-          <p>After a Garmin Edge power cycle, or after starting a new activity on a watch, Auto Switch will scan each configured sensor set for 10 seconds until it finds one that is active. Even when all 5 bikes or wheelsets are configured, it will typically find the correct set within a minute.</p>
-          <p>When starting a ride, TubeWitch can lock onto any of the 5 configured sensor sets if they are active and nearby. Once locked on, it will stay on that set until they are out of range and TubeWitch shows &quot;?&quot;, indicating a lost connection. It then waits for the Auto Switch Scan Delay, default 60 seconds, and resumes scanning all configured sensor sets for 10 seconds each. After riding away from the other nearby sensors, Auto Switch should lock on to the bike or wheelset actually being ridden within a minute.</p>
+          <button type="button" class="text-link text-link-button" data-info-trigger="auto-switch-delay">More Info</button>
         </section>
 
         <section id="alarms">
@@ -245,6 +242,25 @@
       <p class="legal-note">TubeWitch is an independent third-party Garmin Connect IQ data field and is not affiliated with, endorsed by, or sponsored by Garmin, SRAM, Quarq, Zipp, TyreWiz, Schwalbe, SKS, AIRMAX, AIRSPY, or OpenTPMS. All trademarks are the property of their respective owners.</p>
     </div>
   </footer>
+
+  <div id="info-modal" class="info-modal" hidden>
+    <div class="info-modal-panel" role="dialog" aria-modal="true" aria-label="Settings examples">
+      <button class="info-modal-close" aria-label="Close more info">x</button>
+      <div class="info-modal-copy">
+        <section data-info-panel="auto-switch-delay" hidden>
+          <h2>Auto Switch Delay Example</h2>
+          <p>After a Garmin Edge power cycle, or after starting a new activity on a watch, Auto Switch will scan each configured sensor set for 10 seconds until it finds one that is active. Even when all 5 bikes or wheelsets are configured, it will typically find the correct set within a minute.</p>
+          <p>When starting a ride, TubeWitch can lock onto any of the 5 configured sensor sets if they are active and nearby. Once locked on, it will stay on that set until they are out of range and TubeWitch shows &quot;?&quot;, indicating a lost connection. It then waits for the Auto Switch Scan Delay, default 60 seconds, and resumes scanning all configured sensor sets for 10 seconds each. After riding away from the other nearby sensors, Auto Switch should lock on to the bike or wheelset actually being ridden within a minute.</p>
+        </section>
+        <section data-info-panel="sensor-timeout" hidden>
+          <h2>TubeWitch Timeout Examples</h2>
+          <p>If a Garmin activity is started but sensors are not being used, the data field keeps searching until the timeout, default 15 minutes. Then it shows &quot;Sensors Not Found&quot; and stops scanning to save battery. Tapping the Data Field or Stop and Resume can restart the scan.</p>
+          <p>If a Garmin activity is started and sensors were found but the signals drop, the field shows the last received pressure with a &quot;?&quot; to indicate stale data. If the signal stays missing long enough, the sensor times out after the default 15 minutes. It then shows an &quot;X&quot; next to the pressure, meaning it has stopped searching for that sensor to save battery.</p>
+          <p>If Auto Switch mode is active and both sensors become stale, TubeWitch starts scanning other configured sensor sets before showing an &quot;X&quot;. It will still time out after 15 minutes if no sensors are found.</p>
+        </section>
+      </div>
+    </div>
+  </div>
 
   <div id="lightbox" class="lightbox" hidden>
     <button class="lightbox-close" aria-label="Close image">x</button>
