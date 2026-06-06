@@ -1425,6 +1425,14 @@ html.article-review-page .help-article .callout + h3 {
   margin-top: 0.8rem;
 }
 
+html.article-review-page #sensor-id-demo .sensor-demo-videos .video-stage {
+  min-height: 0;
+}
+
+html.article-review-page #sensor-id-demo .sensor-demo-videos .video-stage h3 {
+  min-height: 2.5em;
+}
+
 .text-link.setup-demo-link {
   display: flex;
   margin-bottom: 0;
