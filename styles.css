@@ -757,6 +757,21 @@ html.article-review-page .help-phone-figure {
   margin: 0;
 }
 
+.settings-overview-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 315px);
+  align-items: start;
+  gap: 1.2rem;
+}
+
+.settings-overview-layout .help-figure {
+  margin-top: 0.1rem;
+}
+
+html.article-review-page .settings-overview-figure {
+  width: min(100%, 315px);
+}
+
 .help-figure figcaption {
   color: #7f98b4;
   font-size: 0.85rem;
@@ -2134,6 +2149,10 @@ html.article-review-page .help-article .text-link-button[data-info-trigger] {
   }
 
   .support-inline-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .settings-overview-layout {
     grid-template-columns: 1fr;
   }
 
