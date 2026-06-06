@@ -715,7 +715,15 @@ html.article-review-page .help-doc {
 }
 
 html.article-review-page .help-figure {
+  width: min(100%, 420px);
+}
+
+html.article-review-page .help-video-figure {
   width: min(100%, 620px);
+}
+
+html.article-review-page .help-phone-figure {
+  width: min(100%, 320px);
 }
 
 .help-figure img {
