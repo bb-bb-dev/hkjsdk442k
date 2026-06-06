@@ -724,8 +724,8 @@ html[data-page="garmin-setup-help-article"] main {
 }
 
 .help-figure.contact-developer-figure img {
-  max-width: 200px;
-  margin: 0 auto;
+  max-width: 240px;
+  margin: 0;
 }
 
 .help-figure figcaption {
@@ -1474,7 +1474,9 @@ html[data-page="garmin-setup-help-article"] main {
 }
 
 .support-card-inline {
-  width: min(56%, 200px);
+  width: min(64%, 240px);
+  margin-left: 0;
+  margin-right: auto;
 }
 
 .faq-placeholder {
@@ -2191,7 +2193,7 @@ td {
   }
 
   .support-card-inline {
-    width: min(76%, 200px);
+    width: min(82%, 240px);
   }
 
   .compat-card-media,
