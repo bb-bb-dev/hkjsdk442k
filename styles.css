@@ -802,6 +802,28 @@ html.article-review-page .help-figure {
   margin-top: 0.52rem;
 }
 
+html.article-review-page .help-article section > .temporary-alert,
+html.article-review-page .help-article section > .callout {
+  margin-top: 0.72rem;
+}
+
+html.article-review-page .help-article .temporary-alert + .callout {
+  margin-top: 0.52rem;
+}
+
+html.article-review-page .help-article .callout + .callout {
+  margin-top: 0.52rem;
+}
+
+html.article-review-page .help-article .callout + .help-figure,
+html.article-review-page .help-article .callout + .sensor-demo-videos {
+  margin-top: 0.9rem;
+}
+
+html.article-review-page .help-article .callout + h3 {
+  margin-top: 1.45rem;
+}
+
 #setup-answers .callout + .card-grid {
   margin-top: 0.76rem;
 }
