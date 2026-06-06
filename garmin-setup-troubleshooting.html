@@ -8,18 +8,18 @@
   <link rel="icon" href="favicon-48.png" type="image/png" sizes="48x48" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <meta name="robots" content="noindex,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
-  <title>TubeWitch Garmin Setup and Troubleshooting</title>
-  <meta name="description" content="Start here for TubeWitch Garmin setup, sensor ID entry, settings-save fixes, missing pressure data, alert checks, and support links." />
+  <title>TubeWitch Garmin Setup Help and Troubleshooting</title>
+  <meta name="description" content="Start here for TubeWitch Garmin setup, sensor ID entry, settings-save fixes, live pressure checks, alert troubleshooting, and support links." />
   <link rel="canonical" href="https://tubewitch.com/garmin-setup-troubleshooting.html" />
   <meta property="og:site_name" content="TubeWitch" />
-  <meta property="og:title" content="TubeWitch Garmin Setup and Troubleshooting" />
-  <meta property="og:description" content="A simple start-here guide for TubeWitch setup, settings saves, missing pressure data, alerts, recording, and support." />
+  <meta property="og:title" content="TubeWitch Garmin Setup Help and Troubleshooting" />
+  <meta property="og:description" content="A guided start-here page for TubeWitch setup, sensor ID entry, settings saves, live pressure checks, alerts, recording, and support." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://tubewitch.com/garmin-setup-troubleshooting.html" />
   <meta property="og:image" content="https://tubewitch.com/assets/img/tw_hero.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="TubeWitch Garmin Setup and Troubleshooting" />
-  <meta name="twitter:description" content="A simple start-here guide for TubeWitch setup, settings saves, missing pressure data, alerts, recording, and support." />
+  <meta name="twitter:title" content="TubeWitch Garmin Setup Help and Troubleshooting" />
+  <meta name="twitter:description" content="A guided start-here page for TubeWitch setup, sensor ID entry, settings saves, live pressure checks, alerts, recording, and support." />
   <meta name="twitter:image" content="https://tubewitch.com/assets/img/tw_hero.jpg" />
   <link rel="stylesheet" href="styles.css" />
   <script src="app.js" defer></script>
@@ -49,44 +49,76 @@
   <main id="main">
     <section class="page-hero wrap reveal">
       <div class="page-hero-copy">
-        <p class="kicker">Garmin setup and troubleshooting</p>
-        <h1>Start here for TubeWitch setup and common Garmin issues</h1>
+        <p class="kicker">Start here</p>
+        <h1>TubeWitch Garmin setup help</h1>
         <p>
-          This page gives a single setup path from installation to live tire pressure, then points to the most common fixes if something does not work.
+          Follow this page in order to prepare the sensors, install TubeWitch, enter sensor IDs, confirm live pressure, and fix the most common Garmin setup problems.
         </p>
         <p>
-          Use it as a quick checklist first. If a step fails, follow the matching troubleshooting link for the detailed fix.
+          If one step fails, stop there and use the matching troubleshooting section before moving on. Most problems come from settings not saving, sensor IDs not matching, or the data field not being loaded on the Garmin device.
         </p>
         <div class="cta-row">
-          <a class="btn" href="#setup-flow">Start Setup</a>
+          <a class="btn" href="#before-you-start">Start Setup</a>
           <a class="btn ghost" href="#fix-a-problem">Fix a Problem</a>
         </div>
       </div>
       <figure class="page-hero-media shot">
         <img class="fullshot" src="assets/img/tw_settings_combined.jpg" alt="TubeWitch settings overview on Garmin Connect IQ" />
-        <figcaption>Use this page as the quick path before opening the deeper setup and troubleshooting guides</figcaption>
+        <figcaption>Use this page as the guided setup path before opening the deeper setup and troubleshooting guides</figcaption>
       </figure>
     </section>
 
     <nav class="page-links wrap reveal" aria-label="Garmin setup and troubleshooting sections">
-      <a href="#setup-flow">Setup Flow</a>
+      <a href="#before-you-start">Before You Start</a>
+      <a href="#setup-flow">Setup Steps</a>
+      <a href="#sensor-id-entry">Sensor IDs</a>
       <a href="#settings-save">Settings Save</a>
-      <a href="#no-pressure">No Pressure</a>
-      <a href="#alerts">Alerts</a>
-      <a href="#recording">Recording</a>
+      <a href="#confirm-setup">Confirm Setup</a>
+      <a href="#fix-a-problem">Troubleshooting</a>
       <a href="#support">Support</a>
     </nav>
 
+    <section class="section wrap reveal" id="before-you-start">
+      <h2>Before you start</h2>
+      <p class="section-lead">TubeWitch setup is easiest when the sensor setup, Garmin app setup, and TubeWitch settings are handled as separate jobs.</p>
+      <div class="card-grid card-grid-2">
+        <article class="card">
+          <h3>What you need</h3>
+          <ul>
+            <li>A compatible tire pressure sensor or wheel sensor.</li>
+            <li>A compatible Garmin Edge device or Garmin watch.</li>
+            <li>The Garmin Connect IQ mobile app, or Garmin Express on a computer.</li>
+            <li>The SRAM AXS mobile app for TyreWiz sensor position and pressure targets.</li>
+          </ul>
+          <p class="compat-card-links">
+            <a class="hero-link" href="compatible-tire-sensors.html">Compatible tire sensors</a>
+            <a class="hero-link" href="https://apps.garmin.com/apps/9b512e62-f3b0-4aea-a932-63670e0dfe75?tid=1" target="_blank" rel="noopener noreferrer">Compatible Garmin devices</a>
+          </p>
+        </article>
+        <article class="card">
+          <h3>What each app controls</h3>
+          <ul>
+            <li><strong>SRAM AXS mobile app:</strong> sensor Front/Rear position and pressure target.</li>
+            <li><strong>TubeWitch settings:</strong> sensor IDs, labels, display options, alert options, and recording options.</li>
+            <li><strong>Garmin Connect IQ mobile app:</strong> TubeWitch install and mobile settings entry.</li>
+            <li><strong>Garmin Express:</strong> computer-based TubeWitch settings entry when mobile settings do not save reliably.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
     <section class="section wrap reveal" id="setup-flow">
-      <h2>TubeWitch setup flow</h2>
-      <p class="section-lead">Complete these steps in order before troubleshooting individual symptoms.</p>
+      <h2>Recommended setup order</h2>
+      <p class="section-lead">Complete these steps in order. Do not troubleshoot pressure data until the TubeWitch settings are saving correctly.</p>
       <article class="card">
+        <h3>Setup steps</h3>
         <ol class="steps">
           <li>Use the SRAM AXS mobile app to assign the Front/Rear position and pressure target for each sensor.</li>
           <li>Install TubeWitch using the <a class="hero-link" href="https://apps.garmin.com/en-US/apps/9b512e62-f3b0-4aea-a932-63670e0dfe75" target="_blank" rel="noopener noreferrer">Garmin Connect IQ mobile app</a>.</li>
           <li>Fully reboot the Garmin device and restart the Connect IQ mobile app.</li>
           <li>Add the TubeWitch data field to a data screen, <span class="field-visible-emphasis"><img class="field-visible-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" /><strong>leave the TubeWitch field visible</strong><img class="field-visible-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" /></span>, and rotate your wheels.</li>
           <li>Open TubeWitch settings in the Connect IQ mobile app or Garmin Express and enter the numeric part of each sensor ID.</li>
+          <li>Save immediately after entering settings. Do not go back into a nested Sensor Set before tapping Save.</li>
           <li>Confirm live front and rear pressure before the ride.</li>
         </ol>
         <p class="compat-card-links">
@@ -97,8 +129,28 @@
       </article>
     </section>
 
+    <section class="section wrap reveal" id="sensor-id-entry">
+      <h2>Sensor ID entry</h2>
+      <p class="section-lead">TubeWitch needs the numeric sensor IDs so the Garmin data field knows which sensors to read.</p>
+      <div class="split two-up">
+        <article class="card">
+          <h3>Enter only the numeric part</h3>
+          <p>For TyreWiz sensors, enter only the numeric part of the sensor ID. For example, if the printed ID is HGL12345, enter 12345.</p>
+          <p>Sensor IDs are printed on the sensors and can also be found in the SRAM AXS mobile app.</p>
+          <p class="compat-card-links">
+            <a class="hero-link" href="setup.html#sensor-id-demo">View sensor ID demos</a>
+            <a class="hero-link" href="faq.html#setup-answers">Open setup answers</a>
+          </p>
+        </article>
+        <figure class="sensor-card sensor-card-inline">
+          <img class="fullshot transparent-shot" src="assets/img/sensor_ids.png" alt="TubeWitch sensor ID entry examples" />
+          <figcaption>Enter only the numeric part of each sensor ID in TubeWitch settings</figcaption>
+        </figure>
+      </div>
+    </section>
+
     <section class="section wrap reveal" id="settings-save">
-      <h2>Settings do not save</h2>
+      <h2>If settings do not save</h2>
       <div class="temporary-alert">
         <p>ALERT: SAVING SETTINGS WITH THE CONNECT IQ MOBILE APP IS AFFECTED BY A BUG IN THE GARMIN IQ SYSTEM. MAKE SURE THE TUBEWITCH DATA FIELD IS VISIBLE ON YOUR GARMIN DEVICE WHEN CHANGING SETTINGS. IF SETTINGS STILL DO NOT SAVE, TRY GARMIN EXPRESS. <a class="temporary-alert-link" href="troubleshooting.html#settings-not-saving">VIEW CURRENT WORKAROUND</a></p>
       </div>
@@ -118,6 +170,27 @@
           <p>If you back out of a Sensor Set or other nested settings group and then open it again before saving from the main settings screen, Garmin may show the old values.</p>
           <p>Back out of the nested settings group, tap Save immediately, then reopen TubeWitch settings to confirm the values.</p>
           <a class="text-link" href="troubleshooting.html#settings-not-saving" data-video-modal data-video-id="N77umeTQPvE" data-video-title="Nested Settings Bug in Garmin Connect IQ Mobile App" aria-haspopup="dialog">See nested settings video</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section wrap reveal" id="confirm-setup">
+      <h2>Confirm setup worked</h2>
+      <p class="section-lead">After settings are saved, check live pressure before starting a ride.</p>
+      <div class="card-grid card-grid-2">
+        <article class="card">
+          <h3>Expected result</h3>
+          <ul>
+            <li>Front and rear pressure values appear in TubeWitch.</li>
+            <li>The values update after rotating the wheels.</li>
+            <li>The pressure status matches the target pressure and alert range set in SRAM AXS.</li>
+            <li>The Garmin open-connection prompt has been acknowledged for each sensor if it appears.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>If something is missing</h3>
+          <p>If one or both pressures do not appear, do not keep changing random settings. Start with the no-pressure checks below and confirm the sensor IDs were actually saved.</p>
+          <a class="text-link" href="#no-pressure">Jump to no-pressure checks</a>
         </article>
       </div>
     </section>
