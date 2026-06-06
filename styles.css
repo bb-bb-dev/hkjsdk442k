@@ -709,6 +709,10 @@ html.article-review-page main {
   margin: 1rem 0 1.15rem;
 }
 
+html.article-review-page .help-figure {
+  width: min(100%, 620px);
+}
+
 .help-figure img {
   width: 100%;
   max-width: 720px;
