@@ -353,26 +353,26 @@
     return true;
   }
 
-  function closeOtherTroubleshootingSections(activeItem) {
+  function closeOtherTroubleshootingSections(activeItem, animated = true) {
     troubleshootingSections.forEach((item) => {
       if (item !== activeItem) {
-        closeTroubleshootingSection(item);
+        closeTroubleshootingSection(item, animated);
       }
     });
   }
 
-  function closeTroubleshootingSection(item) {
+  function closeTroubleshootingSection(item, animated = true) {
     const body = getTroubleshootingBody(item);
     if (!body || !item.open || item.classList.contains("troubleshooting-closing")) return;
 
     clearTroubleshootingTimer(item);
 
-    if (troubleshootingReduceMotion) {
+    if (troubleshootingReduceMotion || !animated) {
       item.open = false;
       body.style.height = "";
       body.style.opacity = "";
       body.style.transform = "";
-      item.classList.remove("troubleshooting-closing");
+      item.classList.remove("troubleshooting-animating", "troubleshooting-closing");
       return;
     }
 
@@ -403,41 +403,17 @@
     return Number.isFinite(scrollMarginTop) ? scrollMarginTop : 0;
   }
 
-  function trackTroubleshootingSectionToTop(item, duration = Math.max(troubleshootingOpenAnimationMs, troubleshootingCloseAnimationMs)) {
+  function scrollTroubleshootingSectionToTop(item) {
     if (!item) return;
 
-    if (troubleshootingReduceMotion) {
-      item.scrollIntoView({ block: "start" });
-      return;
-    }
-
-    const startTime = performance.now();
-    const startTop = item.getBoundingClientRect().top;
-    const endTop = getTroubleshootingTargetTop(item);
-
-    function step(now) {
-      const progress = Math.min(Math.max((now - startTime) / duration, 0), 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const desiredTop = startTop + ((endTop - startTop) * eased);
-      const actualTop = item.getBoundingClientRect().top;
-      const delta = actualTop - desiredTop;
-
-      if (Math.abs(delta) > 0.4) {
-        window.scrollBy(0, delta);
-      }
-
-      if (progress < 1) {
-        requestAnimationFrame(step);
-      }
-    }
-
-    requestAnimationFrame(step);
+    const targetTop = item.getBoundingClientRect().top + window.scrollY - getTroubleshootingTargetTop(item);
+    window.scrollTo(0, Math.max(targetTop, 0));
   }
 
   function openTroubleshootingSectionById(targetId, animated = true) {
     const target = document.getElementById(targetId);
     if (!target?.matches("details.troubleshooting-section")) return false;
-    closeOtherTroubleshootingSections(target);
+    closeOtherTroubleshootingSections(target, false);
     return openTroubleshootingSection(target, animated);
   }
 
@@ -456,10 +432,9 @@
       if (item.open && !item.classList.contains("troubleshooting-closing")) {
         closeTroubleshootingSection(item);
       } else {
-        closeOtherTroubleshootingSections(item);
-        if (openTroubleshootingSection(item)) {
-          trackTroubleshootingSectionToTop(item);
-        }
+        closeOtherTroubleshootingSections(item, false);
+        scrollTroubleshootingSectionToTop(item);
+        openTroubleshootingSection(item);
       }
     });
   });
