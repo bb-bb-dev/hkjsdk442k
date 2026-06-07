@@ -80,6 +80,7 @@
       if (!answer || item.open) return;
 
       clearFaqTimer(item);
+      item.classList.remove("faq-closing");
       item.open = true;
 
       if (reduceFaqMotion) {
@@ -114,10 +115,11 @@
       if (reduceFaqMotion) {
         item.open = false;
         answer.style.height = "";
+        item.classList.remove("faq-closing");
         return;
       }
 
-      item.classList.add("faq-animating");
+      item.classList.add("faq-animating", "faq-closing");
       answer.style.height = `${answer.getBoundingClientRect().height || answer.scrollHeight}px`;
       answer.style.opacity = "1";
       answer.style.transform = "translateY(0)";
@@ -133,7 +135,7 @@
         answer.style.height = "";
         answer.style.opacity = "";
         answer.style.transform = "";
-        item.classList.remove("faq-animating");
+        item.classList.remove("faq-animating", "faq-closing");
         faqTimers.delete(item);
       }, faqAnimationMs));
     }

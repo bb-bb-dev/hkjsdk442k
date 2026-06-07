@@ -755,6 +755,10 @@ html[data-page="faq"] .help-article section > h2:first-child {
   color: #f4fbff;
 }
 
+.faq-item.faq-closing summary {
+  color: #a8bad0;
+}
+
 .faq-item summary:hover,
 .faq-item summary:focus-visible {
   color: #f4fbff;
@@ -762,6 +766,10 @@ html[data-page="faq"] .help-article section > h2:first-child {
 
 .faq-item[open] summary::after {
   transform: rotate(-135deg);
+}
+
+.faq-item.faq-closing summary::after {
+  transform: rotate(45deg);
 }
 
 .faq-item > :not(summary) {
