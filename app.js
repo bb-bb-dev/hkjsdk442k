@@ -582,7 +582,26 @@
   }
 
   function closeOtherTroubleshootingSectionsAfterOpen(activeItem) {
+    const targetTop = getTroubleshootingTargetTop(activeItem);
+    const root = document.documentElement;
+    const body = document.body;
+    const previousRootAnchor = root.style.overflowAnchor;
+    const previousBodyAnchor = body.style.overflowAnchor;
+
+    root.style.overflowAnchor = "none";
+    body.style.overflowAnchor = "none";
+
     closeOtherTroubleshootingSections(activeItem, false);
+
+    const delta = activeItem.getBoundingClientRect().top - targetTop;
+    if (Math.abs(delta) > 0.4) {
+      window.scrollBy(0, delta);
+    }
+
+    requestAnimationFrame(() => {
+      root.style.overflowAnchor = previousRootAnchor;
+      body.style.overflowAnchor = previousBodyAnchor;
+    });
   }
 
   function openTroubleshootingSectionById(targetId, animated = true) {
