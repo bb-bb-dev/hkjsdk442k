@@ -871,12 +871,26 @@ html[data-page="faq"] .help-article section > h2:first-child {
 }
 
 .troubleshooting-section-body {
+  height: 0;
+  opacity: 0;
   overflow: hidden;
-  transition: height 0.62s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(-0.28rem);
+  transition:
+    height 0.52s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.38s ease,
+    transform 0.42s ease;
+}
+
+.troubleshooting-section[open] .troubleshooting-section-body {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .troubleshooting-section.troubleshooting-closing .troubleshooting-section-body {
-  transition: height 0.62s cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    height 0.68s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.5s ease,
+    transform 0.54s ease;
 }
 
 .troubleshooting-section-body > :first-child {

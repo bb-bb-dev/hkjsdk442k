@@ -278,8 +278,8 @@
   const troubleshootingSections = Array.from(document.querySelectorAll("details.troubleshooting-section"));
   const troubleshootingTimers = new WeakMap();
   const troubleshootingReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const troubleshootingOpenAnimationMs = 620;
-  const troubleshootingCloseAnimationMs = 620;
+  const troubleshootingOpenAnimationMs = 520;
+  const troubleshootingCloseAnimationMs = 680;
 
   function clearTroubleshootingTimer(item) {
     const timer = troubleshootingTimers.get(item);
@@ -314,11 +314,14 @@
     }
 
     item.classList.add("troubleshooting-animating");
-    body.style.height = `${body.getBoundingClientRect().height || 0}px`;
-    body.getBoundingClientRect();
+    body.style.height = "0px";
+    body.style.opacity = "0";
+    body.style.transform = "translateY(-0.28rem)";
 
     requestAnimationFrame(() => {
       body.style.height = `${body.scrollHeight}px`;
+      body.style.opacity = "1";
+      body.style.transform = "translateY(0)";
     });
 
     troubleshootingTimers.set(item, window.setTimeout(() => {
@@ -347,21 +350,29 @@
     if (troubleshootingReduceMotion) {
       item.open = false;
       body.style.height = "";
+      body.style.opacity = "";
+      body.style.transform = "";
       item.classList.remove("troubleshooting-closing");
       return;
     }
 
     item.classList.add("troubleshooting-animating", "troubleshooting-closing");
     body.style.height = `${body.getBoundingClientRect().height || body.scrollHeight}px`;
+    body.style.opacity = "1";
+    body.style.transform = "translateY(0)";
     body.getBoundingClientRect();
 
     requestAnimationFrame(() => {
       body.style.height = "0px";
+      body.style.opacity = "0";
+      body.style.transform = "translateY(-0.28rem)";
     });
 
     troubleshootingTimers.set(item, window.setTimeout(() => {
       item.open = false;
       body.style.height = "";
+      body.style.opacity = "";
+      body.style.transform = "";
       item.classList.remove("troubleshooting-animating", "troubleshooting-closing");
       troubleshootingTimers.delete(item);
     }, troubleshootingCloseAnimationMs));
