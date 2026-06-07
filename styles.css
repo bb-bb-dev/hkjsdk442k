@@ -794,6 +794,13 @@ html[data-page="faq"] .help-article section > h2:first-child {
   transform: translateY(0);
 }
 
+.faq-item.faq-closing .faq-answer {
+  transition:
+    height 0.68s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.5s ease,
+    transform 0.54s ease;
+}
+
 .faq-answer-inner {
   padding-bottom: 1.05rem;
 }

@@ -44,7 +44,8 @@
 
   const faqItems = Array.from(document.querySelectorAll("details.faq-item"));
   if (faqItems.length) {
-    const faqAnimationMs = 520;
+    const faqOpenAnimationMs = 520;
+    const faqCloseAnimationMs = 680;
     const reduceFaqMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const faqTimers = new WeakMap();
 
@@ -103,7 +104,7 @@
         answer.style.height = "auto";
         item.classList.remove("faq-animating");
         faqTimers.delete(item);
-      }, faqAnimationMs));
+      }, faqOpenAnimationMs));
     }
 
     function closeFaqItem(item) {
@@ -123,6 +124,7 @@
       answer.style.height = `${answer.getBoundingClientRect().height || answer.scrollHeight}px`;
       answer.style.opacity = "1";
       answer.style.transform = "translateY(0)";
+      answer.getBoundingClientRect();
 
       requestAnimationFrame(() => {
         answer.style.height = "0px";
@@ -137,7 +139,7 @@
         answer.style.transform = "";
         item.classList.remove("faq-animating", "faq-closing");
         faqTimers.delete(item);
-      }, faqAnimationMs));
+      }, faqCloseAnimationMs));
     }
 
     faqItems.forEach((item) => {
