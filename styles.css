@@ -2057,26 +2057,6 @@ html.article-review-page .help-article .text-link-button[data-info-trigger] {
   padding: 0.82rem 0 1.36rem;
 }
 
-html.faq-footer-pinned body {
-  padding-bottom: var(--faq-pinned-footer-height, 0px);
-}
-
-html.faq-footer-pinned .site-footer {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 18;
-  margin-top: 0;
-  background: rgba(6, 14, 23, 0.98);
-  box-shadow: 0 -16px 28px rgba(0, 0, 0, 0.28);
-}
-
-html.faq-footer-pinned #support .faq-item.faq-expand-up {
-  display: flex;
-  flex-direction: column-reverse;
-}
-
 .footer-stack {
   display: grid;
   gap: 0.72rem;
