@@ -395,7 +395,10 @@
     }
 
     function updateActiveHelpLink() {
-      const offset = Math.min(window.innerHeight * 0.35, 220);
+      const mobileJumpVisible = mobileHelpJump && window.getComputedStyle(mobileHelpJump).display !== "none";
+      const offset = mobileJumpVisible
+        ? Math.max(mobileHelpJump.getBoundingClientRect().bottom + 24, 180)
+        : Math.min(window.innerHeight * 0.35, 220);
       let activeId = helpTargets[0]?.target.id || "";
 
       helpTargets.forEach(({ target }) => {
@@ -425,6 +428,11 @@
       link.addEventListener("click", () => {
         if (mobileHelpDetails) {
           mobileHelpDetails.open = false;
+        }
+        const targetId = link.getAttribute("href")?.slice(1);
+        if (targetId) {
+          setActiveHelpLink(targetId);
+          requestAnimationFrame(requestActiveHelpUpdate);
         }
       });
     });
