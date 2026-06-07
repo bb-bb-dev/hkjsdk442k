@@ -678,6 +678,19 @@ html.article-review-page .help-sidebar-group + .help-sidebar-group {
   border-top: 1px solid var(--line);
 }
 
+html[data-page="faq"] .help-article section + section {
+  margin-top: 2.75rem;
+}
+
+html[data-page="faq"] .help-article h2 {
+  margin-top: 2.55rem;
+  padding-top: 1.25rem;
+}
+
+html[data-page="faq"] .help-article section > h2:first-child {
+  margin-top: 0;
+}
+
 .help-article h3 {
   margin-top: 1.35rem;
   color: #f4fbff;
@@ -710,13 +723,14 @@ html.article-review-page .help-sidebar-group + .help-sidebar-group {
   justify-content: space-between;
   gap: 1rem;
   padding: 0.92rem 0;
-  color: #f4fbff;
+  color: #a8bad0;
   font-family: "Barlow Condensed", sans-serif;
   font-size: clamp(1.12rem, 2.1vw, 1.34rem);
   font-weight: 800;
   letter-spacing: 0.01em;
   cursor: pointer;
   list-style: none;
+  transition: color 0.16s ease;
 }
 
 .faq-item summary::-webkit-details-marker {
@@ -733,11 +747,17 @@ html.article-review-page .help-sidebar-group + .help-sidebar-group {
   border-bottom: 2px solid #7dffd7;
   margin-right: 0.16rem;
   transform: rotate(45deg);
-  transition: transform 0.16s ease;
+  transition: transform 0.24s ease;
 }
 
 .faq-item[open] summary {
   padding-bottom: 0.72rem;
+  color: #f4fbff;
+}
+
+.faq-item summary:hover,
+.faq-item summary:focus-visible {
+  color: #f4fbff;
 }
 
 .faq-item[open] summary::after {
@@ -747,6 +767,22 @@ html.article-review-page .help-sidebar-group + .help-sidebar-group {
 .faq-item > :not(summary) {
   margin-left: 0;
   margin-right: 0;
+}
+
+.faq-item[open] > :not(summary) {
+  animation: faq-answer-in 0.24s ease-out both;
+}
+
+@keyframes faq-answer-in {
+  from {
+    opacity: 0;
+    transform: translateY(-0.18rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .faq-item > :last-child {
