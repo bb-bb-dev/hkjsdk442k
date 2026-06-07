@@ -587,8 +587,14 @@ html.article-review-page main {
 }
 
 html.article-review-page .help-doc {
+  --troubleshooting-layout-spacer: 0px;
   grid-template-columns: 220px minmax(0, 1fr);
   gap: 1.85rem;
+}
+
+html[data-page="troubleshooting"] .help-doc {
+  padding-bottom: calc(1rem + var(--troubleshooting-layout-spacer, 0px));
+  margin-bottom: calc(-1 * var(--troubleshooting-layout-spacer, 0px));
 }
 
 .help-sidebar {
@@ -845,7 +851,6 @@ html[data-page="faq"] #support .faq-item {
 }
 
 .troubleshooting-bottom-spacer {
-  grid-column: 1 / -1;
   pointer-events: none;
   visibility: hidden;
 }
@@ -2070,6 +2075,13 @@ html.article-review-page .help-article .text-link-button[data-info-trigger] {
   border-top: 1px solid var(--line);
   margin-top: 1rem;
   padding: 0.82rem 0 1.36rem;
+}
+
+html[data-page="troubleshooting"].troubleshooting-spacer-active .site-footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 12;
+  background: #060e17;
 }
 
 .footer-stack {
