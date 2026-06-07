@@ -720,6 +720,10 @@ html[data-page="faq"] .help-article section > h2:first-child {
   border-bottom: 1px solid var(--line);
 }
 
+html[data-page="faq"] #support .faq-item {
+  border-bottom: 0;
+}
+
 .faq-item summary {
   display: flex;
   align-items: center;
