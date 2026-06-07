@@ -76,6 +76,19 @@
       item.appendChild(answer);
     }
 
+    function revealFaqItem(item) {
+      if (!item.open) return;
+
+      const viewportBottom = window.innerHeight - 24;
+      const bottom = item.getBoundingClientRect().bottom;
+      if (bottom > viewportBottom) {
+        window.scrollBy({
+          top: bottom - viewportBottom,
+          behavior: reduceFaqMotion ? "auto" : "smooth",
+        });
+      }
+    }
+
     function openFaqItem(item) {
       const answer = item.querySelector(":scope > .faq-answer");
       if (!answer || item.open) return;
@@ -86,6 +99,7 @@
 
       if (reduceFaqMotion) {
         answer.style.height = "auto";
+        requestAnimationFrame(() => revealFaqItem(item));
         return;
       }
 
@@ -104,6 +118,7 @@
         answer.style.height = "auto";
         item.classList.remove("faq-animating");
         faqTimers.delete(item);
+        revealFaqItem(item);
       }, faqOpenAnimationMs));
     }
 

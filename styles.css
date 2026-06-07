@@ -753,7 +753,6 @@ html[data-page="faq"] .help-article section > h2:first-child {
 }
 
 .faq-item[open] summary {
-  padding-bottom: 0.72rem;
   color: #f4fbff;
 }
 
