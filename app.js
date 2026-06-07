@@ -444,8 +444,8 @@
   const troubleshootingSections = Array.from(document.querySelectorAll("details.troubleshooting-section"));
   const troubleshootingTimers = new WeakMap();
   const troubleshootingReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const troubleshootingOpenAnimationMs = 520;
-  const troubleshootingCloseAnimationMs = 680;
+  const troubleshootingOpenAnimationMs = 3000;
+  const troubleshootingCloseAnimationMs = 3000;
   let troubleshootingScrollFrame = 0;
   let troubleshootingScrollToken = 0;
 
