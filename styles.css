@@ -2285,7 +2285,6 @@ html.article-review-page .help-article .text-link-button[data-info-trigger] {
     width: auto;
     margin: 0 -1rem 1rem;
     padding: 0.38rem 0;
-    border-bottom: 1px solid var(--line);
     background: #060e17;
     box-shadow: 0 10px 16px rgba(6, 14, 23, 0.96);
   }
