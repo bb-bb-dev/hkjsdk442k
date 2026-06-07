@@ -2273,11 +2273,11 @@ html.article-review-page .help-article .text-link-button[data-info-trigger] {
     padding: 0.14rem 0;
   }
 
-  html[data-page="troubleshooting2"] .help-sidebar {
+  html.article-review-page .help-sidebar {
     display: none;
   }
 
-  html[data-page="troubleshooting2"] .mobile-help-jump {
+  html.article-review-page .mobile-help-jump {
     display: block;
     position: sticky;
     top: var(--site-header-height, 54px);

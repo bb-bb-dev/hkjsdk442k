@@ -309,7 +309,46 @@
 
   const helpSidebar = document.querySelector(".help-sidebar");
   if (helpSidebar) {
-    const mobileHelpJump = document.querySelector(".mobile-help-jump");
+    function buildMobileHelpJump() {
+      const sidebarLinks = Array.from(helpSidebar.querySelectorAll("a[href^='#']"));
+      if (!document.documentElement.classList.contains("article-review-page") || !sidebarLinks.length) {
+        return null;
+      }
+
+      const nav = document.createElement("nav");
+      nav.className = "mobile-help-jump";
+      nav.setAttribute("aria-label", helpSidebar.getAttribute("aria-label") || "Page sections");
+
+      const details = document.createElement("details");
+      const summary = document.createElement("summary");
+      const summaryText = document.createElement("span");
+      const label = document.createElement("span");
+      const current = document.createElement("span");
+      const menu = document.createElement("div");
+
+      summaryText.className = "mobile-help-jump-summary-text";
+      label.className = "mobile-help-jump-label";
+      current.className = "mobile-help-jump-current";
+      menu.className = "mobile-help-jump-menu";
+      label.textContent = "On this page";
+      current.textContent = sidebarLinks[0].textContent.trim() || "Overview";
+
+      sidebarLinks.forEach((link) => {
+        const mobileLink = document.createElement("a");
+        mobileLink.href = link.getAttribute("href");
+        mobileLink.textContent = link.textContent.trim();
+        menu.append(mobileLink);
+      });
+
+      summaryText.append(label, current);
+      summary.append(summaryText);
+      details.append(summary, menu);
+      nav.append(details);
+      helpSidebar.insertAdjacentElement("afterend", nav);
+      return nav;
+    }
+
+    const mobileHelpJump = document.querySelector(".mobile-help-jump") || buildMobileHelpJump();
     const mobileHelpCurrent = mobileHelpJump?.querySelector(".mobile-help-jump-current");
     const mobileHelpDetails = mobileHelpJump?.querySelector("details");
     const mobileHelpLinks = Array.from(mobileHelpJump?.querySelectorAll("a[href^='#']") || []);
