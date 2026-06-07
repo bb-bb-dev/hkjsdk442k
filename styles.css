@@ -64,7 +64,8 @@ main {
   overflow: hidden;
 }
 
-section[id] {
+section[id],
+details[id] {
   scroll-margin-top: 92px;
 }
 
@@ -814,6 +815,76 @@ html[data-page="faq"] .help-article section > h2:first-child {
 
 .faq-item .help-figure {
   margin-top: 0.85rem;
+}
+
+.troubleshooting-section {
+  margin-top: 2.2rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.troubleshooting-section + .troubleshooting-section {
+  margin-top: 1.15rem;
+}
+
+.troubleshooting-section summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0;
+  color: #f4fbff;
+  cursor: pointer;
+  list-style: none;
+}
+
+.troubleshooting-section summary::-webkit-details-marker {
+  display: none;
+}
+
+.troubleshooting-section-title {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: 0.01em;
+}
+
+.troubleshooting-section summary::after {
+  content: "";
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 0.58rem;
+  height: 0.58rem;
+  border-right: 2px solid #7dffd7;
+  border-bottom: 2px solid #7dffd7;
+  margin-right: 0.18rem;
+  transform: rotate(45deg);
+  transition: transform 0.32s ease;
+}
+
+.troubleshooting-section[open] summary::after {
+  transform: rotate(-135deg);
+}
+
+.troubleshooting-section.troubleshooting-closing summary::after {
+  transform: rotate(45deg);
+}
+
+.troubleshooting-section-body {
+  overflow: hidden;
+  transition: height 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.troubleshooting-section.troubleshooting-closing .troubleshooting-section-body {
+  transition: height 0.52s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.troubleshooting-section-body > :first-child {
+  margin-top: 0;
+}
+
+.troubleshooting-section-body > :last-child {
+  margin-bottom: 1.05rem;
 }
 
 .help-article a {
@@ -2511,7 +2582,8 @@ html.article-review-page .help-article .text-link-button[data-info-trigger] {
     margin-top: 1.75rem;
   }
 
-  html.article-review-page .help-article section[id] {
+  html.article-review-page .help-article section[id],
+  html.article-review-page .help-article details[id] {
     scroll-margin-top: calc(var(--site-header-height, 115px) + 5.2rem);
   }
 

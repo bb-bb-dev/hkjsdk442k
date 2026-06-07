@@ -90,8 +90,9 @@
           <p>This page covers common TubeWitch setup and Garmin Connect IQ problems, including settings that do not save, missing pressure data, duplicate alerts, FIT recording issues, app upgrade problems, and support access.</p>
         </section>
 
-        <section id="settings-not-saving">
-          <h2>Settings Not Saving</h2>
+        <details class="troubleshooting-section" id="settings-not-saving" open>
+          <summary><span class="troubleshooting-section-title">Settings Not Saving</span></summary>
+          <div class="troubleshooting-section-body">
           <p>If sensor IDs or related settings do not stick, fix the settings save issue first before troubleshooting the sensors themselves.</p>
           <div class="temporary-alert" id="current-settings-bug-alert">
             <p>ALERT: SAVING SETTINGS WITH THE CONNECT IQ MOBILE APP IS AFFECTED BY A BUG IN THE GARMIN IQ SYSTEM. MAKE SURE THE TUBEWITCH DATA FIELD IS VISIBLE ON YOUR GARMIN DEVICE WHEN CHANGING SETTINGS. IF SETTINGS STILL DO NOT SAVE, TRY GARMIN EXPRESS.</p>
@@ -157,12 +158,14 @@
           <h3>It will not let me enter my full sensor ID: HGL15841</h3>
           <p>TubeWitch sensor ID fields accept numbers only.</p>
           <p>Enter only the numeric five-digit portion of the sensor ID. For HGL15841, enter 15841.</p>
-        </section>
+          </div>
+        </details>
 
-        <section id="no-pressure-data">
+        <details class="troubleshooting-section" id="no-pressure-data">
+          <summary><span class="troubleshooting-section-title">No Pressure Data</span></summary>
+          <div class="troubleshooting-section-body">
           <div class="help-inline-media">
             <div>
-              <h2>No Pressure Data</h2>
               <p>If no pressure is shown after setup, work from the sensor outward before changing other settings.</p>
               <h3>Check the sensor, SRAM setup, and saved ID</h3>
               <ul>
@@ -190,10 +193,12 @@
           <p>After confirming the above settings, make sure to fully reboot your Garmin device.</p>
           <p>On Edge devices, press and hold the power button until the device shows the option to power off. If the device is frozen, hold the power button for about 10 seconds until it powers off or reboots.</p>
           <p>On most Garmin watches with a physical power button, press and hold the power button until the watch powers off, then press the power button again to turn it back on. On Garmin watches without a power button, connect the watch to the charging cable, wait a few moments, then disconnect it to restart it.</p>
-        </section>
+          </div>
+        </details>
 
-        <section id="wrong-pressure-status">
-          <h2>Wrong Pressure Status/Alerts</h2>
+        <details class="troubleshooting-section" id="wrong-pressure-status">
+          <summary><span class="troubleshooting-section-title">Wrong Pressure Status/Alerts</span></summary>
+          <div class="troubleshooting-section-body">
           <p>Live pressure can appear while the high or low status is still wrong if the sensor itself was configured differently in SRAM AXS.</p>
           <h3>Pressure status looks wrong</h3>
           <p>First, use the SRAM AXS mobile app to assign the Front/Rear position and pressure target for each sensor.</p>
@@ -214,10 +219,12 @@
           <p>With this firmware, if you go to the Garmin home screen and then return to a data screen with the TubeWitch data field while no activity is recording, TubeWitch will restart, search for sensors again, and may trigger a duplicate pressure alert. If an activity is running or paused, TubeWitch should not restart when returning to the data screen and should not trigger another alert.</p>
           <p>A TubeWitch update is in progress to handle this new Garmin behavior and prevent these duplicate alerts.</p>
           <p>This firmware change also means the <span class="field-visible-emphasis"><img class="field-visible-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" />TubeWitch data field must be visible on your Garmin device<img class="field-visible-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" /></span> when changing TubeWitch settings in the Connect IQ mobile app.</p>
-        </section>
+          </div>
+        </details>
 
-        <section id="fit-recording-problems">
-          <h2>FIT Recording Problems</h2>
+        <details class="troubleshooting-section" id="fit-recording-problems">
+          <summary><span class="troubleshooting-section-title">FIT Recording Problems</span></summary>
+          <div class="troubleshooting-section-body">
           <p>If Garmin shows the IQ logo or one of your Connect IQ apps restarts during recording, the combined FIT recording load may be too high.</p>
           <h3>If Garmin data fields are recording too many FIT data points</h3>
           <p>Garmin limits how many custom FIT data points Connect IQ apps can record at once. TubeWitch records 5 custom FIT fields by default and up to 10 when all Activity Recording options are enabled.</p>
@@ -234,18 +241,22 @@
             <li>Record Sensor Set #: 1 field</li>
             <li>Sensor Set Name: 1 field whenever any Activity Recording option is enabled</li>
           </ul>
-        </section>
+          </div>
+        </details>
 
-        <section id="app-upgrade-problems">
-          <h2>App Upgrade Problems</h2>
+        <details class="troubleshooting-section" id="app-upgrade-problems">
+          <summary><span class="troubleshooting-section-title">App Upgrade Problems</span></summary>
+          <div class="troubleshooting-section-body">
           <p>The most common TubeWitch upgrade issue is the Garmin Connect IQ mobile app continuing to show an update even after the data field was already queued or installed.</p>
           <h3>Garmin Connect IQ mobile app still shows "Updating" after a TubeWitch upgrade</h3>
           <p>If upgrading from an earlier version of TubeWitch, the Garmin Connect IQ mobile app may appear stuck on "Updating," or it may queue and update the data field but show that an update is still available.</p>
           <p>If this happens, reboot your Garmin device and restart your Garmin mobile apps to allow the update to complete and for any new settings to appear in the TubeWitch Settings.</p>
-        </section>
+          </div>
+        </details>
 
-        <section id="support">
-          <h2>TubeWitch Support</h2>
+        <details class="troubleshooting-section" id="support" open>
+          <summary><span class="troubleshooting-section-title">TubeWitch Support</span></summary>
+          <div class="troubleshooting-section-body">
           <p>Use Garmin's in-app <strong class="support-emphasis">Contact Developer</strong> link to contact TubeWitch support.</p>
           <div class="support-inline-layout">
             <figure class="help-figure contact-developer-figure">
@@ -262,7 +273,8 @@
               <p class="callout-icon-line"><img class="callout-inline-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" /><span>Include your email address to receive a reply.</span></p>
             </div>
           </div>
-        </section>
+          </div>
+        </details>
 
         <div class="help-article-footer">
           <p>Need the full installation order or the sensor ID demo videos? Go back to <a href="setup.html">Setup</a>.</p>
