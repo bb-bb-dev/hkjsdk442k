@@ -89,6 +89,26 @@
       }
     }
 
+    function trackFaqItemRevealDuringOpen(item, duration = faqOpenAnimationMs) {
+      if (!item.open || reduceFaqMotion) return;
+
+      const startTime = performance.now();
+
+      function step(now) {
+        const viewportBottom = window.innerHeight - 24;
+        const bottom = item.getBoundingClientRect().bottom;
+        if (bottom > viewportBottom) {
+          window.scrollBy(0, bottom - viewportBottom);
+        }
+
+        if (now - startTime < duration) {
+          requestAnimationFrame(step);
+        }
+      }
+
+      requestAnimationFrame(step);
+    }
+
     function openFaqItem(item) {
       const answer = item.querySelector(":scope > .faq-answer");
       if (!answer || item.open) return;
@@ -112,13 +132,13 @@
         answer.style.height = `${answer.scrollHeight}px`;
         answer.style.opacity = "1";
         answer.style.transform = "translateY(0)";
+        trackFaqItemRevealDuringOpen(item);
       });
 
       faqTimers.set(item, window.setTimeout(() => {
         answer.style.height = "auto";
         item.classList.remove("faq-animating");
         faqTimers.delete(item);
-        revealFaqItem(item);
       }, faqOpenAnimationMs));
     }
 
