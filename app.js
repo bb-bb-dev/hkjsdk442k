@@ -71,6 +71,10 @@
     let touchLastY = null;
     let touchManualScroll = false;
 
+    function updateSiteHeaderHeightVar() {
+      document.documentElement.style.setProperty("--site-header-height", `${Math.ceil(siteHeader.getBoundingClientRect().height)}px`);
+    }
+
     function isMobileNav() {
       return mobileNavQuery.matches;
     }
@@ -138,6 +142,7 @@
         navTrack.style.marginTop = "";
         navToggle.removeAttribute("style");
         navToggle.setAttribute("aria-expanded", "false");
+        updateSiteHeaderHeightVar();
         return;
       }
 
@@ -165,6 +170,7 @@
       siteHeader.classList.toggle("nav-expanded", expanded);
       siteHeader.setAttribute("aria-expanded", String(expanded));
       primaryNav.removeAttribute("aria-hidden");
+      updateSiteHeaderHeightVar();
     }
 
     function setMobileNavAmount(amount, animate = false) {
@@ -303,6 +309,10 @@
 
   const helpSidebar = document.querySelector(".help-sidebar");
   if (helpSidebar) {
+    const mobileHelpJump = document.querySelector(".mobile-help-jump");
+    const mobileHelpCurrent = mobileHelpJump?.querySelector(".mobile-help-jump-current");
+    const mobileHelpDetails = mobileHelpJump?.querySelector("details");
+    const mobileHelpLinks = Array.from(mobileHelpJump?.querySelectorAll("a[href^='#']") || []);
     const helpTargets = Array.from(helpSidebar.querySelectorAll("a[href^='#']"))
       .map((link) => {
         const targetId = link.getAttribute("href").slice(1);
@@ -316,16 +326,33 @@
     function setActiveHelpLink(activeId) {
       if (!activeId || activeId === activeHelpId) return;
       activeHelpId = activeId;
+      let activeText = "";
 
       helpTargets.forEach(({ link, target }) => {
         const active = target.id === activeId;
         link.classList.toggle("active", active);
         if (active) {
           link.setAttribute("aria-current", "location");
+          activeText = link.textContent.trim();
         } else {
           link.removeAttribute("aria-current");
         }
       });
+
+      mobileHelpLinks.forEach((link) => {
+        const active = link.getAttribute("href") === `#${activeId}`;
+        link.classList.toggle("active", active);
+        if (active) {
+          link.setAttribute("aria-current", "location");
+          activeText = link.textContent.trim();
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
+
+      if (mobileHelpCurrent && activeText) {
+        mobileHelpCurrent.textContent = activeText;
+      }
     }
 
     function updateActiveHelpLink() {
@@ -354,6 +381,14 @@
       window.addEventListener("scroll", requestActiveHelpUpdate, { passive: true });
       window.addEventListener("resize", requestActiveHelpUpdate, { passive: true });
     }
+
+    mobileHelpLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        if (mobileHelpDetails) {
+          mobileHelpDetails.open = false;
+        }
+      });
+    });
   }
 
   const reveals = document.querySelectorAll(".reveal");
