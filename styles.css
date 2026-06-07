@@ -2077,13 +2077,6 @@ html.article-review-page .help-article .text-link-button[data-info-trigger] {
   padding: 0.82rem 0 1.36rem;
 }
 
-html[data-page="troubleshooting"].troubleshooting-spacer-active .site-footer {
-  position: sticky;
-  bottom: 0;
-  z-index: 12;
-  background: #060e17;
-}
-
 .footer-stack {
   display: grid;
   gap: 0.72rem;
