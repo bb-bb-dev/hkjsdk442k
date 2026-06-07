@@ -103,6 +103,31 @@
       return footerRect.top < window.innerHeight && footerRect.bottom > 0;
     }
 
+    function pinFaqFooter() {
+      const footer = document.querySelector(".site-footer");
+      if (!footer) return null;
+
+      const footerTop = footer.getBoundingClientRect().top;
+      const footerHeight = Math.ceil(footer.getBoundingClientRect().height);
+      document.documentElement.style.setProperty("--faq-pinned-footer-height", `${footerHeight}px`);
+      document.documentElement.classList.add("faq-footer-pinned");
+      return { footer, footerTop };
+    }
+
+    function unpinFaqFooter(pinState) {
+      if (!pinState?.footer) return;
+
+      const pinnedTop = pinState.footer.getBoundingClientRect().top;
+      document.documentElement.classList.remove("faq-footer-pinned");
+      document.documentElement.style.removeProperty("--faq-pinned-footer-height");
+
+      const restoredTop = pinState.footer.getBoundingClientRect().top;
+      const delta = restoredTop - pinnedTop;
+      if (Math.abs(delta) > 0.4) {
+        window.scrollBy(0, delta);
+      }
+    }
+
     function getFaqViewportBottom(item) {
       return window.innerHeight - 24 - getFaqFooterPeek(item);
     }
@@ -149,9 +174,11 @@
       const previousBodyAnchor = body.style.overflowAnchor;
       let previousAnswerHeight = anchorFooter ? 0 : null;
       let restoredAnchoring = false;
+      const footerPinState = anchorFooter ? pinFaqFooter() : null;
 
       function restoreScrollAnchoring() {
         if (!anchorFooter || restoredAnchoring) return;
+        unpinFaqFooter(footerPinState);
         root.style.overflowAnchor = previousRootAnchor;
         body.style.overflowAnchor = previousBodyAnchor;
         restoredAnchoring = true;
