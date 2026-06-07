@@ -103,11 +103,6 @@
       return footerRect.top < window.innerHeight && footerRect.bottom > 0;
     }
 
-    function scrollFaqPageToBottom() {
-      const root = document.scrollingElement || document.documentElement;
-      window.scrollTo(0, Math.max(root.scrollHeight - root.clientHeight, 0));
-    }
-
     function getFaqViewportBottom(item) {
       return window.innerHeight - 24 - getFaqFooterPeek(item);
     }
@@ -148,10 +143,29 @@
       if (!item.open || reduceFaqMotion) return;
 
       const startTime = performance.now();
+      const root = document.documentElement;
+      const body = document.body;
+      const previousRootAnchor = root.style.overflowAnchor;
+      const previousBodyAnchor = body.style.overflowAnchor;
+      let previousAnswerHeight = anchorFooter ? 0 : null;
+      let restoredAnchoring = false;
+
+      function restoreScrollAnchoring() {
+        if (!anchorFooter || restoredAnchoring) return;
+        root.style.overflowAnchor = previousRootAnchor;
+        body.style.overflowAnchor = previousBodyAnchor;
+        restoredAnchoring = true;
+      }
+
+      if (anchorFooter) {
+        root.style.overflowAnchor = "none";
+        body.style.overflowAnchor = "none";
+      }
 
       function step(now) {
         if (!isCurrentFaqAnimation(item, token) || !item.open || item.classList.contains("faq-closing")) {
           clearFaqScrollSpacer(item);
+          restoreScrollAnchoring();
           return;
         }
 
@@ -173,7 +187,11 @@
         }
 
         if (anchorFooter) {
-          scrollFaqPageToBottom();
+          const heightDelta = answerHeight - previousAnswerHeight;
+          previousAnswerHeight = answerHeight;
+          if (Math.abs(heightDelta) > 0.4) {
+            window.scrollBy(0, heightDelta);
+          }
         } else if (scrollAmount > 0.5) {
           window.scrollBy(0, scrollAmount);
         }
@@ -185,7 +203,7 @@
           if (!anchorFooter) {
             revealFaqItem(item);
           } else {
-            scrollFaqPageToBottom();
+            restoreScrollAnchoring();
           }
         }
       }
@@ -225,9 +243,6 @@
         answer.style.height = `${answer.scrollHeight}px`;
         answer.style.opacity = "1";
         answer.style.transform = "translateY(0)";
-        if (anchorFooter) {
-          scrollFaqPageToBottom();
-        }
         trackFaqItemRevealDuringOpen(item, answer, token, anchorFooter);
       });
 
