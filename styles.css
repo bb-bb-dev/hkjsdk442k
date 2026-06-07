@@ -2383,6 +2383,10 @@ html.article-review-page .help-article .text-link-button[data-info-trigger] {
     margin-top: 1.75rem;
   }
 
+  html.article-review-page .help-article section[id] {
+    scroll-margin-top: calc(var(--site-header-height, 115px) + 5.2rem);
+  }
+
   .hero-full {
     min-height: 92vh;
     padding: 0 0 1rem;
