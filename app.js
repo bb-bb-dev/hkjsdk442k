@@ -72,7 +72,7 @@
         spacer = document.createElement("div");
         spacer.className = "faq-scroll-spacer";
         spacer.setAttribute("aria-hidden", "true");
-        item.insertAdjacentElement("afterend", spacer);
+        (document.querySelector("main") || document.body).appendChild(spacer);
         faqScrollSpacers.set(item, spacer);
       }
 
