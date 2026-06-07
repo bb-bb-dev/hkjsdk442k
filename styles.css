@@ -877,6 +877,10 @@ html[data-page="faq"] #support .faq-item {
   margin-left: 0;
 }
 
+.troubleshooting-title-icon:last-child {
+  vertical-align: -0.22em;
+}
+
 .troubleshooting-section summary::after {
   content: "";
   display: inline-block;
