@@ -525,8 +525,11 @@
       troubleshootingBottomSpacer = document.createElement("div");
       troubleshootingBottomSpacer.className = "troubleshooting-bottom-spacer";
       troubleshootingBottomSpacer.setAttribute("aria-hidden", "true");
+      const helpDoc = document.querySelector(".help-doc");
       const footer = document.querySelector(".site-footer");
-      if (footer) {
+      if (helpDoc) {
+        helpDoc.appendChild(troubleshootingBottomSpacer);
+      } else if (footer) {
         footer.insertAdjacentElement("beforebegin", troubleshootingBottomSpacer);
       } else {
         document.body.appendChild(troubleshootingBottomSpacer);

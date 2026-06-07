@@ -845,6 +845,7 @@ html[data-page="faq"] #support .faq-item {
 }
 
 .troubleshooting-bottom-spacer {
+  grid-column: 1 / -1;
   pointer-events: none;
   visibility: hidden;
 }
