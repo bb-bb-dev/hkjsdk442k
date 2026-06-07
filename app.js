@@ -89,20 +89,33 @@
       }
     }
 
-    function trackFaqItemRevealDuringOpen(item, duration = faqOpenAnimationMs) {
+    function trackFaqItemRevealDuringOpen(item, answer, duration = faqOpenAnimationMs + 220) {
       if (!item.open || reduceFaqMotion) return;
 
       const startTime = performance.now();
 
       function step(now) {
         const viewportBottom = window.innerHeight - 24;
+        const answerHeight = answer?.getBoundingClientRect().height || 0;
+        const finalAnswerHeight = answer?.scrollHeight || 0;
+        const remainingAnswerHeight = Math.max(0, finalAnswerHeight - answerHeight);
         const bottom = item.getBoundingClientRect().bottom;
-        if (bottom > viewportBottom) {
-          window.scrollBy(0, bottom - viewportBottom);
+        const currentOverflow = bottom - viewportBottom;
+        const projectedOverflow = bottom + remainingAnswerHeight - viewportBottom;
+        const scrollAmount = Math.max(currentOverflow, projectedOverflow * 0.34);
+
+        if (answer && finalAnswerHeight > 0 && answer.style.height !== "auto") {
+          answer.style.height = `${finalAnswerHeight}px`;
+        }
+
+        if (scrollAmount > 0.5) {
+          window.scrollBy(0, scrollAmount);
         }
 
         if (now - startTime < duration) {
           requestAnimationFrame(step);
+        } else {
+          revealFaqItem(item);
         }
       }
 
@@ -132,7 +145,7 @@
         answer.style.height = `${answer.scrollHeight}px`;
         answer.style.opacity = "1";
         answer.style.transform = "translateY(0)";
-        trackFaqItemRevealDuringOpen(item);
+        trackFaqItemRevealDuringOpen(item, answer);
       });
 
       faqTimers.set(item, window.setTimeout(() => {
