@@ -52,6 +52,9 @@ html {
 }
 
 body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: "Archivo", system-ui, sans-serif;
   line-height: 1.5;
   color: var(--text);
@@ -61,6 +64,7 @@ body {
 }
 
 main {
+  flex: 1 0 auto;
   overflow: hidden;
 }
 
@@ -587,14 +591,8 @@ html.article-review-page main {
 }
 
 html.article-review-page .help-doc {
-  --troubleshooting-layout-spacer: 0px;
   grid-template-columns: 220px minmax(0, 1fr);
   gap: 1.85rem;
-}
-
-html[data-page="troubleshooting"] .help-doc {
-  padding-bottom: calc(1rem + var(--troubleshooting-layout-spacer, 0px));
-  margin-bottom: calc(-1 * var(--troubleshooting-layout-spacer, 0px));
 }
 
 .help-sidebar {
@@ -848,11 +846,6 @@ html[data-page="faq"] #support .faq-item {
 
 .troubleshooting-section + .troubleshooting-section {
   margin-top: 1.15rem;
-}
-
-.troubleshooting-bottom-spacer {
-  pointer-events: none;
-  visibility: hidden;
 }
 
 .troubleshooting-section summary {
@@ -2072,6 +2065,7 @@ html.article-review-page .help-article .text-link-button[data-info-trigger] {
 }
 
 .site-footer {
+  flex: 0 0 auto;
   border-top: 1px solid var(--line);
   margin-top: 1rem;
   padding: 0.82rem 0 1.36rem;

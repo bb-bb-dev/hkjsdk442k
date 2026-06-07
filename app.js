@@ -397,7 +397,6 @@
   const troubleshootingReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const troubleshootingOpenAnimationMs = 520;
   const troubleshootingCloseAnimationMs = 680;
-  let troubleshootingBottomSpacer = null;
   let troubleshootingScrollFrame = 0;
   let troubleshootingScrollToken = 0;
 
@@ -465,7 +464,6 @@
       body.style.opacity = "";
       body.style.transform = "";
       item.classList.remove("troubleshooting-animating", "troubleshooting-closing");
-      setTroubleshootingBottomSpacerHeight();
       return;
     }
 
@@ -488,7 +486,6 @@
       body.style.transform = "";
       item.classList.remove("troubleshooting-animating", "troubleshooting-closing");
       troubleshootingTimers.delete(item);
-      setTroubleshootingBottomSpacerHeight();
     }, troubleshootingCloseAnimationMs));
   }
 
@@ -517,60 +514,6 @@
     if (troubleshootingScrollFrame) {
       window.cancelAnimationFrame(troubleshootingScrollFrame);
       troubleshootingScrollFrame = 0;
-    }
-  }
-
-  function getTroubleshootingBottomSpacer() {
-    if (!troubleshootingBottomSpacer) {
-      troubleshootingBottomSpacer = document.createElement("div");
-      troubleshootingBottomSpacer.className = "troubleshooting-bottom-spacer";
-      troubleshootingBottomSpacer.setAttribute("aria-hidden", "true");
-      const footer = document.querySelector(".site-footer");
-      if (footer) {
-        footer.insertAdjacentElement("afterend", troubleshootingBottomSpacer);
-      } else {
-        document.body.appendChild(troubleshootingBottomSpacer);
-      }
-    }
-
-    return troubleshootingBottomSpacer;
-  }
-
-  function setTroubleshootingLayoutSpacerHeight(height) {
-    const spacerHeight = Math.max(0, Math.ceil(height || 0));
-    const helpDoc = document.querySelector(".help-doc");
-
-    if (helpDoc) {
-      helpDoc.style.setProperty("--troubleshooting-layout-spacer", `${spacerHeight}px`);
-    }
-
-    document.documentElement.classList.toggle("troubleshooting-spacer-active", spacerHeight > 1);
-  }
-
-  function setTroubleshootingBottomSpacerHeight(item) {
-    const root = document.documentElement;
-    const currentSpacerHeight = troubleshootingBottomSpacer?.getBoundingClientRect().height || 0;
-    const maxScrollWithoutSpacer = Math.max(root.scrollHeight - currentSpacerHeight - window.innerHeight, 0);
-    const preserveCurrentScrollHeight = Math.max(0, window.scrollY - maxScrollWithoutSpacer + 1);
-    let targetScrollHeight = 0;
-
-    if (item) {
-      const targetTop = getTroubleshootingTargetTop(item);
-      const rect = item.getBoundingClientRect();
-      const desiredScrollY = window.scrollY + rect.top - targetTop;
-      targetScrollHeight = Math.max(0, desiredScrollY - maxScrollWithoutSpacer + 24);
-    }
-
-    const neededHeight = Math.ceil(Math.max(preserveCurrentScrollHeight, targetScrollHeight));
-    if (neededHeight > 1) {
-      getTroubleshootingBottomSpacer().style.height = `${neededHeight}px`;
-      setTroubleshootingLayoutSpacerHeight(neededHeight);
-    } else if (troubleshootingBottomSpacer) {
-      troubleshootingBottomSpacer.remove();
-      troubleshootingBottomSpacer = null;
-      setTroubleshootingLayoutSpacerHeight(0);
-    } else {
-      setTroubleshootingLayoutSpacerHeight(0);
     }
   }
 
@@ -630,11 +573,8 @@
 
     if (animated && !troubleshootingReduceMotion) {
       requestAnimationFrame(() => {
-        setTroubleshootingBottomSpacerHeight(item);
         trackTroubleshootingSectionToTopDuringOpen(item);
       });
-    } else {
-      setTroubleshootingBottomSpacerHeight(item);
     }
 
     return true;
