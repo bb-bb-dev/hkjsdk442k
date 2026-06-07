@@ -821,11 +821,6 @@ html[data-page="faq"] #support .faq-item {
   margin-bottom: 0;
 }
 
-.faq-scroll-spacer {
-  pointer-events: none;
-  visibility: hidden;
-}
-
 .faq-item .help-figure {
   margin-top: 0.85rem;
 }

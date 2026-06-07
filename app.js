@@ -48,7 +48,6 @@
     const faqCloseAnimationMs = 680;
     const reduceFaqMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const faqTimers = new WeakMap();
-    const faqScrollSpacers = new WeakMap();
     const faqAnimationTokens = new WeakMap();
 
     function clearFaqTimer(item) {
@@ -57,27 +56,6 @@
         window.clearTimeout(timer);
         faqTimers.delete(item);
       }
-    }
-
-    function clearFaqScrollSpacer(item) {
-      const spacer = faqScrollSpacers.get(item);
-      if (spacer) {
-        spacer.remove();
-        faqScrollSpacers.delete(item);
-      }
-    }
-
-    function setFaqScrollSpacerHeight(item, height) {
-      let spacer = faqScrollSpacers.get(item);
-      if (!spacer) {
-        spacer = document.createElement("div");
-        spacer.className = "faq-scroll-spacer";
-        spacer.setAttribute("aria-hidden", "true");
-        (document.querySelector("main") || document.body).appendChild(spacer);
-        faqScrollSpacers.set(item, spacer);
-      }
-
-      spacer.style.height = `${Math.max(0, height)}px`;
     }
 
     function nextFaqAnimationToken(item) {
@@ -109,76 +87,17 @@
       item.appendChild(answer);
     }
 
-    function revealFaqItem(item) {
-      if (!item.open) return;
-
-      const viewportBottom = window.innerHeight - 24;
-      const bottom = item.getBoundingClientRect().bottom;
-      if (bottom > viewportBottom) {
-        window.scrollBy({
-          top: bottom - viewportBottom,
-          behavior: reduceFaqMotion ? "auto" : "smooth",
-        });
-      }
-    }
-
-    function trackFaqItemRevealDuringOpen(item, answer, token, duration = faqOpenAnimationMs + 220) {
-      if (!item.open || reduceFaqMotion) return;
-
-      const startTime = performance.now();
-
-      function step(now) {
-        if (!isCurrentFaqAnimation(item, token) || !item.open || item.classList.contains("faq-closing")) {
-          clearFaqScrollSpacer(item);
-          return;
-        }
-
-        const viewportBottom = window.innerHeight - 24;
-        const answerHeight = answer?.getBoundingClientRect().height || 0;
-        const finalAnswerHeight = answer?.scrollHeight || 0;
-        const remainingAnswerHeight = Math.max(0, finalAnswerHeight - answerHeight);
-        const bottom = item.getBoundingClientRect().bottom;
-        const currentOverflow = bottom - viewportBottom;
-        const projectedOverflow = bottom + remainingAnswerHeight - viewportBottom;
-        const scrollAmount = Math.max(currentOverflow, projectedOverflow * 0.34);
-
-        if (answer && finalAnswerHeight > 0 && answer.style.height !== "auto") {
-          answer.style.height = `${finalAnswerHeight}px`;
-          setFaqScrollSpacerHeight(item, remainingAnswerHeight);
-        }
-
-        if (scrollAmount > 0.5) {
-          window.scrollBy(0, scrollAmount);
-        }
-
-        if (now - startTime < duration) {
-          requestAnimationFrame(step);
-        } else {
-          clearFaqScrollSpacer(item);
-          revealFaqItem(item);
-        }
-      }
-
-      requestAnimationFrame(step);
-    }
-
     function openFaqItem(item) {
       const answer = item.querySelector(":scope > .faq-answer");
       if (!answer || item.open) return;
 
       clearFaqTimer(item);
-      clearFaqScrollSpacer(item);
       const token = nextFaqAnimationToken(item);
       item.classList.remove("faq-closing");
       item.open = true;
 
       if (reduceFaqMotion) {
         answer.style.height = "auto";
-        requestAnimationFrame(() => {
-          if (isCurrentFaqAnimation(item, token)) {
-            revealFaqItem(item);
-          }
-        });
         return;
       }
 
@@ -193,7 +112,6 @@
         answer.style.height = `${answer.scrollHeight}px`;
         answer.style.opacity = "1";
         answer.style.transform = "translateY(0)";
-        trackFaqItemRevealDuringOpen(item, answer, token);
       });
 
       faqTimers.set(item, window.setTimeout(() => {
@@ -210,7 +128,6 @@
       if (!answer || !item.open || item.classList.contains("faq-closing")) return;
 
       clearFaqTimer(item);
-      clearFaqScrollSpacer(item);
       const token = nextFaqAnimationToken(item);
 
       if (reduceFaqMotion) {
