@@ -861,9 +861,19 @@ html[data-page="faq"] #support .faq-item {
 .troubleshooting-section-title {
   font-family: "Barlow Condensed", sans-serif;
   font-size: clamp(1.45rem, 3vw, 2rem);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.08;
   letter-spacing: 0.01em;
+  color: #a9bfd4;
+  transition:
+    color 0.22s ease,
+    font-weight 0.22s ease;
+}
+
+html[data-page="troubleshooting"] .troubleshooting-section[open] .troubleshooting-section-title,
+html[data-page="troubleshooting"] .troubleshooting-section.troubleshooting-closing .troubleshooting-section-title {
+  color: var(--text);
+  font-weight: 800;
 }
 
 .troubleshooting-title-icon {
