@@ -885,9 +885,9 @@ html[data-page="faq"] #support .faq-item {
   overflow: hidden;
   transform: translateY(-0.28rem);
   transition:
-    height 3s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 3s ease,
-    transform 3s ease;
+    height 8s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 8s ease,
+    transform 8s ease;
 }
 
 .troubleshooting-section[open] .troubleshooting-section-body {
@@ -897,9 +897,9 @@ html[data-page="faq"] #support .faq-item {
 
 .troubleshooting-section.troubleshooting-closing .troubleshooting-section-body {
   transition:
-    height 3s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 3s ease,
-    transform 3s ease;
+    height 8s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 8s ease,
+    transform 8s ease;
 }
 
 .troubleshooting-section-body > :first-child {
