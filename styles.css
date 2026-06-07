@@ -2259,8 +2259,9 @@ html.article-review-page .help-article .text-link-button[data-info-trigger] {
   }
 
   html[data-page="setup2"] #roles .help-inline-media {
-    margin-top: 1.1rem;
-    padding-top: 0.75rem;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
   }
 
   .help-sidebar {
