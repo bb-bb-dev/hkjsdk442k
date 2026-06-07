@@ -877,7 +877,7 @@ html[data-page="troubleshooting"] .troubleshooting-section.troubleshooting-closi
 }
 
 html[data-page="settings"] .troubleshooting-section-title {
-  font-size: clamp(1.22rem, 2.35vw, 1.58rem);
+  font-size: clamp(1.34rem, 2.65vw, 1.8rem);
 }
 
 html[data-page="settings"] .troubleshooting-section[open] .troubleshooting-section-title,
