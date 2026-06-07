@@ -49,6 +49,7 @@
     const reduceFaqMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const faqTimers = new WeakMap();
     const faqScrollSpacers = new WeakMap();
+    const faqAnimationTokens = new WeakMap();
 
     function clearFaqTimer(item) {
       const timer = faqTimers.get(item);
@@ -77,6 +78,16 @@
       }
 
       spacer.style.height = `${Math.max(0, height)}px`;
+    }
+
+    function nextFaqAnimationToken(item) {
+      const token = (faqAnimationTokens.get(item) || 0) + 1;
+      faqAnimationTokens.set(item, token);
+      return token;
+    }
+
+    function isCurrentFaqAnimation(item, token) {
+      return faqAnimationTokens.get(item) === token;
     }
 
     function getFaqFooterPeek(item) {
@@ -120,12 +131,17 @@
       }
     }
 
-    function trackFaqItemRevealDuringOpen(item, answer, duration = faqOpenAnimationMs + 220) {
+    function trackFaqItemRevealDuringOpen(item, answer, token, duration = faqOpenAnimationMs + 220) {
       if (!item.open || reduceFaqMotion) return;
 
       const startTime = performance.now();
 
       function step(now) {
+        if (!isCurrentFaqAnimation(item, token) || !item.open || item.classList.contains("faq-closing")) {
+          clearFaqScrollSpacer(item);
+          return;
+        }
+
         const footerPeek = getFaqFooterPeek(item);
         const viewportBottom = window.innerHeight - 24 - footerPeek;
         const answerHeight = answer?.getBoundingClientRect().height || 0;
@@ -162,12 +178,17 @@
 
       clearFaqTimer(item);
       clearFaqScrollSpacer(item);
+      const token = nextFaqAnimationToken(item);
       item.classList.remove("faq-closing");
       item.open = true;
 
       if (reduceFaqMotion) {
         answer.style.height = "auto";
-        requestAnimationFrame(() => revealFaqItem(item));
+        requestAnimationFrame(() => {
+          if (isCurrentFaqAnimation(item, token)) {
+            revealFaqItem(item);
+          }
+        });
         return;
       }
 
@@ -177,13 +198,17 @@
       answer.style.transform = "translateY(-0.28rem)";
 
       requestAnimationFrame(() => {
+        if (!isCurrentFaqAnimation(item, token) || !item.open || item.classList.contains("faq-closing")) return;
+
         answer.style.height = `${answer.scrollHeight}px`;
         answer.style.opacity = "1";
         answer.style.transform = "translateY(0)";
-        trackFaqItemRevealDuringOpen(item, answer);
+        trackFaqItemRevealDuringOpen(item, answer, token);
       });
 
       faqTimers.set(item, window.setTimeout(() => {
+        if (!isCurrentFaqAnimation(item, token) || !item.open || item.classList.contains("faq-closing")) return;
+
         answer.style.height = "auto";
         item.classList.remove("faq-animating");
         faqTimers.delete(item);
@@ -192,10 +217,11 @@
 
     function closeFaqItem(item) {
       const answer = item.querySelector(":scope > .faq-answer");
-      if (!answer || !item.open) return;
+      if (!answer || !item.open || item.classList.contains("faq-closing")) return;
 
       clearFaqTimer(item);
       clearFaqScrollSpacer(item);
+      const token = nextFaqAnimationToken(item);
 
       if (reduceFaqMotion) {
         item.open = false;
@@ -211,12 +237,16 @@
       answer.getBoundingClientRect();
 
       requestAnimationFrame(() => {
+        if (!isCurrentFaqAnimation(item, token) || !item.open) return;
+
         answer.style.height = "0px";
         answer.style.opacity = "0";
         answer.style.transform = "translateY(-0.28rem)";
       });
 
       faqTimers.set(item, window.setTimeout(() => {
+        if (!isCurrentFaqAnimation(item, token) || !item.open) return;
+
         item.open = false;
         answer.style.height = "";
         answer.style.opacity = "";
