@@ -2072,6 +2072,11 @@ html.faq-footer-pinned .site-footer {
   box-shadow: 0 -16px 28px rgba(0, 0, 0, 0.28);
 }
 
+html.faq-footer-pinned #support .faq-item.faq-expand-up {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
 .footer-stack {
   display: grid;
   gap: 0.72rem;

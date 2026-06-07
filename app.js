@@ -50,6 +50,7 @@
     const faqTimers = new WeakMap();
     const faqScrollSpacers = new WeakMap();
     const faqAnimationTokens = new WeakMap();
+    let activeFaqFooterPin = null;
 
     function clearFaqTimer(item) {
       const timer = faqTimers.get(item);
@@ -106,16 +107,19 @@
     function pinFaqFooter() {
       const footer = document.querySelector(".site-footer");
       if (!footer) return null;
+      if (activeFaqFooterPin) return activeFaqFooterPin;
 
       const footerTop = footer.getBoundingClientRect().top;
       const footerHeight = Math.ceil(footer.getBoundingClientRect().height);
       document.documentElement.style.setProperty("--faq-pinned-footer-height", `${footerHeight}px`);
       document.documentElement.classList.add("faq-footer-pinned");
-      return { footer, footerTop };
+      activeFaqFooterPin = { footer, footerTop, cleanup: null, releaseArmed: false };
+      return activeFaqFooterPin;
     }
 
-    function unpinFaqFooter(pinState) {
+    function unpinFaqFooter(pinState, preservePosition = true) {
       if (!pinState?.footer) return;
+      pinState.cleanup?.();
 
       const pinnedTop = pinState.footer.getBoundingClientRect().top;
       document.documentElement.classList.remove("faq-footer-pinned");
@@ -123,9 +127,37 @@
 
       const restoredTop = pinState.footer.getBoundingClientRect().top;
       const delta = restoredTop - pinnedTop;
-      if (Math.abs(delta) > 0.4) {
+      if (preservePosition && Math.abs(delta) > 0.4) {
         window.scrollBy(0, delta);
       }
+
+      if (activeFaqFooterPin === pinState) {
+        activeFaqFooterPin = null;
+      }
+    }
+
+    function armFaqFooterRelease(pinState) {
+      if (!pinState || pinState.releaseArmed) return;
+
+      pinState.releaseArmed = true;
+      const release = () => unpinFaqFooter(pinState, false);
+      const onWheel = (event) => {
+        if (event.deltaY < 0) release();
+      };
+      const onTouchStart = () => release();
+      const onKeyDown = (event) => {
+        if (["ArrowUp", "PageUp", "Home"].includes(event.key)) release();
+      };
+
+      window.addEventListener("wheel", onWheel, { passive: true });
+      window.addEventListener("touchstart", onTouchStart, { passive: true });
+      window.addEventListener("keydown", onKeyDown);
+      pinState.cleanup = () => {
+        window.removeEventListener("wheel", onWheel);
+        window.removeEventListener("touchstart", onTouchStart);
+        window.removeEventListener("keydown", onKeyDown);
+        pinState.cleanup = null;
+      };
     }
 
     function getFaqViewportBottom(item) {
@@ -176,9 +208,13 @@
       let restoredAnchoring = false;
       const footerPinState = anchorFooter ? pinFaqFooter() : null;
 
-      function restoreScrollAnchoring() {
+      function restoreScrollAnchoring(releaseFooter = true) {
         if (!anchorFooter || restoredAnchoring) return;
-        unpinFaqFooter(footerPinState);
+        if (releaseFooter) {
+          unpinFaqFooter(footerPinState);
+        } else {
+          armFaqFooterRelease(footerPinState);
+        }
         root.style.overflowAnchor = previousRootAnchor;
         body.style.overflowAnchor = previousBodyAnchor;
         restoredAnchoring = true;
@@ -230,7 +266,7 @@
           if (!anchorFooter) {
             revealFaqItem(item);
           } else {
-            restoreScrollAnchoring();
+            restoreScrollAnchoring(false);
           }
         }
       }
@@ -263,6 +299,7 @@
       answer.style.opacity = "0";
       answer.style.transform = "translateY(-0.28rem)";
       const anchorFooter = shouldAnchorFaqFooter(item);
+      item.classList.toggle("faq-expand-up", anchorFooter);
 
       requestAnimationFrame(() => {
         if (!isCurrentFaqAnimation(item, token) || !item.open || item.classList.contains("faq-closing")) return;
@@ -289,11 +326,14 @@
       clearFaqTimer(item);
       clearFaqScrollSpacer(item);
       const token = nextFaqAnimationToken(item);
+      if (item.classList.contains("faq-expand-up")) {
+        unpinFaqFooter(activeFaqFooterPin, false);
+      }
 
       if (reduceFaqMotion) {
         item.open = false;
         answer.style.height = "";
-        item.classList.remove("faq-closing");
+        item.classList.remove("faq-closing", "faq-expand-up");
         return;
       }
 
@@ -318,7 +358,7 @@
         answer.style.height = "";
         answer.style.opacity = "";
         answer.style.transform = "";
-        item.classList.remove("faq-animating", "faq-closing");
+        item.classList.remove("faq-animating", "faq-closing", "faq-expand-up");
         faqTimers.delete(item);
       }, faqCloseAnimationMs));
     }
