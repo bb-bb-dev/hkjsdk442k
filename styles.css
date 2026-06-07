@@ -736,7 +736,7 @@ html[data-page="faq"] #support .faq-item {
   padding: 0.92rem 0;
   color: #85919e;
   font-family: "Archivo", system-ui, sans-serif;
-  font-size: clamp(0.98rem, 1.55vw, 1.12rem);
+  font-size: clamp(1.34rem, 2.65vw, 1.8rem);
   font-weight: 700;
   letter-spacing: 0;
   cursor: pointer;
@@ -860,7 +860,7 @@ html[data-page="faq"] #support .faq-item {
 
 .troubleshooting-section-title {
   font-family: "Barlow Condensed", sans-serif;
-  font-size: clamp(1.45rem, 3vw, 2rem);
+  font-size: clamp(1.34rem, 2.65vw, 1.8rem);
   font-weight: 700;
   line-height: 1.08;
   letter-spacing: 0.01em;
@@ -874,10 +874,6 @@ html[data-page="troubleshooting"] .troubleshooting-section[open] .troubleshootin
 html[data-page="troubleshooting"] .troubleshooting-section.troubleshooting-closing .troubleshooting-section-title {
   color: var(--text);
   font-weight: 800;
-}
-
-html[data-page="settings"] .troubleshooting-section-title {
-  font-size: clamp(1.34rem, 2.65vw, 1.8rem);
 }
 
 html[data-page="settings"] .troubleshooting-section[open] .troubleshooting-section-title,
