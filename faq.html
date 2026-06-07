@@ -68,71 +68,86 @@
           </p>
 
           <h2>General questions</h2>
-          <h3>Do I need TubeWitch to show tire pressure on a Garmin?</h3>
-          <p>Garmin does not support TyreWiz sensors natively, so showing TyreWiz pressure on a Garmin requires a Garmin Connect IQ data field.</p>
-          <p>TubeWitch provides that capability as a Garmin Connect IQ tire pressure monitoring data field for compatible Quarq TyreWiz sensors and Zipp 303 SW wheels with the integrated Zipp AXS Wheel Sensor.</p>
-
-          <h3>Are the TubeWitch pressure readings accurate?</h3>
-          <p>Yes. It matches the SRAM AXS mobile app exactly.</p>
-
-          <h3>Which tire pressure sensors does TubeWitch support?</h3>
-          <ul>
-            <li>Quarq TyreWiz 1.0</li>
-            <li>Quarq TyreWiz 2.0</li>
-            <li>Quarq TyreWiz for Moto</li>
-            <li>Quarq TyreWiz for 101 XPLR</li>
-            <li>Zipp 303 SW wheels with integrated Zipp AXS Wheel Sensor</li>
-            <li>Zipp 353 NSW wheels with integrated Zipp AXS Wheel Sensor</li>
-          </ul>
-          <p>More sensors coming soon...</p>
-
-          <h3>Will TubeWitch reconnect to TyreWiz sensors after a Garmin Edge device wakes from sleep mode?</h3>
-          <p>Yes.</p>
-
-          <h3>Why is it showing a "?" or "X" next to the pressure reading?</h3>
-          <p>"?" indicates the sensor is not delivering data and TubeWitch is trying to reconnect.</p>
-          <p>"X" indicates TubeWitch timed out for that sensor and stopped searching to save battery. Default timeout is 15 minutes.</p>
-
-          <h3>Where do I set the pressure targets for my TyreWiz sensors?</h3>
-          <p>Use the SRAM AXS mobile app. That is where you set the target pressure and alert range for each TyreWiz sensor.</p>
-          <p>TyreWiz stores that behavior in the sensor itself, so the TyreWiz LED and TubeWitch stay in sync. Slow green flashing means tire pressure is within the suggested range. Slow red flashing means low tire pressure is detected. Fast red flashing means high tire pressure is detected.</p>
-          <p>TubeWitch follows that same sensor status on Garmin. The SRAM AXS app is also where firmware updates are managed and where SRAM provides pressure guidance to help you choose a starting point for your tires.</p>
-
-          <h3>What if the TubeWitch tire pressure alerts seem wrong?</h3>
-          <p>First check the SRAM AXS mobile app. That is where the target pressure and alert range are defined for each TyreWiz sensor, and TubeWitch follows that same sensor status.</p>
-          <p>Because those settings are stored in the sensor, TubeWitch stays in sync with the TyreWiz LED behavior: slow green flashing means pressure is within range, slow red flashing means low pressure is detected, and fast red flashing means high pressure is detected.</p>
-          <p>If TubeWitch is showing live pressure but the high or low status seems wrong, the most common cause is that the target pressure or alert range in SRAM AXS does not match the setup you expect. Also confirm that the correct sensor IDs are entered in TubeWitch.</p>
-
-          <h3>Is TubeWitch the same as Tube Witch, TyreWitch, TireWitch, Tyre Wiz, Tire Wiz or TyreWhiz?</h3>
-          <p>Those are alternate spellings riders use in search. Tube Witch, TyreWitch, and TireWitch refer to the TubeWitch data field.</p>
-          <p>Tyre Wiz, TireWiz, and Tire Wiz refer to the SRAM/Quarq tire pressure sensors. TubeWitch is the Garmin Connect IQ data field that brings TyreWiz pressure and alerts to compatible Garmin devices.</p>
+          <details class="faq-item">
+            <summary>Do I need TubeWitch to show tire pressure on a Garmin?</summary>
+            <p>Garmin does not support TyreWiz sensors natively, so showing TyreWiz pressure on a Garmin requires a Garmin Connect IQ data field.</p>
+            <p>TubeWitch provides that capability as a Garmin Connect IQ tire pressure monitoring data field for compatible Quarq TyreWiz sensors and Zipp 303 SW wheels with the integrated Zipp AXS Wheel Sensor.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Are the TubeWitch pressure readings accurate?</summary>
+            <p>Yes. It matches the SRAM AXS mobile app exactly.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Which tire pressure sensors does TubeWitch support?</summary>
+            <ul>
+              <li>Quarq TyreWiz 1.0</li>
+              <li>Quarq TyreWiz 2.0</li>
+              <li>Quarq TyreWiz for Moto</li>
+              <li>Quarq TyreWiz for 101 XPLR</li>
+              <li>Zipp 303 SW wheels with integrated Zipp AXS Wheel Sensor</li>
+              <li>Zipp 353 NSW wheels with integrated Zipp AXS Wheel Sensor</li>
+            </ul>
+            <p>More sensors coming soon...</p>
+          </details>
+          <details class="faq-item">
+            <summary>Will TubeWitch reconnect to TyreWiz sensors after a Garmin Edge device wakes from sleep mode?</summary>
+            <p>Yes.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Why is it showing a "?" or "X" next to the pressure reading?</summary>
+            <p>"?" indicates the sensor is not delivering data and TubeWitch is trying to reconnect.</p>
+            <p>"X" indicates TubeWitch timed out for that sensor and stopped searching to save battery. Default timeout is 15 minutes.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Where do I set the pressure targets for my TyreWiz sensors?</summary>
+            <p>Use the SRAM AXS mobile app. That is where you set the target pressure and alert range for each TyreWiz sensor.</p>
+            <p>TyreWiz stores that behavior in the sensor itself, so the TyreWiz LED and TubeWitch stay in sync. Slow green flashing means tire pressure is within the suggested range. Slow red flashing means low tire pressure is detected. Fast red flashing means high tire pressure is detected.</p>
+            <p>TubeWitch follows that same sensor status on Garmin. The SRAM AXS app is also where firmware updates are managed and where SRAM provides pressure guidance to help you choose a starting point for your tires.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What if the TubeWitch tire pressure alerts seem wrong?</summary>
+            <p>First check the SRAM AXS mobile app. That is where the target pressure and alert range are defined for each TyreWiz sensor, and TubeWitch follows that same sensor status.</p>
+            <p>Because those settings are stored in the sensor, TubeWitch stays in sync with the TyreWiz LED behavior: slow green flashing means pressure is within range, slow red flashing means low pressure is detected, and fast red flashing means high pressure is detected.</p>
+            <p>If TubeWitch is showing live pressure but the high or low status seems wrong, the most common cause is that the target pressure or alert range in SRAM AXS does not match the setup you expect. Also confirm that the correct sensor IDs are entered in TubeWitch.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Is TubeWitch the same as Tube Witch, TyreWitch, TireWitch, Tyre Wiz, Tire Wiz or TyreWhiz?</summary>
+            <p>Those are alternate spellings riders use in search. Tube Witch, TyreWitch, and TireWitch refer to the TubeWitch data field.</p>
+            <p>Tyre Wiz, TireWiz, and Tire Wiz refer to the SRAM/Quarq tire pressure sensors. TubeWitch is the Garmin Connect IQ data field that brings TyreWiz pressure and alerts to compatible Garmin devices.</p>
+          </details>
         </section>
 
         <section id="features">
           <h2>Capabilities and behavior</h2>
-          <h3>Will it work for more than two sensors?</h3>
-          <p>Yes. Save up to five named bikes or wheel sets.</p>
-          <p>Then either manually select the active sensor set in settings, choose Auto to scan each configured sensor set for 10 seconds, or use the Touch to Switch feature. Only one sensor set can be connected and displayed at a time.</p>
-
-          <h3>Will it record tire pressure data to the Garmin activity?</h3>
-          <p>Yes. It can record pressure from the active sensor set, alarms, and more.</p>
-          <p>The average pressures and the sensor set name are also shown in the Garmin Connect IQ stats.</p>
-
-          <h3>Does the TubeWitch data field have to be on the active Garmin screen to get alerts?</h3>
-          <p>No. TubeWitch can keep watch in the background, so popup and audible alerts still work without keeping the data field on screen.</p>
-          <p>You can switch to another page and leave your map or preferred screen up until an alert appears.</p>
-
-          <h3>Does the TubeWitch Data Field offer features that the SRAM Data Field doesn't have?</h3>
-          <p>Yes. TubeWitch adds audible, pop-up, and vibration alerts; customizable labels and colors; stale-data indicators that keep showing the last known pressure after a disconnect; support for multiple bikes and wheel sets; more layout options; support for newer Edge devices and Garmin watches; touchscreen features; and sensor timeouts that save battery.</p>
-
-          <h3>Does it support the use of a single front/rear sensor?</h3>
-          <p>Yes, in TubeWitch settings, open the Sensor Set and find the Enabled Sensors setting. Change it to Front or Rear only.</p>
-          <p>The data field will then show only a single pressure.</p>
-
-          <h3>Why does this exist if SRAM already has a TyreWiz Data Field?</h3>
-          <p>SRAM has not updated their TyreWiz Data Field for newer Garmin devices or added new features in quite some time.</p>
-          <p>TubeWitch fills that gap.</p>
-
+          <details class="faq-item">
+            <summary>Will it work for more than two sensors?</summary>
+            <p>Yes. Save up to five named bikes or wheel sets.</p>
+            <p>Then either manually select the active sensor set in settings, choose Auto to scan each configured sensor set for 10 seconds, or use the Touch to Switch feature. Only one sensor set can be connected and displayed at a time.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Will it record tire pressure data to the Garmin activity?</summary>
+            <p>Yes. It can record pressure from the active sensor set, alarms, and more.</p>
+            <p>The average pressures and the sensor set name are also shown in the Garmin Connect IQ stats.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Does the TubeWitch data field have to be on the active Garmin screen to get alerts?</summary>
+            <p>No. TubeWitch can keep watch in the background, so popup and audible alerts still work without keeping the data field on screen.</p>
+            <p>You can switch to another page and leave your map or preferred screen up until an alert appears.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Does the TubeWitch Data Field offer features that the SRAM Data Field doesn't have?</summary>
+            <p>Yes. TubeWitch adds audible, pop-up, and vibration alerts; customizable labels and colors; stale-data indicators that keep showing the last known pressure after a disconnect; support for multiple bikes and wheel sets; more layout options; support for newer Edge devices and Garmin watches; touchscreen features; and sensor timeouts that save battery.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Does it support the use of a single front/rear sensor?</summary>
+            <p>Yes, in TubeWitch settings, open the Sensor Set and find the Enabled Sensors setting. Change it to Front or Rear only.</p>
+            <p>The data field will then show only a single pressure.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Why does this exist if SRAM already has a TyreWiz Data Field?</summary>
+            <p>SRAM has not updated their TyreWiz Data Field for newer Garmin devices or added new features in quite some time.</p>
+            <p>TubeWitch fills that gap.</p>
+          </details>
           <div class="callout">
             <p>For a single-page product overview aimed at SRAM/Quarq TyreWiz Garmin searches, see <a href="garmin-tyrewiz.html">SRAM/Quarq TyreWiz on Garmin</a>.</p>
           </div>
@@ -152,21 +167,25 @@
             <a class="callout-link" href="#setup-answers" data-video-modal data-video-id="Dq7z9Xdej28" data-video-title="TyreWiz on Garmin: Set TyreWiz Sensor IDs in TubeWitch using Garmin Express" aria-haspopup="dialog">View Sensor ID Demo - Garmin Express</a>
           </div>
 
-          <h3>What part of the sensor ID do I enter? It doesn't allow for letters in the sensor ID fields.</h3>
-          <p>The sensor ID fields are restricted to numbers only.</p>
-          <p>Only the numeric part of the sensor ID is required in settings. For example, if the sensor ID is HGL12345, enter 12345.</p>
-
-          <h3>What Garmin devices does TubeWitch support?</h3>
-          <p>TubeWitch is compatible with most newer Garmin devices and watches released in 2018 or later. As new Garmin devices are released each year, TubeWitch will be updated as soon as possible to include them.</p>
-          <p>See the TubeWitch App Store page for the most up-to-date list of compatible devices: <a href="https://apps.garmin.com/apps/9b512e62-f3b0-4aea-a932-63670e0dfe75?tid=1" target="_blank" rel="noopener noreferrer">Compatible Garmin Devices</a></p>
-          <p>To request support for a newly released device, use the <strong>Contact Developer</strong> link from the TubeWitch page in the Garmin Connect IQ mobile app.</p>
-
-          <h3>Where do I find the TyreWiz sensor IDs?</h3>
-          <p>They are printed on the sensor and can also be found in the SRAM AXS mobile app.</p>
-          <figure class="help-figure shot">
-            <img class="transparent-shot" src="assets/img/sensor_ids.png" alt="TubeWitch sensor ID entry fields" />
-            <figcaption>TyreWiz sensor IDs can be found on the sensor or in the SRAM AXS mobile app</figcaption>
-          </figure>
+          <details class="faq-item">
+            <summary>What part of the sensor ID do I enter? It doesn't allow for letters in the sensor ID fields.</summary>
+            <p>The sensor ID fields are restricted to numbers only.</p>
+            <p>Only the numeric part of the sensor ID is required in settings. For example, if the sensor ID is HGL12345, enter 12345.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What Garmin devices does TubeWitch support?</summary>
+            <p>TubeWitch is compatible with most newer Garmin devices and watches released in 2018 or later. As new Garmin devices are released each year, TubeWitch will be updated as soon as possible to include them.</p>
+            <p>See the TubeWitch App Store page for the most up-to-date list of compatible devices: <a href="https://apps.garmin.com/apps/9b512e62-f3b0-4aea-a932-63670e0dfe75?tid=1" target="_blank" rel="noopener noreferrer">Compatible Garmin Devices</a></p>
+            <p>To request support for a newly released device, use the <strong>Contact Developer</strong> link from the TubeWitch page in the Garmin Connect IQ mobile app.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Where do I find the TyreWiz sensor IDs?</summary>
+            <p>They are printed on the sensor and can also be found in the SRAM AXS mobile app.</p>
+            <figure class="help-figure shot">
+              <img class="transparent-shot" src="assets/img/sensor_ids.png" alt="TubeWitch sensor ID entry fields" />
+              <figcaption>TyreWiz sensor IDs can be found on the sensor or in the SRAM AXS mobile app</figcaption>
+            </figure>
+          </details>
         </section>
 
         <section id="support">
