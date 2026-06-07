@@ -1214,6 +1214,23 @@ html.article-review-page .help-article .callout + h3 {
   transform: rotate(-135deg);
 }
 
+.callout-details.callout-details-closing summary::after {
+  transform: rotate(45deg);
+}
+
+.callout-details-body {
+  overflow: hidden;
+  transition: height 0.62s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.callout-details-body > :first-child {
+  margin-top: 0;
+}
+
+.callout-details-body > :last-child {
+  margin-bottom: 0;
+}
+
 .callout .eyebrow {
   margin: 0 0 0.22rem;
 }

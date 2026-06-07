@@ -181,6 +181,100 @@
     });
   }
 
+  const calloutDetails = Array.from(document.querySelectorAll("details.callout-details"));
+  const calloutDetailsTimers = new WeakMap();
+  const calloutDetailsReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const calloutDetailsAnimationMs = 620;
+
+  function clearCalloutDetailsTimer(item) {
+    const timer = calloutDetailsTimers.get(item);
+    if (timer) {
+      window.clearTimeout(timer);
+      calloutDetailsTimers.delete(item);
+    }
+  }
+
+  function getCalloutDetailsBody(item) {
+    return item.querySelector(":scope > .callout-details-body");
+  }
+
+  function openCalloutDetails(item) {
+    const body = getCalloutDetailsBody(item);
+    if (!body || item.open) return;
+
+    clearCalloutDetailsTimer(item);
+    item.classList.remove("callout-details-closing");
+    item.open = true;
+
+    if (calloutDetailsReduceMotion) {
+      body.style.height = "auto";
+      return;
+    }
+
+    item.classList.add("callout-details-animating");
+    body.style.height = "0px";
+    body.getBoundingClientRect();
+
+    requestAnimationFrame(() => {
+      body.style.height = `${body.scrollHeight}px`;
+    });
+
+    calloutDetailsTimers.set(item, window.setTimeout(() => {
+      body.style.height = "auto";
+      item.classList.remove("callout-details-animating");
+      calloutDetailsTimers.delete(item);
+    }, calloutDetailsAnimationMs));
+  }
+
+  function closeCalloutDetails(item) {
+    const body = getCalloutDetailsBody(item);
+    if (!body || !item.open || item.classList.contains("callout-details-closing")) return;
+
+    clearCalloutDetailsTimer(item);
+
+    if (calloutDetailsReduceMotion) {
+      item.open = false;
+      body.style.height = "";
+      item.classList.remove("callout-details-closing");
+      return;
+    }
+
+    item.classList.add("callout-details-animating", "callout-details-closing");
+    body.style.height = `${body.getBoundingClientRect().height || body.scrollHeight}px`;
+    body.getBoundingClientRect();
+
+    requestAnimationFrame(() => {
+      body.style.height = "0px";
+    });
+
+    calloutDetailsTimers.set(item, window.setTimeout(() => {
+      item.open = false;
+      body.style.height = "";
+      item.classList.remove("callout-details-animating", "callout-details-closing");
+      calloutDetailsTimers.delete(item);
+    }, calloutDetailsAnimationMs));
+  }
+
+  calloutDetails.forEach((item) => {
+    const body = getCalloutDetailsBody(item);
+    const summary = item.querySelector("summary");
+    if (!body || !summary) return;
+
+    if (item.open) {
+      body.style.height = "auto";
+    }
+
+    summary.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      if (item.open && !item.classList.contains("callout-details-closing")) {
+        closeCalloutDetails(item);
+      } else {
+        openCalloutDetails(item);
+      }
+    });
+  });
+
   const troubleshootingSections = Array.from(document.querySelectorAll("details.troubleshooting-section"));
   const troubleshootingTimers = new WeakMap();
   const troubleshootingReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
