@@ -378,15 +378,40 @@
     }, troubleshootingCloseAnimationMs));
   }
 
-  function scrollTroubleshootingSectionToTop(item, delay = troubleshootingOpenAnimationMs) {
+  function getTroubleshootingTargetTop(item) {
+    const scrollMarginTop = parseFloat(window.getComputedStyle(item).scrollMarginTop);
+    return Number.isFinite(scrollMarginTop) ? scrollMarginTop : 0;
+  }
+
+  function trackTroubleshootingSectionToTop(item, duration = Math.max(troubleshootingOpenAnimationMs, troubleshootingCloseAnimationMs)) {
     if (!item) return;
 
-    window.setTimeout(() => {
-      item.scrollIntoView({
-        block: "start",
-        behavior: troubleshootingReduceMotion ? "auto" : "smooth",
-      });
-    }, delay);
+    if (troubleshootingReduceMotion) {
+      item.scrollIntoView({ block: "start" });
+      return;
+    }
+
+    const startTime = performance.now();
+    const startTop = item.getBoundingClientRect().top;
+    const endTop = getTroubleshootingTargetTop(item);
+
+    function step(now) {
+      const progress = Math.min(Math.max((now - startTime) / duration, 0), 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const desiredTop = startTop + ((endTop - startTop) * eased);
+      const actualTop = item.getBoundingClientRect().top;
+      const delta = actualTop - desiredTop;
+
+      if (Math.abs(delta) > 0.4) {
+        window.scrollBy(0, delta);
+      }
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    }
+
+    requestAnimationFrame(step);
   }
 
   function openTroubleshootingSectionById(targetId, animated = true) {
@@ -413,7 +438,7 @@
       } else {
         closeOtherTroubleshootingSections(item);
         if (openTroubleshootingSection(item)) {
-          scrollTroubleshootingSectionToTop(item);
+          trackTroubleshootingSectionToTop(item);
         }
       }
     });
