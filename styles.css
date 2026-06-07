@@ -679,11 +679,12 @@ html.article-review-page .help-sidebar-group + .help-sidebar-group {
 }
 
 html[data-page="faq"] .help-article section + section {
-  margin-top: 3.25rem;
+  margin-top: 3.65rem;
 }
 
 html[data-page="faq"] .help-article h2 {
   margin-top: 2.85rem;
+  margin-bottom: 0.85rem;
   padding-top: 0;
   border-top: 0;
 }
