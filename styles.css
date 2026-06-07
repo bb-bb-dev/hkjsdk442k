@@ -876,6 +876,15 @@ html[data-page="troubleshooting"] .troubleshooting-section.troubleshooting-closi
   font-weight: 800;
 }
 
+html[data-page="settings"] .troubleshooting-section-title {
+  font-size: clamp(1.22rem, 2.35vw, 1.58rem);
+}
+
+html[data-page="settings"] .troubleshooting-section[open] .troubleshooting-section-title,
+html[data-page="settings"] .troubleshooting-section.troubleshooting-closing .troubleshooting-section-title {
+  color: var(--text);
+}
+
 .troubleshooting-title-icon {
   width: 0.95em;
   height: 0.95em;
