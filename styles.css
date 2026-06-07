@@ -700,14 +700,8 @@ html.article-review-page .help-sidebar-group + .help-sidebar-group {
 }
 
 .faq-item {
-  margin: 0.85rem 0;
-  overflow: hidden;
-  border: 1px solid rgba(70, 98, 142, 0.42);
-  border-radius: 14px;
-  background:
-    radial-gradient(320px 180px at 0% 0%, rgba(88, 215, 255, 0.08), transparent 58%),
-    linear-gradient(180deg, #07111f 0%, #0b1a2d 100%);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+  margin: 0;
+  border-bottom: 1px solid var(--line);
 }
 
 .faq-item summary {
@@ -715,7 +709,7 @@ html.article-review-page .help-sidebar-group + .help-sidebar-group {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.88rem 1rem;
+  padding: 0.92rem 0;
   color: #f4fbff;
   font-family: "Barlow Condensed", sans-serif;
   font-size: clamp(1.12rem, 2.1vw, 1.34rem);
@@ -730,35 +724,33 @@ html.article-review-page .help-sidebar-group + .help-sidebar-group {
 }
 
 .faq-item summary::after {
-  content: "+";
-  display: grid;
-  width: 1.35rem;
-  height: 1.35rem;
+  content: ">";
+  display: block;
   flex: 0 0 auto;
-  place-items: center;
-  border: 1px solid rgba(125, 255, 215, 0.55);
-  border-radius: 999px;
   color: #7dffd7;
   font-family: "Outfit", sans-serif;
-  font-size: 1rem;
+  font-size: 1.05rem;
+  font-weight: 900;
   line-height: 1;
+  transform: rotate(0deg);
+  transition: transform 0.16s ease;
 }
 
 .faq-item[open] summary {
-  border-bottom: 1px solid rgba(70, 98, 142, 0.38);
+  padding-bottom: 0.72rem;
 }
 
 .faq-item[open] summary::after {
-  content: "-";
+  transform: rotate(90deg);
 }
 
 .faq-item > :not(summary) {
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .faq-item > :last-child {
-  margin-bottom: 1rem;
+  margin-bottom: 1.05rem;
 }
 
 .faq-item .help-figure {
