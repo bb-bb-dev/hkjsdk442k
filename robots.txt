@@ -1,4 +1,13 @@
 User-agent: *
 Allow: /
-
+Disallow: /setup_OLD.html
+Disallow: /settings_OLD.html
+Disallow: /settings-reference_OLD.html
+Disallow: /troubleshooting_OLD.html
+Disallow: /faq_OLD.html
+Disallow: /setup2.html
+Disallow: /settings2.html
+Disallow: /troubleshooting2.html
+Disallow: /faq2.html
+Disallow: /garmin-setup-help-article.html
 Sitemap: https://tubewitch.com/sitemap.xml

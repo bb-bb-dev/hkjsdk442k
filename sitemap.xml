@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://tubewitch.com/</loc>
-    <lastmod>2026-06-05T07:55:40-05:00</lastmod>
+    <lastmod>2026-06-07T09:46:36-05:00</lastmod>
     <image:image>
       <image:loc>https://tubewitch.com/assets/img/tubewitch-garmin-tyrewiz-preview.jpg</image:loc>
       <image:title>TubeWitch Garmin TyreWiz preview image</image:title>
@@ -15,42 +15,38 @@
   </url>
   <url>
     <loc>https://tubewitch.com/setup.html</loc>
-    <lastmod>2026-06-05T07:55:40-05:00</lastmod>
+    <lastmod>2026-06-07T09:46:36-05:00</lastmod>
   </url>
   <url>
     <loc>https://tubewitch.com/compatible-tire-sensors.html</loc>
-    <lastmod>2026-06-05T07:55:40-05:00</lastmod>
+    <lastmod>2026-06-07T09:46:36-05:00</lastmod>
   </url>
   <url>
     <loc>https://tubewitch.com/settings.html</loc>
-    <lastmod>2026-06-05T07:55:40-05:00</lastmod>
-  </url>
-  <url>
-    <loc>https://tubewitch.com/settings-reference.html</loc>
-    <lastmod>2026-06-05T07:55:40-05:00</lastmod>
+    <lastmod>2026-06-07T09:46:36-05:00</lastmod>
   </url>
   <url>
     <loc>https://tubewitch.com/alerts.html</loc>
-    <lastmod>2026-06-05T07:55:40-05:00</lastmod>
+    <lastmod>2026-06-07T09:46:36-05:00</lastmod>
   </url>
   <url>
     <loc>https://tubewitch.com/advanced.html</loc>
-    <lastmod>2026-06-05T07:55:40-05:00</lastmod>
+    <lastmod>2026-06-07T09:46:36-05:00</lastmod>
   </url>
   <url>
     <loc>https://tubewitch.com/faq.html</loc>
-    <lastmod>2026-06-05T07:55:40-05:00</lastmod>
+    <lastmod>2026-06-07T09:46:36-05:00</lastmod>
   </url>
   <url>
     <loc>https://tubewitch.com/troubleshooting.html</loc>
-    <lastmod>2026-06-05T07:55:40-05:00</lastmod>
+    <lastmod>2026-06-07T09:46:36-05:00</lastmod>
   </url>
   <url>
     <loc>https://tubewitch.com/gallery.html</loc>
-    <lastmod>2026-06-05T07:55:40-05:00</lastmod>
+    <lastmod>2026-06-07T09:46:36-05:00</lastmod>
   </url>
   <url>
     <loc>https://tubewitch.com/garmin-tyrewiz.html</loc>
-    <lastmod>2026-06-05T07:55:40-05:00</lastmod>
+    <lastmod>2026-06-07T09:46:36-05:00</lastmod>
   </url>
 </urlset>

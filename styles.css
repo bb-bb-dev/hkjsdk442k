@@ -574,7 +574,6 @@ h3 {
   background: rgba(26, 44, 65, 0.92);
 }
 
-html[data-page="garmin-setup-help-article"] main,
 html.article-review-page main {
   overflow: visible;
 }
@@ -2258,7 +2257,7 @@ html.article-review-page .help-article .text-link-button[data-info-trigger] {
     grid-template-columns: 1fr;
   }
 
-  html[data-page="setup2"] #roles .help-inline-media {
+  html[data-page="setup"] #roles .help-inline-media {
     margin-top: 0;
     padding-top: 0.55rem;
     border-top: 1px solid var(--line);

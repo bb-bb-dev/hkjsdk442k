@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-page="troubleshooting">
+<html lang="en" class="article-review-page" data-page="troubleshooting">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -47,189 +47,178 @@
   </header>
 
   <main id="main">
-    <section class="page-hero wrap reveal">
-      <div class="page-hero-copy">
-        <p class="kicker">Troubleshooting</p>
-        <h1>Fix the setup problems that come up most often</h1>
-        <p>
-          This page focuses on the TubeWitch issues that show up most often:
-          settings that do not save, pressure data that never appears, pressure status that looks wrong,
-          FIT recording problems, TubeWitch app upgrades that appear stuck, and how to contact support.
-        </p>
-        <p>
-          Start with the symptom you see on Garmin, then work through the matching checks in order.
-          Most failures come down to saved sensor IDs, SRAM AXS sensor setup, or a Garmin app state that needs a clean restart.
-        </p>
-      </div>
-      <figure class="page-hero-media shot">
-        <img class="fullshot" src="assets/img/tw_settings_combined.jpg" alt="TubeWitch settings overview" />
-        <figcaption>Troubleshooting starts with saved sensor IDs, correct SRAM AXS setup, and a clean Garmin restart</figcaption>
-      </figure>
-    </section>
+    <div class="wrap help-doc">
+      <aside class="help-sidebar" aria-label="Troubleshooting sections">
+        <p class="help-sidebar-title">Troubleshooting</p>
+        <div class="help-sidebar-group">
+          <a href="#overview">Overview</a>
+          <a href="#settings-not-saving">Settings Not Saving</a>
+          <a href="#no-pressure-data">No Pressure Data</a>
+          <a href="#wrong-pressure-status">Wrong Pressure Status</a>
+        </div>
+        <div class="help-sidebar-group">
+          <a href="#fit-recording-problems">FIT Recording</a>
+          <a href="#app-upgrade-problems">App Upgrade Problems</a>
+          <a href="#support">Support</a>
+        </div>
+      </aside>
 
-    <nav class="page-links wrap reveal" aria-label="Troubleshooting sections">
-      <a href="#settings-not-saving">Settings Not Saving</a>
-      <a href="#no-pressure-data">No Pressure Data</a>
-      <a href="#wrong-pressure-status">Wrong Pressure Status</a>
-      <a href="#fit-recording-problems">FIT Recording</a>
-      <a href="#app-upgrade-problems">App Upgrade Problems</a>
-      <a href="#support">Support</a>
-    </nav>
+      <nav class="mobile-help-jump" aria-label="Troubleshooting sections">
+        <details>
+          <summary>
+            <span class="mobile-help-jump-summary-text">
+              <span class="mobile-help-jump-label">On this page</span>
+              <span class="mobile-help-jump-current">Overview</span>
+            </span>
+          </summary>
+          <div class="mobile-help-jump-menu">
+            <a href="#overview">Overview</a>
+            <a href="#settings-not-saving">Settings Not Saving</a>
+            <a href="#no-pressure-data">No Pressure Data</a>
+            <a href="#wrong-pressure-status">Wrong Pressure Status</a>
+            <a href="#fit-recording-problems">FIT Recording</a>
+            <a href="#app-upgrade-problems">App Upgrade Problems</a>
+            <a href="#support">Support</a>
+          </div>
+        </details>
+      </nav>
 
-    <section class="section wrap reveal" id="settings-not-saving">
-      <h2>Settings Not Saving</h2>
-      <p class="section-lead">If sensor IDs or related settings do not stick, fix the settings save issue first before troubleshooting the sensors themselves.</p>
-      <div class="temporary-alert" id="current-settings-bug-alert">
-        <p>ALERT: SAVING SETTINGS WITH THE CONNECT IQ MOBILE APP IS AFFECTED BY A BUG IN THE GARMIN IQ SYSTEM. MAKE SURE THE TUBEWITCH DATA FIELD IS VISIBLE ON YOUR GARMIN DEVICE WHEN CHANGING SETTINGS. IF SETTINGS STILL DO NOT SAVE, TRY GARMIN EXPRESS.</p>
-      </div>
-      <div class="callout callout-red" id="current-settings-bug-workaround">
-        <p class="eyebrow">WORKAROUND - Garmin Connect IQ Mobile App</p>
-        <p>If you are impacted by this Garmin Settings bug, first try modifying settings using these exact steps with the Garmin Connect IQ mobile app.</p>
-        <ol class="steps">
-          <li>Using the Garmin Connect IQ mobile app, uninstall TubeWitch. This will clear all TubeWitch settings.</li>
-          <li>Reboot the Garmin device and restart the Garmin Connect IQ mobile app.</li>
-          <li>Reinstall TubeWitch.</li>
-          <li>Add the TubeWitch data field to a data screen and open that screen to load the field.</li>
-          <li><span class="field-visible-emphasis"><img class="field-visible-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" />Leave the TubeWitch data field visible on your Garmin device.<img class="field-visible-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" /></span></li>
-          <li>In the Garmin Connect IQ mobile app, open TubeWitch settings, enter the numeric part of each sensor ID, and save immediately.</li>
-          <li><span class="field-visible-emphasis"><img class="field-visible-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" />Do not go back into the nested Sensor Set before tapping Save.<img class="field-visible-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" /></span></li>
-          <li>Confirm your live pressures.</li>
-        </ol>
-        <p>If this works, keep the TubeWitch data field visible on your Garmin device when making future settings changes.</p>
-      </div>
-      <div class="callout callout-red" id="current-settings-garmin-express-workaround">
-        <p class="eyebrow">WORKAROUND - Garmin Express</p>
-        <p>If the issue persists, modify settings using these exact steps with <a href="#settings-not-saving" data-video-modal data-video-id="Dq7z9Xdej28" data-video-title="TyreWiz on Garmin: Set TyreWiz Sensor IDs in TubeWitch using Garmin Express" aria-haspopup="dialog">Garmin Express</a>.</p>
-        <ol class="steps">
-          <li>Using the Garmin Connect IQ mobile app, uninstall TubeWitch. This will clear all TubeWitch settings.</li>
-          <li>Reboot the Garmin device.</li>
-          <li>Using the Garmin Connect IQ mobile app, reinstall TubeWitch.</li>
-          <li>Add the TubeWitch data field to a data screen and open that screen to load the field.</li>
-          <li>Close all Garmin mobile apps and turn off Bluetooth on your phone.</li>
-          <li>Connect the Garmin device to a computer and use <a href="#settings-not-saving" data-video-modal data-video-id="Dq7z9Xdej28" data-video-title="TyreWiz on Garmin: Set TyreWiz Sensor IDs in TubeWitch using Garmin Express" aria-haspopup="dialog">Garmin Express</a> to modify the settings.</li>
-          <li>When done, sync the Garmin device using the Garmin Connect mobile app.</li>
-          <li>Reboot your Garmin device.</li>
-          <li>Confirm your live pressures.</li>
-        </ol>
-        <p>If the issue continues, contact <a href="troubleshooting.html#support">TubeWitch support</a> and include which Garmin device you are using.</p>
-      </div>
-      <div class="callout">
-        <h3>General settings-saving tips</h3>
-        <p>Even when Garmin is working normally, the steps below can help if settings do not save reliably.</p>
-        <p>First, make sure the <span class="field-visible-emphasis"><img class="field-visible-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" />TubeWitch data field is visible on your Garmin device<img class="field-visible-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" /></span> before changing settings in the Connect IQ app.</p>
-        <p>If sensor IDs or other settings are not being saved by the Garmin Connect IQ mobile app, try entering one sensor ID first and saving immediately before entering the second. Garmin's save process can be inconsistent when many settings are changed at once.</p>
-        <p class="callout-icon-line"><img class="callout-inline-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" /><span>Use Garmin Express for the most reliable way to save settings.</span></p>
-        <a class="callout-link" href="#settings-not-saving" data-video-modal data-video-id="Dq7z9Xdej28" data-video-title="TyreWiz on Garmin: Set TyreWiz Sensor IDs in TubeWitch using Garmin Express" aria-haspopup="dialog">View Sensor ID Demo - Garmin Express</a>
-      </div>
-      <div class="card-grid card-grid-2">
-        <article class="card">
-          <h3 class="card-title-line"><img class="card-title-icon" src="assets/img/tpms_indicator_full.png" alt="TPMS warning icon" /><span>Nested settings revert before saving</span><img class="card-title-icon" src="assets/img/tpms_indicator_full.png" alt="TPMS warning icon" /></h3>
+      <article class="help-article">
+        <section id="overview">
+          <p class="kicker">Troubleshooting</p>
+          <h1>TubeWitch Troubleshooting</h1>
+          <p>This page covers common TubeWitch setup and Garmin Connect IQ problems, including settings that do not save, missing pressure data, duplicate alerts, FIT recording issues, app upgrade problems, and support access.</p>
+        </section>
+
+        <section id="settings-not-saving">
+          <h2>Settings Not Saving</h2>
+          <p>If sensor IDs or related settings do not stick, fix the settings save issue first before troubleshooting the sensors themselves.</p>
+          <div class="temporary-alert" id="current-settings-bug-alert">
+            <p>ALERT: SAVING SETTINGS WITH THE CONNECT IQ MOBILE APP IS AFFECTED BY A BUG IN THE GARMIN IQ SYSTEM. MAKE SURE THE TUBEWITCH DATA FIELD IS VISIBLE ON YOUR GARMIN DEVICE WHEN CHANGING SETTINGS. IF SETTINGS STILL DO NOT SAVE, TRY GARMIN EXPRESS.</p>
+          </div>
+
+          <div class="callout callout-red" id="current-settings-bug-workaround">
+            <p class="eyebrow">WORKAROUND - Garmin Connect IQ Mobile App</p>
+            <p>If you are impacted by this Garmin Settings bug, first try modifying settings using these exact steps with the Garmin Connect IQ mobile app.</p>
+            <ol>
+              <li>Using the Garmin Connect IQ mobile app, uninstall TubeWitch. This will clear all TubeWitch settings.</li>
+              <li>Reboot the Garmin device and restart the Garmin Connect IQ mobile app.</li>
+              <li>Reinstall TubeWitch.</li>
+              <li>Add the TubeWitch data field to a data screen and open that screen to load the field.</li>
+              <li><span class="field-visible-emphasis"><img class="field-visible-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" />Leave the TubeWitch data field visible on your Garmin device.<img class="field-visible-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" /></span></li>
+              <li>In the Garmin Connect IQ mobile app, open TubeWitch settings, enter the numeric part of each sensor ID, and save immediately.</li>
+              <li><span class="field-visible-emphasis"><img class="field-visible-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" />Do not go back into the nested Sensor Set before tapping Save.<img class="field-visible-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" /></span></li>
+              <li>Confirm your live pressures.</li>
+            </ol>
+            <p>If this works, keep the TubeWitch data field visible on your Garmin device when making future settings changes.</p>
+          </div>
+
+          <div class="callout callout-red" id="current-settings-garmin-express-workaround">
+            <p class="eyebrow">WORKAROUND - Garmin Express</p>
+            <p>If the issue persists, modify settings using these exact steps with <a href="#settings-not-saving" data-video-modal data-video-id="Dq7z9Xdej28" data-video-title="TyreWiz on Garmin: Set TyreWiz Sensor IDs in TubeWitch using Garmin Express" aria-haspopup="dialog">Garmin Express</a>.</p>
+            <ol>
+              <li>Using the Garmin Connect IQ mobile app, uninstall TubeWitch. This will clear all TubeWitch settings.</li>
+              <li>Reboot the Garmin device.</li>
+              <li>Using the Garmin Connect IQ mobile app, reinstall TubeWitch.</li>
+              <li>Add the TubeWitch data field to a data screen and open that screen to load the field.</li>
+              <li>Close all Garmin mobile apps and turn off Bluetooth on your phone.</li>
+              <li>Connect the Garmin device to a computer and use <a href="#settings-not-saving" data-video-modal data-video-id="Dq7z9Xdej28" data-video-title="TyreWiz on Garmin: Set TyreWiz Sensor IDs in TubeWitch using Garmin Express" aria-haspopup="dialog">Garmin Express</a> to modify the settings.</li>
+              <li>When done, sync the Garmin device using the Garmin Connect mobile app.</li>
+              <li>Reboot your Garmin device.</li>
+              <li>Confirm your live pressures.</li>
+            </ol>
+            <p>If the issue continues, contact <a href="troubleshooting.html#support">TubeWitch support</a> and include which Garmin device you are using.</p>
+          </div>
+
+          <div class="callout">
+            <h3>General settings-saving tips</h3>
+            <p>Even when Garmin is working normally, the steps below can help if settings do not save reliably.</p>
+            <p>First, make sure the <span class="field-visible-emphasis"><img class="field-visible-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" />TubeWitch data field is visible on your Garmin device<img class="field-visible-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" /></span> before changing settings in the Connect IQ app.</p>
+            <p>If sensor IDs or other settings are not being saved by the Garmin Connect IQ mobile app, try entering one sensor ID first and saving immediately before entering the second. Garmin's save process can be inconsistent when many settings are changed at once.</p>
+            <p class="callout-icon-line"><img class="callout-inline-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" /><span>Use Garmin Express for the most reliable way to save settings.</span></p>
+            <a class="callout-link" href="#settings-not-saving" data-video-modal data-video-id="Dq7z9Xdej28" data-video-title="TyreWiz on Garmin: Set TyreWiz Sensor IDs in TubeWitch using Garmin Express" aria-haspopup="dialog">View Sensor ID Demo - Garmin Express</a>
+          </div>
+
+          <h3 class="card-title-line"><img class="card-title-icon" src="assets/img/tpms_indicator_full.png" alt="TPMS warning icon" /><span>Nested settings revert before saving</span></h3>
           <p>If you back out of a Sensor Set or other nested settings group in the Garmin Connect IQ mobile app and then go back into it before saving, Garmin will revert to the old values. <a class="inline-video-link" href="#settings-not-saving" data-video-modal data-video-id="N77umeTQPvE" data-video-title="Nested Settings Bug in Garmin Connect IQ Mobile App" aria-haspopup="dialog">See Video</a></p>
           <p>This behavior is confusing, but it is normal for Garmin's nested settings screens.</p>
           <p>To force a save, back out of the nested settings group and tap Save immediately from the main settings screen.</p>
           <p>After saving, reopen TubeWitch settings in the Garmin Connect IQ mobile app and drill back down into the nested settings group to confirm the new values are there.</p>
-        </article>
-        <article class="card">
+
           <h3>When opening TubeWitch settings, an error message is shown</h3>
           <p>Garmin Connect IQ mobile app: "Cannot Load the web page. Try again later."</p>
           <p>Garmin Express: "Error Loading Settings - We had a problem loading settings from this device. Please try again."</p>
           <p>This usually means Garmin's settings service is temporarily unavailable. Try again later.</p>
-        </article>
-        <article class="card">
+
           <h3>My Sensor ID starts with a leading 0, but after I save it in the settings it only shows 4 digits?</h3>
           <p>The settings input box trims leading zeroes, but that does not break TyreWiz pairing. Garmin uses the sensor ID as an integer value for ANT+ matching, so the leading zeroes are not needed.</p>
           <p>If the rest of the setup is correct, the sensor can still connect successfully.</p>
-        </article>
-        <article class="card">
+
           <h3>It will not let me enter my full sensor ID: HGL15841</h3>
           <p>TubeWitch sensor ID fields accept numbers only.</p>
           <p>Enter only the numeric five-digit portion of the sensor ID. For HGL15841, enter 15841.</p>
-        </article>
-      </div>
-    </section>
+        </section>
 
-    <section class="section wrap reveal" id="no-pressure-data">
-      <h2>No Pressure Data</h2>
-      <p class="section-lead">If no pressure is shown after setup, work from the sensor outward before changing other settings.</p>
-      <div class="card-grid card-grid-2">
-        <article class="card">
-          <h3>Check the sensor, SRAM setup, and saved ID</h3>
-          <ul>
-            <li>Rotate the wheels to wake the sensors and look for a flashing LED.</li>
-            <li>Replace the battery if the sensor does not wake up.</li>
-            <li>Confirm the sensor can be reached through the SRAM AXS mobile app.</li>
-            <li>In the SRAM mobile app, make sure each sensor is assigned to the front or rear wheel and a target pressure is specified.</li>
-            <li>Open TubeWitch settings and confirm the correct sensor ID was actually saved.</li>
-          </ul>
-        </article>
-        <article class="card">
+        <section id="no-pressure-data">
+          <div class="help-inline-media">
+            <div>
+              <h2>No Pressure Data</h2>
+              <p>If no pressure is shown after setup, work from the sensor outward before changing other settings.</p>
+              <h3>Check the sensor, SRAM setup, and saved ID</h3>
+              <ul>
+                <li>Rotate the wheels to wake the sensors and look for a flashing LED.</li>
+                <li>Replace the battery if the sensor does not wake up.</li>
+                <li>Confirm the sensor can be reached through the SRAM AXS mobile app.</li>
+                <li>In the SRAM mobile app, make sure each sensor is assigned to the front or rear wheel and a target pressure is specified.</li>
+                <li>Open TubeWitch settings and confirm the correct sensor ID was actually saved.</li>
+              </ul>
+            </div>
+            <figure class="help-figure help-phone-figure shot">
+              <img src="assets/img/sram_phone_app.jpg" alt="SRAM AXS app showing tire pressure target settings" />
+              <figcaption>Wheel position and pressure targets are managed in the SRAM AXS mobile app</figcaption>
+            </figure>
+          </div>
           <h3>Acknowledge the open-connection message</h3>
           <p>Messages about sensors using open connections are expected during initial setup and appear once per sensor.</p>
           <p>You must acknowledge that message for each sensor before data can be received. If the prompt was missed, reboot the Garmin device to trigger it again.</p>
-        </article>
-        <article class="card">
           <h3>Remove other TyreWiz or TPMS data fields</h3>
           <p>If another TyreWiz or TPMS data field is also installed on the Garmin device, it will block TubeWitch from reading the sensors.</p>
           <p>Uninstall any other TyreWiz or TPMS data field, then reboot the Garmin device.</p>
-        </article>
-        <article class="card">
           <h3>Try Multi-Sensor Compatibility Mode</h3>
           <p>If a sensor is not assigned to Front or Rear in the SRAM AXS mobile app, TubeWitch will not be able to read it. Generic TPMS ANT+ sensors may also not be supported by default. Try enabling TubeWitch Labs -&gt; Multi-Sensor Compatibility Mode. This may allow TubeWitch to detect these sensors.</p>
-        </article>
-      </div>
-      <div class="card-grid troubleshooting-followup-grid">
-        <article class="card">
           <h3>Rebooting Garmin Devices</h3>
           <p>After confirming the above settings, make sure to fully reboot your Garmin device.</p>
           <p>On Edge devices, press and hold the power button until the device shows the option to power off. If the device is frozen, hold the power button for about 10 seconds until it powers off or reboots.</p>
           <p>On most Garmin watches with a physical power button, press and hold the power button until the watch powers off, then press the power button again to turn it back on. On Garmin watches without a power button, connect the watch to the charging cable, wait a few moments, then disconnect it to restart it.</p>
-        </article>
-      </div>
-    </section>
+        </section>
 
-    <section class="section wrap reveal" id="wrong-pressure-status">
-      <h2>Wrong Pressure Status/Alerts</h2>
-      <p class="section-lead">Live pressure can appear while the high or low status is still wrong if the sensor itself was configured differently in SRAM AXS.</p>
-      <div class="split two-up">
-        <div class="card-grid">
-          <article class="card">
-            <h3>Pressure status looks wrong</h3>
-            <p>First, use the SRAM AXS mobile app to assign the Front/Rear position and pressure target for each sensor.</p>
-            <ul>
-              <li>Confirm each sensor is assigned to the correct wheel position.</li>
-              <li>Confirm the target pressure matches the tire and setup you expect.</li>
-              <li>If live pressure appears but the status still looks wrong, confirm the correct sensor IDs are entered in TubeWitch.</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>Pop up and/or vibration alerts are not working</h3>
-            <ul>
-              <li>Make sure alerts are enabled in the TubeWitch Settings for both high and low pressure alerts.</li>
-              <li>Check the Alert Delay setting. If it is too large, the alert may not trigger when expected. The default is 10 seconds.</li>
-              <li>Vibration alerts are available on Garmin watches only.</li>
-              <li>Popup alerts are available on Edge x40 devices and newer, and on newer Garmin watches.</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>Duplicate pressure alerts and data field restarts after returning from the Garmin home screen</h3>
-            <p>With Edge firmware 31.29, Garmin changed how Connect IQ data fields behave. The release notes included this line: "Fixed CIQ data fields causing UI lag/freeze. CIQ data fields will now start when you enter the timer loop or when an activity is started."</p>
-            <p>With this firmware, if you go to the Garmin home screen and then return to a data screen with the TubeWitch data field while no activity is recording, TubeWitch will restart, search for sensors again, and may trigger a duplicate pressure alert. If an activity is running or paused, TubeWitch should not restart when returning to the data screen and should not trigger another alert.</p>
-            <p>A TubeWitch update is in progress to handle this new Garmin behavior and prevent these duplicate alerts.</p>
-            <p>This firmware change also means the <span class="field-visible-emphasis"><img class="field-visible-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" />TubeWitch data field must be visible on your Garmin device<img class="field-visible-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" /></span> when changing TubeWitch settings in the Connect IQ mobile app.</p>
-          </article>
-        </div>
-        <figure class="card shot">
-          <img class="fullshot" src="assets/img/sram_phone_app.jpg" alt="SRAM AXS app showing tire pressure target settings" />
-          <figcaption>Wheel position and pressure targets are managed in the SRAM AXS mobile app</figcaption>
-        </figure>
-      </div>
-    </section>
+        <section id="wrong-pressure-status">
+          <h2>Wrong Pressure Status/Alerts</h2>
+          <p>Live pressure can appear while the high or low status is still wrong if the sensor itself was configured differently in SRAM AXS.</p>
+          <h3>Pressure status looks wrong</h3>
+          <p>First, use the SRAM AXS mobile app to assign the Front/Rear position and pressure target for each sensor.</p>
+          <ul>
+            <li>Confirm each sensor is assigned to the correct wheel position.</li>
+            <li>Confirm the target pressure matches the tire and setup you expect.</li>
+            <li>If live pressure appears but the status still looks wrong, confirm the correct sensor IDs are entered in TubeWitch.</li>
+          </ul>
+          <h3>Pop up and/or vibration alerts are not working</h3>
+          <ul>
+            <li>Make sure alerts are enabled in the TubeWitch Settings for both high and low pressure alerts.</li>
+            <li>Check the Alert Delay setting. If it is too large, the alert may not trigger when expected. The default is 10 seconds.</li>
+            <li>Vibration alerts are available on Garmin watches only.</li>
+            <li>Popup alerts are available on Edge x40 devices and newer, and on newer Garmin watches.</li>
+          </ul>
+          <h3>Duplicate pressure alerts and data field restarts after returning from the Garmin home screen</h3>
+          <p>With Edge firmware 31.29, Garmin changed how Connect IQ data fields behave. The release notes included this line: "Fixed CIQ data fields causing UI lag/freeze. CIQ data fields will now start when you enter the timer loop or when an activity is started."</p>
+          <p>With this firmware, if you go to the Garmin home screen and then return to a data screen with the TubeWitch data field while no activity is recording, TubeWitch will restart, search for sensors again, and may trigger a duplicate pressure alert. If an activity is running or paused, TubeWitch should not restart when returning to the data screen and should not trigger another alert.</p>
+          <p>A TubeWitch update is in progress to handle this new Garmin behavior and prevent these duplicate alerts.</p>
+          <p>This firmware change also means the <span class="field-visible-emphasis"><img class="field-visible-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" />TubeWitch data field must be visible on your Garmin device<img class="field-visible-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" /></span> when changing TubeWitch settings in the Connect IQ mobile app.</p>
+        </section>
 
-    <section class="section wrap reveal" id="fit-recording-problems">
-      <h2>FIT Recording Problems</h2>
-      <p class="section-lead">If Garmin shows the IQ logo or one of your Connect IQ apps restarts during recording, the combined FIT recording load may be too high.</p>
-      <div class="card-grid">
-        <article class="card">
+        <section id="fit-recording-problems">
+          <h2>FIT Recording Problems</h2>
+          <p>If Garmin shows the IQ logo or one of your Connect IQ apps restarts during recording, the combined FIT recording load may be too high.</p>
           <h3>If Garmin data fields are recording too many FIT data points</h3>
           <p>Garmin limits how many custom FIT data points Connect IQ apps can record at once. TubeWitch records 5 custom FIT fields by default and up to 10 when all Activity Recording options are enabled.</p>
           <p>Other IQ data fields or apps may also record custom FIT fields. If the combined total gets too high, one or more apps may restart and show the IQ logo.</p>
@@ -245,47 +234,41 @@
             <li>Record Sensor Set #: 1 field</li>
             <li>Sensor Set Name: 1 field whenever any Activity Recording option is enabled</li>
           </ul>
-        </article>
-      </div>
-    </section>
+        </section>
 
-    <section class="section wrap reveal" id="app-upgrade-problems">
-      <h2>App Upgrade Problems</h2>
-      <p class="section-lead">The most common TubeWitch upgrade issue is the Garmin Connect IQ mobile app continuing to show an update even after the data field was already queued or installed.</p>
-      <div class="card-grid">
-        <article class="card">
+        <section id="app-upgrade-problems">
+          <h2>App Upgrade Problems</h2>
+          <p>The most common TubeWitch upgrade issue is the Garmin Connect IQ mobile app continuing to show an update even after the data field was already queued or installed.</p>
           <h3>Garmin Connect IQ mobile app still shows "Updating" after a TubeWitch upgrade</h3>
           <p>If upgrading from an earlier version of TubeWitch, the Garmin Connect IQ mobile app may appear stuck on "Updating," or it may queue and update the data field but show that an update is still available.</p>
           <p>If this happens, reboot your Garmin device and restart your Garmin mobile apps to allow the update to complete and for any new settings to appear in the TubeWitch Settings.</p>
-        </article>
-      </div>
-    </section>
+        </section>
 
-    <section class="section wrap reveal" id="support">
-      <h2>TubeWitch Support</h2>
-      <p class="section-lead">Use Garmin's in-app Contact Developer link to contact TubeWitch support.</p>
-      <div class="split two-up">
-        <div class="card-grid">
-          <article class="card">
-            <h3>How do I contact support?</h3>
-            <p>Use the Garmin Connect IQ mobile app.</p>
-            <p>Open the <a class="hero-link" href="https://apps.garmin.com/en-US/apps/9b512e62-f3b0-4aea-a932-63670e0dfe75" target="_blank" rel="noopener noreferrer">TubeWitch Garmin App Store page</a>, tap <strong class="support-emphasis">Open in App</strong>, scroll to the bottom of the TubeWitch app page, then tap <strong class="support-emphasis">Contact Developer</strong>.</p>
-            <p class="callout-icon-line"><img class="callout-inline-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" /><span>Include your email address to receive a reply.</span></p>
-            <figure class="sensor-card sensor-card-inline support-card-inline">
-              <img class="fullshot" src="assets/img/contact_developer.jpg" alt="Garmin Connect IQ mobile app showing the Contact Developer link on the TubeWitch page" />
-              <figcaption>Open TubeWitch in the Garmin Connect IQ mobile app, scroll to the bottom, and tap <strong class="support-emphasis">Contact Developer</strong>.</figcaption>
+        <section id="support">
+          <h2>TubeWitch Support</h2>
+          <p>Use Garmin's in-app <strong class="support-emphasis">Contact Developer</strong> link to contact TubeWitch support.</p>
+          <div class="support-inline-layout">
+            <figure class="help-figure contact-developer-figure">
+              <img src="assets/img/contact_developer.jpg" alt="Garmin Connect IQ mobile app showing the Contact Developer link on the TubeWitch page" />
             </figure>
-          </article>
-        </div>
-        <div class="faq-placeholder" aria-hidden="true"></div>
-      </div>
-    </section>
+            <div class="support-panel-copy">
+              <h3>How do I contact support?</h3>
+              <p>Use the Garmin Connect IQ mobile app.</p>
+              <ol class="support-steps">
+                <li>Open the <a href="https://apps.garmin.com/en-US/apps/9b512e62-f3b0-4aea-a932-63670e0dfe75" target="_blank" rel="noopener noreferrer">TubeWitch Garmin App Store page</a>.</li>
+                <li>Tap <strong class="support-emphasis">Open in App</strong>.</li>
+                <li>Scroll to the bottom of the TubeWitch app page, then tap <strong class="support-emphasis">Contact Developer</strong>.</li>
+              </ol>
+              <p class="callout-icon-line"><img class="callout-inline-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" /><span>Include your email address to receive a reply.</span></p>
+            </div>
+          </div>
+        </section>
 
-    <section class="section wrap reveal">
-      <div class="callout">
-        <p>Need the full installation order or the sensor ID demo videos? Go back to <a href="setup.html">Setup</a>.</p>
-      </div>
-    </section>
+        <div class="help-article-footer">
+          <p>Need the full installation order or the sensor ID demo videos? Go back to <a href="setup.html">Setup</a>.</p>
+        </div>
+      </article>
+    </div>
   </main>
 
   <footer class="site-footer">
@@ -322,4 +305,3 @@
   </div>
 </body>
 </html>
-
