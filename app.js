@@ -608,6 +608,41 @@
     });
   }
 
+  function trackTroubleshootingSectionBottomIntoViewDuringOpen(item, duration = troubleshootingOpenAnimationMs + 160) {
+    if (!item) return;
+
+    cancelTroubleshootingScroll();
+
+    const token = troubleshootingScrollToken;
+    const startTime = performance.now();
+
+    if (troubleshootingReduceMotion) return;
+
+    function step(now) {
+      if (token !== troubleshootingScrollToken || !item.open || item.classList.contains("troubleshooting-closing")) return;
+
+      const progress = Math.min(Math.max((now - startTime) / duration, 0), 1);
+      const viewportBottom = window.innerHeight - 24;
+      const overflow = item.getBoundingClientRect().bottom - viewportBottom;
+
+      if (overflow > 0.4) {
+        window.scrollBy(0, overflow);
+      }
+
+      if (progress < 1) {
+        troubleshootingScrollFrame = requestAnimationFrame(step);
+      } else {
+        troubleshootingScrollFrame = 0;
+      }
+    }
+
+    troubleshootingScrollFrame = requestAnimationFrame(step);
+  }
+
+  function shouldUseBottomNudgeForAccordion(item) {
+    return page === "settings" && item?.matches("details.troubleshooting-section");
+  }
+
   function activateTroubleshootingSection(item, animated = true) {
     if (!item?.matches("details.troubleshooting-section")) return false;
 
@@ -615,7 +650,11 @@
 
     if (animated && !troubleshootingReduceMotion) {
       requestAnimationFrame(() => {
-        trackTroubleshootingSectionToTopDuringOpen(item);
+        if (shouldUseBottomNudgeForAccordion(item)) {
+          trackTroubleshootingSectionBottomIntoViewDuringOpen(item);
+        } else {
+          trackTroubleshootingSectionToTopDuringOpen(item);
+        }
       });
     }
 
@@ -652,7 +691,8 @@
     const targetId = decodeURIComponent(window.location.hash.slice(1));
     if (openTroubleshootingSectionById(targetId, false)) {
       requestAnimationFrame(() => {
-        document.getElementById(targetId)?.scrollIntoView({ block: "start" });
+        const target = document.getElementById(targetId);
+        target?.scrollIntoView({ block: shouldUseBottomNudgeForAccordion(target) ? "nearest" : "start" });
       });
     }
   }
