@@ -467,18 +467,16 @@
     }
   }
 
-  function animateTroubleshootingSectionToTop(item, duration = troubleshootingOpenAnimationMs) {
+  function trackTroubleshootingSectionToTopDuringOpen(item, duration = troubleshootingOpenAnimationMs + 80) {
     if (!item) return Promise.resolve(false);
 
     cancelTroubleshootingScroll();
 
     const token = troubleshootingScrollToken;
-    const startY = window.scrollY;
-    const targetY = Math.max(item.getBoundingClientRect().top + window.scrollY - getTroubleshootingTargetTop(item), 0);
-    const distance = targetY - startY;
+    const startTop = item.getBoundingClientRect().top;
+    const targetTop = getTroubleshootingTargetTop(item);
 
-    if (troubleshootingReduceMotion || Math.abs(distance) < 1) {
-      window.scrollTo(0, targetY);
+    if (troubleshootingReduceMotion || Math.abs(startTop - targetTop) < 1) {
       return Promise.resolve(true);
     }
 
@@ -493,11 +491,22 @@
 
         const progress = Math.min(Math.max((now - startTime) / duration, 0), 1);
         const eased = 1 - Math.pow(1 - progress, 3);
-        window.scrollTo(0, startY + (distance * eased));
+        const desiredTop = startTop + ((targetTop - startTop) * eased);
+        const actualTop = item.getBoundingClientRect().top;
+        const delta = actualTop - desiredTop;
+
+        if (Math.abs(delta) > 0.4) {
+          window.scrollBy(0, delta);
+        }
 
         if (progress < 1) {
           troubleshootingScrollFrame = requestAnimationFrame(step);
         } else {
+          const finalDelta = item.getBoundingClientRect().top - targetTop;
+          if (Math.abs(finalDelta) > 0.4) {
+            window.scrollBy(0, finalDelta);
+          }
+
           troubleshootingScrollFrame = 0;
           resolve(true);
         }
@@ -537,14 +546,15 @@
         cancelTroubleshootingScroll();
         closeTroubleshootingSection(item);
       } else {
-        animateTroubleshootingSectionToTop(item).then((completed) => {
-          if (!completed) return;
+        if (openTroubleshootingSection(item)) {
+          trackTroubleshootingSectionToTopDuringOpen(item).then((completed) => {
+            if (!completed) return;
 
-          preserveTroubleshootingSectionTop(item, () => {
-            closeOtherTroubleshootingSections(item, false);
+            preserveTroubleshootingSectionTop(item, () => {
+              closeOtherTroubleshootingSections(item, false);
+            });
           });
-          openTroubleshootingSection(item);
-        });
+        }
       }
     });
   });
