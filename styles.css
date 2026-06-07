@@ -853,6 +853,11 @@ html[data-page="faq"] #support .faq-item {
   margin-top: 1.15rem;
 }
 
+.troubleshooting-bottom-spacer {
+  pointer-events: none;
+  visibility: hidden;
+}
+
 .troubleshooting-section summary {
   display: flex;
   align-items: center;

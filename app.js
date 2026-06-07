@@ -398,6 +398,7 @@
   const troubleshootingOpenAnimationMs = 520;
   const troubleshootingCloseAnimationMs = 680;
   const troubleshootingPlaceholders = new Set();
+  let troubleshootingBottomSpacer = null;
   let troubleshootingScrollFrame = 0;
   let troubleshootingScrollToken = 0;
   let troubleshootingPlaceholderCleanupFrame = 0;
@@ -539,7 +540,43 @@
     troubleshootingPlaceholders.add(placeholder);
   }
 
+  function clearTroubleshootingBottomSpacer() {
+    if (!troubleshootingBottomSpacer) return;
+    troubleshootingBottomSpacer.remove();
+    troubleshootingBottomSpacer = null;
+  }
+
+  function getTroubleshootingBottomSpacer() {
+    if (!troubleshootingBottomSpacer) {
+      troubleshootingBottomSpacer = document.createElement("div");
+      troubleshootingBottomSpacer.className = "troubleshooting-bottom-spacer";
+      troubleshootingBottomSpacer.setAttribute("aria-hidden", "true");
+      document.body.appendChild(troubleshootingBottomSpacer);
+    }
+
+    return troubleshootingBottomSpacer;
+  }
+
+  function setTroubleshootingBottomSpacerHeight(item) {
+    clearTroubleshootingBottomSpacer();
+    if (!item) return;
+
+    const targetTop = getTroubleshootingTargetTop(item);
+    const rect = item.getBoundingClientRect();
+    const currentScrollY = window.scrollY;
+    const desiredScrollY = currentScrollY + rect.top - targetTop;
+    const root = document.documentElement;
+    const currentMaxScrollY = Math.max(root.scrollHeight - window.innerHeight, 0);
+    const missingScroll = desiredScrollY - currentMaxScrollY;
+
+    if (missingScroll > 1) {
+      getTroubleshootingBottomSpacer().style.height = `${Math.ceil(missingScroll + 24)}px`;
+    }
+  }
+
   function clearTroubleshootingPlaceholdersPreservingViewport() {
+    clearTroubleshootingBottomSpacer();
+
     if (!troubleshootingPlaceholders.size) return;
 
     const anchorX = Math.min(Math.max(window.innerWidth * 0.55, 1), window.innerWidth - 1);
@@ -713,11 +750,15 @@
     if (!openTroubleshootingSection(item, animated)) return false;
 
     if (animated && !troubleshootingReduceMotion) {
-      trackTroubleshootingSectionToTopDuringOpen(item).then((completed) => {
-        if (!completed) return;
-        closeOtherTroubleshootingSectionsAfterOpen(item);
+      requestAnimationFrame(() => {
+        setTroubleshootingBottomSpacerHeight(item);
+        trackTroubleshootingSectionToTopDuringOpen(item).then((completed) => {
+          if (!completed) return;
+          closeOtherTroubleshootingSectionsAfterOpen(item);
+        });
       });
     } else {
+      setTroubleshootingBottomSpacerHeight(item);
       closeOtherTroubleshootingSections(item, false);
     }
 
