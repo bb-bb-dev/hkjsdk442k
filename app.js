@@ -518,12 +518,6 @@
     }
   }
 
-  function clearTroubleshootingBottomSpacer() {
-    if (!troubleshootingBottomSpacer) return;
-    troubleshootingBottomSpacer.remove();
-    troubleshootingBottomSpacer = null;
-  }
-
   function getTroubleshootingBottomSpacer() {
     if (!troubleshootingBottomSpacer) {
       troubleshootingBottomSpacer = document.createElement("div");
@@ -541,7 +535,6 @@
   }
 
   function setTroubleshootingBottomSpacerHeight(item) {
-    clearTroubleshootingBottomSpacer();
     if (!item) return;
 
     const targetTop = getTroubleshootingTargetTop(item);
@@ -549,11 +542,15 @@
     const currentScrollY = window.scrollY;
     const desiredScrollY = currentScrollY + rect.top - targetTop;
     const root = document.documentElement;
-    const currentMaxScrollY = Math.max(root.scrollHeight - window.innerHeight, 0);
-    const missingScroll = desiredScrollY - currentMaxScrollY;
+    const currentSpacerHeight = troubleshootingBottomSpacer?.getBoundingClientRect().height || 0;
+    const maxScrollWithoutSpacer = Math.max(root.scrollHeight - currentSpacerHeight - window.innerHeight, 0);
+    const missingScroll = desiredScrollY - maxScrollWithoutSpacer;
 
     if (missingScroll > 1) {
-      getTroubleshootingBottomSpacer().style.height = `${Math.ceil(missingScroll + 24)}px`;
+      const neededHeight = Math.ceil(missingScroll + 24);
+      if (neededHeight > currentSpacerHeight + 1) {
+        getTroubleshootingBottomSpacer().style.height = `${neededHeight}px`;
+      }
     }
   }
 
@@ -608,8 +605,6 @@
 
   function activateTroubleshootingSection(item, animated = true) {
     if (!item?.matches("details.troubleshooting-section")) return false;
-
-    clearTroubleshootingBottomSpacer();
 
     if (!openTroubleshootingSection(item, animated)) return false;
 
