@@ -395,8 +395,8 @@
   const troubleshootingSections = Array.from(document.querySelectorAll("details.troubleshooting-section"));
   const troubleshootingTimers = new WeakMap();
   const troubleshootingReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const troubleshootingOpenAnimationMs = 8000;
-  const troubleshootingCloseAnimationMs = 8000;
+  const troubleshootingOpenAnimationMs = 520;
+  const troubleshootingCloseAnimationMs = 680;
   const troubleshootingPlaceholders = new Set();
   let troubleshootingScrollFrame = 0;
   let troubleshootingScrollToken = 0;
@@ -539,6 +539,40 @@
     troubleshootingPlaceholders.add(placeholder);
   }
 
+  function clearTroubleshootingPlaceholdersPreservingViewport() {
+    if (!troubleshootingPlaceholders.size) return;
+
+    const anchorX = Math.min(Math.max(window.innerWidth * 0.55, 1), window.innerWidth - 1);
+    const anchorY = Math.min(Math.max(getTroubleshootingTargetTop() + 24, 1), window.innerHeight - 1);
+    const anchor = document.elementFromPoint(anchorX, anchorY);
+    const anchorTop = anchor?.getBoundingClientRect().top;
+    const root = document.documentElement;
+    const body = document.body;
+    const previousRootAnchor = root.style.overflowAnchor;
+    const previousBodyAnchor = body.style.overflowAnchor;
+
+    root.style.overflowAnchor = "none";
+    body.style.overflowAnchor = "none";
+
+    troubleshootingPlaceholders.forEach((placeholder) => {
+      placeholder.remove();
+    });
+    troubleshootingPlaceholders.clear();
+
+    if (anchor?.isConnected && Number.isFinite(anchorTop)) {
+      const newAnchorTop = anchor.getBoundingClientRect().top;
+      const delta = newAnchorTop - anchorTop;
+      if (Math.abs(delta) > 0.4) {
+        window.scrollBy(0, delta);
+      }
+    }
+
+    requestAnimationFrame(() => {
+      root.style.overflowAnchor = previousRootAnchor;
+      body.style.overflowAnchor = previousBodyAnchor;
+    });
+  }
+
   function cleanupTroubleshootingPlaceholders() {
     troubleshootingPlaceholderCleanupFrame = 0;
     if (!troubleshootingPlaceholders.size) return;
@@ -673,6 +707,8 @@
 
   function activateTroubleshootingSection(item, animated = true) {
     if (!item?.matches("details.troubleshooting-section")) return false;
+
+    clearTroubleshootingPlaceholdersPreservingViewport();
 
     if (!openTroubleshootingSection(item, animated)) return false;
 
