@@ -2189,7 +2189,7 @@ html.article-review-page .help-article .text-link-button[data-info-trigger] {
   z-index: 105;
   display: grid;
   place-items: center;
-  background: rgba(4, 8, 13, 0.93);
+  background: rgba(4, 8, 13, 0.68);
   padding: 1rem;
 }
 
