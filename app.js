@@ -397,12 +397,9 @@
   const troubleshootingReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const troubleshootingOpenAnimationMs = 520;
   const troubleshootingCloseAnimationMs = 680;
-  const troubleshootingPlaceholders = new Set();
   let troubleshootingBottomSpacer = null;
   let troubleshootingScrollFrame = 0;
   let troubleshootingScrollToken = 0;
-  let troubleshootingPlaceholderCleanupFrame = 0;
-  let troubleshootingPlaceholderLastScrollY = window.scrollY;
 
   function clearTroubleshootingTimer(item) {
     const timer = troubleshootingTimers.get(item);
@@ -454,14 +451,6 @@
     }, troubleshootingOpenAnimationMs));
 
     return true;
-  }
-
-  function closeOtherTroubleshootingSections(activeItem, animated = true) {
-    troubleshootingSections.forEach((item) => {
-      if (item !== activeItem) {
-        closeTroubleshootingSection(item, animated);
-      }
-    });
   }
 
   function closeTroubleshootingSection(item, animated = true) {
@@ -529,17 +518,6 @@
     }
   }
 
-  function createTroubleshootingPlaceholder(item, height) {
-    if (!height || height < 1) return;
-
-    const placeholder = document.createElement("div");
-    placeholder.className = "troubleshooting-layout-placeholder";
-    placeholder.setAttribute("aria-hidden", "true");
-    placeholder.style.height = `${height}px`;
-    item.insertAdjacentElement("afterend", placeholder);
-    troubleshootingPlaceholders.add(placeholder);
-  }
-
   function clearTroubleshootingBottomSpacer() {
     if (!troubleshootingBottomSpacer) return;
     troubleshootingBottomSpacer.remove();
@@ -551,7 +529,12 @@
       troubleshootingBottomSpacer = document.createElement("div");
       troubleshootingBottomSpacer.className = "troubleshooting-bottom-spacer";
       troubleshootingBottomSpacer.setAttribute("aria-hidden", "true");
-      document.body.appendChild(troubleshootingBottomSpacer);
+      const footer = document.querySelector(".site-footer");
+      if (footer) {
+        footer.insertAdjacentElement("beforebegin", troubleshootingBottomSpacer);
+      } else {
+        document.body.appendChild(troubleshootingBottomSpacer);
+      }
     }
 
     return troubleshootingBottomSpacer;
@@ -572,97 +555,6 @@
     if (missingScroll > 1) {
       getTroubleshootingBottomSpacer().style.height = `${Math.ceil(missingScroll + 24)}px`;
     }
-  }
-
-  function clearTroubleshootingPlaceholdersPreservingViewport() {
-    clearTroubleshootingBottomSpacer();
-
-    if (!troubleshootingPlaceholders.size) return;
-
-    const anchorX = Math.min(Math.max(window.innerWidth * 0.55, 1), window.innerWidth - 1);
-    const anchorY = Math.min(Math.max(getTroubleshootingTargetTop() + 24, 1), window.innerHeight - 1);
-    const anchor = document.elementFromPoint(anchorX, anchorY);
-    const anchorTop = anchor?.getBoundingClientRect().top;
-    const root = document.documentElement;
-    const body = document.body;
-    const previousRootAnchor = root.style.overflowAnchor;
-    const previousBodyAnchor = body.style.overflowAnchor;
-
-    root.style.overflowAnchor = "none";
-    body.style.overflowAnchor = "none";
-
-    troubleshootingPlaceholders.forEach((placeholder) => {
-      placeholder.remove();
-    });
-    troubleshootingPlaceholders.clear();
-
-    if (anchor?.isConnected && Number.isFinite(anchorTop)) {
-      const newAnchorTop = anchor.getBoundingClientRect().top;
-      const delta = newAnchorTop - anchorTop;
-      if (Math.abs(delta) > 0.4) {
-        window.scrollBy(0, delta);
-      }
-    }
-
-    requestAnimationFrame(() => {
-      root.style.overflowAnchor = previousRootAnchor;
-      body.style.overflowAnchor = previousBodyAnchor;
-    });
-  }
-
-  function cleanupTroubleshootingPlaceholders() {
-    troubleshootingPlaceholderCleanupFrame = 0;
-    if (!troubleshootingPlaceholders.size) return;
-
-    const currentScrollY = window.scrollY;
-    const scrollingUp = currentScrollY < troubleshootingPlaceholderLastScrollY;
-    troubleshootingPlaceholderLastScrollY = currentScrollY;
-
-    if (!scrollingUp) {
-      requestAnimationFrame(() => {
-        if (troubleshootingPlaceholders.size) {
-          window.addEventListener("scroll", requestTroubleshootingPlaceholderCleanup, { passive: true, once: true });
-          window.addEventListener("resize", requestTroubleshootingPlaceholderCleanup, { passive: true, once: true });
-        }
-      });
-      return;
-    }
-
-    const safeTop = getTroubleshootingTargetTop() - 8;
-    const root = document.documentElement;
-    const body = document.body;
-    const previousRootAnchor = root.style.overflowAnchor;
-    const previousBodyAnchor = body.style.overflowAnchor;
-
-    root.style.overflowAnchor = "none";
-    body.style.overflowAnchor = "none";
-
-    troubleshootingPlaceholders.forEach((placeholder) => {
-      if (!placeholder.isConnected) {
-        troubleshootingPlaceholders.delete(placeholder);
-        return;
-      }
-
-      const rect = placeholder.getBoundingClientRect();
-      if (rect.bottom > safeTop && rect.top < window.innerHeight + 80) return;
-
-      placeholder.remove();
-      troubleshootingPlaceholders.delete(placeholder);
-    });
-
-    requestAnimationFrame(() => {
-      root.style.overflowAnchor = previousRootAnchor;
-      body.style.overflowAnchor = previousBodyAnchor;
-      if (troubleshootingPlaceholders.size) {
-        window.addEventListener("scroll", requestTroubleshootingPlaceholderCleanup, { passive: true, once: true });
-        window.addEventListener("resize", requestTroubleshootingPlaceholderCleanup, { passive: true, once: true });
-      }
-    });
-  }
-
-  function requestTroubleshootingPlaceholderCleanup() {
-    if (troubleshootingPlaceholderCleanupFrame) return;
-    troubleshootingPlaceholderCleanupFrame = requestAnimationFrame(cleanupTroubleshootingPlaceholders);
   }
 
   function trackTroubleshootingSectionToTopDuringOpen(item, duration = troubleshootingOpenAnimationMs + 80) {
@@ -714,52 +606,20 @@
     });
   }
 
-  function closeOtherTroubleshootingSectionsAfterOpen(activeItem) {
-    const root = document.documentElement;
-    const body = document.body;
-    const previousRootAnchor = root.style.overflowAnchor;
-    const previousBodyAnchor = body.style.overflowAnchor;
-    const activeIndex = troubleshootingSections.indexOf(activeItem);
-
-    root.style.overflowAnchor = "none";
-    body.style.overflowAnchor = "none";
-
-    troubleshootingSections.forEach((item, index) => {
-      if (item === activeItem || !item.open) return;
-
-      const itemBody = getTroubleshootingBody(item);
-      if (index < activeIndex && itemBody) {
-        createTroubleshootingPlaceholder(item, itemBody.getBoundingClientRect().height || itemBody.scrollHeight);
-      }
-
-      closeTroubleshootingSection(item, false);
-    });
-
-    requestAnimationFrame(() => {
-      root.style.overflowAnchor = previousRootAnchor;
-      body.style.overflowAnchor = previousBodyAnchor;
-      troubleshootingPlaceholderLastScrollY = window.scrollY;
-    });
-  }
-
   function activateTroubleshootingSection(item, animated = true) {
     if (!item?.matches("details.troubleshooting-section")) return false;
 
-    clearTroubleshootingPlaceholdersPreservingViewport();
+    clearTroubleshootingBottomSpacer();
 
     if (!openTroubleshootingSection(item, animated)) return false;
 
     if (animated && !troubleshootingReduceMotion) {
       requestAnimationFrame(() => {
         setTroubleshootingBottomSpacerHeight(item);
-        trackTroubleshootingSectionToTopDuringOpen(item).then((completed) => {
-          if (!completed) return;
-          closeOtherTroubleshootingSectionsAfterOpen(item);
-        });
+        trackTroubleshootingSectionToTopDuringOpen(item);
       });
     } else {
       setTroubleshootingBottomSpacerHeight(item);
-      closeOtherTroubleshootingSections(item, false);
     }
 
     return true;
