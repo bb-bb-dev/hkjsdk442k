@@ -79,6 +79,15 @@
       spacer.style.height = `${Math.max(0, height)}px`;
     }
 
+    function getFaqFooterPeek(item) {
+      if (!item.closest("#support") || !document.querySelector(".site-footer")) return 0;
+      return Math.min(110, Math.max(76, window.innerHeight * 0.16));
+    }
+
+    function getFaqViewportBottom(item) {
+      return window.innerHeight - 24 - getFaqFooterPeek(item);
+    }
+
     function prepareFaqItem(item) {
       if (item.querySelector(":scope > .faq-answer")) return;
 
@@ -101,7 +110,7 @@
     function revealFaqItem(item) {
       if (!item.open) return;
 
-      const viewportBottom = window.innerHeight - 24;
+      const viewportBottom = getFaqViewportBottom(item);
       const bottom = item.getBoundingClientRect().bottom;
       if (bottom > viewportBottom) {
         window.scrollBy({
@@ -117,7 +126,8 @@
       const startTime = performance.now();
 
       function step(now) {
-        const viewportBottom = window.innerHeight - 24;
+        const footerPeek = getFaqFooterPeek(item);
+        const viewportBottom = window.innerHeight - 24 - footerPeek;
         const answerHeight = answer?.getBoundingClientRect().height || 0;
         const finalAnswerHeight = answer?.scrollHeight || 0;
         const remainingAnswerHeight = Math.max(0, finalAnswerHeight - answerHeight);
@@ -128,7 +138,7 @@
 
         if (answer && finalAnswerHeight > 0 && answer.style.height !== "auto") {
           answer.style.height = `${finalAnswerHeight}px`;
-          setFaqScrollSpacerHeight(item, remainingAnswerHeight);
+          setFaqScrollSpacerHeight(item, remainingAnswerHeight + footerPeek);
         }
 
         if (scrollAmount > 0.5) {
