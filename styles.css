@@ -747,7 +747,7 @@ html[data-page="faq"] .help-article section > h2:first-child {
   border-bottom: 2px solid #7dffd7;
   margin-right: 0.16rem;
   transform: rotate(45deg);
-  transition: transform 0.24s ease;
+  transition: transform 0.38s ease;
 }
 
 .faq-item[open] summary {
@@ -769,24 +769,32 @@ html[data-page="faq"] .help-article section > h2:first-child {
   margin-right: 0;
 }
 
-.faq-item[open] > :not(summary) {
-  animation: faq-answer-in 0.24s ease-out both;
+.faq-answer {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(-0.28rem);
+  transition:
+    height 0.52s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.38s ease,
+    transform 0.42s ease;
 }
 
-@keyframes faq-answer-in {
-  from {
-    opacity: 0;
-    transform: translateY(-0.18rem);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.faq-item[open] .faq-answer {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.faq-item > :last-child {
-  margin-bottom: 1.05rem;
+.faq-answer-inner {
+  padding-bottom: 1.05rem;
+}
+
+.faq-answer-inner > :first-child {
+  margin-top: 0;
+}
+
+.faq-answer-inner > :last-child {
+  margin-bottom: 0;
 }
 
 .faq-item .help-figure {
