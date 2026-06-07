@@ -580,15 +580,7 @@
   }
 
   function closeOtherTroubleshootingSectionsAfterOpen(activeItem) {
-    const targetTop = getTroubleshootingTargetTop(activeItem);
     closeOtherTroubleshootingSections(activeItem, false);
-
-    requestAnimationFrame(() => {
-      const delta = activeItem.getBoundingClientRect().top - targetTop;
-      if (Math.abs(delta) > 12) {
-        window.scrollBy(0, delta);
-      }
-    });
   }
 
   function openTroubleshootingSectionById(targetId, animated = true) {
