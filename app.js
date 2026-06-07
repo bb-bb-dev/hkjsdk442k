@@ -183,7 +183,9 @@
         answer.style.height = `${answer.scrollHeight}px`;
         answer.style.opacity = "1";
         answer.style.transform = "translateY(0)";
-        trackFaqItemToTopDuringOpen(item);
+        if (item.closest("#support")) {
+          trackFaqItemToTopDuringOpen(item);
+        }
       });
 
       faqTimers.set(item, window.setTimeout(() => {
