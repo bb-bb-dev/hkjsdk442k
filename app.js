@@ -401,6 +401,7 @@
   let troubleshootingScrollFrame = 0;
   let troubleshootingScrollToken = 0;
   let troubleshootingPlaceholderCleanupFrame = 0;
+  let troubleshootingPlaceholderLastScrollY = window.scrollY;
 
   function clearTroubleshootingTimer(item) {
     const timer = troubleshootingTimers.get(item);
@@ -542,6 +543,20 @@
     troubleshootingPlaceholderCleanupFrame = 0;
     if (!troubleshootingPlaceholders.size) return;
 
+    const currentScrollY = window.scrollY;
+    const scrollingUp = currentScrollY < troubleshootingPlaceholderLastScrollY;
+    troubleshootingPlaceholderLastScrollY = currentScrollY;
+
+    if (!scrollingUp) {
+      requestAnimationFrame(() => {
+        if (troubleshootingPlaceholders.size) {
+          window.addEventListener("scroll", requestTroubleshootingPlaceholderCleanup, { passive: true, once: true });
+          window.addEventListener("resize", requestTroubleshootingPlaceholderCleanup, { passive: true, once: true });
+        }
+      });
+      return;
+    }
+
     const safeTop = getTroubleshootingTargetTop() - 8;
     const root = document.documentElement;
     const body = document.body;
@@ -560,14 +575,8 @@
       const rect = placeholder.getBoundingClientRect();
       if (rect.bottom > safeTop && rect.top < window.innerHeight + 80) return;
 
-      const removedAboveViewport = rect.bottom <= safeTop;
-      const height = rect.height;
       placeholder.remove();
       troubleshootingPlaceholders.delete(placeholder);
-
-      if (removedAboveViewport && height > 0) {
-        window.scrollBy(0, -height);
-      }
     });
 
     requestAnimationFrame(() => {
@@ -658,6 +667,7 @@
     requestAnimationFrame(() => {
       root.style.overflowAnchor = previousRootAnchor;
       body.style.overflowAnchor = previousBodyAnchor;
+      troubleshootingPlaceholderLastScrollY = window.scrollY;
       window.addEventListener("scroll", requestTroubleshootingPlaceholderCleanup, { passive: true, once: true });
       window.addEventListener("resize", requestTroubleshootingPlaceholderCleanup, { passive: true, once: true });
     });
