@@ -378,6 +378,17 @@
     }, troubleshootingCloseAnimationMs));
   }
 
+  function scrollTroubleshootingSectionToTop(item, delay = troubleshootingOpenAnimationMs) {
+    if (!item) return;
+
+    window.setTimeout(() => {
+      item.scrollIntoView({
+        block: "start",
+        behavior: troubleshootingReduceMotion ? "auto" : "smooth",
+      });
+    }, delay);
+  }
+
   function openTroubleshootingSectionById(targetId, animated = true) {
     const target = document.getElementById(targetId);
     if (!target?.matches("details.troubleshooting-section")) return false;
@@ -401,7 +412,9 @@
         closeTroubleshootingSection(item);
       } else {
         closeOtherTroubleshootingSections(item);
-        openTroubleshootingSection(item);
+        if (openTroubleshootingSection(item)) {
+          scrollTroubleshootingSectionToTop(item);
+        }
       }
     });
   });
