@@ -95,13 +95,17 @@
       return Math.min(110, Math.max(76, window.innerHeight * 0.16));
     }
 
-    function getFaqFooterAnchorTop(item) {
+    function shouldAnchorFaqFooter(item) {
       const footer = item.closest("#support") ? document.querySelector(".site-footer") : null;
-      if (!footer) return null;
+      if (!footer) return false;
 
       const footerRect = footer.getBoundingClientRect();
-      if (footerRect.top >= window.innerHeight || footerRect.bottom <= 0) return null;
-      return footerRect.top;
+      return footerRect.top < window.innerHeight && footerRect.bottom > 0;
+    }
+
+    function scrollFaqPageToBottom() {
+      const root = document.scrollingElement || document.documentElement;
+      window.scrollTo(0, Math.max(root.scrollHeight - root.clientHeight, 0));
     }
 
     function getFaqViewportBottom(item) {
@@ -140,7 +144,7 @@
       }
     }
 
-    function trackFaqItemRevealDuringOpen(item, answer, token, footerAnchorTop = null, duration = faqOpenAnimationMs + 220) {
+    function trackFaqItemRevealDuringOpen(item, answer, token, anchorFooter = false, duration = faqOpenAnimationMs + 220) {
       if (!item.open || reduceFaqMotion) return;
 
       const startTime = performance.now();
@@ -163,20 +167,13 @@
 
         if (answer && finalAnswerHeight > 0 && answer.style.height !== "auto") {
           answer.style.height = `${finalAnswerHeight}px`;
-          if (footerAnchorTop === null) {
+          if (!anchorFooter) {
             setFaqScrollSpacerHeight(item, remainingAnswerHeight + footerPeek);
           }
         }
 
-        if (footerAnchorTop !== null) {
-          const footer = document.querySelector(".site-footer");
-          const footerTop = footer?.getBoundingClientRect().top;
-          if (Number.isFinite(footerTop)) {
-            const footerDelta = footerTop - footerAnchorTop;
-            if (Math.abs(footerDelta) > 0.5) {
-              window.scrollBy(0, footerDelta);
-            }
-          }
+        if (anchorFooter) {
+          scrollFaqPageToBottom();
         } else if (scrollAmount > 0.5) {
           window.scrollBy(0, scrollAmount);
         }
@@ -185,8 +182,10 @@
           requestAnimationFrame(step);
         } else {
           clearFaqScrollSpacer(item);
-          if (footerAnchorTop === null) {
+          if (!anchorFooter) {
             revealFaqItem(item);
+          } else {
+            scrollFaqPageToBottom();
           }
         }
       }
@@ -218,7 +217,7 @@
       answer.style.height = "0px";
       answer.style.opacity = "0";
       answer.style.transform = "translateY(-0.28rem)";
-      const footerAnchorTop = getFaqFooterAnchorTop(item);
+      const anchorFooter = shouldAnchorFaqFooter(item);
 
       requestAnimationFrame(() => {
         if (!isCurrentFaqAnimation(item, token) || !item.open || item.classList.contains("faq-closing")) return;
@@ -226,7 +225,10 @@
         answer.style.height = `${answer.scrollHeight}px`;
         answer.style.opacity = "1";
         answer.style.transform = "translateY(0)";
-        trackFaqItemRevealDuringOpen(item, answer, token, footerAnchorTop);
+        if (anchorFooter) {
+          scrollFaqPageToBottom();
+        }
+        trackFaqItemRevealDuringOpen(item, answer, token, anchorFooter);
       });
 
       faqTimers.set(item, window.setTimeout(() => {
