@@ -93,15 +93,18 @@
           </div>
         </section>
 
-        <section id="active-set">
-          <h2>ACTIVE SENSOR SET</h2>
+        <details class="troubleshooting-section" id="active-set">
+          <summary><span class="troubleshooting-section-title">ACTIVE SENSOR SET</span></summary>
+          <div class="troubleshooting-section-body">
           <ul class="reference-list">
             <li><strong>Active Sensor Set</strong> Choose which Sensor Set is shown in the Data Field. Manually select the active set or use Auto Switch to scan each configured set for 10 seconds. If you only have one set, Auto is not recommended.</li>
           </ul>
-        </section>
+          </div>
+        </details>
 
-        <section id="sensor-sets">
-          <h2>SENSOR SET #1-5</h2>
+        <details class="troubleshooting-section" id="sensor-sets">
+          <summary><span class="troubleshooting-section-title">SENSOR SET #1-5</span></summary>
+          <div class="troubleshooting-section-body">
           <ul class="reference-list">
             <li><strong>Sensor Set Name</strong> Optional. Name each bike or wheelset clearly. The set name is also shown in Connect IQ stats.</li>
             <li><strong>Enabled Sensors</strong> Choose Front &amp; Rear, Front Only, or Rear Only.</li>
@@ -111,20 +114,24 @@
           <p>Use Enabled Sensors to avoid empty slots in mixed setups.</p>
           <p>Notes are visible only in settings and help label tire or wheel details for later reference.</p>
           <p><a href="setup.html#sensor-id-demo" data-video-modal data-video-id="wmYB8lr-jMI" data-video-title="TyreWiz on Garmin sensor ID setup in TubeWitch Connect IQ settings" aria-haspopup="dialog">View Sensor ID Demo</a></p>
-        </section>
+          </div>
+        </details>
 
-        <section id="units">
-          <h2>UNIT OF MEASURE</h2>
+        <details class="troubleshooting-section" id="units">
+          <summary><span class="troubleshooting-section-title">UNIT OF MEASURE</span></summary>
+          <div class="troubleshooting-section-body">
           <ul class="reference-list">
             <li><strong>Unit of Measure</strong> PSI, kPa, or BAR. Garmin reboot recommended after the unit change.</li>
             <li><strong>Decimal Places</strong> Number of digits to the right of the decimal. Forcing extra digits may cause labels to be truncated on small data fields.</li>
             <li><strong>Show Unit of Measure</strong> Show or hide the unit label in the data field.</li>
           </ul>
           <p>Extra precision can make small layouts harder to scan. Limit precision to what remains readable while moving. Auto is recommended.</p>
-        </section>
+          </div>
+        </details>
 
-        <section id="labels">
-          <h2>SENSOR LABELS</h2>
+        <details class="troubleshooting-section" id="labels">
+          <summary><span class="troubleshooting-section-title">SENSOR LABELS</span></summary>
+          <div class="troubleshooting-section-body">
           <ul class="reference-list">
             <li><strong>Show Front/Rear Labels</strong> Show or hide front and rear labels in the data field.</li>
             <li><strong>Show Sensor IDs</strong> Show sensor IDs in the data field. They may be truncated on small data fields.</li>
@@ -132,10 +139,12 @@
             <li><strong>Horizontal Layout Label Delimiter</strong> Choose the separator used on horizontal layouts.</li>
           </ul>
           <p>Useful during setup and multi-bike use, but these can crowd very small layouts.</p>
-        </section>
+          </div>
+        </details>
 
-        <section id="display">
-          <h2>DISPLAY</h2>
+        <details class="troubleshooting-section" id="display">
+          <summary><span class="troubleshooting-section-title">DISPLAY</span></summary>
+          <div class="troubleshooting-section-body">
           <ul class="reference-list">
             <li><strong>Display Style</strong> TubeWitch Mode is the default, but it may be unavailable on some devices that are not yet fully supported. Compatibility Mode uses dynamic font sizing and positioning and works on all devices.</li>
             <li><strong>Layout Orientation</strong> Auto, Vertical, or Horizontal. Horizontal Orientation is not available in narrow fields while using TubeWitch Display Mode.</li>
@@ -144,33 +153,41 @@
           <p>TubeWitch Mode is default. Compatibility Mode uses dynamic sizing and positioning for broader device coverage.</p>
           <p>Auto, Vertical, or Horizontal layout behavior.</p>
           <p>Auto, Light, or Dark styling depending on layout and page contrast.</p>
-        </section>
+          </div>
+        </details>
 
-        <section id="touch">
-          <h2>TOUCH SETTINGS</h2>
+        <details class="troubleshooting-section" id="touch">
+          <summary><span class="troubleshooting-section-title">TOUCH SETTINGS</span></summary>
+          <div class="troubleshooting-section-body">
           <ul class="reference-list">
             <li><strong>Touch Data Field</strong> Enables Touch to Switch Sensor Sets, Touch to Disable TubeWitch, and Touch to Rescan after timeout. Only available on touchscreen devices.</li>
           </ul>
-        </section>
+          </div>
+        </details>
 
-        <section id="timeout">
-          <h2>SENSOR TIMEOUT</h2>
+        <details class="troubleshooting-section" id="timeout">
+          <summary><span class="troubleshooting-section-title">SENSOR TIMEOUT</span></summary>
+          <div class="troubleshooting-section-body">
           <ul class="reference-list">
             <li><strong>Sensor Timeout</strong> Default 15 Minutes. During an activity, TubeWitch times out if no sensors are found. No timeout is applied if an activity is not started.</li>
           </ul>
           <button type="button" class="text-link text-link-button" data-info-trigger="sensor-timeout">More Info / Example</button>
-        </section>
+          </div>
+        </details>
 
-        <section id="auto-scan-delay">
-          <h2>AUTO SWITCH SCAN DELAY</h2>
+        <details class="troubleshooting-section" id="auto-scan-delay">
+          <summary><span class="troubleshooting-section-title">AUTO SWITCH SCAN DELAY</span></summary>
+          <div class="troubleshooting-section-body">
           <ul class="reference-list">
             <li><strong>Auto Switch Scan Delay</strong> Default 60 Seconds. If both sensors disconnect while Active Sensor Set = Auto, TubeWitch waits for this delay before scanning other sets again at 10 seconds each.</li>
           </ul>
           <button type="button" class="text-link text-link-button" data-info-trigger="auto-switch-delay">More Info / Example</button>
-        </section>
+          </div>
+        </details>
 
-        <section id="alarms">
-          <h2>HIGH / LOW PRESSURE ALARMS</h2>
+        <details class="troubleshooting-section" id="alarms">
+          <summary><span class="troubleshooting-section-title">HIGH / LOW PRESSURE ALARMS</span></summary>
+          <div class="troubleshooting-section-body">
           <p class="muted">(Set pressure targets in the SRAM AXS mobile app)</p>
           <p class="muted">This keeps TubeWitch status aligned with the TyreWiz LED indication on the sensor.</p>
           <p>The defaults should work well for most riders. If alerts need to trigger sooner, later, or stay active longer before resetting, this is the place to tune that behavior.</p>
@@ -183,10 +200,12 @@
             <li><strong>Audible Alarm Tone</strong> Select the sound used for audible alerts.</li>
             <li><strong>Data Field Alarm Box Color</strong> Choose the box color used for the pressure alarm state. The color change is always active and instantaneous while the condition exists.</li>
           </ul>
-        </section>
+          </div>
+        </details>
 
-        <section id="recording">
-          <h2>ACTIVITY RECORDING</h2>
+        <details class="troubleshooting-section" id="recording">
+          <summary><span class="troubleshooting-section-title">ACTIVITY RECORDING</span></summary>
+          <div class="troubleshooting-section-body">
           <p class="muted">(Garmin reboot required after making recording changes)</p>
           <ul class="reference-list">
             <li><strong>Record Front Pressure</strong> Record front pressure into the activity.</li>
@@ -198,20 +217,25 @@
             <li><strong>Record Sensor Set #</strong> Record the sensor set number used in the activity.</li>
           </ul>
           <p>For post-ride review, the most useful additions are often set number and alarm status alongside raw pressure.</p>
-        </section>
+          </div>
+        </details>
 
-        <section id="labs">
-          <h2>TUBEWITCH LABS</h2>
+        <details class="troubleshooting-section" id="labs">
+          <summary><span class="troubleshooting-section-title">TUBEWITCH LABS</span></summary>
+          <div class="troubleshooting-section-body">
           <ul class="reference-list">
             <li><strong>Multi-Sensor Compatibility Mode</strong> Enable this if sensors cannot connect or are not assigned to F or R in the SRAM app.</li>
           </ul>
           <p>Multi-Sensor Compatibility Mode is the fallback when sensors cannot connect cleanly or are not assigned to front and rear in the SRAM app.</p>
-        </section>
+          </div>
+        </details>
 
-        <section id="settings-help">
-          <h2>Need more help?</h2>
+        <details class="troubleshooting-section" id="settings-help">
+          <summary><span class="troubleshooting-section-title">Need more help?</span></summary>
+          <div class="troubleshooting-section-body">
           <p>If setup or settings issues are not addressed on this page, see <a href="troubleshooting.html">Troubleshooting</a> for step-by-step fixes or <a href="faq.html">FAQ</a> for common setup and compatibility questions.</p>
-        </section>
+          </div>
+        </details>
       </article>
     </div>
   </main>
