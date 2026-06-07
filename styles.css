@@ -964,8 +964,11 @@ html.article-review-page .help-phone-figure {
 }
 
 .help-figure.contact-developer-figure img {
+  width: min(100%, 240px);
   max-width: 240px;
+  height: auto;
   margin: 0;
+  object-fit: contain;
 }
 
 .support-inline-layout {
