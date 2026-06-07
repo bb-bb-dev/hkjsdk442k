@@ -615,6 +615,10 @@ html.article-review-page .help-doc {
   margin-top: 1.1rem;
 }
 
+html.article-review-page .help-sidebar-group + .help-sidebar-group {
+  margin-top: 0.12rem;
+}
+
 .help-sidebar-group h2 {
   margin: 0 0 0.34rem;
   color: #cbfff0;
