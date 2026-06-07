@@ -313,6 +313,8 @@
   const troubleshootingReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const troubleshootingOpenAnimationMs = 520;
   const troubleshootingCloseAnimationMs = 680;
+  let troubleshootingScrollFrame = 0;
+  let troubleshootingScrollToken = 0;
 
   function clearTroubleshootingTimer(item) {
     const timer = troubleshootingTimers.get(item);
@@ -412,15 +414,78 @@
   }
 
   function getTroubleshootingTargetTop(item) {
-    const scrollMarginTop = parseFloat(window.getComputedStyle(item).scrollMarginTop);
-    return Number.isFinite(scrollMarginTop) ? scrollMarginTop : 0;
+    const siteHeader = document.querySelector(".site-header");
+    const siteHeaderRect = siteHeader?.getBoundingClientRect();
+    let targetTop = 0;
+
+    if (siteHeaderRect && siteHeaderRect.bottom > 0 && siteHeaderRect.top <= 1) {
+      targetTop = Math.max(targetTop, siteHeaderRect.bottom);
+    }
+
+    const mobileHelpJump = document.querySelector(".mobile-help-jump");
+    if (mobileHelpJump && window.getComputedStyle(mobileHelpJump).display !== "none") {
+      const mobileHelpRect = mobileHelpJump.getBoundingClientRect();
+      if (mobileHelpRect.bottom > 0) {
+        targetTop = Math.max(targetTop, mobileHelpRect.bottom);
+      }
+    }
+
+    return Math.ceil(targetTop);
   }
 
-  function scrollTroubleshootingSectionToTop(item) {
-    if (!item) return;
+  function cancelTroubleshootingScroll() {
+    troubleshootingScrollToken += 1;
+    if (troubleshootingScrollFrame) {
+      window.cancelAnimationFrame(troubleshootingScrollFrame);
+      troubleshootingScrollFrame = 0;
+    }
+  }
 
-    const targetTop = item.getBoundingClientRect().top + window.scrollY - getTroubleshootingTargetTop(item);
-    window.scrollTo(0, Math.max(targetTop, 0));
+  function animateTroubleshootingSectionToTop(item, duration = troubleshootingOpenAnimationMs) {
+    if (!item) return Promise.resolve(false);
+
+    cancelTroubleshootingScroll();
+
+    const token = troubleshootingScrollToken;
+    const startY = window.scrollY;
+    const targetY = Math.max(item.getBoundingClientRect().top + window.scrollY - getTroubleshootingTargetTop(item), 0);
+    const distance = targetY - startY;
+
+    if (troubleshootingReduceMotion || Math.abs(distance) < 1) {
+      window.scrollTo(0, targetY);
+      return Promise.resolve(true);
+    }
+
+    return new Promise((resolve) => {
+      const startTime = performance.now();
+
+      function step(now) {
+        if (token !== troubleshootingScrollToken) {
+          resolve(false);
+          return;
+        }
+
+        const progress = Math.min(Math.max((now - startTime) / duration, 0), 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        window.scrollTo(0, startY + (distance * eased));
+
+        if (progress < 1) {
+          troubleshootingScrollFrame = requestAnimationFrame(step);
+        } else {
+          troubleshootingScrollFrame = 0;
+          resolve(true);
+        }
+      }
+
+      troubleshootingScrollFrame = requestAnimationFrame(step);
+    });
+  }
+
+  function preserveTroubleshootingSectionTop(item, callback) {
+    const pinnedTop = item.getBoundingClientRect().top;
+    callback();
+    const newTop = item.getBoundingClientRect().top;
+    window.scrollBy(0, newTop - pinnedTop);
   }
 
   function openTroubleshootingSectionById(targetId, animated = true) {
@@ -443,11 +508,17 @@
       event.preventDefault();
 
       if (item.open && !item.classList.contains("troubleshooting-closing")) {
+        cancelTroubleshootingScroll();
         closeTroubleshootingSection(item);
       } else {
-        closeOtherTroubleshootingSections(item, false);
-        scrollTroubleshootingSectionToTop(item);
-        openTroubleshootingSection(item);
+        animateTroubleshootingSectionToTop(item).then((completed) => {
+          if (!completed) return;
+
+          preserveTroubleshootingSectionTop(item, () => {
+            closeOtherTroubleshootingSections(item, false);
+          });
+          openTroubleshootingSection(item);
+        });
       }
     });
   });
