@@ -668,8 +668,6 @@
       root.style.overflowAnchor = previousRootAnchor;
       body.style.overflowAnchor = previousBodyAnchor;
       troubleshootingPlaceholderLastScrollY = window.scrollY;
-      window.addEventListener("scroll", requestTroubleshootingPlaceholderCleanup, { passive: true, once: true });
-      window.addEventListener("resize", requestTroubleshootingPlaceholderCleanup, { passive: true, once: true });
     });
   }
 
