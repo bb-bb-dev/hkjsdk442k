@@ -1170,6 +1170,46 @@ html.article-review-page .help-article .callout + h3 {
   color: #f4fbff;
 }
 
+.callout-details summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0;
+  color: #f4fbff;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(1.1rem, 2vw, 1.32rem);
+  font-weight: 800;
+  line-height: 1.1;
+  cursor: pointer;
+  list-style: none;
+}
+
+.callout-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.callout-details summary::after {
+  content: "";
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 0.52rem;
+  height: 0.52rem;
+  border-right: 2px solid #7dffd7;
+  border-bottom: 2px solid #7dffd7;
+  margin-right: 0.14rem;
+  transform: rotate(45deg);
+  transition: transform 0.24s ease;
+}
+
+.callout-details[open] summary {
+  margin-bottom: 0.45rem;
+}
+
+.callout-details[open] summary::after {
+  transform: rotate(-135deg);
+}
+
 .callout .eyebrow {
   margin: 0 0 0.22rem;
 }
