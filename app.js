@@ -158,6 +158,37 @@
       faqScrollFrame = requestAnimationFrame(step);
     }
 
+    function trackFaqItemBottomIntoViewDuringOpen(item, duration = faqOpenAnimationMs + 160) {
+      if (!item) return;
+
+      cancelFaqScroll();
+
+      const token = faqScrollToken;
+      const startTime = performance.now();
+
+      if (reduceFaqMotion) return;
+
+      function step(now) {
+        if (token !== faqScrollToken || !item.open || item.classList.contains("faq-closing")) return;
+
+        const progress = Math.min(Math.max((now - startTime) / duration, 0), 1);
+        const viewportBottom = window.innerHeight - 24;
+        const overflow = item.getBoundingClientRect().bottom - viewportBottom;
+
+        if (overflow > 0.4) {
+          window.scrollBy(0, overflow);
+        }
+
+        if (progress < 1) {
+          faqScrollFrame = requestAnimationFrame(step);
+        } else {
+          faqScrollFrame = 0;
+        }
+      }
+
+      faqScrollFrame = requestAnimationFrame(step);
+    }
+
     function openFaqItem(item) {
       const answer = item.querySelector(":scope > .faq-answer");
       if (!answer || item.open) return;
@@ -185,6 +216,8 @@
         answer.style.transform = "translateY(0)";
         if (item.closest("#support")) {
           trackFaqItemToTopDuringOpen(item);
+        } else {
+          trackFaqItemBottomIntoViewDuringOpen(item);
         }
       });
 
