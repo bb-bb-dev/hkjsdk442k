@@ -735,6 +735,26 @@ html[data-page="faq"] .help-article section > h2:first-child {
   transition: color 0.16s ease;
 }
 
+.faq-preview-barlow summary {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(1.06rem, 2vw, 1.25rem);
+  font-weight: 700;
+}
+
+.faq-preview-archivo summary {
+  font-family: "Archivo", system-ui, sans-serif;
+  font-size: clamp(0.98rem, 1.55vw, 1.12rem);
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.faq-preview-outfit summary {
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: clamp(1rem, 1.65vw, 1.16rem);
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
 .faq-item summary::-webkit-details-marker {
   display: none;
 }
