@@ -970,10 +970,15 @@
         : Math.min(window.innerHeight * 0.35, 220);
       const scrollBottom = window.scrollY + window.innerHeight;
       const pageBottom = document.documentElement.scrollHeight;
+      const lastTarget = helpTargets[helpTargets.length - 1]?.target;
+      const lastTargetRect = lastTarget?.getBoundingClientRect();
+      const lastTargetVisible = lastTargetRect
+        && lastTargetRect.top < window.innerHeight - 48
+        && lastTargetRect.bottom > offset;
       let activeId = helpTargets[0]?.target.id || "";
 
-      if (scrollBottom >= pageBottom - 4) {
-        activeId = helpTargets[helpTargets.length - 1]?.target.id || activeId;
+      if (scrollBottom >= pageBottom - 4 || lastTargetVisible) {
+        activeId = lastTarget?.id || activeId;
       } else {
         helpTargets.forEach(({ target }) => {
           if (target.getBoundingClientRect().top <= offset) {
@@ -1004,6 +1009,8 @@
         const targetId = link.getAttribute("href")?.slice(1);
         if (targetId) {
           openTroubleshootingSectionById(targetId);
+          setActiveHelpLink(targetId);
+          requestAnimationFrame(requestActiveHelpUpdate);
         }
       });
     });
