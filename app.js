@@ -321,6 +321,22 @@
         event.preventDefault();
         toggleFaqSupport();
       });
+
+      document.addEventListener("click", (event) => {
+        const supportLink = event.target.closest("a[href='#support']");
+        if (!supportLink) return;
+
+        event.preventDefault();
+        if (window.location.hash !== "#support") {
+          window.history.pushState(null, "", "#support");
+        }
+
+        if (faqSupportItem.open && !faqSupportItem.classList.contains("faq-closing")) {
+          trackFaqItemToTopDuringOpen(faqSupportItem);
+        } else {
+          openSingleFaqItem(faqSupportItem);
+        }
+      });
     }
   }
 
