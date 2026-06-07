@@ -671,11 +671,26 @@
     });
   }
 
+  function activateTroubleshootingSection(item, animated = true) {
+    if (!item?.matches("details.troubleshooting-section")) return false;
+
+    if (!openTroubleshootingSection(item, animated)) return false;
+
+    if (animated && !troubleshootingReduceMotion) {
+      trackTroubleshootingSectionToTopDuringOpen(item).then((completed) => {
+        if (!completed) return;
+        closeOtherTroubleshootingSectionsAfterOpen(item);
+      });
+    } else {
+      closeOtherTroubleshootingSections(item, false);
+    }
+
+    return true;
+  }
+
   function openTroubleshootingSectionById(targetId, animated = true) {
     const target = document.getElementById(targetId);
-    if (!target?.matches("details.troubleshooting-section")) return false;
-    closeOtherTroubleshootingSections(target, false);
-    return openTroubleshootingSection(target, animated);
+    return activateTroubleshootingSection(target, animated);
   }
 
   troubleshootingSections.forEach((item) => {
@@ -694,12 +709,7 @@
         cancelTroubleshootingScroll();
         closeTroubleshootingSection(item);
       } else {
-        if (openTroubleshootingSection(item)) {
-          trackTroubleshootingSectionToTopDuringOpen(item).then((completed) => {
-            if (!completed) return;
-            closeOtherTroubleshootingSectionsAfterOpen(item);
-          });
-        }
+        activateTroubleshootingSection(item);
       }
     });
   });
@@ -1110,25 +1120,45 @@
       window.addEventListener("hashchange", requestActiveHelpUpdate, { passive: true });
     }
 
+    function activateTroubleshootingHelpTarget(event, targetId) {
+      const target = document.getElementById(targetId);
+      if (!target?.matches("details.troubleshooting-section")) return false;
+
+      event.preventDefault();
+      if (window.location.hash !== `#${targetId}`) {
+        window.history.pushState(null, "", `#${targetId}`);
+      }
+      activateTroubleshootingSection(target);
+      setActiveHelpLink(targetId);
+      requestAnimationFrame(requestActiveHelpUpdate);
+      return true;
+    }
+
     helpTargets.forEach(({ link }) => {
-      link.addEventListener("click", () => {
+      link.addEventListener("click", (event) => {
         const targetId = link.getAttribute("href")?.slice(1);
-        if (targetId) {
-          openTroubleshootingSectionById(targetId);
-          setActiveHelpLink(targetId);
-          requestAnimationFrame(requestActiveHelpUpdate);
-        }
+        if (!targetId) return;
+        if (activateTroubleshootingHelpTarget(event, targetId)) return;
+
+        setActiveHelpLink(targetId);
+        requestAnimationFrame(requestActiveHelpUpdate);
       });
     });
 
     mobileHelpLinks.forEach((link) => {
-      link.addEventListener("click", () => {
+      link.addEventListener("click", (event) => {
+        const targetId = link.getAttribute("href")?.slice(1);
+        if (targetId && activateTroubleshootingHelpTarget(event, targetId)) {
+          if (mobileHelpDetails) {
+            mobileHelpDetails.open = false;
+          }
+          return;
+        }
+
         if (mobileHelpDetails) {
           mobileHelpDetails.open = false;
         }
-        const targetId = link.getAttribute("href")?.slice(1);
         if (targetId) {
-          openTroubleshootingSectionById(targetId);
           setActiveHelpLink(targetId);
           requestAnimationFrame(requestActiveHelpUpdate);
         }
