@@ -48,6 +48,7 @@
     const faqCloseAnimationMs = 680;
     const reduceFaqMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const faqTimers = new WeakMap();
+    const faqScrollSpacers = new WeakMap();
 
     function clearFaqTimer(item) {
       const timer = faqTimers.get(item);
@@ -55,6 +56,27 @@
         window.clearTimeout(timer);
         faqTimers.delete(item);
       }
+    }
+
+    function clearFaqScrollSpacer(item) {
+      const spacer = faqScrollSpacers.get(item);
+      if (spacer) {
+        spacer.remove();
+        faqScrollSpacers.delete(item);
+      }
+    }
+
+    function setFaqScrollSpacerHeight(item, height) {
+      let spacer = faqScrollSpacers.get(item);
+      if (!spacer) {
+        spacer = document.createElement("div");
+        spacer.className = "faq-scroll-spacer";
+        spacer.setAttribute("aria-hidden", "true");
+        item.insertAdjacentElement("afterend", spacer);
+        faqScrollSpacers.set(item, spacer);
+      }
+
+      spacer.style.height = `${Math.max(0, height)}px`;
     }
 
     function prepareFaqItem(item) {
@@ -106,6 +128,7 @@
 
         if (answer && finalAnswerHeight > 0 && answer.style.height !== "auto") {
           answer.style.height = `${finalAnswerHeight}px`;
+          setFaqScrollSpacerHeight(item, remainingAnswerHeight);
         }
 
         if (scrollAmount > 0.5) {
@@ -115,6 +138,7 @@
         if (now - startTime < duration) {
           requestAnimationFrame(step);
         } else {
+          clearFaqScrollSpacer(item);
           revealFaqItem(item);
         }
       }
@@ -127,6 +151,7 @@
       if (!answer || item.open) return;
 
       clearFaqTimer(item);
+      clearFaqScrollSpacer(item);
       item.classList.remove("faq-closing");
       item.open = true;
 
@@ -160,6 +185,7 @@
       if (!answer || !item.open) return;
 
       clearFaqTimer(item);
+      clearFaqScrollSpacer(item);
 
       if (reduceFaqMotion) {
         item.open = false;
