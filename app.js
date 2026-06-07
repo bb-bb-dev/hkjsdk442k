@@ -184,8 +184,8 @@
   const troubleshootingSections = Array.from(document.querySelectorAll("details.troubleshooting-section"));
   const troubleshootingTimers = new WeakMap();
   const troubleshootingReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const troubleshootingOpenAnimationMs = 420;
-  const troubleshootingCloseAnimationMs = 520;
+  const troubleshootingOpenAnimationMs = 620;
+  const troubleshootingCloseAnimationMs = 620;
 
   function clearTroubleshootingTimer(item) {
     const timer = troubleshootingTimers.get(item);
@@ -236,6 +236,14 @@
     return true;
   }
 
+  function closeOtherTroubleshootingSections(activeItem) {
+    troubleshootingSections.forEach((item) => {
+      if (item !== activeItem) {
+        closeTroubleshootingSection(item);
+      }
+    });
+  }
+
   function closeTroubleshootingSection(item) {
     const body = getTroubleshootingBody(item);
     if (!body || !item.open || item.classList.contains("troubleshooting-closing")) return;
@@ -268,6 +276,7 @@
   function openTroubleshootingSectionById(targetId, animated = true) {
     const target = document.getElementById(targetId);
     if (!target?.matches("details.troubleshooting-section")) return false;
+    closeOtherTroubleshootingSections(target);
     return openTroubleshootingSection(target, animated);
   }
 
@@ -286,6 +295,7 @@
       if (item.open && !item.classList.contains("troubleshooting-closing")) {
         closeTroubleshootingSection(item);
       } else {
+        closeOtherTroubleshootingSections(item);
         openTroubleshootingSection(item);
       }
     });

@@ -872,11 +872,11 @@ html[data-page="faq"] .help-article section > h2:first-child {
 
 .troubleshooting-section-body {
   overflow: hidden;
-  transition: height 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: height 0.62s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .troubleshooting-section.troubleshooting-closing .troubleshooting-section-body {
-  transition: height 0.52s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: height 0.62s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .troubleshooting-section-body > :first-child {
@@ -885,6 +885,10 @@ html[data-page="faq"] .help-article section > h2:first-child {
 
 .troubleshooting-section-body > :last-child {
   margin-bottom: 1.05rem;
+}
+
+#support.troubleshooting-section {
+  border-bottom: 0;
 }
 
 .help-article a {
