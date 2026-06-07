@@ -2300,7 +2300,7 @@ html.article-review-page .help-article .text-link-button[data-info-trigger] {
   }
 
   .mobile-help-jump details {
-    width: min(var(--max), calc(100% - 2rem));
+    width: min(var(--max), calc(100% - 0.75rem));
     margin: 0 auto;
     border: 1px solid rgba(70, 98, 142, 0.55);
     border-radius: 14px;
