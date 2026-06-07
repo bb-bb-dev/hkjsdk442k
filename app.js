@@ -42,6 +42,19 @@
     }
   });
 
+  const faqItems = Array.from(document.querySelectorAll("details.faq-item"));
+  faqItems.forEach((item) => {
+    item.addEventListener("toggle", () => {
+      if (!item.open) return;
+
+      faqItems.forEach((otherItem) => {
+        if (otherItem !== item) {
+          otherItem.open = false;
+        }
+      });
+    });
+  });
+
   const siteHeader = document.querySelector(".site-header");
   const primaryNav = siteHeader?.querySelector(".nav-links");
   if (siteHeader && primaryNav) {

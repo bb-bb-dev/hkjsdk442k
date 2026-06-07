@@ -724,15 +724,15 @@ html.article-review-page .help-sidebar-group + .help-sidebar-group {
 }
 
 .faq-item summary::after {
-  content: ">";
-  display: block;
+  content: "";
+  display: inline-block;
   flex: 0 0 auto;
-  color: #7dffd7;
-  font-family: "Outfit", sans-serif;
-  font-size: 1.05rem;
-  font-weight: 900;
-  line-height: 1;
-  transform: rotate(0deg);
+  width: 0.55rem;
+  height: 0.55rem;
+  border-right: 2px solid #7dffd7;
+  border-bottom: 2px solid #7dffd7;
+  margin-right: 0.16rem;
+  transform: rotate(45deg);
   transition: transform 0.16s ease;
 }
 
@@ -741,7 +741,7 @@ html.article-review-page .help-sidebar-group + .help-sidebar-group {
 }
 
 .faq-item[open] summary::after {
-  transform: rotate(90deg);
+  transform: rotate(-135deg);
 }
 
 .faq-item > :not(summary) {
