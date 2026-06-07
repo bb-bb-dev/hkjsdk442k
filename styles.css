@@ -2036,18 +2036,6 @@ html.article-review-page .help-article .text-link-button[data-info-trigger] {
   gap: 0.72rem;
 }
 
-.footer-grid {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: center;
-  gap: 0.7rem;
-}
-
-.footer-grid img {
-  width: 34px;
-  height: 34px;
-}
-
 .footer-links {
   display: flex;
   flex-wrap: wrap;
@@ -2074,6 +2062,13 @@ html.article-review-page .help-article .text-link-button[data-info-trigger] {
   color: #bfd2e5;
   font-size: 0.72rem;
   line-height: 1.35;
+}
+
+.legal-note-icon {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.28em;
+  vertical-align: -0.14em;
 }
 
 .muted {
