@@ -725,7 +725,7 @@ html[data-page="faq"] .help-article section > h2:first-child {
   justify-content: space-between;
   gap: 1rem;
   padding: 0.92rem 0;
-  color: #a8bad0;
+  color: #94a0ad;
   font-family: "Archivo", system-ui, sans-serif;
   font-size: clamp(0.98rem, 1.55vw, 1.12rem);
   font-weight: 700;
@@ -757,10 +757,9 @@ html[data-page="faq"] .help-article section > h2:first-child {
 }
 
 .faq-item.faq-closing summary {
-  color: #a8bad0;
+  color: #94a0ad;
 }
 
-.faq-item summary:hover,
 .faq-item summary:focus-visible {
   color: #f4fbff;
 }
