@@ -49,6 +49,8 @@
     const reduceFaqMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const faqTimers = new WeakMap();
     const faqAnimationTokens = new WeakMap();
+    let faqScrollFrame = 0;
+    let faqScrollToken = 0;
 
     function clearFaqTimer(item) {
       const timer = faqTimers.get(item);
@@ -87,6 +89,75 @@
       item.appendChild(answer);
     }
 
+    function getFaqTargetTop() {
+      const siteHeader = document.querySelector(".site-header");
+      const siteHeaderRect = siteHeader?.getBoundingClientRect();
+      let targetTop = 0;
+
+      if (siteHeaderRect && siteHeaderRect.bottom > 0 && siteHeaderRect.top <= 1) {
+        targetTop = Math.max(targetTop, siteHeaderRect.bottom);
+      }
+
+      const mobileHelpJump = document.querySelector(".mobile-help-jump");
+      if (mobileHelpJump && window.getComputedStyle(mobileHelpJump).display !== "none") {
+        const mobileHelpRect = mobileHelpJump.getBoundingClientRect();
+        if (mobileHelpRect.bottom > 0) {
+          targetTop = Math.max(targetTop, mobileHelpRect.bottom);
+        }
+      }
+
+      return Math.ceil(targetTop);
+    }
+
+    function cancelFaqScroll() {
+      faqScrollToken += 1;
+      if (faqScrollFrame) {
+        window.cancelAnimationFrame(faqScrollFrame);
+        faqScrollFrame = 0;
+      }
+    }
+
+    function trackFaqItemToTopDuringOpen(item, duration = faqOpenAnimationMs + 80) {
+      if (!item) return;
+
+      cancelFaqScroll();
+
+      const token = faqScrollToken;
+      const startTop = item.getBoundingClientRect().top;
+      const targetTop = getFaqTargetTop();
+
+      if (reduceFaqMotion || Math.abs(startTop - targetTop) < 1) return;
+
+      const startTime = performance.now();
+
+      function step(now) {
+        if (token !== faqScrollToken || !item.open || item.classList.contains("faq-closing")) return;
+
+        const progress = Math.min(Math.max((now - startTime) / duration, 0), 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const desiredTop = startTop + ((targetTop - startTop) * eased);
+        const actualTop = item.getBoundingClientRect().top;
+        const delta = actualTop - desiredTop;
+
+        if (Math.abs(delta) > 0.4) {
+          window.scrollBy(0, delta);
+        }
+
+        if (progress < 1) {
+          faqScrollFrame = requestAnimationFrame(step);
+        } else {
+          const finalDelta = item.getBoundingClientRect().top - targetTop;
+          if (Math.abs(finalDelta) > 0.4) {
+            window.scrollBy(0, finalDelta);
+          }
+
+          faqScrollFrame = 0;
+        }
+      }
+
+      faqScrollFrame = requestAnimationFrame(step);
+    }
+
     function openFaqItem(item) {
       const answer = item.querySelector(":scope > .faq-answer");
       if (!answer || item.open) return;
@@ -112,6 +183,7 @@
         answer.style.height = `${answer.scrollHeight}px`;
         answer.style.opacity = "1";
         answer.style.transform = "translateY(0)";
+        trackFaqItemToTopDuringOpen(item);
       });
 
       faqTimers.set(item, window.setTimeout(() => {
@@ -182,6 +254,7 @@
         event.preventDefault();
 
         if (item.open) {
+          cancelFaqScroll();
           closeFaqItem(item);
           return;
         }
@@ -200,6 +273,7 @@
 
       const toggleFaqSupport = () => {
         if (faqSupportItem.open && !faqSupportItem.classList.contains("faq-closing")) {
+          cancelFaqScroll();
           closeFaqItem(faqSupportItem);
         } else {
           openSingleFaqItem(faqSupportItem);
