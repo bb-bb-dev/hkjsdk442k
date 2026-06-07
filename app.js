@@ -465,6 +465,7 @@
       body.style.opacity = "";
       body.style.transform = "";
       item.classList.remove("troubleshooting-animating", "troubleshooting-closing");
+      setTroubleshootingBottomSpacerHeight();
       return;
     }
 
@@ -487,6 +488,7 @@
       body.style.transform = "";
       item.classList.remove("troubleshooting-animating", "troubleshooting-closing");
       troubleshootingTimers.delete(item);
+      setTroubleshootingBottomSpacerHeight();
     }, troubleshootingCloseAnimationMs));
   }
 
@@ -535,22 +537,25 @@
   }
 
   function setTroubleshootingBottomSpacerHeight(item) {
-    if (!item) return;
-
-    const targetTop = getTroubleshootingTargetTop(item);
-    const rect = item.getBoundingClientRect();
-    const currentScrollY = window.scrollY;
-    const desiredScrollY = currentScrollY + rect.top - targetTop;
     const root = document.documentElement;
     const currentSpacerHeight = troubleshootingBottomSpacer?.getBoundingClientRect().height || 0;
     const maxScrollWithoutSpacer = Math.max(root.scrollHeight - currentSpacerHeight - window.innerHeight, 0);
-    const missingScroll = desiredScrollY - maxScrollWithoutSpacer;
+    const preserveCurrentScrollHeight = Math.max(0, window.scrollY - maxScrollWithoutSpacer + 1);
+    let targetScrollHeight = 0;
 
-    if (missingScroll > 1) {
-      const neededHeight = Math.ceil(missingScroll + 24);
-      if (neededHeight > currentSpacerHeight + 1) {
-        getTroubleshootingBottomSpacer().style.height = `${neededHeight}px`;
-      }
+    if (item) {
+      const targetTop = getTroubleshootingTargetTop(item);
+      const rect = item.getBoundingClientRect();
+      const desiredScrollY = window.scrollY + rect.top - targetTop;
+      targetScrollHeight = Math.max(0, desiredScrollY - maxScrollWithoutSpacer + 24);
+    }
+
+    const neededHeight = Math.ceil(Math.max(preserveCurrentScrollHeight, targetScrollHeight));
+    if (neededHeight > 1) {
+      getTroubleshootingBottomSpacer().style.height = `${neededHeight}px`;
+    } else if (troubleshootingBottomSpacer) {
+      troubleshootingBottomSpacer.remove();
+      troubleshootingBottomSpacer = null;
     }
   }
 
