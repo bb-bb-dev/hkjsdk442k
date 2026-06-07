@@ -2260,8 +2260,8 @@ html.article-review-page .help-article .text-link-button[data-info-trigger] {
 
   html[data-page="setup2"] #roles .help-inline-media {
     margin-top: 0;
-    padding-top: 0;
-    border-top: 0;
+    padding-top: 0.55rem;
+    border-top: 1px solid var(--line);
   }
 
   .help-sidebar {
