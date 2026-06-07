@@ -246,6 +246,15 @@
       }, faqCloseAnimationMs));
     }
 
+    function openSingleFaqItem(item) {
+      faqItems.forEach((otherItem) => {
+        if (otherItem !== item) {
+          closeFaqItem(otherItem);
+        }
+      });
+      openFaqItem(item);
+    }
+
     faqItems.forEach((item) => {
       prepareFaqItem(item);
 
@@ -260,14 +269,33 @@
           return;
         }
 
-        faqItems.forEach((otherItem) => {
-          if (otherItem !== item) {
-            closeFaqItem(otherItem);
-          }
-        });
-        openFaqItem(item);
+        openSingleFaqItem(item);
       });
     });
+
+    const faqSupportSection = document.getElementById("support");
+    const faqSupportHeading = faqSupportSection?.querySelector(":scope > h2");
+    const faqSupportItem = faqSupportSection?.querySelector(":scope > details.faq-item");
+    if (faqSupportHeading && faqSupportItem) {
+      faqSupportHeading.classList.add("faq-section-toggle");
+      faqSupportHeading.setAttribute("role", "button");
+      faqSupportHeading.setAttribute("tabindex", "0");
+
+      const toggleFaqSupport = () => {
+        if (faqSupportItem.open && !faqSupportItem.classList.contains("faq-closing")) {
+          closeFaqItem(faqSupportItem);
+        } else {
+          openSingleFaqItem(faqSupportItem);
+        }
+      };
+
+      faqSupportHeading.addEventListener("click", toggleFaqSupport);
+      faqSupportHeading.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        toggleFaqSupport();
+      });
+    }
   }
 
   const calloutDetails = Array.from(document.querySelectorAll("details.callout-details"));
@@ -369,8 +397,10 @@
   const troubleshootingReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const troubleshootingOpenAnimationMs = 8000;
   const troubleshootingCloseAnimationMs = 8000;
+  const troubleshootingPlaceholders = new Set();
   let troubleshootingScrollFrame = 0;
   let troubleshootingScrollToken = 0;
+  let troubleshootingPlaceholderCleanupFrame = 0;
 
   function clearTroubleshootingTimer(item) {
     const timer = troubleshootingTimers.get(item);
@@ -497,6 +527,64 @@
     }
   }
 
+  function createTroubleshootingPlaceholder(item, height) {
+    if (!height || height < 1) return;
+
+    const placeholder = document.createElement("div");
+    placeholder.className = "troubleshooting-layout-placeholder";
+    placeholder.setAttribute("aria-hidden", "true");
+    placeholder.style.height = `${height}px`;
+    item.insertAdjacentElement("afterend", placeholder);
+    troubleshootingPlaceholders.add(placeholder);
+  }
+
+  function cleanupTroubleshootingPlaceholders() {
+    troubleshootingPlaceholderCleanupFrame = 0;
+    if (!troubleshootingPlaceholders.size) return;
+
+    const safeTop = getTroubleshootingTargetTop() - 8;
+    const root = document.documentElement;
+    const body = document.body;
+    const previousRootAnchor = root.style.overflowAnchor;
+    const previousBodyAnchor = body.style.overflowAnchor;
+
+    root.style.overflowAnchor = "none";
+    body.style.overflowAnchor = "none";
+
+    troubleshootingPlaceholders.forEach((placeholder) => {
+      if (!placeholder.isConnected) {
+        troubleshootingPlaceholders.delete(placeholder);
+        return;
+      }
+
+      const rect = placeholder.getBoundingClientRect();
+      if (rect.bottom > safeTop && rect.top < window.innerHeight + 80) return;
+
+      const removedAboveViewport = rect.bottom <= safeTop;
+      const height = rect.height;
+      placeholder.remove();
+      troubleshootingPlaceholders.delete(placeholder);
+
+      if (removedAboveViewport && height > 0) {
+        window.scrollBy(0, -height);
+      }
+    });
+
+    requestAnimationFrame(() => {
+      root.style.overflowAnchor = previousRootAnchor;
+      body.style.overflowAnchor = previousBodyAnchor;
+      if (troubleshootingPlaceholders.size) {
+        window.addEventListener("scroll", requestTroubleshootingPlaceholderCleanup, { passive: true, once: true });
+        window.addEventListener("resize", requestTroubleshootingPlaceholderCleanup, { passive: true, once: true });
+      }
+    });
+  }
+
+  function requestTroubleshootingPlaceholderCleanup() {
+    if (troubleshootingPlaceholderCleanupFrame) return;
+    troubleshootingPlaceholderCleanupFrame = requestAnimationFrame(cleanupTroubleshootingPlaceholders);
+  }
+
   function trackTroubleshootingSectionToTopDuringOpen(item, duration = troubleshootingOpenAnimationMs + 80) {
     if (!item) return Promise.resolve(false);
 
@@ -547,25 +635,31 @@
   }
 
   function closeOtherTroubleshootingSectionsAfterOpen(activeItem) {
-    const targetTop = getTroubleshootingTargetTop(activeItem);
     const root = document.documentElement;
     const body = document.body;
     const previousRootAnchor = root.style.overflowAnchor;
     const previousBodyAnchor = body.style.overflowAnchor;
+    const activeIndex = troubleshootingSections.indexOf(activeItem);
 
     root.style.overflowAnchor = "none";
     body.style.overflowAnchor = "none";
 
-    closeOtherTroubleshootingSections(activeItem, false);
+    troubleshootingSections.forEach((item, index) => {
+      if (item === activeItem || !item.open) return;
 
-    const delta = activeItem.getBoundingClientRect().top - targetTop;
-    if (Math.abs(delta) > 0.4) {
-      window.scrollBy(0, delta);
-    }
+      const itemBody = getTroubleshootingBody(item);
+      if (index < activeIndex && itemBody) {
+        createTroubleshootingPlaceholder(item, itemBody.getBoundingClientRect().height || itemBody.scrollHeight);
+      }
+
+      closeTroubleshootingSection(item, false);
+    });
 
     requestAnimationFrame(() => {
       root.style.overflowAnchor = previousRootAnchor;
       body.style.overflowAnchor = previousBodyAnchor;
+      window.addEventListener("scroll", requestTroubleshootingPlaceholderCleanup, { passive: true, once: true });
+      window.addEventListener("resize", requestTroubleshootingPlaceholderCleanup, { passive: true, once: true });
     });
   }
 

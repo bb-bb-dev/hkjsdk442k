@@ -826,12 +826,30 @@ html[data-page="faq"] #support .faq-item {
   margin-top: 0.85rem;
 }
 
+.faq-section-toggle {
+  cursor: pointer;
+}
+
+.faq-section-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 0.25rem;
+}
+
 .troubleshooting-section {
   margin-top: 2.2rem;
   border-bottom: 1px solid var(--line);
 }
 
 .troubleshooting-section + .troubleshooting-section {
+  margin-top: 1.15rem;
+}
+
+.troubleshooting-layout-placeholder {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.troubleshooting-layout-placeholder + .troubleshooting-section {
   margin-top: 1.15rem;
 }
 
