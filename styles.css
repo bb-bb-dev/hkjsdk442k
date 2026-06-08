@@ -692,6 +692,8 @@ html[data-page="faq"] .help-article h2 {
   margin-bottom: 0.85rem;
   padding-top: 0;
   border-top: 0;
+  color: var(--text);
+  font-size: clamp(1.34rem, 2.65vw, 1.8rem);
 }
 
 html[data-page="faq"] .help-article section > h2:first-child {
@@ -736,7 +738,7 @@ html[data-page="faq"] #support .faq-item {
   padding: 0.92rem 0;
   color: #85919e;
   font-family: "Archivo", system-ui, sans-serif;
-  font-size: clamp(1.34rem, 2.65vw, 1.8rem);
+  font-size: clamp(0.98rem, 1.55vw, 1.12rem);
   font-weight: 700;
   letter-spacing: 0;
   cursor: pointer;
