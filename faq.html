@@ -8,18 +8,18 @@
   <link rel="icon" href="favicon-48.png" type="image/png" sizes="48x48" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
-  <title>TubeWitch FAQ | Quarq TyreWiz and Garmin Tire Pressure</title>
-  <meta name="description" content="TubeWitch FAQ covering Quarq TyreWiz compatibility, Quarq TyreWiz for Moto, Zipp 303 SW support, reconnect behavior, updates, pressure targets, and sensor IDs." />
+  <title>TubeWitch FAQ | TyreWiz, AIRMAX, and Garmin Tire Pressure</title>
+  <meta name="description" content="TubeWitch FAQ covering Quarq TyreWiz, Schwalbe AIRMAX, Zipp AXS Wheel Sensor, pressure alerts, sensor IDs, reconnect behavior, and activity recording." />
   <link rel="canonical" href="https://tubewitch.com/faq.html" />
   <meta property="og:site_name" content="TubeWitch" />
-  <meta property="og:title" content="TubeWitch FAQ | Quarq TyreWiz and Garmin Tire Pressure" />
-  <meta property="og:description" content="TubeWitch FAQ covering Quarq TyreWiz compatibility, Quarq TyreWiz for Moto, Zipp 303 SW support, reconnect behavior, pressure targets, and sensor IDs." />
+  <meta property="og:title" content="TubeWitch FAQ | TyreWiz, AIRMAX, and Garmin Tire Pressure" />
+  <meta property="og:description" content="TubeWitch FAQ covering Quarq TyreWiz, Schwalbe AIRMAX, Zipp AXS Wheel Sensor, pressure alerts, sensor IDs, reconnect behavior, and activity recording." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://tubewitch.com/faq.html" />
   <meta property="og:image" content="https://tubewitch.com/assets/img/tw_hero.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="TubeWitch FAQ | Quarq TyreWiz and Garmin Tire Pressure" />
-  <meta name="twitter:description" content="TubeWitch FAQ covering Quarq TyreWiz compatibility, Quarq TyreWiz for Moto, Zipp 303 SW support, reconnect behavior, pressure targets, and sensor IDs." />
+  <meta name="twitter:title" content="TubeWitch FAQ | TyreWiz, AIRMAX, and Garmin Tire Pressure" />
+  <meta name="twitter:description" content="TubeWitch FAQ covering Quarq TyreWiz, Schwalbe AIRMAX, Zipp AXS Wheel Sensor, pressure alerts, sensor IDs, reconnect behavior, and activity recording." />
   <meta name="twitter:image" content="https://tubewitch.com/assets/img/tw_hero.jpg" />
   <link rel="stylesheet" href="styles.css" />
   <script src="app.js" defer></script>
@@ -64,18 +64,17 @@
           <h1>TubeWitch FAQ</h1>
           <p>
             This page collects common questions about TubeWitch accuracy, Garmin bicycle tire pressure monitoring,
-            Quarq TyreWiz compatibility, Zipp 303 SW support, pressure alarms, sensor IDs, stale indicators, and activity recording.
+            Quarq TyreWiz compatibility, Schwalbe AIRMAX support, Zipp AXS Wheel Sensor support, pressure alarms, sensor IDs, stale indicators, and activity recording.
           </p>
 
           <h2>General questions</h2>
           <details class="faq-item">
             <summary>Do I need TubeWitch to show tire pressure on a Garmin?</summary>
-            <p>Garmin does not support TyreWiz sensors natively, so showing TyreWiz pressure on a Garmin requires a Garmin Connect IQ data field.</p>
-            <p>TubeWitch provides that capability as a Garmin Connect IQ tire pressure monitoring data field for compatible Quarq TyreWiz sensors and Zipp 303 SW wheels with the integrated Zipp AXS Wheel Sensor.</p>
+            <p>TubeWitch provides a Garmin Connect IQ tire pressure monitoring data field for compatible Quarq TyreWiz sensors, Schwalbe AIRMAX sensors, and Zipp wheels with the integrated Zipp AXS Wheel Sensor.</p>
           </details>
           <details class="faq-item">
             <summary>Are the TubeWitch pressure readings accurate?</summary>
-            <p>Yes. It matches the SRAM AXS mobile app exactly.</p>
+            <p>Yes. TubeWitch is designed to match the pressure data reported by the supported sensor family, including SRAM AXS for TyreWiz/Zipp sensors and the Schwalbe app for AIRMAX.</p>
           </details>
           <details class="faq-item">
             <summary>Which tire pressure sensors does TubeWitch support?</summary>
@@ -86,11 +85,12 @@
               <li>Quarq TyreWiz for 101 XPLR</li>
               <li>Zipp 303 SW wheels with integrated Zipp AXS Wheel Sensor</li>
               <li>Zipp 353 NSW wheels with integrated Zipp AXS Wheel Sensor</li>
+              <li>Schwalbe AIRMAX Smart Tire Sensor</li>
             </ul>
-            <p>More sensors coming soon...</p>
+            <p>Additional sensor support is planned.</p>
           </details>
           <details class="faq-item">
-            <summary>Will TubeWitch reconnect to TyreWiz sensors after a Garmin Edge device wakes from sleep mode?</summary>
+            <summary>Will TubeWitch reconnect to TyreWiz or AIRMAX sensors after a Garmin Edge device wakes from sleep mode?</summary>
             <p>Yes.</p>
           </details>
           <details class="faq-item">
@@ -99,21 +99,21 @@
             <p>"X" indicates TubeWitch timed out for that sensor and stopped searching to save battery. Default timeout is 15 minutes.</p>
           </details>
           <details class="faq-item">
-            <summary>Where do I set the pressure targets for my TyreWiz sensors?</summary>
-            <p>Use the SRAM AXS mobile app. That is where you set the target pressure and alert range for each TyreWiz sensor.</p>
-            <p>TyreWiz stores that behavior in the sensor itself, so the TyreWiz LED and TubeWitch stay in sync. Slow green flashing means tire pressure is within the suggested range. Slow red flashing means low tire pressure is detected. Fast red flashing means high tire pressure is detected.</p>
-            <p>TubeWitch follows that same sensor status on Garmin. The SRAM AXS app is also where firmware updates are managed and where SRAM provides pressure guidance to help you choose a starting point for your tires.</p>
+            <summary>Where do I set the pressure targets for my sensors?</summary>
+            <p>Use the sensor manufacturer's mobile app: SRAM AXS for TyreWiz/Zipp sensors or the Schwalbe app for AIRMAX.</p>
+            <p>For TyreWiz, the sensor stores target pressure and alert behavior, so the TyreWiz LED and TubeWitch stay in sync. AIRMAX setup and pressure guidance are managed through the Schwalbe app.</p>
+            <p>TubeWitch follows the sensor status reported to Garmin. The manufacturer's mobile app is also where sensor-specific setup, firmware, and pressure guidance are managed.</p>
           </details>
           <details class="faq-item">
             <summary>What if the TubeWitch tire pressure alerts seem wrong?</summary>
-            <p>First check the SRAM AXS mobile app. That is where the target pressure and alert range are defined for each TyreWiz sensor, and TubeWitch follows that same sensor status.</p>
-            <p>Because those settings are stored in the sensor, TubeWitch stays in sync with the TyreWiz LED behavior: slow green flashing means pressure is within range, slow red flashing means low pressure is detected, and fast red flashing means high pressure is detected.</p>
-            <p>If TubeWitch is showing live pressure but the high or low status seems wrong, the most common cause is that the target pressure or alert range in SRAM AXS does not match the setup you expect. Also confirm that the correct sensor IDs are entered in TubeWitch.</p>
+            <p>First check the sensor manufacturer's mobile app: SRAM AXS for TyreWiz/Zipp sensors or the Schwalbe app for AIRMAX.</p>
+            <p>If TubeWitch is showing live pressure but the high or low status seems wrong, the most common cause is that the pressure target or alert range in the manufacturer's app does not match the setup you expect.</p>
+            <p>Also confirm that the correct sensor IDs are entered in TubeWitch.</p>
           </details>
           <details class="faq-item">
             <summary>Is TubeWitch the same as Tube Witch, TyreWitch, TireWitch, Tyre Wiz, Tire Wiz or TyreWhiz?</summary>
             <p>Those are alternate spellings riders use in search. Tube Witch, TyreWitch, and TireWitch refer to the TubeWitch data field.</p>
-            <p>Tyre Wiz, TireWiz, and Tire Wiz refer to the SRAM/Quarq tire pressure sensors. TubeWitch is the Garmin Connect IQ data field that brings TyreWiz pressure and alerts to compatible Garmin devices.</p>
+            <p>Tyre Wiz, TireWiz, and Tire Wiz refer to the SRAM/Quarq tire pressure sensors. AIRMAX refers to the Schwalbe tire pressure sensor. TubeWitch is the Garmin Connect IQ data field that brings compatible tire pressure sensor data and alerts to Garmin devices.</p>
           </details>
         </section>
 
@@ -135,7 +135,7 @@
             <p>You can switch to another page and leave your map or preferred screen up until an alert appears.</p>
           </details>
           <details class="faq-item">
-            <summary>Does the TubeWitch Data Field offer features that the SRAM Data Field doesn't have?</summary>
+            <summary>Does the TubeWitch Data Field offer features that the SRAM Data Field does not have?</summary>
             <p>Yes. TubeWitch adds audible, pop-up, and vibration alerts; customizable labels and colors; stale-data indicators that keep showing the last known pressure after a disconnect; support for multiple bikes and wheel sets; more layout options; support for newer Edge devices and Garmin watches; touchscreen features; and sensor timeouts that save battery.</p>
           </details>
           <details class="faq-item">
@@ -178,8 +178,8 @@
             <p>To request support for a newly released device, use the <strong>Contact Developer</strong> link from the TubeWitch page in the Garmin Connect IQ mobile app.</p>
           </details>
           <details class="faq-item">
-            <summary>Where do I find the TyreWiz sensor IDs?</summary>
-            <p>They are printed on the sensor and can also be found in the SRAM AXS mobile app.</p>
+            <summary>Where do I find the sensor IDs?</summary>
+            <p>For TyreWiz, IDs are printed on the sensor and can also be found in the SRAM AXS mobile app. For AIRMAX, use the numeric sensor ID available from the sensor or the Schwalbe app when available.</p>
             <figure class="help-figure shot">
               <img class="transparent-shot" src="assets/img/sensor_ids.png" alt="TubeWitch sensor ID entry fields" />
               <figcaption>TyreWiz sensor IDs can be found on the sensor or in the SRAM AXS mobile app</figcaption>

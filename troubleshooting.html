@@ -8,17 +8,17 @@
   <link rel="icon" href="favicon-48.png" type="image/png" sizes="48x48" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
-  <title>TubeWitch Troubleshooting | TyreWiz and Garmin Setup Problems</title>
-  <meta name="description" content="Fix TubeWitch settings saves, missing pressure data, wrong pressure status, and Garmin Connect IQ upgrade problems for Quarq TyreWiz sensors on Garmin." />
+  <title>TubeWitch Troubleshooting | TyreWiz, AIRMAX, and Garmin Setup Problems</title>
+  <meta name="description" content="Fix TubeWitch settings saves, missing pressure data, wrong pressure status, and Garmin Connect IQ upgrade problems for TyreWiz and AIRMAX sensors on Garmin." />
   <link rel="canonical" href="https://tubewitch.com/troubleshooting.html" />
   <meta property="og:site_name" content="TubeWitch" />
-  <meta property="og:title" content="TubeWitch Troubleshooting | TyreWiz and Garmin Setup Problems" />
+  <meta property="og:title" content="TubeWitch Troubleshooting | TyreWiz, AIRMAX, and Garmin Setup Problems" />
   <meta property="og:description" content="Troubleshooting steps for TubeWitch settings saves, missing pressure data, wrong pressure status, and Garmin Connect IQ upgrade issues." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://tubewitch.com/troubleshooting.html" />
   <meta property="og:image" content="https://tubewitch.com/assets/img/tw_hero.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="TubeWitch Troubleshooting | TyreWiz and Garmin Setup Problems" />
+  <meta name="twitter:title" content="TubeWitch Troubleshooting | TyreWiz, AIRMAX, and Garmin Setup Problems" />
   <meta name="twitter:description" content="Troubleshooting steps for TubeWitch settings saves, missing pressure data, wrong pressure status, and Garmin Connect IQ upgrade issues." />
   <meta name="twitter:image" content="https://tubewitch.com/assets/img/tw_hero.jpg" />
   <link rel="stylesheet" href="styles.css" />
@@ -152,7 +152,7 @@
           <p>This usually means Garmin's settings service is temporarily unavailable. Try again later.</p>
 
           <h3>My Sensor ID starts with a leading 0, but after I save it in the settings it only shows 4 digits?</h3>
-          <p>The settings input box trims leading zeroes, but that does not break TyreWiz pairing. Garmin uses the sensor ID as an integer value for ANT+ matching, so the leading zeroes are not needed.</p>
+          <p>The settings input box trims leading zeroes, but that does not break sensor pairing. Garmin uses the sensor ID as an integer value for ANT+ matching, so the leading zeroes are not needed.</p>
           <p>If the rest of the setup is correct, the sensor can still connect successfully.</p>
 
           <h3>It will not let me enter my full sensor ID: HGL15841</h3>
@@ -167,18 +167,18 @@
           <div class="help-inline-media">
             <div>
               <p>If no pressure is shown after setup, work from the sensor outward before changing other settings.</p>
-              <h3>Check the sensor, SRAM setup, and saved ID</h3>
+              <h3>Check the sensor app setup and saved ID</h3>
               <ul>
                 <li>Rotate the wheels to wake the sensors and look for a flashing LED.</li>
                 <li>Replace the battery if the sensor does not wake up.</li>
-                <li>Confirm the sensor can be reached through the SRAM AXS mobile app.</li>
-                <li>In the SRAM mobile app, make sure each sensor is assigned to the front or rear wheel and a target pressure is specified.</li>
+                <li>Confirm the sensor can be reached through the manufacturer's mobile app: SRAM AXS for TyreWiz/Zipp sensors or the Schwalbe app for AIRMAX.</li>
+                <li>In the manufacturer's mobile app, make sure wheel position and pressure targets are configured where supported.</li>
                 <li>Open TubeWitch settings and confirm the correct sensor ID was actually saved.</li>
               </ul>
             </div>
             <figure class="help-figure help-phone-figure shot">
               <img src="assets/img/sram_phone_app.jpg" alt="SRAM AXS app showing tire pressure target settings" />
-              <figcaption>Wheel position and pressure targets are managed in the SRAM AXS mobile app</figcaption>
+              <figcaption>Example: wheel position and pressure targets in the SRAM AXS mobile app</figcaption>
             </figure>
           </div>
           <h3>Acknowledge the open-connection message</h3>
@@ -188,7 +188,7 @@
           <p>If another TyreWiz or TPMS data field is also installed on the Garmin device, it will block TubeWitch from reading the sensors.</p>
           <p>Uninstall any other TyreWiz or TPMS data field, then reboot the Garmin device.</p>
           <h3>Try Multi-Sensor Compatibility Mode</h3>
-          <p>If a sensor is not assigned to Front or Rear in the SRAM AXS mobile app, TubeWitch will not be able to read it. Generic TPMS ANT+ sensors may also not be supported by default. Try enabling TubeWitch Labs -&gt; Multi-Sensor Compatibility Mode. This may allow TubeWitch to detect these sensors.</p>
+          <p>If a sensor requires Front or Rear assignment and is not assigned in the manufacturer's mobile app, TubeWitch may not be able to read it. Generic TPMS ANT+ sensors may also not be supported by default. Try enabling TubeWitch Labs -&gt; Multi-Sensor Compatibility Mode. This may allow TubeWitch to detect these sensors.</p>
           <h3>Rebooting Garmin Devices</h3>
           <p>After confirming the above settings, make sure to fully reboot your Garmin device.</p>
           <p>On Edge devices, press and hold the power button until the device shows the option to power off. If the device is frozen, hold the power button for about 10 seconds until it powers off or reboots.</p>
@@ -199,9 +199,9 @@
         <details class="troubleshooting-section" id="wrong-pressure-status">
           <summary><span class="troubleshooting-section-title">Wrong Pressure Status / Alerts</span></summary>
           <div class="troubleshooting-section-body">
-          <p>Live pressure can appear while the high or low status is still wrong if the sensor itself was configured differently in SRAM AXS.</p>
+          <p>Live pressure can appear while the high or low status is still wrong if the sensor itself was configured differently in the manufacturer's mobile app.</p>
           <h3>Pressure status looks wrong</h3>
-          <p>First, use the SRAM AXS mobile app to assign the Front / Rear position and pressure target for each sensor.</p>
+          <p>First, use SRAM AXS for TyreWiz/Zipp sensors or the Schwalbe app for AIRMAX to confirm sensor-specific setup and pressure targets.</p>
           <ul>
             <li>Confirm each sensor is assigned to the correct wheel position.</li>
             <li>Confirm the target pressure matches the tire and setup you expect.</li>

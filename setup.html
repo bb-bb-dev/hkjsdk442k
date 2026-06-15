@@ -8,18 +8,18 @@
   <link rel="icon" href="favicon-48.png" type="image/png" sizes="48x48" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
-  <title>TubeWitch Setup | Quarq TyreWiz and Zipp 303 SW Setup</title>
-  <meta name="description" content="Set up TubeWitch on Garmin Edge devices and watches with installation steps, sensor ID entry and checks for common TyreWiz connection problems." />
+  <title>TubeWitch Setup | TyreWiz, AIRMAX, and Garmin Tire Pressure</title>
+  <meta name="description" content="Set up TubeWitch on Garmin Edge devices and watches for Quarq TyreWiz, Schwalbe AIRMAX, and compatible tire pressure sensors." />
   <link rel="canonical" href="https://tubewitch.com/setup.html" />
   <meta property="og:site_name" content="TubeWitch" />
-  <meta property="og:title" content="TubeWitch Setup | Quarq TyreWiz and Zipp 303 SW Setup" />
-  <meta property="og:description" content="Install TubeWitch and show tire pressure data from Quarq TyreWiz sensors on Garmin devices." />
+  <meta property="og:title" content="TubeWitch Setup | TyreWiz, AIRMAX, and Garmin Tire Pressure" />
+  <meta property="og:description" content="Install TubeWitch and show tire pressure data from Quarq TyreWiz, Schwalbe AIRMAX, and compatible sensors on Garmin devices." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://tubewitch.com/setup.html" />
   <meta property="og:image" content="https://tubewitch.com/assets/img/tw_hero.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="TubeWitch Setup | Quarq TyreWiz and Zipp 303 SW Setup" />
-  <meta name="twitter:description" content="Install TubeWitch and show tire pressure data from Quarq TyreWiz sensors on Garmin devices." />
+  <meta name="twitter:title" content="TubeWitch Setup | TyreWiz, AIRMAX, and Garmin Tire Pressure" />
+  <meta name="twitter:description" content="Install TubeWitch and show tire pressure data from Quarq TyreWiz, Schwalbe AIRMAX, and compatible sensors on Garmin devices." />
   <meta name="twitter:image" content="https://tubewitch.com/assets/img/tw_hero.jpg" />
   <link rel="stylesheet" href="styles.css" />
   <script src="app.js" defer></script>
@@ -57,7 +57,7 @@
           <a href="#sensor-id-demo">Sensor ID demos</a>
         </div>
         <div class="help-sidebar-group">
-          <a href="#roles">TubeWitch vs SRAM</a>
+          <a href="#roles">TubeWitch vs Manufacturer's Sensor App</a>
           <a href="#troubleshooting">If one or both sensors do not connect</a>
           <a href="#next-pages">More help</a>
         </div>
@@ -70,10 +70,10 @@
           <div class="setup-overview-layout">
             <div>
               <p>
-                TubeWitch setup is for riders who already own Quarq TyreWiz 1.0 or 2.0 sensors,
-                Quarq TyreWiz for Moto sensors, or Zipp 303 SW wheels and want that tire pressure data on a Garmin device.
+                TubeWitch setup is for riders who already own Quarq TyreWiz sensors,
+                Schwalbe AIRMAX sensors, or Zipp wheels with the integrated Zipp AXS Wheel Sensor and want that tire pressure data on a Garmin device.
                 TubeWitch stores the sensor IDs and display behavior,
-                while the SRAM app still controls the target pressure on the sensors themselves.
+                while the sensor manufacturer's mobile app controls pressure targets and sensor-specific setup.
               </p>
               <p>
                 TubeWitch setup centers on sensor ID entry, device restart, adding the field to a data screen,
@@ -88,18 +88,18 @@
 
         <section id="before-you-start">
           <h2>Before you start</h2>
-          <p>You need a compatible tire pressure sensor, a compatible Garmin device, the Garmin Connect IQ mobile app, and either the SRAM AXS mobile app or Garmin Express depending on what you are changing.</p>
+          <p>You need a compatible tire pressure sensor, a compatible Garmin device, the Garmin Connect IQ mobile app, and the sensor manufacturer's mobile app or Garmin Express depending on what you are changing.</p>
           <ul>
             <li>Use <a href="compatible-tire-sensors.html">Compatible Tire Sensors</a> to confirm the sensor family is supported.</li>
             <li>Use the <a href="https://apps.garmin.com/apps/9b512e62-f3b0-4aea-a932-63670e0dfe75?tid=1" target="_blank" rel="noopener noreferrer">TubeWitch Garmin App Store page</a> to confirm Garmin device compatibility.</li>
-            <li>Use the SRAM AXS mobile app to set the sensor Front / Rear position and pressure target.</li>
+            <li>Use SRAM AXS for TyreWiz/Zipp sensors or the Schwalbe app for AIRMAX to set sensor-specific options.</li>
           </ul>
         </section>
 
         <section id="checklist">
           <h2>Setup Steps</h2>
           <ol>
-            <li>Use the SRAM AXS mobile app to assign the Front / Rear position and pressure target for each sensor.</li>
+            <li>Use the sensor manufacturer's mobile app to assign wheel position and pressure targets where supported.</li>
             <li>Install TubeWitch using the <a href="https://apps.garmin.com/en-US/apps/9b512e62-f3b0-4aea-a932-63670e0dfe75" target="_blank" rel="noopener noreferrer">Garmin Connect IQ mobile app</a>.</li>
             <li>Fully reboot the Garmin device and restart the Connect IQ mobile app.</li>
             <li>Add the TubeWitch data field to a data screen, <span class="field-visible-emphasis"><img class="field-visible-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" /><strong>leave the TubeWitch field visible</strong><img class="field-visible-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" /></span>, and rotate your wheels.</li>
@@ -111,7 +111,7 @@
 
         <section id="sensor-id-demo">
           <h2>See sensor ID entry in motion</h2>
-          <p>These demos show how to open TubeWitch settings in the Garmin Connect IQ mobile app and Garmin Express to enter the front and rear TyreWiz sensor IDs.</p>
+          <p>These TyreWiz demos show how to open TubeWitch settings in the Garmin Connect IQ mobile app and Garmin Express to enter front and rear sensor IDs.</p>
           <p>Enter only the numeric part of each sensor ID in TubeWitch settings. For example, if the sensor ID is HGL12345, enter 12345.</p>
 
           <div class="sensor-demo-videos">
@@ -149,19 +149,19 @@
         <section id="roles">
           <div class="help-inline-media">
             <div>
-              <h2>What goes in TubeWitch vs. what stays in SRAM</h2>
+              <h2>What goes in TubeWitch vs. the manufacturer's sensor app</h2>
               <p class="eyebrow">Two separate jobs</p>
               <ul>
                 <li>TubeWitch stores the numeric sensor IDs, active sensor set, labels, timeout behavior, and alerts.</li>
-                <li>The SRAM mobile app is still where target pressure is defined for the sensors.</li>
-                <li>If live pressure appears but high or low status looks wrong, check the pressure target in SRAM mobile app first.</li>
+                <li>The sensor manufacturer's mobile app is still where pressure targets and sensor-specific setup are managed.</li>
+                <li>If live pressure appears but high or low status looks wrong, check the pressure target in the manufacturer's mobile app first.</li>
                 <li>For multiple bikes or wheelsets, use unique set names to help distinguish sets before using Auto mode.</li>
               </ul>
-              <p>Because SRAM AXS stores the target pressure and alert range in the sensor itself, TubeWitch stays in sync with the TyreWiz LED behavior and sensor status.</p>
+              <p>For TyreWiz and Zipp sensors, SRAM AXS stores the target pressure and alert range in the sensor itself. For AIRMAX, use the Schwalbe app for sensor-specific setup.</p>
             </div>
             <figure class="help-figure help-phone-figure shot">
               <img src="assets/img/sram_phone_app.jpg" alt="SRAM app showing tire pressure target settings" />
-              <figcaption>Pressure targets are managed in the SRAM mobile app</figcaption>
+              <figcaption>Example: pressure targets in the SRAM mobile app</figcaption>
             </figure>
           </div>
         </section>
@@ -173,7 +173,7 @@
           <h3>Acknowledge open connection prompts</h3>
           <p>Messages about sensors using open connections are expected during initial setup and appear once per sensor. You must acknowledge each message before data can be received from that sensor. If a sensor is missing data after setup, check the sensor ID then fully reboot the Garmin device to trigger the message again.</p>
           <h3>Remove competing data fields</h3>
-          <p>If another TyreWiz data field is installed, it will block TubeWitch from reading the sensors. Uninstall the other field and reboot.</p>
+          <p>If another TyreWiz or TPMS data field is installed, it may block TubeWitch from reading the sensors. Uninstall the other field and reboot.</p>
         </section>
 
         <section id="next-pages">
