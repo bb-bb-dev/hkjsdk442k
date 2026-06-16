@@ -234,8 +234,56 @@ details[id] {
   margin: 0;
 }
 
+.hero-airmax-badge {
+  position: absolute;
+  top: -2.25rem;
+  right: 1.05rem;
+  z-index: 3;
+  display: flex;
+  width: 138px;
+  min-height: 78px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0.54rem 0.72rem 0.68rem;
+  color: #fff8de;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 900;
+  line-height: 0.92;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
+  text-transform: uppercase;
+  background:
+    radial-gradient(circle at 34% 28%, #ffd36b 0%, #ff883f 24%, #ff3434 55%, #a90f17 100%);
+  clip-path: polygon(50% 0%, 57.5% 14.8%, 70.3% 4.3%, 71.2% 20.9%, 87.2% 16.5%, 81.2% 32%, 97.6% 34.5%, 85.8% 46.2%, 99.7% 55.2%, 84.2% 61.1%, 93.3% 75%, 76.8% 74.1%, 79.4% 90.5%, 64.6% 82.9%, 60.4% 98.9%, 50% 86%, 39.6% 98.9%, 35.4% 82.9%, 20.6% 90.5%, 23.2% 74.1%, 6.7% 75%, 15.8% 61.1%, 0.3% 55.2%, 14.2% 46.2%, 2.4% 34.5%, 18.8% 32%, 12.8% 16.5%, 28.8% 20.9%, 29.7% 4.3%, 42.5% 14.8%);
+  filter: drop-shadow(0 10px 18px rgba(164, 20, 24, 0.38));
+  transform: rotate(-5deg);
+  transform-origin: center;
+}
+
+.hero-airmax-badge span {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+}
+
+.hero-airmax-badge strong {
+  display: block;
+  max-width: 6.1rem;
+  margin-top: 0.1rem;
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+}
+
+.hero-airmax-badge:hover,
+.hero-airmax-badge:focus-visible {
+  color: #ffffff;
+  transform: rotate(-3deg) scale(1.03);
+}
+
 .hero-compat-links {
-  margin: 0.35rem 0 0;
+  margin: 0.32rem 0 0;
   color: #cfe1f3;
   font-weight: 700;
 }
@@ -2766,6 +2814,23 @@ html.article-review-page .help-article .text-link-button[data-info-trigger] {
     width: calc(100% - 1rem);
     margin: clamp(10.5rem, calc(50vw + 0.35rem), 15.5rem) 0 0.75rem 0.5rem;
     padding: 0.86rem 0.76rem 0.92rem;
+  }
+
+  .hero-airmax-badge {
+    top: -4.85rem;
+    right: 0.7rem;
+    width: 124px;
+    min-height: 70px;
+    padding: 0.48rem 0.62rem 0.6rem;
+  }
+
+  .hero-airmax-badge span {
+    font-size: 0.6rem;
+  }
+
+  .hero-airmax-badge strong {
+    max-width: 5.5rem;
+    font-size: 0.9rem;
   }
 
   .hero-device-stack {
