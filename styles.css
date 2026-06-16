@@ -1620,6 +1620,14 @@ html.article-review-page .help-article .callout + h3 {
   background: transparent;
 }
 
+.compat-airmax-media {
+  min-height: 330px;
+}
+
+.compat-card-media img.compat-airmax-product-image {
+  max-height: 330px;
+}
+
 .compat-media-duo-group {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2917,6 +2925,14 @@ html.article-review-page .help-article .text-link-button[data-info-trigger] {
   .compat-card-media img,
   .compat-feature-media img {
     max-height: 210px;
+  }
+
+  .compat-airmax-media {
+    min-height: 260px;
+  }
+
+  .compat-card-media img.compat-airmax-product-image {
+    max-height: 260px;
   }
 
   .compat-opentpms-media {
