@@ -148,11 +148,15 @@
             </div>
           </details>
 
-          <h3 class="card-title-line"><img class="card-title-icon" src="assets/img/tpms_indicator_full.png" alt="TPMS warning icon" /><span>Nested settings revert before saving</span></h3>
-          <p>If you back out of a Sensor Set or other nested settings group in the Garmin Connect IQ mobile app and then go back into it before saving, Garmin will revert to the old values. <a class="inline-video-link" href="#settings-not-saving" data-video-modal data-video-id="N77umeTQPvE" data-video-title="Nested Settings Bug in Garmin Connect IQ Mobile App" aria-haspopup="dialog">See Video</a></p>
-          <p>This behavior is confusing, but it is normal for Garmin's nested settings screens.</p>
-          <p>To force a save, back out of the nested settings group and tap Save immediately from the main settings screen.</p>
-          <p>After saving, reopen TubeWitch settings in the Garmin Connect IQ mobile app and drill back down into the nested settings group to confirm the new values are there.</p>
+          <details class="troubleshooting-topic" open>
+            <summary><span class="troubleshooting-topic-title card-title-line"><img class="card-title-icon" src="assets/img/tpms_indicator_full.png" alt="TPMS warning icon" /><span>Nested settings revert before saving</span></span></summary>
+            <div class="troubleshooting-topic-body">
+              <p>If you back out of a Sensor Set or other nested settings group in the Garmin Connect IQ mobile app and then go back into it before saving, Garmin will revert to the old values. <a class="inline-video-link" href="#settings-not-saving" data-video-modal data-video-id="N77umeTQPvE" data-video-title="Nested Settings Bug in Garmin Connect IQ Mobile App" aria-haspopup="dialog">See Video</a></p>
+              <p>This behavior is confusing, but it is normal for Garmin's nested settings screens.</p>
+              <p>To force a save, back out of the nested settings group and tap Save immediately from the main settings screen.</p>
+              <p>After saving, reopen TubeWitch settings in the Garmin Connect IQ mobile app and drill back down into the nested settings group to confirm the new values are there.</p>
+            </div>
+          </details>
           </div>
         </details>
 
@@ -160,18 +164,30 @@
           <summary><span class="troubleshooting-section-title">Other Settings Issues</span></summary>
           <div class="troubleshooting-section-body">
 
-          <h3>When opening TubeWitch settings, an error message is shown</h3>
-          <p>Garmin Connect IQ mobile app: "Cannot Load the web page. Try again later."</p>
-          <p>Garmin Express: "Error Loading Settings - We had a problem loading settings from this device. Please try again."</p>
-          <p>This usually means Garmin's settings service is temporarily unavailable. Try again later.</p>
+          <details class="troubleshooting-topic" open>
+            <summary><span class="troubleshooting-topic-title">When opening TubeWitch settings, an error message is shown</span></summary>
+            <div class="troubleshooting-topic-body">
+              <p>Garmin Connect IQ mobile app: "Cannot Load the web page. Try again later."</p>
+              <p>Garmin Express: "Error Loading Settings - We had a problem loading settings from this device. Please try again."</p>
+              <p>This usually means Garmin's settings service is temporarily unavailable. Try again later.</p>
+            </div>
+          </details>
 
-          <h3>My Sensor ID starts with a leading 0, but after I save it in the settings it only shows 4 digits?</h3>
-          <p>The settings input box trims leading zeroes, but that does not break sensor pairing. Garmin uses the sensor ID as an integer value for ANT+ matching, so the leading zeroes are not needed.</p>
-          <p>If the rest of the setup is correct, the sensor can still connect successfully.</p>
+          <details class="troubleshooting-topic" open>
+            <summary><span class="troubleshooting-topic-title">My Sensor ID starts with a leading 0, but after I save it in the settings it only shows 4 digits?</span></summary>
+            <div class="troubleshooting-topic-body">
+              <p>The settings input box trims leading zeroes, but that does not break sensor pairing. Garmin uses the sensor ID as an integer value for ANT+ matching, so the leading zeroes are not needed.</p>
+              <p>If the rest of the setup is correct, the sensor can still connect successfully.</p>
+            </div>
+          </details>
 
-          <h3>It will not let me enter my full sensor ID: HGL15841</h3>
-          <p>TubeWitch sensor ID fields accept numbers only.</p>
-          <p>Enter only the numeric five-digit portion of the sensor ID. For HGL15841, enter 15841.</p>
+          <details class="troubleshooting-topic" open>
+            <summary><span class="troubleshooting-topic-title">It will not let me enter my full sensor ID: HGL15841</span></summary>
+            <div class="troubleshooting-topic-body">
+              <p>TubeWitch sensor ID fields accept numbers only.</p>
+              <p>Enter only the numeric five-digit portion of the sensor ID. For HGL15841, enter 15841.</p>
+            </div>
+          </details>
           </div>
         </details>
 
@@ -181,32 +197,52 @@
           <div class="help-inline-media">
             <div>
               <p>If no pressure is shown after setup, work from the sensor outward before changing other settings.</p>
-              <h3>Check the sensor app setup and saved ID</h3>
-              <ul>
-                <li>Rotate the wheels to wake the sensors and look for a flashing LED.</li>
-                <li>Replace the battery if the sensor does not wake up.</li>
-                <li>Confirm the sensor can be reached through the manufacturer's mobile app: SRAM AXS for TyreWiz/Zipp sensors or the Schwalbe app for AIRMAX.</li>
-                <li>In the manufacturer's mobile app, make sure each sensor is assigned to the Front / Rear position and a pressure target is specified.</li>
-                <li>Open TubeWitch settings and confirm the correct sensor ID was actually saved.</li>
-              </ul>
+              <details class="troubleshooting-topic" open>
+                <summary><span class="troubleshooting-topic-title">Check the sensor app setup and saved ID</span></summary>
+                <div class="troubleshooting-topic-body">
+                  <ul>
+                    <li>Rotate the wheels to wake the sensors and look for a flashing LED.</li>
+                    <li>Replace the battery if the sensor does not wake up.</li>
+                    <li>Confirm the sensor can be reached through the manufacturer's mobile app: SRAM AXS for TyreWiz/Zipp sensors or the Schwalbe app for AIRMAX.</li>
+                    <li>In the manufacturer's mobile app, make sure each sensor is assigned to the Front / Rear position and a pressure target is specified.</li>
+                    <li>Open TubeWitch settings and confirm the correct sensor ID was actually saved.</li>
+                  </ul>
+                </div>
+              </details>
             </div>
             <figure class="help-figure help-phone-figure shot">
               <img src="assets/img/sram_phone_app.jpg" alt="SRAM AXS app showing tire pressure target settings" />
               <figcaption>Example: wheel position and pressure targets in the SRAM AXS mobile app</figcaption>
             </figure>
           </div>
-          <h3>Acknowledge the open-connection message</h3>
-          <p>Messages about sensors using open connections are expected during initial setup and appear once per sensor.</p>
-          <p>You must acknowledge that message for each sensor before data can be received. If the prompt was missed, reboot the Garmin device to trigger it again.</p>
-          <h3>Remove other TyreWiz or TPMS data fields</h3>
-          <p>If another TyreWiz or TPMS data field is also installed on the Garmin device, it will block TubeWitch from reading the sensors.</p>
-          <p>Uninstall any other TyreWiz or TPMS data field, then reboot the Garmin device.</p>
-          <h3>Try Multi-Sensor Compatibility Mode</h3>
-          <p>If a sensor requires Front or Rear assignment and is not assigned in the manufacturer's mobile app, TubeWitch may not be able to read it. Generic TPMS ANT+ sensors may also not be supported by default. Try enabling TubeWitch Labs -&gt; Multi-Sensor Compatibility Mode. This may allow TubeWitch to detect these sensors.</p>
-          <h3>Rebooting Garmin Devices</h3>
-          <p>After confirming the above settings, make sure to fully reboot your Garmin device.</p>
-          <p>On Edge devices, press and hold the power button until the device shows the option to power off. If the device is frozen, hold the power button for about 10 seconds until it powers off or reboots.</p>
-          <p>On most Garmin watches with a physical power button, press and hold the power button until the watch powers off, then press the power button again to turn it back on. On Garmin watches without a power button, connect the watch to the charging cable, wait a few moments, then disconnect it to restart it.</p>
+          <details class="troubleshooting-topic" open>
+            <summary><span class="troubleshooting-topic-title">Acknowledge the open-connection message</span></summary>
+            <div class="troubleshooting-topic-body">
+              <p>Messages about sensors using open connections are expected during initial setup and appear once per sensor.</p>
+              <p>You must acknowledge that message for each sensor before data can be received. If the prompt was missed, reboot the Garmin device to trigger it again.</p>
+            </div>
+          </details>
+          <details class="troubleshooting-topic" open>
+            <summary><span class="troubleshooting-topic-title">Remove other TyreWiz or TPMS data fields</span></summary>
+            <div class="troubleshooting-topic-body">
+              <p>If another TyreWiz or TPMS data field is also installed on the Garmin device, it will block TubeWitch from reading the sensors.</p>
+              <p>Uninstall any other TyreWiz or TPMS data field, then reboot the Garmin device.</p>
+            </div>
+          </details>
+          <details class="troubleshooting-topic" open>
+            <summary><span class="troubleshooting-topic-title">Try Multi-Sensor Compatibility Mode</span></summary>
+            <div class="troubleshooting-topic-body">
+              <p>If a sensor requires Front or Rear assignment and is not assigned in the manufacturer's mobile app, TubeWitch may not be able to read it. Generic TPMS ANT+ sensors may also not be supported by default. Try enabling TubeWitch Labs -&gt; Multi-Sensor Compatibility Mode. This may allow TubeWitch to detect these sensors.</p>
+            </div>
+          </details>
+          <details class="troubleshooting-topic" open>
+            <summary><span class="troubleshooting-topic-title">Rebooting Garmin Devices</span></summary>
+            <div class="troubleshooting-topic-body">
+              <p>After confirming the above settings, make sure to fully reboot your Garmin device.</p>
+              <p>On Edge devices, press and hold the power button until the device shows the option to power off. If the device is frozen, hold the power button for about 10 seconds until it powers off or reboots.</p>
+              <p>On most Garmin watches with a physical power button, press and hold the power button until the watch powers off, then press the power button again to turn it back on. On Garmin watches without a power button, connect the watch to the charging cable, wait a few moments, then disconnect it to restart it.</p>
+            </div>
+          </details>
           </div>
         </details>
 
@@ -214,25 +250,37 @@
           <summary><span class="troubleshooting-section-title">Wrong Pressure Status / Alerts</span></summary>
           <div class="troubleshooting-section-body">
           <p>Live pressure can appear while the high or low status is still wrong if the sensor itself was configured differently in the manufacturer's mobile app.</p>
-          <h3>Pressure status looks wrong</h3>
-          <p>First, use SRAM AXS for TyreWiz/Zipp sensors or the Schwalbe app for AIRMAX to confirm each sensor is assigned to the Front / Rear position and a pressure target is specified.</p>
-          <ul>
-            <li>Confirm each sensor is assigned to the correct wheel position.</li>
-            <li>Confirm the target pressure matches the tire and setup you expect.</li>
-            <li>If live pressure appears but the status still looks wrong, confirm the correct sensor IDs are entered in TubeWitch.</li>
-          </ul>
-          <h3>Pop up and/or vibration alerts are not working</h3>
-          <ul>
-            <li>Make sure alerts are enabled in the TubeWitch Settings for both high and low pressure alerts.</li>
-            <li>Check the Alert Delay setting. If it is too large, the alert may not trigger when expected. The default is 10 seconds.</li>
-            <li>Vibration alerts are available on Garmin watches only.</li>
-            <li>Popup alerts are available on Edge x40 devices and newer, and on newer Garmin watches.</li>
-          </ul>
-          <h3>Duplicate pressure alerts and data field restarts after returning from the Garmin home screen</h3>
-          <p>With Edge firmware 31.29, Garmin changed how Connect IQ data fields behave. The release notes included this line: "Fixed CIQ data fields causing UI lag/freeze. CIQ data fields will now start when you enter the timer loop or when an activity is started."</p>
-          <p>With this firmware, if you go to the Garmin home screen and then return to a data screen with the TubeWitch data field while no activity is recording, TubeWitch will restart, search for sensors again, and may trigger a duplicate pressure alert. If an activity is running or paused, TubeWitch should not restart when returning to the data screen and should not trigger another alert.</p>
-          <p>A TubeWitch update is in progress to handle this new Garmin behavior and prevent these duplicate alerts.</p>
-          <p>This firmware change also means the <span class="field-visible-emphasis"><img class="field-visible-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" />TubeWitch data field must be visible on your Garmin device<img class="field-visible-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" /></span> when changing TubeWitch settings in the Connect IQ mobile app.</p>
+          <details class="troubleshooting-topic" open>
+            <summary><span class="troubleshooting-topic-title">Pressure status looks wrong</span></summary>
+            <div class="troubleshooting-topic-body">
+              <p>First, use SRAM AXS for TyreWiz/Zipp sensors or the Schwalbe app for AIRMAX to confirm each sensor is assigned to the Front / Rear position and a pressure target is specified.</p>
+              <ul>
+                <li>Confirm each sensor is assigned to the correct wheel position.</li>
+                <li>Confirm the target pressure matches the tire and setup you expect.</li>
+                <li>If live pressure appears but the status still looks wrong, confirm the correct sensor IDs are entered in TubeWitch.</li>
+              </ul>
+            </div>
+          </details>
+          <details class="troubleshooting-topic" open>
+            <summary><span class="troubleshooting-topic-title">Pop up and/or vibration alerts are not working</span></summary>
+            <div class="troubleshooting-topic-body">
+              <ul>
+                <li>Make sure alerts are enabled in the TubeWitch Settings for both high and low pressure alerts.</li>
+                <li>Check the Alert Delay setting. If it is too large, the alert may not trigger when expected. The default is 10 seconds.</li>
+                <li>Vibration alerts are available on Garmin watches only.</li>
+                <li>Popup alerts are available on Edge x40 devices and newer, and on newer Garmin watches.</li>
+              </ul>
+            </div>
+          </details>
+          <details class="troubleshooting-topic" open>
+            <summary><span class="troubleshooting-topic-title">Duplicate pressure alerts and data field restarts after returning from the Garmin home screen</span></summary>
+            <div class="troubleshooting-topic-body">
+              <p>With Edge firmware 31.29, Garmin changed how Connect IQ data fields behave. The release notes included this line: "Fixed CIQ data fields causing UI lag/freeze. CIQ data fields will now start when you enter the timer loop or when an activity is started."</p>
+              <p>With this firmware, if you go to the Garmin home screen and then return to a data screen with the TubeWitch data field while no activity is recording, TubeWitch will restart, search for sensors again, and may trigger a duplicate pressure alert. If an activity is running or paused, TubeWitch should not restart when returning to the data screen and should not trigger another alert.</p>
+              <p>A TubeWitch update is in progress to handle this new Garmin behavior and prevent these duplicate alerts.</p>
+              <p>This firmware change also means the <span class="field-visible-emphasis"><img class="field-visible-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" />TubeWitch data field must be visible on your Garmin device<img class="field-visible-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" /></span> when changing TubeWitch settings in the Connect IQ mobile app.</p>
+            </div>
+          </details>
           </div>
         </details>
 
@@ -240,21 +288,25 @@
           <summary><span class="troubleshooting-section-title">FIT Recording Problems / Crashes</span></summary>
           <div class="troubleshooting-section-body">
           <p>If Garmin shows the IQ logo or one of your Connect IQ apps restarts during recording, the combined FIT recording load may be too high.</p>
-          <h3>If Garmin data fields are recording too many FIT data points</h3>
-          <p>Garmin limits how many custom FIT data points Connect IQ apps can record at once. TubeWitch records 5 custom FIT fields by default and up to 10 when all Activity Recording options are enabled.</p>
-          <p>Other IQ data fields or apps may also record custom FIT fields. If the combined total gets too high, one or more apps may restart and show the IQ logo.</p>
-          <p>To reduce the number of data points that TubeWitch is recording, disable items in the Activity Recording section of TubeWitch Settings, then reboot Garmin before testing again.</p>
-          <p>Activity Recording field counts:</p>
-          <ul>
-            <li>Record Front Pressure: 2 fields (Front Pressure, Avg Front Pressure)</li>
-            <li>Record Rear Pressure: 2 fields (Rear Pressure, Avg Rear Pressure)</li>
-            <li>Record Front Pressure Alarm: 1 field</li>
-            <li>Record Rear Pressure Alarm: 1 field</li>
-            <li>Record Front Pressure Stale Data Indicator: 1 field</li>
-            <li>Record Rear Pressure Stale Data Indicator: 1 field</li>
-            <li>Record Sensor Set #: 1 field</li>
-            <li>Sensor Set Name: 1 field whenever any Activity Recording option is enabled</li>
-          </ul>
+          <details class="troubleshooting-topic" open>
+            <summary><span class="troubleshooting-topic-title">If Garmin data fields are recording too many FIT data points</span></summary>
+            <div class="troubleshooting-topic-body">
+              <p>Garmin limits how many custom FIT data points Connect IQ apps can record at once. TubeWitch records 5 custom FIT fields by default and up to 10 when all Activity Recording options are enabled.</p>
+              <p>Other IQ data fields or apps may also record custom FIT fields. If the combined total gets too high, one or more apps may restart and show the IQ logo.</p>
+              <p>To reduce the number of data points that TubeWitch is recording, disable items in the Activity Recording section of TubeWitch Settings, then reboot Garmin before testing again.</p>
+              <p>Activity Recording field counts:</p>
+              <ul>
+                <li>Record Front Pressure: 2 fields (Front Pressure, Avg Front Pressure)</li>
+                <li>Record Rear Pressure: 2 fields (Rear Pressure, Avg Rear Pressure)</li>
+                <li>Record Front Pressure Alarm: 1 field</li>
+                <li>Record Rear Pressure Alarm: 1 field</li>
+                <li>Record Front Pressure Stale Data Indicator: 1 field</li>
+                <li>Record Rear Pressure Stale Data Indicator: 1 field</li>
+                <li>Record Sensor Set #: 1 field</li>
+                <li>Sensor Set Name: 1 field whenever any Activity Recording option is enabled</li>
+              </ul>
+            </div>
+          </details>
           </div>
         </details>
 
@@ -262,9 +314,13 @@
           <summary><span class="troubleshooting-section-title">App Upgrade Problems</span></summary>
           <div class="troubleshooting-section-body">
           <p>The most common TubeWitch upgrade issue is the Garmin Connect IQ mobile app continuing to show an update even after the data field was already queued or installed.</p>
-          <h3>Garmin Connect IQ mobile app still shows "Updating" after a TubeWitch upgrade</h3>
-          <p>If upgrading from an earlier version of TubeWitch, the Garmin Connect IQ mobile app may appear stuck on "Updating," or it may queue and update the data field but show that an update is still available.</p>
-          <p>If this happens, reboot your Garmin device and restart your Garmin mobile apps to allow the update to complete and for any new settings to appear in the TubeWitch Settings.</p>
+          <details class="troubleshooting-topic" open>
+            <summary><span class="troubleshooting-topic-title">Garmin Connect IQ mobile app still shows "Updating" after a TubeWitch upgrade</span></summary>
+            <div class="troubleshooting-topic-body">
+              <p>If upgrading from an earlier version of TubeWitch, the Garmin Connect IQ mobile app may appear stuck on "Updating," or it may queue and update the data field but show that an update is still available.</p>
+              <p>If this happens, reboot your Garmin device and restart your Garmin mobile apps to allow the update to complete and for any new settings to appear in the TubeWitch Settings.</p>
+            </div>
+          </details>
           </div>
         </details>
 

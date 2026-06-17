@@ -898,7 +898,7 @@ html[data-page="faq"] #support .faq-item {
   margin-top: 1.15rem;
 }
 
-.troubleshooting-section summary {
+.troubleshooting-section > summary {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -909,7 +909,7 @@ html[data-page="faq"] #support .faq-item {
   list-style: none;
 }
 
-.troubleshooting-section summary::-webkit-details-marker {
+.troubleshooting-section > summary::-webkit-details-marker {
   display: none;
 }
 
@@ -951,7 +951,7 @@ html[data-page="settings"] .troubleshooting-section.troubleshooting-closing .tro
   vertical-align: -0.20em;
 }
 
-.troubleshooting-section summary::after {
+.troubleshooting-section > summary::after {
   content: "";
   display: inline-block;
   flex: 0 0 auto;
@@ -964,11 +964,11 @@ html[data-page="settings"] .troubleshooting-section.troubleshooting-closing .tro
   transition: transform 0.32s ease;
 }
 
-.troubleshooting-section[open] summary::after {
+.troubleshooting-section[open] > summary::after {
   transform: rotate(-135deg);
 }
 
-.troubleshooting-section.troubleshooting-closing summary::after {
+.troubleshooting-section.troubleshooting-closing > summary::after {
   transform: rotate(45deg);
 }
 
@@ -1001,6 +1001,69 @@ html[data-page="settings"] .troubleshooting-section.troubleshooting-closing .tro
 
 .troubleshooting-section-body > :last-child {
   margin-bottom: 1.05rem;
+}
+
+.troubleshooting-topic {
+  margin: 1.15rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(125, 255, 215, 0.16);
+}
+
+.troubleshooting-topic:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.troubleshooting-topic > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: #f4fbff;
+  cursor: pointer;
+  list-style: none;
+}
+
+.troubleshooting-topic > summary::-webkit-details-marker {
+  display: none;
+}
+
+.troubleshooting-topic > summary::after {
+  content: "";
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 0.48rem;
+  height: 0.48rem;
+  border-right: 2px solid #7dffd7;
+  border-bottom: 2px solid #7dffd7;
+  margin-right: 0.2rem;
+  transform: rotate(45deg);
+  transition: transform 0.22s ease;
+}
+
+.troubleshooting-topic[open] > summary::after {
+  transform: rotate(-135deg);
+}
+
+.troubleshooting-topic-title {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(1.08rem, 2vw, 1.34rem);
+  font-weight: 700;
+  line-height: 1.12;
+  color: #f4fbff;
+}
+
+.troubleshooting-topic-body {
+  margin-top: 0.45rem;
+}
+
+.troubleshooting-topic-body > :first-child {
+  margin-top: 0;
+}
+
+.troubleshooting-topic-body > :last-child {
+  margin-bottom: 0;
 }
 
 #support.troubleshooting-section {

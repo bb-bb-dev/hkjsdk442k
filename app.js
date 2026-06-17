@@ -416,7 +416,7 @@
 
   calloutDetails.forEach((item) => {
     const body = getCalloutDetailsBody(item);
-    const summary = item.querySelector("summary");
+    const summary = item.querySelector(":scope > summary");
     if (!body || !summary) return;
 
     if (item.open) {
@@ -668,7 +668,7 @@
 
   troubleshootingSections.forEach((item) => {
     const body = getTroubleshootingBody(item);
-    const summary = item.querySelector("summary");
+    const summary = item.querySelector(":scope > summary");
     if (!body || !summary) return;
 
     if (item.open) {
