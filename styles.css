@@ -455,6 +455,11 @@ details[id] {
   background: transparent;
 }
 
+.airmax-hero-product-image {
+  transform: scale(1.5);
+  transform-origin: center;
+}
+
 .strip {
   border-bottom: 1px solid var(--line);
   border-top: 1px solid var(--line);
@@ -1618,14 +1623,6 @@ html.article-review-page .help-article .callout + h3 {
   object-fit: contain;
   margin: 0 auto;
   background: transparent;
-}
-
-.compat-airmax-media {
-  min-height: 330px;
-}
-
-.compat-card-media img.compat-airmax-product-image {
-  max-height: 330px;
 }
 
 .compat-media-duo-group {
@@ -2873,6 +2870,10 @@ html.article-review-page .help-article .text-link-button[data-info-trigger] {
     max-height: 56vh;
   }
 
+  .airmax-hero-product-image {
+    transform: scale(1.25);
+  }
+
   .hero-device-stage {
     padding: 0.7rem;
     min-height: 248px;
@@ -2925,14 +2926,6 @@ html.article-review-page .help-article .text-link-button[data-info-trigger] {
   .compat-card-media img,
   .compat-feature-media img {
     max-height: 210px;
-  }
-
-  .compat-airmax-media {
-    min-height: 260px;
-  }
-
-  .compat-card-media img.compat-airmax-product-image {
-    max-height: 260px;
   }
 
   .compat-opentpms-media {
