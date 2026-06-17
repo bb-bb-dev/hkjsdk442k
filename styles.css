@@ -1588,6 +1588,21 @@ html.article-review-page .help-article .callout + h3 {
   transform-origin: center;
 }
 
+.compat-new-text-long {
+  width: 64px;
+  font-size: 0.68rem;
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  transform: translate(0.02rem, -0.02rem) rotate(-18deg);
+}
+
+.compat-supported-burst {
+  top: 0.55rem;
+  left: 0.55rem;
+  width: 92px;
+  height: 92px;
+}
+
 .compat-card-media,
 .compat-feature-media {
   display: grid;
