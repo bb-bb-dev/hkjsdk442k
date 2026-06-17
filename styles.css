@@ -972,6 +972,10 @@ html[data-page="settings"] .troubleshooting-section.troubleshooting-closing .tro
   transform: rotate(45deg);
 }
 
+html[data-page="troubleshooting"] .troubleshooting-section > summary::after {
+  content: none;
+}
+
 .troubleshooting-section-body {
   height: 0;
   opacity: 0;
@@ -1006,13 +1010,11 @@ html[data-page="settings"] .troubleshooting-section.troubleshooting-closing .tro
 .troubleshooting-topic {
   margin: 1.15rem 0 0;
   padding-top: 1rem;
-  border-top: 1px solid rgba(125, 255, 215, 0.16);
 }
 
 .troubleshooting-topic:first-child {
   margin-top: 0;
   padding-top: 0;
-  border-top: 0;
 }
 
 .troubleshooting-topic > summary {
