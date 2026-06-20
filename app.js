@@ -663,7 +663,21 @@
 
   function openTroubleshootingSectionById(targetId, animated = true) {
     const target = document.getElementById(targetId);
-    return activateTroubleshootingSection(target, animated);
+    if (!target) return false;
+
+    const section = target.matches("details.troubleshooting-section")
+      ? target
+      : target.closest("details.troubleshooting-section");
+    if (!section) return false;
+
+    const topic = target.matches("details.troubleshooting-topic")
+      ? target
+      : target.closest("details.troubleshooting-topic");
+    if (topic) {
+      topic.open = true;
+    }
+
+    return activateTroubleshootingSection(section, animated);
   }
 
   troubleshootingSections.forEach((item) => {
