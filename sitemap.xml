@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://tubewitch.com/</loc>
-    <lastmod>2026-06-16T12:29:41-05:00</lastmod>
+    <lastmod>2026-06-24T04:50:14-05:00</lastmod>
     <image:image>
       <image:loc>https://tubewitch.com/assets/img/tubewitch-garmin-tyrewiz-preview.jpg</image:loc>
       <image:title>TubeWitch Garmin TyreWiz preview image</image:title>
@@ -27,7 +27,7 @@
   </url>
   <url>
     <loc>https://tubewitch.com/setup.html</loc>
-    <lastmod>2026-06-20T08:50:25-05:00</lastmod>
+    <lastmod>2026-06-24T04:50:14-05:00</lastmod>
   </url>
   <url>
     <loc>https://tubewitch.com/settings.html</loc>
@@ -59,6 +59,6 @@
   </url>
   <url>
     <loc>https://tubewitch.com/garmin-tyrewiz.html</loc>
-    <lastmod>2026-06-07T10:24:14-05:00</lastmod>
+    <lastmod>2026-06-24T04:50:14-05:00</lastmod>
   </url>
 </urlset>
