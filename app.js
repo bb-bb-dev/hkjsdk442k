@@ -89,6 +89,17 @@
       item.appendChild(answer);
     }
 
+    function setFaqFindState(item) {
+      const answer = item.querySelector(":scope > .faq-answer");
+      if (!answer) return;
+
+      if (item.open || item.classList.contains("faq-closing")) {
+        answer.removeAttribute("hidden");
+      } else {
+        answer.setAttribute("hidden", "until-found");
+      }
+    }
+
     function getFaqTargetTop() {
       const siteHeader = document.querySelector(".site-header");
       const siteHeaderRect = siteHeader?.getBoundingClientRect();
@@ -196,10 +207,12 @@
       clearFaqTimer(item);
       const token = nextFaqAnimationToken(item);
       item.classList.remove("faq-closing");
+      answer.removeAttribute("hidden");
       item.open = true;
 
       if (reduceFaqMotion) {
         answer.style.height = "auto";
+        setFaqFindState(item);
         return;
       }
 
@@ -241,6 +254,7 @@
         item.open = false;
         answer.style.height = "";
         item.classList.remove("faq-closing");
+        setFaqFindState(item);
         return;
       }
 
@@ -266,6 +280,7 @@
         answer.style.opacity = "";
         answer.style.transform = "";
         item.classList.remove("faq-animating", "faq-closing");
+        setFaqFindState(item);
         faqTimers.delete(item);
       }, faqCloseAnimationMs));
     }
@@ -284,6 +299,15 @@
 
       const summary = item.querySelector("summary");
       if (!summary) return;
+
+      const answer = item.querySelector(":scope > .faq-answer");
+      if (answer) {
+        setFaqFindState(item);
+        answer.addEventListener("beforematch", () => {
+          answer.removeAttribute("hidden");
+          openFaqItem(item);
+        });
+      }
 
       summary.addEventListener("click", (event) => {
         event.preventDefault();
