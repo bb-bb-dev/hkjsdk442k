@@ -454,6 +454,17 @@
     return item.querySelector(":scope > .troubleshooting-section-body");
   }
 
+  function setTroubleshootingFindState(item) {
+    const body = getTroubleshootingBody(item);
+    if (!body) return;
+
+    if (item.open || item.classList.contains("troubleshooting-closing")) {
+      body.removeAttribute("hidden");
+    } else {
+      body.setAttribute("hidden", "until-found");
+    }
+  }
+
   function openTroubleshootingSection(item, animated = true) {
     const body = getTroubleshootingBody(item);
     if (!body) return false;
@@ -463,6 +474,7 @@
 
     clearTroubleshootingTimer(item);
     item.classList.remove("troubleshooting-closing");
+    body.removeAttribute("hidden");
 
     if (!item.open) {
       item.open = true;
@@ -506,6 +518,7 @@
       body.style.opacity = "";
       body.style.transform = "";
       item.classList.remove("troubleshooting-animating", "troubleshooting-closing");
+      setTroubleshootingFindState(item);
       return;
     }
 
@@ -527,6 +540,7 @@
       body.style.opacity = "";
       body.style.transform = "";
       item.classList.remove("troubleshooting-animating", "troubleshooting-closing");
+      setTroubleshootingFindState(item);
       troubleshootingTimers.delete(item);
     }, troubleshootingCloseAnimationMs));
   }
@@ -686,8 +700,16 @@
     if (!body || !summary) return;
 
     if (item.open) {
+      body.removeAttribute("hidden");
       body.style.height = "auto";
+    } else {
+      setTroubleshootingFindState(item);
     }
+
+    body.addEventListener("beforematch", () => {
+      body.removeAttribute("hidden");
+      activateTroubleshootingSection(item, false);
+    });
 
     summary.addEventListener("click", (event) => {
       event.preventDefault();
