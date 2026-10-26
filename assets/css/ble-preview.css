@@ -190,6 +190,10 @@ html[data-page="ble-home"] .ble-intro {
   border-left-color: var(--ble-orange);
 }
 
+.ble-preview .ble-target-emphasis {
+  color: var(--ble-orange);
+}
+
 .ble-target-note h3 {
   margin-top: 0;
 }

@@ -28,7 +28,7 @@
           </ul>
           </div>
         </details>
-<details class="troubleshooting-section" id="sensor-sets"><summary><span class="troubleshooting-section-title">SENSOR SET #1-5</span></summary><div class="troubleshooting-section-body"><ul class="reference-list"><li><strong>Sensor Set Name</strong> Optional. Name the bike or wheelset. The name is also shown in Connect IQ stats.</li><li><strong>Enabled Sensors</strong> Choose Front &amp; Rear, Front Only or Rear Only.</li><li><strong>Front Sensor ID and Rear Sensor ID</strong> Enter the full Bluetooth name, including the prefix and hyphen, such as <code>SYNCD-C3D0</code> or the supported <code>PSENS-1734</code> format. Place the name in the slot for the correct wheel.</li><li><strong>Front Low Target / Front High Target</strong> Set the low and high pressure limits for the front wheel.</li><li><strong>Rear Low Target / Rear High Target</strong> Set the low and high pressure limits for the rear wheel.</li></ul><p>Targets use the selected PSI, bar or kPa unit. A target of 0 is unset and disables that individual comparison. All targets start at 0.</p><p>When both targets are set, the high target must be greater than the low target. If it is not, TubeWitch ignores the conflicting high target and keeps the low comparison.</p></div></details>
+<details class="troubleshooting-section" id="sensor-sets"><summary><span class="troubleshooting-section-title">SENSOR SET #1-5</span></summary><div class="troubleshooting-section-body"><ul class="reference-list"><li><strong>Sensor Set Name</strong> Optional. Name the bike or wheelset. The name is also shown in Connect IQ stats.</li><li><strong>Enabled Sensors</strong> Choose Front &amp; Rear, Front Only or Rear Only.</li><li><strong>Front Sensor ID and Rear Sensor ID</strong> Enter the full Bluetooth name, including the prefix and hyphen, such as <code>SYNCD-C3D0</code> or the supported <code>PSENS-1734</code> format. Place the name in the slot for the correct wheel.</li><li><strong class="ble-target-emphasis">Front Low Target / Front High Target</strong> Set the low and high pressure limits for the front wheel.</li><li><strong class="ble-target-emphasis">Rear Low Target / Rear High Target</strong> Set the low and high pressure limits for the rear wheel.</li></ul><p>Targets use the selected PSI, bar or kPa unit. A target of 0 is unset and disables that individual comparison. All targets start at 0.</p><p>When both targets are set, the high target must be greater than the low target. If it is not, TubeWitch ignores the conflicting high target and keeps the low comparison.</p></div></details>
 <details class="troubleshooting-section" id="units">
           <summary><span class="troubleshooting-section-title">UNIT OF MEASURE</span></summary>
           <div class="troubleshooting-section-body">
@@ -94,9 +94,9 @@
 <details class="troubleshooting-section" id="alarms">
           <summary><span class="troubleshooting-section-title">HIGH / LOW PRESSURE ALARMS</span></summary>
           <div class="troubleshooting-section-body">
-          <p class="muted">(Set pressure targets in the active TubeWitch Sensor Set)</p>
-          <p class="muted">TubeWitch calculates low and high status from the received pressure and your configured limits.</p>
-          <p>Configure the pressure targets first; the default target values of 0 do not enable pressure-limit alarms. If alerts need to trigger sooner, later, or stay active longer before resetting, this is the place to tune that behavior.</p>
+          <p class="ble-target-emphasis">(Set pressure targets in each Sensor Set in TubeWitch Settings)</p>
+          <p class="muted">TubeWitch calculates low and high status alerts from the received pressure and your configured limits.</p>
+          <p>Default target values of 0 do not enable pressure-limit alarms.</p>
           <ul class="reference-list">
             <li><strong>Audible Alert</strong> Enable or disable audible pressure alerts on supported Edge Devices and watches.</li>
             <li><strong>Pop Up Alert</strong> Enable popup alerts on newer supported devices.</li>
