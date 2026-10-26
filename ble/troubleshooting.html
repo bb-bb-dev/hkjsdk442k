@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en" class="article-review-page ble-preview" data-page="troubleshooting">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#06101a" />
+  <meta name="robots" content="noindex,nofollow,noarchive" />
+  <meta name="description" content="Troubleshoot TubeWitch for Tubolito SYNCD settings, sensor names, missing pressure readings, pressure targets, alerts and Garmin activity recording." />
+  <title>Tubolito SYNCD Troubleshooting | TubeWitch for Tubolito SYNCD Preview</title>
+  <link rel="canonical" href="https://tubewitch.com/ble/troubleshooting.html" />
+  <link rel="icon" href="../favicon.ico" sizes="any" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../assets/css/ble-preview.css" />
+  <script src="../app.js" defer></script>
+  <script src="../assets/js/ble-preview.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="wrap nav-row"><a class="brand" href="../garmin-tubolito.html"><img src="../assets/img/tw_icon_128.jpg" alt="TubeWitch icon" /><span>TUBEWITCH</span></a><nav class="nav-links" aria-label="Tubolito primary"><a data-nav="ble-home" href="../garmin-tubolito.html">Tubolito on Garmin</a><a data-nav="setup" href="../ble/setup.html">Setup</a><a data-nav="settings" href="../ble/settings.html">Settings</a><a data-nav="troubleshooting" href="../ble/troubleshooting.html">Troubleshooting</a><a data-nav="faq" href="../ble/faq.html">FAQ</a><a href="../ble/troubleshooting.html#support">Support</a><a class="btn-inline" href="https://apps.garmin.com/apps/fd57ab65-db85-4c88-bfb9-2b77540e8713" target="_blank" rel="noopener noreferrer">Garmin App Store</a></nav></div></header>
+  <aside class="ble-version wrap" aria-label="TubeWitch app version"><a class="ble-version-identity" href="../garmin-tubolito.html"><img src="../assets/img/tubolito-syncd-product.png" alt="" width="64" height="64" /><span><small>Bluetooth LE sensors</small><strong>TubeWitch for Tubolito SYNCD</strong></span></a><div class="ble-version-controls"><span class="ble-preview-label">Unreleased preview</span><label for="app-version">Your sensors</label><select id="app-version" data-app-version><option value="" selected>Tubolito SYNCD</option><option value="../troubleshooting.html">TyreWiz &amp; AIRMAX (ANT+)</option></select></div></aside>
+  <main id="main"><div class="wrap help-doc"><aside class="help-sidebar" aria-label="Troubleshooting sections"><p class="help-sidebar-title">Troubleshooting</p><div class="help-sidebar-group"><a href="#overview">Overview</a><a href="#settings-not-saving">Settings Not Saving</a><a href="#sensor-names">Sensor Name Issues</a><a href="#no-pressure-data">No Pressure Data</a><a href="#pressure-alerts">Pressure Status / Alerts</a><a href="#fit-recording-problems">FIT Recording</a><a href="#app-upgrade-problems">App Upgrade Problems</a><a href="#support">Support</a></div></aside>
+<article class="help-article"><section id="overview" class="ble-intro"><div><p class="kicker">Troubleshooting</p><h1>Tubolito SYNCD Troubleshooting</h1><p>Find help with settings that do not save, missing pressure data, sensor names, pressure alerts and activity recording in TubeWitch for Tubolito SYNCD.</p></div><figure class="ble-product-sticker"><img src="../assets/img/tubolito-syncd-product.png" alt="Tubolito SYNCD smart bicycle tube packaging" width="1260" height="1260" /><figcaption>Tubolito SYNCD <span>Bluetooth LE</span></figcaption></figure></section>
+<details class="troubleshooting-section" id="settings-not-saving">
+          <summary><span class="troubleshooting-section-title"><img class="troubleshooting-title-icon" src="../assets/img/tpms_indicator_full.png" alt="Warning Icon" />Settings Not Saving<img class="troubleshooting-title-icon" src="../assets/img/tpms_indicator_full.png" alt="Warning Icon" /></span></summary>
+          <div class="troubleshooting-section-body">
+          <p>If sensor IDs or related settings do not stick, fix the settings save issue first before troubleshooting the sensors themselves.</p>
+          <div class="temporary-alert" id="current-settings-bug-alert">
+            <p>ALERT: SAVING SETTINGS WITH THE CONNECT IQ MOBILE APP IS AFFECTED BY A BUG IN THE GARMIN IQ SYSTEM. MAKE SURE THE TUBEWITCH DATA FIELD IS VISIBLE ON YOUR GARMIN DEVICE WHEN CHANGING SETTINGS. IF SETTINGS STILL DO NOT SAVE, TRY GARMIN EXPRESS.</p>
+          </div>
+
+          <details class="callout callout-red callout-details" id="current-settings-bug-workaround" open>
+            <summary><span class="eyebrow">WORKAROUND - Garmin Connect IQ Mobile App</span></summary>
+            <div class="callout-details-body">
+            <p>If you are impacted by this Garmin Settings bug, first try modifying settings using these exact steps with the Garmin Connect IQ mobile app.</p>
+            <ol>
+              <li>Using the Garmin Connect IQ mobile app, uninstall TubeWitch for Tubolito SYNCD. This will clear all TubeWitch settings.</li>
+              <li>Reboot the Garmin device and restart the Garmin Connect IQ mobile app.</li>
+              <li>Reinstall TubeWitch for Tubolito SYNCD.</li>
+              <li>Add the TubeWitch data field to a data screen and open that screen to load the field.</li>
+              <li><span class="field-visible-emphasis"><img class="field-visible-icon" src="../assets/img/tpms_indicator_full.png" alt="Warning Icon" />Leave the TubeWitch data field visible on your Garmin device.<img class="field-visible-icon" src="../assets/img/tpms_indicator_full.png" alt="Warning Icon" /></span></li>
+              <li>In the Garmin Connect IQ mobile app, open TubeWitch settings, enter the full sensor name and pressure targets for each enabled wheel, and save immediately.</li>
+              <li><span class="field-visible-emphasis"><img class="field-visible-icon" src="../assets/img/tpms_indicator_full.png" alt="Warning Icon" />Do not go back into the nested Sensor Set before tapping Save.<img class="field-visible-icon" src="../assets/img/tpms_indicator_full.png" alt="Warning Icon" /></span></li>
+              <li>Confirm your live pressures.</li>
+            </ol>
+            <p>If this works, keep the TubeWitch data field visible on your Garmin device when making future settings changes.</p>
+            </div>
+          </details>
+
+          <details class="callout callout-red callout-details" id="current-settings-garmin-express-workaround" open>
+            <summary><span class="eyebrow">WORKAROUND - Garmin Express</span></summary>
+            <div class="callout-details-body">
+            <p>If the issue persists, modify settings using these exact steps with Garmin Express.</p>
+            <ol>
+              <li>Using the Garmin Connect IQ mobile app, uninstall TubeWitch for Tubolito SYNCD. This will clear all TubeWitch settings.</li>
+              <li>Reboot the Garmin device.</li>
+              <li>Using the Garmin Connect IQ mobile app, reinstall TubeWitch for Tubolito SYNCD.</li>
+              <li>Add the TubeWitch data field to a data screen and open that screen to load the field.</li>
+              <li>Close all Garmin apps on your phone and turn off Bluetooth.</li>
+              <li>Connect the Garmin device to a computer and use Garmin Express to modify the settings.</li>
+              <li>When done, sync the Garmin device using the Garmin Connect mobile app.</li>
+              <li>Reboot your Garmin device.</li>
+              <li>Confirm your live pressures.</li>
+            </ol>
+            <p>If the issue continues, contact <a href="../ble/troubleshooting.html#support">TubeWitch support</a> and include which Garmin device you are using.</p>
+            </div>
+          </details>
+
+          <details class="callout callout-details" open>
+            <summary>General settings-saving tips</summary>
+            <div class="callout-details-body">
+            <p>Even when Garmin is working normally, the steps below can help if settings do not save reliably.</p>
+            <p>First, make sure the <span class="field-visible-emphasis"><img class="field-visible-icon" src="../assets/img/tpms_indicator_full.png" alt="Warning Icon" />TubeWitch data field is visible on your Garmin device<img class="field-visible-icon" src="../assets/img/tpms_indicator_full.png" alt="Warning Icon" /></span> before changing settings in the Connect IQ mobile app.</p>
+            <p>If sensor IDs or other settings are not being saved by the Garmin Connect IQ mobile app, try entering one sensor ID first and saving immediately before entering the second. Garmin's save process can be inconsistent when many settings are changed at once.</p>
+            <p class="callout-icon-line"><img class="callout-inline-icon" src="../assets/img/tpms_indicator_full.png" alt="Warning Icon" /><span>Use Garmin Express for the most reliable way to save settings.</span></p>
+
+            </div>
+          </details>
+
+          <details class="troubleshooting-topic" open>
+            <summary><span class="troubleshooting-topic-title card-title-line"><img class="card-title-icon" src="../assets/img/tpms_indicator_full.png" alt="TPMS warning icon" /><span>Nested settings revert before saving</span></span></summary>
+            <div class="troubleshooting-topic-body">
+              <p>If you back out of a Sensor Set or other nested settings group in the Garmin Connect IQ mobile app and then go back into it before saving, Garmin will revert to the old values.</p>
+              <p>This behavior is confusing, but it is normal for Garmin's nested settings screens.</p>
+              <p>To force a save, back out of the nested settings group and tap Save immediately from the main settings screen.</p>
+              <p>After saving, reopen TubeWitch settings in the Garmin Connect IQ mobile app and drill back down into the nested settings group to confirm the new values are there.</p>
+            </div>
+          </details>
+          </div>
+        </details>
+<details class="troubleshooting-section" id="sensor-names"><summary><span class="troubleshooting-section-title">Sensor Name Issues</span></summary><div class="troubleshooting-section-body"><details class="troubleshooting-topic" open><summary><span class="troubleshooting-topic-title">The sensor name is not accepted</span></summary><div class="troubleshooting-topic-body"><p>Enter the full name, including the prefix and hyphen: <code>SYNCD-C3D0</code> or the supported <code>PSENS-1734</code> format. The four-character suffix alone is not a complete ID. Do not enter a Bluetooth address.</p></div></details>
+<details class="troubleshooting-topic" open><summary><span class="troubleshooting-topic-title">Show Sensor IDs displays only four characters</span></summary><div class="troubleshooting-topic-body"><p>This is expected for a valid full sensor name. TubeWitch displays the final four characters to keep the data field readable. Verify the complete name in the saved Sensor Set settings.</p></div></details>
+<details class="troubleshooting-topic" open><summary><span class="troubleshooting-topic-title">When opening TubeWitch settings, an error message is shown</span></summary><div class="troubleshooting-topic-body"><p>Garmin Connect IQ mobile app: "Cannot Load the web page. Try again later."</p><p>Garmin Express: "Error Loading Settings - We had a problem loading settings from this device. Please try again."</p><p>This usually means Garmin's settings service is temporarily unavailable. Try again later.</p></div></details>
+</div></details>
+<details class="troubleshooting-section" id="no-pressure-data"><summary><span class="troubleshooting-section-title">No Pressure Data</span></summary><div class="troubleshooting-section-body"><p>If no pressure is shown after setup, first confirm the sensor is working properly before changing other settings.</p><details class="troubleshooting-topic" open><summary><span class="troubleshooting-topic-title">Check the sensors and saved names</span></summary><div class="troubleshooting-topic-body"><ul><li>Move the wheels to wake the SYNCD sensors.</li><li>Use the Tubolito SYNCD app to check that the sensors are broadcasting pressure.</li><li>Open TubeWitch settings and confirm each complete name is saved in the correct Front or Rear slot.</li><li>Confirm Enabled Sensors includes the wheels you want to display.</li><li>For a single bike or wheelset, manually select the correct Active Sensor Set rather than Auto.</li><li>Temporarily enable "Show Sensor IDs" to check the displayed four-character suffixes.</li></ul></div></details>
+<details class="troubleshooting-topic" open><summary><span class="troubleshooting-topic-title">Pressure stops updating while stationary</span></summary><div class="troubleshooting-topic-body"><p>SYNCD sensors can sleep while stationary. Move the wheels to wake them and allow time for a new broadcast. TubeWitch keeps showing the last received pressure.</p><p>The current BLE freshness interval is 250 seconds. A "?" marks stale pressure; the configurable sensor timeout is separate and defaults to 15 minutes during an activity.</p></div></details>
+<details class="troubleshooting-topic" open><summary><span class="troubleshooting-topic-title">Sensor Not Found or an X appears</span></summary><div class="troubleshooting-topic-body"><p>Move the wheels, confirm the saved names and restart scanning by tapping the field when Touch Data Field is enabled, or stopping and resuming the Garmin activity.</p></div></details>
+<details class="troubleshooting-topic" open><summary><span class="troubleshooting-topic-title">The sensor battery has reached the end of its life</span></summary><div class="troubleshooting-topic-body"><p>The SYNCD battery is not user-replaceable. Refer to <a href="https://www.tubolito.com/syncd/" target="_blank" rel="noopener noreferrer">Tubolito's battery exchange information</a>.</p></div></details>
+</div></details>
+<details class="troubleshooting-section" id="pressure-alerts"><summary><span class="troubleshooting-section-title">Pressure Status / Alerts</span></summary><div class="troubleshooting-section-body"><details class="troubleshooting-topic" open><summary><span class="troubleshooting-topic-title">Pressure is visible but no pressure alarm triggers</span></summary><div class="troubleshooting-topic-body"><ul><li>Set the relevant Front or Rear Low Target / High Target in the active TubeWitch Sensor Set. A value of 0 leaves that limit disabled.</li><li>Check that low or high audible, popup or vibration alerts are enabled as needed.</li><li>Check Alarm Delay. The default is 10 seconds.</li><li>Set High Target greater than Low Target when both are used.</li></ul></div></details>
+<details class="troubleshooting-topic" open><summary><span class="troubleshooting-topic-title">Alerts use the wrong pressure limits</span></summary><div class="troubleshooting-topic-body"><p>Confirm the active Sensor Set, saved targets and selected Unit of Measure. If units changed, update every set's targets: saved numbers are not automatically converted.</p><p>Front and Rear are assigned by the sensor-name slots in TubeWitch settings.</p></div></details>
+<details class="troubleshooting-topic" open><summary><span class="troubleshooting-topic-title">Popup or vibration alerts are not working</span></summary><div class="troubleshooting-topic-body"><ul><li>Enable the corresponding low and high alert options in TubeWitch settings.</li><li>Vibration alerts are available on supported Garmin watches.</li><li>Popup alerts are available on supported newer Garmin devices.</li></ul></div></details>
+<details class="troubleshooting-topic" open><summary><span class="troubleshooting-topic-title">Data field restarts after returning from the Garmin home screen</span></summary><div class="troubleshooting-topic-body"><p>With Edge firmware 31.29+, Garmin changed how Connect IQ data fields behave. Returning from the home screen while no activity is recording can restart the field and its sensor search. If an activity is running or paused, TubeWitch should not restart when returning to the data screen.</p><p><span class="field-visible-emphasis"><img class="field-visible-icon" src="../assets/img/tpms_indicator_full.png" alt="Warning Icon" />Keep the TubeWitch data field visible when changing settings in the Connect IQ mobile app.<img class="field-visible-icon" src="../assets/img/tpms_indicator_full.png" alt="Warning Icon" /></span></p></div></details>
+</div></details>
+<details class="troubleshooting-section" id="fit-recording-problems">
+          <summary><span class="troubleshooting-section-title">FIT Recording Problems / Crashes</span></summary>
+          <div class="troubleshooting-section-body">
+          <p>If Garmin shows the IQ logo or one of your Connect IQ apps restarts during recording, the combined FIT recording load may be too high.</p>
+          <details class="troubleshooting-topic" open>
+            <summary><span class="troubleshooting-topic-title">If Garmin data fields are recording too many FIT data points</span></summary>
+            <div class="troubleshooting-topic-body">
+              <p>Garmin limits how many custom FIT data points Connect IQ apps can record at once. TubeWitch records 5 custom FIT fields by default and up to 10 when all Activity Recording options are enabled.</p>
+              <p>Other IQ data fields or apps may also record custom FIT fields. If the combined total gets too high, one or more apps may restart and show the IQ logo.</p>
+              <p>To reduce the number of data points that TubeWitch is recording, disable items in the Activity Recording section of TubeWitch Settings, then reboot Garmin before testing again.</p>
+              <p>Activity Recording field counts:</p>
+              <p><strong>Default recording fields:</strong></p>
+              <ul>
+                <li>Record Front Pressure: 2 fields (Front Pressure, Avg Front Pressure)</li>
+                <li>Record Rear Pressure: 2 fields (Rear Pressure, Avg Rear Pressure)</li>
+                <li>Sensor Set Name: 1 field when activity recording is enabled</li>
+              </ul>
+              <p><strong>Optional recording fields:</strong></p>
+              <ul>
+                <li>Record Front Pressure Alarm: 1 field</li>
+                <li>Record Rear Pressure Alarm: 1 field</li>
+                <li>Record Front Pressure Stale Data Indicator: 1 field</li>
+                <li>Record Rear Pressure Stale Data Indicator: 1 field</li>
+                <li>Record Sensor Set #: 1 field</li>
+              </ul>
+            </div>
+          </details>
+          </div>
+        </details>
+<details class="troubleshooting-section" id="app-upgrade-problems">
+          <summary><span class="troubleshooting-section-title">App Upgrade Problems</span></summary>
+          <div class="troubleshooting-section-body">
+          <p>The most common TubeWitch upgrade issue is the Garmin Connect IQ mobile app continuing to show an update even after the data field was already queued or installed.</p>
+          <details class="troubleshooting-topic" open>
+            <summary><span class="troubleshooting-topic-title">Garmin Connect IQ mobile app still shows "Updating" after a TubeWitch upgrade</span></summary>
+            <div class="troubleshooting-topic-body">
+              <p>If upgrading from an earlier version of TubeWitch, the Garmin Connect IQ mobile app may appear stuck on "Updating," or it may queue and update the data field but show that an update is still available.</p>
+              <p>If this happens, reboot your Garmin device and restart your Garmin mobile apps to allow the update to complete and for any new settings to appear in the TubeWitch Settings.</p>
+            </div>
+          </details>
+          </div>
+        </details>
+<details class="troubleshooting-section" id="support"><summary><span class="troubleshooting-section-title">TubeWitch Support</span></summary><div class="troubleshooting-section-body"><p>Use Garmin's in-app <strong>Contact Developer</strong> link to contact TubeWitch support. Include your Garmin model, TubeWitch version and a description of the issue.</p><div class="support-inline-layout">
+            <figure class="help-figure contact-developer-figure">
+              <img src="../assets/img/contact_developer.jpg" alt="Garmin Connect IQ mobile app showing the Contact Developer link on the TubeWitch page" />
+            </figure>
+            <div class="support-panel-copy">
+              <h3>Contact the developer</h3>
+              <p>Use the Garmin Connect IQ mobile app.</p>
+              <p>Open the listing for <strong>TubeWitch for Tubolito SYNCD</strong> so your request is associated with the correct app.</p><ol class="support-steps">
+                <li>Open the <a href="https://apps.garmin.com/apps/fd57ab65-db85-4c88-bfb9-2b77540e8713" target="_blank" rel="noopener noreferrer">TubeWitch for Tubolito SYNCD Garmin Store page</a>.</li>
+                <li>Tap <strong class="support-emphasis">Open in App</strong>.</li>
+                <li>Scroll to the bottom of the TubeWitch app page, then tap <strong class="support-emphasis">Contact Developer</strong>.</li>
+              </ol>
+              <p class="callout-icon-line"><img class="callout-inline-icon" src="../assets/img/tpms_indicator_full.png" alt="Warning Icon" /><span>Include your email address to receive a reply.</span><img class="callout-inline-icon" src="../assets/img/tpms_indicator_full.png" alt="Warning Icon" /></p>
+              <p class="callout-icon-line"><img class="callout-inline-icon" src="../assets/img/tpms_indicator_full.png" alt="Warning Icon" /><span>Be sure to monitor your spam folder for replies.</span><img class="callout-inline-icon" src="../assets/img/tpms_indicator_full.png" alt="Warning Icon" /></p>
+            </div>
+          </div></div></details>
+</article>
+</div></main>
+  <footer class="site-footer"><div class="wrap footer-stack"><nav class="footer-links" aria-label="Tubolito footer"><a data-nav="ble-home" href="../garmin-tubolito.html">Tubolito on Garmin</a><a data-nav="setup" href="../ble/setup.html">Setup</a><a data-nav="settings" href="../ble/settings.html">Settings</a><a data-nav="troubleshooting" href="../ble/troubleshooting.html">Troubleshooting</a><a data-nav="faq" href="../ble/faq.html">FAQ</a><a href="../ble/troubleshooting.html#support">Support</a><a href="https://apps.garmin.com/apps/fd57ab65-db85-4c88-bfb9-2b77540e8713" target="_blank" rel="noopener noreferrer">Garmin Store / Release Notes</a><a href="../index.html">TyreWiz &amp; AIRMAX site</a></nav><p class="legal-note"><img class="legal-note-icon" src="../assets/img/tpms_indicator_full.png" alt="Warning Icon" />TubeWitch is an independent third-party Garmin Connect IQ data field and is not affiliated with, endorsed by, or sponsored by Garmin or Tubolito. All trademarks are the property of their respective owners.</p></div></footer>
+
+  <div id="lightbox" class="lightbox" hidden><button class="lightbox-close" aria-label="Close image">x</button><img alt="Screenshot preview" /><p class="lightbox-caption"></p></div>
+</body>
+</html>

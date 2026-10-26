@@ -1,0 +1,251 @@
+/* Loaded only by the unpublished Tubolito preview pages. */
+.ble-preview {
+  --ble-orange: #ff983f;
+}
+
+.ble-version {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.ble-version-identity {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--text);
+  text-decoration: none;
+  min-width: 0;
+}
+
+.ble-version-identity img {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  border-radius: 9px;
+  background: radial-gradient(ellipse, #6f4828 0, #152335 65%);
+  transform: rotate(-5deg);
+}
+
+.ble-version-identity small,
+.ble-version-identity strong {
+  display: block;
+}
+
+.ble-version-identity small {
+  color: var(--ble-orange);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.ble-version-identity strong {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+}
+
+.ble-version-controls {
+  display: flex;
+  gap: 0.55rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.ble-preview-label {
+  border: 1px solid #785137;
+  background: #251d19;
+  color: #ffd2aa;
+  border-radius: 5px;
+  padding: 0.25rem 0.45rem;
+  font-size: 0.72rem;
+}
+
+.ble-version-controls label {
+  font-size: 0.76rem;
+  color: var(--muted);
+}
+
+.ble-version-controls select {
+  font: inherit;
+  font-size: 0.8rem;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid #755038;
+  border-radius: 6px;
+  padding: 0.5rem 1.4rem 0.5rem 0.6rem;
+  max-width: 100%;
+  cursor: pointer;
+  color-scheme: dark;
+}
+
+.ble-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 160px;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.ble-intro .kicker {
+  color: var(--ble-orange);
+}
+
+.ble-intro h1 {
+  font-size: clamp(2.15rem, 4.7vw, 3.7rem);
+}
+
+.ble-product-sticker {
+  margin: 0;
+  padding: 0.7rem;
+  border: 1px solid #6c4d38;
+  border-radius: 16px;
+  background: radial-gradient(ellipse at 50% 20%, #543722 0, #101c2c 75%);
+  box-shadow: 0 14px 28px #0005;
+  transform: rotate(4deg);
+}
+
+.ble-product-sticker img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+.ble-product-sticker figcaption {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.ble-product-sticker figcaption span {
+  display: block;
+  color: var(--ble-orange);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+html[data-page="ble-home"] .ble-intro {
+  grid-template-columns: minmax(0, 1fr) 220px;
+}
+
+.ble-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.3rem;
+}
+
+.ble-preview .ble-actions .btn {
+  color: #05221f;
+  text-decoration: none;
+}
+
+.ble-preview .ble-actions .btn-ghost {
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--line);
+}
+
+.ble-guide-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 1.5rem;
+}
+
+.ble-guide-links a {
+  display: block;
+  padding-block: 0.65rem;
+  border-top: 1px solid var(--line);
+  text-decoration: none;
+}
+
+.ble-guide-links strong,
+.ble-guide-links span {
+  display: block;
+}
+
+.ble-guide-links strong {
+  color: var(--text);
+}
+
+.ble-guide-links span {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin-top: 0.25rem;
+}
+
+.ble-preview code {
+  color: #ffd2aa;
+  font-size: 0.95em;
+  overflow-wrap: anywhere;
+}
+
+.ble-target-note {
+  border-left-color: var(--ble-orange);
+}
+
+.ble-target-note h3 {
+  margin-top: 0;
+}
+
+.ble-preview .support-inline-layout .contact-developer-figure {
+  align-self: start;
+}
+
+@media (max-width: 760px) {
+  .ble-version {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding-block: 0.7rem;
+  }
+
+  .ble-version-controls {
+    width: 100%;
+    gap: 0.4rem;
+  }
+
+  .ble-version-controls label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .ble-version-controls select {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .ble-intro,
+  html[data-page="ble-home"] .ble-intro {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.8rem;
+  }
+
+  .ble-intro h1 {
+    font-size: clamp(2rem, 8vw, 2.7rem);
+  }
+
+  .ble-product-sticker {
+    width: 125px;
+    justify-self: end;
+    margin: 0.2rem 0.5rem 0.5rem;
+    transform: rotate(3deg);
+  }
+
+  .ble-preview:not([data-page="ble-home"]) .ble-product-sticker {
+    display: none;
+  }
+
+  .ble-guide-links {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
