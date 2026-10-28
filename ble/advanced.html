@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en" class="ble-edition" data-page="advanced">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#06101a" />
+  <link rel="icon" href="../favicon.ico" sizes="any" />
+  <link rel="icon" href="../favicon-48.png" type="image/png" sizes="48x48" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <title>TubeWitch for Tubolito SYNCD Features | Garmin</title>
+  <meta name="description" content="TubeWitch for Tubolito SYNCD features for Garmin: sensor sets, layouts, pressure targets, alerts, touch controls, timeouts and activity recording." />
+  <link rel="canonical" href="https://tubewitch.com/ble/advanced.html" />
+  <meta property="og:site_name" content="TubeWitch" />
+  <meta property="og:title" content="TubeWitch for Tubolito SYNCD Features | Garmin" />
+  <meta property="og:description" content="TubeWitch for Tubolito SYNCD features for Garmin: sensor sets, layouts, pressure targets, alerts, touch controls, timeouts and activity recording." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tubewitch.com/ble/advanced.html" />
+  <meta property="og:image" content="https://tubewitch.com/assets/img/tw_hero.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TubeWitch for Tubolito SYNCD Features | Garmin" />
+  <meta name="twitter:description" content="TubeWitch for Tubolito SYNCD features for Garmin: sensor sets, layouts, pressure targets, alerts, touch controls, timeouts and activity recording." />
+  <meta name="twitter:image" content="https://tubewitch.com/assets/img/tw_hero.jpg" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../assets/css/app-versions.css?v=original-home-layout-2" />
+  <script src="../assets/js/app-versions.js?v=features-alerts-1" defer></script>
+  <script src="../app.js" defer></script>
+  <script data-goatcounter="https://tubewitch.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="wrap nav-row"><a class="brand" href="../garmin-tubolito.html"><img src="../assets/img/tw_icon_128.jpg" alt="TubeWitch icon" /><span>TUBEWITCH</span></a><nav class="nav-links" aria-label="Tubolito primary"><a data-nav="ble-home" href="../garmin-tubolito.html">Home</a><a data-nav="advanced" href="../ble/advanced.html">Features</a><a data-nav="alerts" href="../ble/alerts.html">Alerts</a><a data-nav="compatible-tire-sensors" href="../compatible-tire-sensors.html?app=tubolito#tubolito">Sensors</a><a data-nav="setup" href="../ble/setup.html">Setup</a><a data-nav="settings" href="../ble/settings.html">Settings</a><a data-nav="troubleshooting" href="../ble/troubleshooting.html">Troubleshooting</a><a data-nav="faq" href="../ble/faq.html">FAQ</a><a data-nav="support" href="../support.html?app=tubolito">Support</a><a data-nav="gallery" href="../gallery.html?app=tubolito">Gallery</a><a class="btn-inline" href="https://apps.garmin.com/apps/fd57ab65-db85-4c88-bfb9-2b77540e8713" target="_blank" rel="noopener noreferrer">Garmin App Store</a></nav></div></header>
+  <aside class="ble-version wrap" aria-label="TubeWitch app version"><a class="ble-version-identity" href="../garmin-tubolito.html"><img src="../assets/img/tubolito-syncd-product.png" alt="" width="64" height="64" /><span><small>Bluetooth LE sensors</small><strong>TubeWitch for Tubolito SYNCD</strong></span></a><div class="ble-version-controls"><label for="app-version">Your sensors</label><select id="app-version" data-app-version><option value="../advanced.html">TyreWiz &amp; AIRMAX (ANT+)</option><option value="../ble/advanced.html" selected>Tubolito SYNCD (Bluetooth LE)</option><option value="../airspy/advanced.html">SKS AIRSPY (ANT+)</option></select></div></aside>
+
+  <main id="main">
+    <section class="page-hero wrap reveal">
+      <div class="page-hero-copy">
+        <p class="kicker">Feature overview</p>
+        <h1>TubeWitch features for display, alert timing, sensor control, and ride data</h1>
+        <p>
+          TubeWitch supports Edge devices and watches, multiple sensor sets, configurable display modes,
+          detailed alarm controls, timeout handling, and activity review through Garmin Connect IQ stats, with alert timing controls designed to reduce nuisance duplicate alarms.
+        </p>
+        <p>
+          TubeWitch is the most flexible option for showing compatible tire pressure sensor data on Garmin, with broad control over labels,
+          colors, layout behavior, alarm types, timing, and compatibility settings.
+        </p>
+        <div class="cta-row">
+          <a class="btn" href="#overview">Feature Summary</a>
+          <a class="btn ghost" href="#reconnect">Timeouts</a>
+        </div>
+      </div>
+      <figure class="page-hero-media shot">
+        <div class="app-choice-product-pair"><img class="transparent-shot" src="../assets/img/tubolito-mtb-product.webp" alt="Tubolito MTB product box and orange inner tube" width="360" height="360" /><img class="transparent-shot" src="../assets/img/tubolito-syncd-transparent.png" alt="Tubolito Road SYNCD product box and orange inner tube" width="360" height="360" /></div>
+        <figcaption>TubeWitch supports both simple startup and deeper multi-bike capabilities</figcaption>
+      </figure>
+    </section>
+
+    <nav class="page-links wrap reveal" aria-label="Feature sections">
+      <a href="#overview">Overview</a>
+      <a href="#sensor-sets">Sensor Sets</a>
+      <a href="#display">Display</a>
+      <a href="#alerts">Alerts</a>
+      <a href="#reconnect">Timeouts</a>
+      <a href="#recording">Recording</a>
+    </nav>
+
+    <section class="section wrap reveal" id="overview">
+      <h2>Feature summary</h2>
+      <div class="card-grid card-grid-4">
+        <article class="card">
+          <p class="eyebrow">Platform support</p>
+          <h3>Edge and watch support</h3>
+          <p>TubeWitch supports Garmin Edge devices and Garmin watches, including vibration alerts where supported.</p>
+        </article>
+        <article class="card">
+          <p class="eyebrow">Sensor management</p>
+          <h3>Up to five sensor sets</h3>
+          <p>Store up to five named bikes or wheelsets, with front, rear, or both sensors enabled per set.</p>
+        </article>
+        <article class="card">
+          <p class="eyebrow">Touch controls</p>
+          <h3>Touch Data Field actions</h3>
+          <p>On touchscreen devices, Touch Data Field combines set switching, TubeWitch disable, manual rescan after timeout, and stopping alarm repeats.</p>
+        </article>
+        <article class="card">
+          <p class="eyebrow">Ride review</p>
+          <h3>Connect IQ stats</h3>
+          <p>Average pressures and the active sensor set name are saved to Garmin Connect IQ stats after the ride.</p>
+        </article>
+      </div>
+      <div class="callout">
+        <p>TubeWitch gives more display and alert control than any other tire pressure sensor data field option: colors, labels, layout orientation, background style, alarm outputs, trigger timing, reset timing, decimal precision, and compatibility behavior can all be tuned to suit the users preferences.</p>
+      </div>
+    </section>
+
+    <section class="section wrap reveal" id="sensor-sets">
+      <h2>Sensor sets and switching</h2><p>Enter the complete Bluetooth sensor name, such as SYNCD-C3D0, in its Front or Rear slot in TubeWitch. Do not enter only the final four characters. TubeWitch receives Bluetooth LE broadcasts from Tubolito SYNCD inner tubes; no Garmin sensor pairing is required.</p>
+      <div class="card-grid card-grid-2">
+        <article class="card">
+          <h3>Named sensor sets</h3>
+          <ul>
+            <li>Store up to five named sensor sets for bikes or wheelsets.</li>
+            <li>Enable front, rear, or both sensors per set.</li>
+            <li>Save full sensor names and low/high pressure targets for each wheel.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Active Sensor Set and Auto Switch</h3>
+          <p>Manual mode keeps one configured set active. Auto Switch cycles through each configured set for 10 seconds until an active set is found.</p>
+        </article>
+        <article class="card">
+          <h3>Auto Switch Scan Delay</h3>
+          <p>Default 60 seconds. If both sensors disconnect while Active Sensor Set is Auto, TubeWitch waits for this delay before scanning other sets again at 10 seconds each.</p>
+          <button type="button" class="text-link text-link-button" data-info-trigger="feature-auto-switch-delay">More info</button>
+        </article>
+        <article class="card">
+          <h3>Touch Data Field</h3>
+          <p>Optional on touchscreen devices. The setting combines Touch to Switch Sensor Sets, Touch to Disable TubeWitch, Touch to Rescan after timeout, and Touch to Stop Alarm Repeats.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section wrap reveal" id="display">
+      <h2>Display and layout options</h2>
+      <div class="card-grid card-grid-2">
+        <article class="card">
+          <h3>Display Style</h3>
+          <p>Display Style offers TubeWitch Mode and Compatibility Mode. TubeWitch Mode is the default, but it may be unavailable on some devices that are not yet fully supported. Compatibility Mode uses dynamic font sizing and positioning and works across all devices.</p>
+        </article>
+        <article class="card">
+          <h3>Display Layout Orientation</h3>
+          <p>Choose Auto, Vertical, or Horizontal layout orientation.</p>
+        </article>
+        <article class="card">
+          <h3>Background Color</h3>
+          <p>Choose Auto, Dark, or Light background styling for clearer contrast.</p>
+        </article>
+        <article class="card">
+          <h3>Label Delimiter</h3>
+          <p>Customize the separator used in horizontal label layouts.</p>
+        </article>
+        <article class="card">
+          <h3>Decimal Places</h3>
+          <p>Choose Auto, 0, 1, or 2 decimal places depending on layout size and readability.</p>
+        </article>
+        <article class="card">
+          <h3>Units and precision</h3>
+          <p>TubeWitch supports PSI, BAR, and kPa. BAR and kPa layouts support decimal precision.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section wrap reveal" id="alerts">
+      <h2>Alarm settings and setup guidance</h2><p>Set low and high pressure targets for each wheel in each Sensor Set in TubeWitch settings, not in the manufacturer's app. A target of 0 disables that individual pressure limit. Choose units before entering targets; changing units does not convert saved target numbers.</p>
+      <p class="section-lead">High and Low Pressure Alarm groups keep alert behavior separated for more granular control.</p>
+      <div class="card-grid card-grid-4">
+        <article class="card">
+          <h3>Granular pressure alarm groups</h3>
+          <p>High and Low Pressure Alarm groups organize alert settings independently for more detailed tuning.</p>
+        </article>
+        <article class="card">
+          <h3>Alert outputs</h3>
+          <p>Popup alerts, audible alerts, and vibration alerts are available where device support exists.</p>
+        </article>
+        <article class="card">
+          <h3>Timing and appearance</h3>
+          <p>Alarm Trigger Delay, Alarm Reset Delay, additional repeats 90 seconds apart, tone selection, and alarm box and font color control how alerts behave and appear.</p>
+        </article>
+        <article class="card">
+          <h3>Setup messages</h3>
+          <p>Setup checks confirm that full sensor names and pressure targets are saved, and identify missing-sensor conditions.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section wrap reveal" id="reconnect">
+      <h2>Timeout, stale data, and rescan behavior</h2>
+      <div class="card-grid card-grid-3">
+        <article class="card">
+          <h3>Sensor Timeout</h3>
+          <p>Default 15 minutes. During an activity, timeout minutes can be configured. If sensors are not found, TubeWitch stops scanning to save battery and shows a clear "Sensor(s) Not Found" message.</p>
+          <p>No timeout is applied before an activity starts.</p>
+        </article>
+        <article class="card">
+          <h3>Stale and timeout markers</h3>
+          <p>"?" indicates stale data when no recent pressure broadcast has been received. The Tubolito SYNCD freshness interval is 250 seconds. "X" indicates the timeout was reached and TubeWitch stopped searching for that sensor to save battery.</p>
+          <button type="button" class="text-link text-link-button" data-info-trigger="feature-timeout-examples">More info</button>
+        </article>
+        <article class="card">
+          <h3>Manual rescan</h3>
+          <p>After timeout, scanning can be restarted with Touch Data Field on supported devices or by using Stop and Resume on the activity.</p>
+        </article>
+      </div>
+      <div class="callout">
+        <p>Ever stop for a quick lunch but want to check your tire pressures before you get going again? Instead of just showing "--" on your Garmin Edge or watch screen while your sensors are inactive or out of range, TubeWitch keeps the last known pressures and shows a "?" while it waits for fresh pressure broadcasts.</p>
+      </div>
+    </section>
+
+    <section class="section wrap reveal" id="recording">
+      <h2>Activity recording and Garmin Connect IQ stats</h2>
+      <div class="split two-up">
+        <article class="card">
+          <ul>
+            <li>Record pressure from the active sensor set.</li>
+            <li>Record pressure alarm status.</li>
+            <li>Record stale and timeout indicator status.</li>
+            <li>Record the sensor set number used in the activity.</li>
+            <li>Average pressures and the sensor set name appear in Garmin Connect IQ stats.</li>
+          </ul>
+        </article>
+        <figure class="card shot">
+          <img class="fullshot stats-shot-image" src="../assets/img/sensor_set_name.jpg" alt="Garmin Connect IQ stats showing the rear pressure chart, sensor set name, and average front and rear pressures" />
+          <figcaption>Garmin Connect IQ stats save average pressures and the sensor set name</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section wrap reveal">
+      <h2>Feature views on-device</h2>
+      <div class="gallery gallery-3">
+        <figure class="shot">
+          <img class="fullshot" src="../assets/img/tw_screen8.jpg" alt="Label options" />
+          <figcaption>Label visibility and formatting controls</figcaption>
+        </figure>
+        <figure class="shot">
+          <img class="fullshot" src="../assets/img/tubolito-sensor-id-app.jpg" alt="Tubolito SYNCD mobile app showing sensor IDs" />
+          <figcaption>Find the full sensor name in the Tubolito app</figcaption>
+        </figure>
+        <figure class="shot">
+          <img class="fullshot" src="../assets/img/tw_screen7.jpg" alt="Alarm controls" />
+          <figcaption>Alarm timing controls for high and low pressure groups</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="wrap footer-stack"><nav class="footer-links" aria-label="Tubolito footer"><a data-nav="ble-home" href="../garmin-tubolito.html">Home</a><a data-nav="advanced" href="../ble/advanced.html">Features</a><a data-nav="alerts" href="../ble/alerts.html">Alerts</a><a data-nav="compatible-tire-sensors" href="../compatible-tire-sensors.html?app=tubolito#tubolito">Sensors</a><a data-nav="setup" href="../ble/setup.html">Setup</a><a data-nav="settings" href="../ble/settings.html">Settings</a><a data-nav="troubleshooting" href="../ble/troubleshooting.html">Troubleshooting</a><a data-nav="faq" href="../ble/faq.html">FAQ</a><a data-nav="support" href="../support.html?app=tubolito">Support</a><a data-nav="gallery" href="../gallery.html?app=tubolito">Gallery</a><a href="https://apps.garmin.com/apps/fd57ab65-db85-4c88-bfb9-2b77540e8713" target="_blank" rel="noopener noreferrer">Garmin Store / Release Notes</a><a href="https://www.youtube.com/@TubeWitch" target="_blank" rel="noopener noreferrer">YouTube</a></nav><p class="legal-note"><img class="legal-note-icon" src="../assets/img/tpms_indicator_full.png" alt="Warning Icon" />TubeWitch is an independent third-party Garmin Connect IQ data field and is not affiliated with, endorsed by, or sponsored by Garmin or Tubolito. All trademarks are the property of their respective owners.</p></div></footer>
+
+  <div id="info-modal" class="info-modal" hidden>
+    <div class="info-modal-panel" role="dialog" aria-modal="true" aria-label="Feature examples">
+      <button class="info-modal-close" aria-label="Close more info">x</button>
+      <div class="info-modal-copy">
+        <section data-info-panel="feature-auto-switch-delay" hidden>
+          <h2>Auto Switch Delay Example</h2>
+          <p>After a Garmin Edge power cycle, or after starting a new activity on a watch, Auto Switch will scan each configured sensor set for 10 seconds until it finds one that is active. Even when all 5 bikes or wheelsets are configured, it will typically find the correct set within a minute.</p>
+          <p>When starting a ride, TubeWitch can lock onto any of the 5 configured sensor sets if they are active and nearby. Once locked on, it will stay on that set until they are out of range and TubeWitch shows &quot;?&quot;, indicating no recent pressure broadcast. It then waits for the Auto Switch Scan Delay, default 60 seconds, and resumes scanning all configured sensor sets for 10 seconds each. After riding away from the other nearby sensors, Auto Switch should lock on to the bike or wheelset actually being ridden within a minute.</p>
+        </section>
+        <section data-info-panel="feature-timeout-examples" hidden>
+          <h2>TubeWitch Timeout Examples</h2>
+          <p>If a Garmin activity is started but sensors are not being used, the data field keeps searching until the timeout, default 15 minutes. Then it shows &quot;Sensors Not Found&quot; and stops scanning to save battery. Tapping the Data Field or Stop and Resume can restart the scan.</p>
+          <p>If a Garmin activity is started and sensors were found but the signals drop, the field shows the last received pressure with a &quot;?&quot; to indicate stale data. If the signal stays missing long enough, the sensor times out after the default 15 minutes. It then shows an &quot;X&quot; next to the pressure, meaning it has stopped searching for that sensor to save battery.</p>
+          <p>If Auto Switch mode is active and both sensors become stale, TubeWitch starts scanning other configured sensor sets before showing an &quot;X&quot;. It will still time out after 15 minutes if no sensors are found.</p>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <div id="lightbox" class="lightbox" hidden>
+    <button class="lightbox-close" aria-label="Close image">x</button>
+    <img alt="Screenshot preview" />
+    <p class="lightbox-caption"></p>
+  </div>
+</body>
+</html>

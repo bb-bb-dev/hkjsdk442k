@@ -28,7 +28,7 @@
   const key = sharedPages.includes(page) && Object.hasOwn(variants, requested) ? requested : null;
   const route = (appKey, topic) => {
     const app = variants[appKey];
-    if (['setup', 'settings', 'troubleshooting', 'faq'].includes(topic)) return app.docs + topic + '.html';
+    if (['advanced', 'alerts', 'setup', 'settings', 'troubleshooting', 'faq'].includes(topic)) return app.docs + topic + '.html';
     if (sharedPages.includes(topic)) return topic + '.html' + (appKey === 'ant' ? '' : '?app=' + appKey);
     return app.home;
   };
@@ -42,6 +42,8 @@
     header.querySelector('.brand').href = new URL(variant.home, siteRoot);
     const links = [
       ['Home', variant.home, variant.homeKey],
+      ['Features', route(key, 'advanced'), 'advanced'],
+      ['Alerts', route(key, 'alerts'), 'alerts'],
       ['Sensors', route(key, 'compatible-tire-sensors') + '#' + variant.section, 'compatible-tire-sensors'],
       ...['setup', 'settings', 'troubleshooting', 'faq', 'support', 'gallery'].map(topic => [
         topic === 'faq' ? 'FAQ' : topic[0].toUpperCase() + topic.slice(1), route(key, topic), topic,
@@ -79,7 +81,7 @@
     document.querySelectorAll('main a[href]').forEach(link => {
       const target = new URL(link.href);
       const topic = target.pathname.split('/').pop()?.replace('.html', '');
-      if (target.origin === siteRoot.origin && ['setup', 'settings', 'troubleshooting', 'faq', 'support', 'gallery'].includes(topic)) {
+      if (target.origin === siteRoot.origin && ['advanced', 'alerts', 'setup', 'settings', 'troubleshooting', 'faq', 'support', 'gallery'].includes(topic)) {
         link.href = new URL(route(key, topic) + target.hash, siteRoot);
       }
     });
