@@ -379,6 +379,17 @@ html[data-page="ble-home"] .ble-intro {
   color: #ff795a;
 }
 
+.app-choice-airspy .app-choice-product-pair {
+  gap: 0.35rem;
+  max-width: 250px;
+}
+
+.app-choice-airspy .app-choice-product-pair img {
+  flex: 0 1 112px;
+  width: 112px;
+  height: 120px;
+}
+
 .airspy-models {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
