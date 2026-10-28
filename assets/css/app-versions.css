@@ -362,3 +362,64 @@ html[data-page="ble-home"] .ble-intro {
   top: -0.12rem;
   left: -0.12rem;
 }
+
+.airspy-edition {
+  --ble-orange: #ff795a;
+}
+
+.airspy-edition .ble-product-sticker {
+  background: radial-gradient(ellipse at 50% 20%, #4b2d27 0, #101c2c 75%);
+}
+
+.app-choice-airspy {
+  border-color: #825047;
+}
+
+.app-choice-airspy .eyebrow {
+  color: #ff795a;
+}
+
+.airspy-models {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.airspy-models figure {
+  margin: 0;
+  text-align: center;
+}
+
+.airspy-models img {
+  width: 100%;
+  height: 170px;
+  object-fit: contain;
+}
+
+.airspy-models figcaption {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+html[data-page="airspy-home"] .ble-intro {
+  grid-template-columns: minmax(0, 1fr) 220px;
+}
+
+@media (max-width: 760px) {
+  html[data-page="airspy-home"] .ble-intro {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  html[data-page="airspy-home"] .ble-product-sticker {
+    display: block;
+  }
+
+  .airspy-models {
+    gap: 0.5rem;
+  }
+
+  .airspy-models img {
+    height: 110px;
+  }
+}
