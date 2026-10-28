@@ -501,8 +501,8 @@ html[data-page="airspy-home"] .ble-intro {
   margin: 1rem 0;
 }
 
-.ble-edition main a:not(.btn):not(.hero-link):not(.app-choice-home-link),
-.ble-edition main a:not(.btn):not(.hero-link):not(.app-choice-home-link):visited {
+.ble-edition main a:not(.btn):not(.hero-link):not(.app-choice-home-link):not(.compat-status),
+.ble-edition main a:not(.btn):not(.hero-link):not(.app-choice-home-link):not(.compat-status):visited {
   color: var(--accent);
 }
 
