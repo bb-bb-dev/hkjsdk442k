@@ -113,7 +113,7 @@
   object-fit: contain;
   border-radius: 9px;
   background: radial-gradient(ellipse, #6f4828 0, #152335 65%);
-  transform: rotate(-5deg);
+  transform: none;
 }
 
 .ble-version-identity small,
@@ -181,15 +181,16 @@
   border-radius: 16px;
   background: radial-gradient(ellipse at 50% 20%, #543722 0, #101c2c 75%);
   box-shadow: 0 14px 28px #0005;
-  transform: rotate(4deg);
+  transform: none;
 }
 
 .ble-product-sticker img {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 1;
+  aspect-ratio: auto;
   object-fit: contain;
+  border-radius: 8px;
 }
 
 .ble-product-sticker figcaption {
@@ -324,7 +325,7 @@ html[data-page="ble-home"] .ble-intro {
     width: 125px;
     justify-self: end;
     margin: 0.2rem 0.5rem 0.5rem;
-    transform: rotate(3deg);
+    transform: none;
   }
 
   .ble-edition:not([data-page="ble-home"]) .ble-product-sticker {
@@ -334,4 +335,8 @@ html[data-page="ble-home"] .ble-intro {
   .ble-guide-links {
     grid-template-columns: minmax(0, 1fr);
   }
+}
+
+.tubolito-sensor-card .compat-card-media {
+  position: relative;
 }
