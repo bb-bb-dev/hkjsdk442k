@@ -4,20 +4,20 @@
     ant: {
       title: 'TyreWiz & AIRMAX (ANT+)', app: 'TubeWitch for TyreWiz & AIRMAX',
       protocol: 'ANT+ sensors', home: 'index.html', docs: '', section: 'quarq-sram', homeKey: 'index',
-      image: 'assets/img/compatible-sensors/quarq-tyrewiz-2-card.png',
+      image: 'assets/img/compatible-sensors/quarq-tyrewiz-2-card.png', imageAlt: 'Quarq TyreWiz tire pressure sensor',
       store: 'https://apps.garmin.com/apps/9b512e62-f3b0-4aea-a932-63670e0dfe75',
     },
     tubolito: {
       title: 'Tubolito SYNCD (Bluetooth LE)', app: 'TubeWitch for Tubolito SYNCD',
       protocol: 'Bluetooth LE sensors', home: 'garmin-tubolito.html', docs: 'ble/',
-      section: 'tubolito', homeKey: 'ble-home', image: 'assets/img/tubolito-syncd-product.png',
+      section: 'tubolito', homeKey: 'ble-home', image: 'assets/img/tubolito-syncd-product.png', imageAlt: 'Tubolito SYNCD inner tube packaging',
       store: 'https://apps.garmin.com/apps/fd57ab65-db85-4c88-bfb9-2b77540e8713',
     },
     airspy: {
       title: 'SKS AIRSPY (ANT+)', app: 'TubeWitch for SKS AIRSPY',
       protocol: 'SKS AIRSPY / ANT+', home: 'garmin-airspy.html', docs: 'airspy/',
       section: 'sks', homeKey: 'airspy-home',
-      image: 'assets/img/compatible-sensors/sks-airspy-presta-cutout-117.png',
+      image: 'assets/img/compatible-sensors/sks-airspy-presta-cutout-117.png', imageAlt: 'SKS AIRSPY Presta tire pressure sensor',
       store: 'https://apps.garmin.com/apps/902e5efd-7a1e-4b97-aea3-1f30cbd10144',
     },
   };
@@ -72,6 +72,7 @@
     identity.classList.remove('ant-version');
     identity.querySelector('.ble-version-identity').href = new URL(variant.home, siteRoot);
     identity.querySelector('img').src = new URL(variant.image, siteRoot);
+    identity.querySelector('img').alt = variant.imageAlt;
     identity.querySelector('small').textContent = variant.protocol;
     identity.querySelector('strong').textContent = variant.app;
     const select = identity.querySelector('select');
