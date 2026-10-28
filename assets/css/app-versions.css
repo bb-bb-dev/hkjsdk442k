@@ -38,7 +38,7 @@
 
 .ant-version .ble-version-identity img {
   background: transparent;
-  transform: none;
+  transform: scale(1.4);
 }
 
 .ant-version .ble-version-controls select {
@@ -462,91 +462,68 @@ html[data-page="airspy-home"] .ble-intro {
   z-index: 1;
 }
 
-.app-home-hero.hero-full {
-  min-height: min(740px, calc(100svh - 150px));
-  padding: 3rem 0;
-  display: grid;
+/* Match the original hero; product photos occupy only its lower-right corner. */
+.sensor-home .hero-sensor-products {
+  position: absolute;
+  right: 0.9rem;
+  bottom: 0.85rem;
+  display: flex;
   align-items: center;
-}
-
-.app-home-hero-layout {
-  position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-  gap: 2rem;
-  align-items: center;
-}
-
-.app-home-hero .hero-overlay {
-  position: relative;
-  inset: auto;
-  width: 100%;
+  justify-content: center;
+  gap: 0.3rem;
+  width: 184px;
+  height: 140px;
   margin: 0;
-  padding: 1.3rem;
 }
 
-.app-home-hero .kicker {
-  color: var(--ble-orange);
-}
-
-.app-home-products {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.8rem;
-  align-items: center;
-  margin: 0;
-  padding: 1.5rem 0.6rem;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  background: radial-gradient(ellipse at center, #132335e6, #06101acc);
-}
-
-.app-home-products img {
-  display: block;
-  width: 100%;
-  height: clamp(170px, 20vw, 280px);
+.sensor-home .hero-sensor-products img {
+  width: calc((100% - 0.3rem) / 2);
+  height: 125px;
   object-fit: contain;
 }
 
-.app-home-products figcaption {
-  grid-column: 1 / -1;
-  text-align: center;
-  color: var(--text);
-  font-weight: 700;
+.sensor-home .hero-points,
+.sensor-home .hero-overlay .cta-row {
+  padding-right: 190px;
 }
 
-.app-home-detail + .app-home-detail {
-  border-top: 1px solid var(--line);
+.app-sensor-id-card .fullshot,
+.sensor-id-app-example img {
+  display: block;
+  width: min(200px, 100%);
+  height: auto;
+  margin-inline: auto;
 }
 
-.app-home-detail .ble-guide-links a {
-  min-width: 0;
+.sensor-id-app-example {
+  width: fit-content;
+  max-width: 100%;
+  margin: 1rem 0;
 }
 
-@media (max-width: 760px) {
-  .app-home-hero.hero-full {
-    min-height: 0;
-    padding: 1.5rem 0;
+.ble-edition main a:not(.btn):not(.hero-link):not(.app-choice-home-link),
+.ble-edition main a:not(.btn):not(.hero-link):not(.app-choice-home-link):visited {
+  color: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .sensor-home .hero-sensor-products {
+    position: static;
+    width: 160px;
+    height: 110px;
+    margin: 0.5rem 0 0 auto;
   }
 
-  .app-home-hero .hero-bg {
-    object-fit: cover;
+  .sensor-home .hero-sensor-products img {
+    height: 105px;
   }
 
-  .app-home-hero-layout {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1rem;
+  .sensor-home .hero-points,
+  .sensor-home .hero-overlay .cta-row {
+    padding-right: 0;
   }
+}
 
-  .app-home-hero .hero-overlay {
-    padding: 1rem;
-  }
-
-  .app-home-products {
-    padding: 1rem;
-  }
-
-  .app-home-products img {
-    height: 165px;
-  }
+.airspy-edition .ble-version-identity img {
+  background: transparent;
 }
