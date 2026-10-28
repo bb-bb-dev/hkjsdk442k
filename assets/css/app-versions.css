@@ -340,3 +340,8 @@ html[data-page="ble-home"] .ble-intro {
 .tubolito-sensor-card .compat-card-media {
   position: relative;
 }
+
+.tubolito-sensor-card .compat-new-burst {
+  top: -0.12rem;
+  left: -0.12rem;
+}
