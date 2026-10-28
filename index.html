@@ -9,11 +9,11 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
   <title>TubeWitch | Garmin Tire Pressure Monitoring for TyreWiz &amp; AIRMAX</title>
-  <meta name="description" content="TubeWitch shows Quarq TyreWiz, Schwalbe AIRMAX, and Zipp AXS Wheel Sensor tire pressure on Garmin Edge devices and Garmin watches." />
+  <meta name="description" content="TubeWitch brings TyreWiz, AIRMAX, Zipp and Tubolito SYNCD tire pressure to Garmin. Choose the ANT+ or Bluetooth LE app for your sensors, setup and alerts." />
   <link rel="canonical" href="https://tubewitch.com/" />
   <meta property="og:site_name" content="TubeWitch" />
   <meta property="og:title" content="TubeWitch | Garmin Tire Pressure Monitoring for TyreWiz &amp; AIRMAX" />
-  <meta property="og:description" content="Show Quarq TyreWiz, Schwalbe AIRMAX, and Zipp AXS Wheel Sensor tire pressure on Garmin Edge devices and Garmin watches." />
+  <meta property="og:description" content="TubeWitch brings TyreWiz, AIRMAX, Zipp and Tubolito SYNCD tire pressure to Garmin. Choose the ANT+ or Bluetooth LE app for your sensors, setup and alerts." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://tubewitch.com/" />
   <meta property="og:image" content="https://tubewitch.com/assets/img/tubewitch-garmin-edge-pressure-alert-preview.jpg" />
@@ -23,7 +23,7 @@
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="TubeWitch | Garmin Tire Pressure Monitoring for TyreWiz &amp; AIRMAX" />
-  <meta name="twitter:description" content="Show Quarq TyreWiz, Schwalbe AIRMAX, and Zipp AXS Wheel Sensor tire pressure on Garmin Edge devices and Garmin watches." />
+  <meta name="twitter:description" content="TubeWitch brings TyreWiz, AIRMAX, Zipp and Tubolito SYNCD tire pressure to Garmin. Choose the ANT+ or Bluetooth LE app for your sensors, setup and alerts." />
   <meta name="twitter:image" content="https://tubewitch.com/assets/img/tubewitch-garmin-edge-pressure-alert-preview.jpg" />
   <meta name="twitter:image:alt" content="TubeWitch popup alert on a Garmin Edge device" />
   <link rel="image_src" href="https://tubewitch.com/assets/img/tubewitch-garmin-edge-pressure-alert-preview.jpg" />
@@ -85,12 +85,13 @@
     }
   </script>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="assets/css/app-versions.css" />
   <script src="app.js" defer></script>
   <script data-goatcounter="https://tubewitch.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
+  <header class="site-header ant-navigation">
     <div class="wrap nav-row">
       <a class="brand" href="index.html"><img src="assets/img/tw_icon_128.jpg" alt="TubeWitch icon" /><span>TUBEWITCH</span></a>
       <nav class="nav-links" aria-label="Primary">
@@ -104,7 +105,8 @@
         <a data-nav="faq" href="faq.html">FAQ</a>
         <a data-nav="support" href="support.html">Support</a>
         <a data-nav="gallery" href="gallery.html">Gallery</a>
-        <a class="btn-inline" href="https://apps.garmin.com/en-US/apps/9b512e62-f3b0-4aea-a932-63670e0dfe75" target="_blank" rel="noopener noreferrer">Garmin App Store</a>
+        <a href="Tubolito/">Tubolito</a>
+        <a class="btn-inline" href="index.html#choose-your-app">Choose Your App</a>
       </nav>
     </div>
   </header>
@@ -138,9 +140,9 @@
           with clear warnings,
           fast reconnect behavior, and support for multiple bikes or wheelsets.
         </p>
-        <a class="hero-airmax-badge" href="garmin-airmax.html" aria-label="Now supports Schwalbe AIRMAX">
-          <span>Now Supports</span>
-          <strong>Schwalbe AIRMAX</strong>
+        <a class="hero-airmax-badge" href="Tubolito/" aria-label="New separate TubeWitch app for Tubolito SYNCD">
+          <span>New BLE App</span>
+          <strong>Tubolito SYNCD</strong>
         </a>
         <p class="hero-compat-links">
           <a class="hero-link" href="https://apps.garmin.com/apps/9b512e62-f3b0-4aea-a932-63670e0dfe75?tid=1" target="_blank" rel="noopener noreferrer">Compatible Garmin Devices</a>
@@ -201,7 +203,15 @@
       </div>
     </section>
 
-    <section class="section wrap reveal">
+
+    <section class="section wrap reveal app-choice" id="choose-your-app">
+      <p class="kicker">Two apps. Choose your sensors.</p><h2>Find your TubeWitch</h2>
+      <div class="card-grid card-grid-2">
+        <article class="card app-choice-card"><img src="assets/img/tw_product_shot_tyrewiz_airmax_transparent2.png" alt="TyreWiz and AIRMAX tire pressure sensors" width="300" height="180" /><p class="eyebrow">ANT+ sensors</p><h3>TyreWiz &amp; AIRMAX</h3><p>For supported Quarq TyreWiz sensors, Schwalbe AIRMAX sensors and Zipp AXS Wheel Sensors.</p><p><a href="setup.html">Setup Guide</a> &nbsp; | &nbsp; <a href="https://apps.garmin.com/apps/9b512e62-f3b0-4aea-a932-63670e0dfe75" target="_blank" rel="noopener noreferrer">Garmin Store / Release Notes</a></p></article>
+        <article class="card app-choice-card app-choice-ble"><img src="assets/img/tubolito-syncd-product.png" alt="Tubolito SYNCD smart bicycle tube packaging" width="180" height="180" /><p class="eyebrow">Bluetooth LE sensors</p><h3>Tubolito SYNCD</h3><p>For Tubolito SYNCD inner tubes. Enter full sensor names and set each wheel's pressure targets in TubeWitch settings.</p><p><a href="Tubolito/">Tubolito on Garmin</a> &nbsp; | &nbsp; <a href="https://apps.garmin.com/apps/fd57ab65-db85-4c88-bfb9-2b77540e8713" target="_blank" rel="noopener noreferrer">Garmin Store / Release Notes</a></p></article>
+      </div>
+    </section>
+<section class="section wrap reveal">
       <article class="card">
         <p class="eyebrow">Ride confidence</p>
         <h2>Know when pressure really changed</h2>
@@ -371,6 +381,7 @@
   <footer class="site-footer">
     <div class="wrap footer-stack">
       <nav class="footer-links" aria-label="Footer">
+        <a href="Tubolito/">Tubolito</a>
         <a href="index.html">Home</a>
         <a href="advanced.html">Features</a>
         <a href="alerts.html">Alerts</a>
@@ -381,10 +392,10 @@
         <a href="faq.html">FAQ</a>
         <a href="support.html">Support</a>
         <a href="gallery.html">Gallery</a>
-        <a href="https://apps.garmin.com/en-US/apps/9b512e62-f3b0-4aea-a932-63670e0dfe75" target="_blank" rel="noopener noreferrer">Garmin App Store</a>
+        <a href="https://apps.garmin.com/en-US/apps/9b512e62-f3b0-4aea-a932-63670e0dfe75" target="_blank" rel="noopener noreferrer">TyreWiz / AIRMAX Store</a>
         <a href="https://www.youtube.com/@TubeWitch" target="_blank" rel="noopener noreferrer">YouTube</a>
       </nav>
-      <p class="legal-note"><img class="legal-note-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" />TubeWitch is an independent third-party Garmin Connect IQ data field and is not affiliated with, endorsed by, or sponsored by Garmin, SRAM, Quarq, Zipp, TyreWiz, Schwalbe, SKS, AIRMAX, AIRSPY, or OpenTPMS. All trademarks are the property of their respective owners.</p>
+      <p class="legal-note"><img class="legal-note-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" />TubeWitch is an independent third-party Garmin Connect IQ data field and is not affiliated with, endorsed by, or sponsored by Garmin, SRAM, Quarq, Zipp, TyreWiz, Schwalbe, SKS, AIRMAX, AIRSPY, OpenTPMS, Tubolito, or SYNCD. All trademarks are the property of their respective owners.</p>
     </div>
   </footer>
 

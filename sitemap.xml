@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://tubewitch.com/</loc>
-    <lastmod>2026-06-24T05:36:53-05:00</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <image:image>
       <image:loc>https://tubewitch.com/assets/img/tubewitch-garmin-tyrewiz-preview.jpg</image:loc>
       <image:title>TubeWitch Garmin TyreWiz preview image</image:title>
@@ -15,43 +15,43 @@
   </url>
   <url>
     <loc>https://tubewitch.com/advanced.html</loc>
-    <lastmod>2026-06-24T05:36:53-05:00</lastmod>
+    <lastmod>2026-10-28</lastmod>
   </url>
   <url>
     <loc>https://tubewitch.com/alerts.html</loc>
-    <lastmod>2026-06-07T10:24:14-05:00</lastmod>
+    <lastmod>2026-10-28</lastmod>
   </url>
   <url>
     <loc>https://tubewitch.com/compatible-tire-sensors.html</loc>
-    <lastmod>2026-06-17T11:37:57-05:00</lastmod>
+    <lastmod>2026-10-28</lastmod>
   </url>
   <url>
     <loc>https://tubewitch.com/setup.html</loc>
-    <lastmod>2026-06-24T04:50:14-05:00</lastmod>
+    <lastmod>2026-10-28</lastmod>
   </url>
   <url>
     <loc>https://tubewitch.com/settings.html</loc>
-    <lastmod>2026-07-12T06:24:31-05:00</lastmod>
+    <lastmod>2026-10-28</lastmod>
   </url>
   <url>
     <loc>https://tubewitch.com/troubleshooting.html</loc>
-    <lastmod>2026-07-12T06:20:09-05:00</lastmod>
+    <lastmod>2026-10-28</lastmod>
   </url>
   <url>
     <loc>https://tubewitch.com/faq.html</loc>
-    <lastmod>2026-07-12T06:24:31-05:00</lastmod>
+    <lastmod>2026-10-28</lastmod>
   </url>
   <url>
     <loc>https://tubewitch.com/support.html</loc>
-    <lastmod>2026-07-30T07:41:34-05:00</lastmod>
+    <lastmod>2026-10-28</lastmod>
   </url>
   <url>
     <loc>https://tubewitch.com/gallery.html</loc>
-    <lastmod>2026-06-07T10:24:14-05:00</lastmod>
+    <lastmod>2026-10-28</lastmod>
   </url>
   <url>
     <loc>https://tubewitch.com/garmin-airmax.html</loc>
-    <lastmod>2026-06-17T07:11:04-05:00</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <image:image>
       <image:loc>https://tubewitch.com/assets/img/compatible-sensors/schwalbe-airmax-product.png</image:loc>
       <image:title>Schwalbe AIRMAX Smart Tire Sensor</image:title>
@@ -59,6 +59,26 @@
   </url>
   <url>
     <loc>https://tubewitch.com/garmin-tyrewiz.html</loc>
-    <lastmod>2026-06-24T04:50:14-05:00</lastmod>
+    <lastmod>2026-10-28</lastmod>
+  </url>
+  <url>
+    <loc>https://tubewitch.com/garmin-tubolito.html</loc>
+    <lastmod>2026-10-28</lastmod>
+  </url>
+  <url>
+    <loc>https://tubewitch.com/ble/setup.html</loc>
+    <lastmod>2026-10-28</lastmod>
+  </url>
+  <url>
+    <loc>https://tubewitch.com/ble/settings.html</loc>
+    <lastmod>2026-10-28</lastmod>
+  </url>
+  <url>
+    <loc>https://tubewitch.com/ble/troubleshooting.html</loc>
+    <lastmod>2026-10-28</lastmod>
+  </url>
+  <url>
+    <loc>https://tubewitch.com/ble/faq.html</loc>
+    <lastmod>2026-10-28</lastmod>
   </url>
 </urlset>

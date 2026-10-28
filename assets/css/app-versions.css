@@ -1,6 +1,92 @@
-/* Loaded only by the unpublished Tubolito preview pages. */
-.ble-preview {
+/* App identity, version navigation and Tubolito-specific presentation. */
+.ble-edition {
   --ble-orange: #ff983f;
+}
+
+.ant-version {
+  --ble-orange: var(--accent);
+}
+
+@media (min-width: 1025px) {
+  .ant-navigation .nav-links,
+  .ant-navigation .nav-links-track {
+    gap: 0.2rem;
+  }
+
+  .ant-navigation .nav-links a {
+    padding-inline: 0.4rem;
+    white-space: nowrap;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1199px) {
+  .ant-navigation .nav-row,
+  .ble-edition .nav-row {
+    flex-wrap: wrap;
+    padding-block: 0.5rem;
+    gap: 0.5rem;
+  }
+
+  .ant-navigation .nav-links,
+  .ant-navigation .nav-links-track,
+  .ble-edition .nav-links,
+  .ble-edition .nav-links-track {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}
+
+.ant-version .ble-version-identity img {
+  background: transparent;
+  transform: none;
+}
+
+.ant-version .ble-version-controls select {
+  border-color: var(--line);
+}
+
+.version-note {
+  margin-block: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.version-note a {
+  color: var(--accent);
+}
+
+.app-choice-card > img {
+  display: block;
+  width: 100%;
+  max-width: 260px;
+  height: 170px;
+  object-fit: contain;
+  margin: 0 auto 0.8rem;
+}
+
+.app-choice-ble {
+  border-color: #795136;
+}
+
+.app-choice-ble .eyebrow {
+  color: #ff983f;
+}
+
+.app-choice-card a,
+.tubolito-sensor-card a {
+  color: var(--accent);
+  font-weight: 700;
+  text-underline-offset: 0.15em;
+}
+
+.tubolito-sensor-card {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 2rem;
+  align-items: center;
 }
 
 .ble-version {
@@ -53,15 +139,6 @@
   gap: 0.55rem;
   align-items: center;
   flex-wrap: wrap;
-}
-
-.ble-preview-label {
-  border: 1px solid #785137;
-  background: #251d19;
-  color: #ffd2aa;
-  border-radius: 5px;
-  padding: 0.25rem 0.45rem;
-  font-size: 0.72rem;
 }
 
 .ble-version-controls label {
@@ -141,12 +218,12 @@ html[data-page="ble-home"] .ble-intro {
   margin-top: 1.3rem;
 }
 
-.ble-preview .ble-actions .btn {
+.ble-edition .ble-actions .btn {
   color: #05221f;
   text-decoration: none;
 }
 
-.ble-preview .ble-actions .btn-ghost {
+.ble-edition .ble-actions .btn-ghost {
   color: var(--text);
   background: transparent;
   border: 1px solid var(--line);
@@ -180,7 +257,7 @@ html[data-page="ble-home"] .ble-intro {
   margin-top: 0.25rem;
 }
 
-.ble-preview code {
+.ble-edition code {
   color: #ffd2aa;
   font-size: 0.95em;
   overflow-wrap: anywhere;
@@ -190,7 +267,7 @@ html[data-page="ble-home"] .ble-intro {
   border-left-color: var(--ble-orange);
 }
 
-.ble-preview .ble-target-emphasis {
+.ble-edition .ble-target-emphasis {
   color: var(--ble-orange);
 }
 
@@ -198,11 +275,16 @@ html[data-page="ble-home"] .ble-intro {
   margin-top: 0;
 }
 
-.ble-preview .support-inline-layout .contact-developer-figure {
+.ble-edition .support-inline-layout .contact-developer-figure {
   align-self: start;
 }
 
 @media (max-width: 760px) {
+  .tubolito-sensor-card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
   .ble-version {
     align-items: flex-start;
     flex-direction: column;
@@ -245,7 +327,7 @@ html[data-page="ble-home"] .ble-intro {
     transform: rotate(3deg);
   }
 
-  .ble-preview:not([data-page="ble-home"]) .ble-product-sticker {
+  .ble-edition:not([data-page="ble-home"]) .ble-product-sticker {
     display: none;
   }
 
