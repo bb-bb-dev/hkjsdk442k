@@ -423,3 +423,119 @@ html[data-page="airspy-home"] .ble-intro {
     height: 110px;
   }
 }
+
+/* All three app homepages share the product-first, photographic home treatment. */
+.app-choice-card {
+  position: relative;
+}
+
+.app-choice-home-link {
+  color: var(--text) !important;
+  text-decoration: none;
+}
+
+.app-choice-home-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.app-choice-home-link:focus-visible::after {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.app-choice-card p a {
+  position: relative;
+  z-index: 1;
+}
+
+.app-home-hero.hero-full {
+  min-height: min(740px, calc(100svh - 150px));
+  padding: 3rem 0;
+  display: grid;
+  align-items: center;
+}
+
+.app-home-hero-layout {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.app-home-hero .hero-overlay {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  margin: 0;
+  padding: 1.3rem;
+}
+
+.app-home-hero .kicker {
+  color: var(--ble-orange);
+}
+
+.app-home-products {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  align-items: center;
+  margin: 0;
+  padding: 1.5rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: radial-gradient(ellipse at center, #132335e6, #06101acc);
+}
+
+.app-home-products img {
+  display: block;
+  width: 100%;
+  height: clamp(170px, 20vw, 280px);
+  object-fit: contain;
+}
+
+.app-home-products figcaption {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.app-home-detail + .app-home-detail {
+  border-top: 1px solid var(--line);
+}
+
+.app-home-detail .ble-guide-links a {
+  min-width: 0;
+}
+
+@media (max-width: 760px) {
+  .app-home-hero.hero-full {
+    min-height: 0;
+    padding: 1.5rem 0;
+  }
+
+  .app-home-hero .hero-bg {
+    object-fit: cover;
+  }
+
+  .app-home-hero-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .app-home-hero .hero-overlay {
+    padding: 1rem;
+  }
+
+  .app-home-products {
+    padding: 1rem;
+  }
+
+  .app-home-products img {
+    height: 165px;
+  }
+}
