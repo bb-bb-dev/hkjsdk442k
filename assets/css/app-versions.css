@@ -527,3 +527,7 @@ html[data-page="airspy-home"] .ble-intro {
 .airspy-edition .ble-version-identity img {
   background: transparent;
 }
+
+.sensor-home .hero-sensor-products.hero-sensor-medley img {
+  width: 100%;
+}
