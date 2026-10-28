@@ -71,6 +71,23 @@
   border-color: #795136;
 }
 
+.app-choice-product-pair {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  height: 170px;
+  max-width: 360px;
+  margin: 0 auto 0.8rem;
+}
+
+.app-choice-product-pair img {
+  width: calc((100% - 1rem) / 2);
+  min-width: 0;
+  height: 100%;
+  object-fit: contain;
+}
+
 .app-choice-ble .eyebrow {
   color: #ff983f;
 }
