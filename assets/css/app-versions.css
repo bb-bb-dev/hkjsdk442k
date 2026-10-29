@@ -531,3 +531,8 @@ html[data-page="airspy-home"] .ble-intro {
 .sensor-home .hero-sensor-products.hero-sensor-medley img {
   width: 100%;
 }
+
+.help-article .sensor-set-option-label {
+  color: #68b8ff;
+  font-weight: 700;
+}

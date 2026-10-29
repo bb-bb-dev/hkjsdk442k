@@ -22,7 +22,7 @@
   <meta name="twitter:description" content="Install TubeWitch and show tire pressure data from Quarq TyreWiz, Schwalbe AIRMAX, and compatible sensors on Garmin devices." />
   <meta name="twitter:image" content="https://tubewitch.com/assets/img/tw_hero.jpg" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="assets/css/app-versions.css?v=original-home-layout-2" />
+  <link rel="stylesheet" href="assets/css/app-versions.css?v=multiple-sensor-sets-2" />
   <script src="assets/js/app-versions.js?v=image-alt-1" defer></script>
   <script src="app.js" defer></script>
   <script data-goatcounter="https://tubewitch.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -178,17 +178,16 @@
         <section id="multiple-sensor-sets">
           <h2>Multiple Sensor Sets</h2>
           <p>TubeWitch supports up to 5 different Sensor Sets, each with its own pair of front and rear sensors. So you can configure Sensor Set #1 for your MTB and Sensor Set #2 for your gravel bike.</p>
-          <p>First, when making any settings changes, <span class="field-visible-emphasis"><img class="field-visible-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" /><strong>always have the TubeWitch data field showing on your Garmin.</strong><img class="field-visible-icon" src="assets/img/tpms_indicator_full.png" alt="Warning Icon" /></span></p>
-          <p>Open the TubeWitch settings in the Connect IQ mobile app and look for <strong>Sensor Set #2</strong>. Enter the front and rear sensor IDs for your second bike and save the settings.</p>
-          <p>Once both sensor sets are saved correctly, you have 3 options for switching between bikes:</p>
+          <p>First, use the Connect IQ mobile app to assign your sensor IDs to each Sensor Set in the TubeWitch settings.</p>
+          <p>Once all of your sensor sets are saved correctly, you have 3 options for switching between bikes:</p>
           <h3>Switching Sensor Sets</h3>
           <ol>
-            <li><strong>Manual Selection:</strong> Each time you want to switch bikes, open the Garmin Connect IQ mobile app and change the <strong>Active Sensor Set</strong> to the Sensor Set # of your choice.</li>
-            <li><strong>Auto Switch:</strong> Change the Active Sensor Set to <strong>Auto</strong>. TubeWitch will automatically scan your configured sensor sets, checking each one for 10 seconds until it finds an active pair of sensors.</li>
-            <li><strong>Touch Selection:</strong> Enable <strong>Touch Data Field</strong> under Touch Settings. This allows you to cycle between your configured sensor sets simply by tapping on the TubeWitch data field on your Edge.</li>
+            <li><strong class="sensor-set-option-label">Manual Selection:</strong> Each time you want to switch bikes, open the Garmin Connect IQ mobile app and change the <strong>Active Sensor Set</strong> to the Sensor Set # of your choice.</li>
+            <li><strong class="sensor-set-option-label">Auto Switch:</strong> Change the Active Sensor Set to <strong>Auto</strong>. TubeWitch will automatically scan your configured sensor sets, checking each one for 10 seconds until it finds an active pair of sensors.</li>
+            <li><strong class="sensor-set-option-label">Touch Selection:</strong> Enable <strong>Touch Data Field</strong> under Touch Settings. This allows you to cycle between your configured sensor sets simply by tapping on the TubeWitch data field on your Edge.</li>
           </ol>
           <p>You can use options 2 and 3 together, or either one individually.</p>
-          <p>To make it easier to see which bike is currently selected, I also recommend enabling <strong>Show Sensor Set Name</strong> under the Sensor Labels section in settings. I use this myself so I can see which sensor set is active when using a wide data field.</p>
+          <p>To make it easier to see which bike is currently selected, try enabling <strong>Show Sensor Set Name</strong> under the Sensor Labels section in settings. This helps by showing which sensor set is active when using a wide data field.</p>
           <button type="button" class="text-link text-link-button" data-info-trigger="setup-auto-switch-example" aria-haspopup="dialog">More Info / Auto Switch Example</button>
           <p>Note that the TubeWitch sensor sets are not tied to your Garmin Activity Profiles. You can use any sensor set while using any Profile on your Garmin.</p>
         </section>
