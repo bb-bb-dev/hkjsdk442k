@@ -391,7 +391,11 @@ html[data-page="ble-home"] .ble-intro {
 }
 
 .app-choice-airspy .app-choice-product-pair img[src$="sks-airspy-tl-cutout.png"] {
-  transform: rotate(18deg);
+  transform: rotate(18deg) scale(0.95);
+}
+
+.app-choice-airspy .app-choice-product-pair img[src$="sks-airspy-presta-cutout-117.png"] {
+  transform: scale(1.05);
 }
 
 .airspy-models {
