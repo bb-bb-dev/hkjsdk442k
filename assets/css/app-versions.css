@@ -537,11 +537,8 @@ html[data-page="airspy-home"] .ble-intro {
   font-weight: 700;
 }
 
-/* Use each app's title accent while retaining the original homepage starburst. */
+/* Match the title lettering exactly: no gradient or lightening overlays. */
 .ble-edition .hero-app-support-badge {
-  background-color: var(--ble-orange);
-  background-image:
-    radial-gradient(circle at 34% 28%, rgba(255, 255, 255, 0.28) 0%, transparent 46%),
-    linear-gradient(125deg, transparent 35%, rgba(0, 0, 0, 0.35) 100%);
+  background: var(--ble-orange);
   filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.3));
 }
