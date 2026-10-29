@@ -151,8 +151,8 @@
       <div class="info-modal-copy">
         <section data-info-panel="auto-switch-delay" hidden>
           <h2>Auto Switch Delay Example</h2>
-          <p>After a Garmin Edge power cycle, or after starting a new activity on a watch, Auto Switch will scan each configured sensor set for 10 seconds until it finds one that is active. Keep the sensors moving during setup so they continue broadcasting.</p>
-          <p>When starting a ride, TubeWitch can lock onto any of the 5 configured sensor sets if they are active and nearby. Once locked on, it will stay on that set until they are out of range and TubeWitch shows &quot;?&quot;, indicating that no valid pressure update has been received for 250 seconds (4 minutes, 10 seconds). It then waits for the Auto Switch Scan Delay, default 60 seconds, and resumes scanning all configured sensor sets for 10 seconds each. Sensor broadcast timing affects how long discovery takes. Manually select the set when only one bike or wheelset is in use.</p>
+          <p>After a Garmin Edge power cycle or starting a new activity, Auto Switch scans each configured sensor set for 10 seconds until it finds one that is active. Even when all 5 bikes or wheelsets are configured, it will typically find the correct set within a minute.</p>
+          <p>When starting a ride, TubeWitch will lock onto any of the 5 configured sensor sets if they are active and nearby. Once locked on, it will stay on that set until no valid pressure update has been received for 250 seconds (4 minutes, 10 seconds). TubeWitch will then show &quot;?&quot;, indicating stale data. It then waits for the Auto Switch Scan Delay, default 60 seconds, and then resumes scanning your configured sensor sets only for 10 seconds each. If it initially locked on to the wrong sensor set, ride away from the other nearby configured sensors; Auto Switch will then find and lock on to the bike or wheelset actually being ridden.</p>
         </section>
         <section data-info-panel="sensor-timeout" hidden>
           <h2>TubeWitch Timeout Examples</h2>
