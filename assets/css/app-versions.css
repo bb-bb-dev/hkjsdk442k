@@ -281,10 +281,6 @@ html[data-page="ble-home"] .ble-intro {
   overflow-wrap: anywhere;
 }
 
-.ble-target-note {
-  border-left-color: var(--ble-orange);
-}
-
 .ble-edition .ble-target-emphasis {
   color: var(--ble-orange);
 }
