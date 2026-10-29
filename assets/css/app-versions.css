@@ -8,12 +8,12 @@
 }
 
 @media (min-width: 1025px) {
-  .ant-navigation .nav-links,
-  .ant-navigation .nav-links-track {
+  .site-header .nav-links,
+  .site-header .nav-links-track {
     gap: 0.2rem;
   }
 
-  .ant-navigation .nav-links a {
+  .site-header .nav-links a {
     padding-inline: 0.4rem;
     white-space: nowrap;
   }
