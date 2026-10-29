@@ -390,6 +390,10 @@ html[data-page="ble-home"] .ble-intro {
   height: 151.2px;
 }
 
+.app-choice-airspy .app-choice-product-pair img[src$="sks-airspy-tl-cutout.png"] {
+  transform: rotate(18deg);
+}
+
 .airspy-models {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
