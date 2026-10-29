@@ -87,6 +87,49 @@
       }
     });
   }
+  const appChoices = document.getElementById('choose-your-app');
+  if (appChoices) {
+    appChoices.addEventListener('click', event => {
+      const link = event.target.closest('a[href]');
+      if (!link || event.defaultPrevented || event.button !== 0 ||
+          event.metaKey || event.ctrlKey || event.shiftKey || event.altKey ||
+          link.hasAttribute('download') || (link.target && link.target !== '_self')) return;
+      const target = new URL(link.href);
+      const homes = Object.values(variants).map(app => new URL(app.home, siteRoot).pathname);
+      if (target.origin !== location.origin || !homes.includes(target.pathname)) return;
+      // Save this history entry, not a global app preference or the destination's scroll.
+      history.replaceState({ ...history.state, appChoiceReturnTop: appChoices.getBoundingClientRect().top }, '');
+    });
+    window.addEventListener('pageshow', () => {
+      const top = history.state?.appChoiceReturnTop;
+      if (!Number.isFinite(top)) return;
+      const restore = () => {
+        appChoices.classList.add('in');
+        window.scrollTo({ top: window.scrollY + appChoices.getBoundingClientRect().top - top, behavior: 'instant' });
+      };
+      // Native restoration and the responsive header can settle on different frames.
+      // Briefly track the saved position, but immediately yield to user interaction.
+      let cancelled = false;
+      const cancel = () => { cancelled = true; };
+      const inputs = ['wheel', 'touchstart', 'pointerdown', 'keydown'];
+      inputs.forEach(type => window.addEventListener(type, cancel, { passive: true }));
+      document.fonts.ready.then(() => {
+        const end = performance.now() + 500;
+        const settle = () => {
+          if (!cancelled) restore();
+          if (!cancelled && performance.now() < end) {
+            requestAnimationFrame(settle);
+          } else {
+            inputs.forEach(type => window.removeEventListener(type, cancel));
+            const state = { ...history.state };
+            delete state.appChoiceReturnTop;
+            history.replaceState(state, '');
+          }
+        };
+        requestAnimationFrame(settle);
+      });
+    });
+  }
   document.querySelectorAll('[data-app-version]').forEach(select => {
     select.addEventListener('change', () => {
       if (select.value) window.location.assign(select.value);
