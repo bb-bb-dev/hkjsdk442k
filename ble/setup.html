@@ -74,7 +74,7 @@
         <section data-info-panel="setup-auto-switch-example" hidden>
           <h2 id="setup-auto-switch-example-title">Auto Switch Example</h2>
           <p>After a Garmin Edge power cycle, or after starting a new activity on a watch, Auto Switch will scan each configured sensor set for 10 seconds until it finds one that is active. Even when all 5 bikes or wheelsets are configured, it will typically find the correct set within a minute.</p>
-          <p>When starting a ride, TubeWitch can lock onto any of the 5 configured sensor sets if they are active and nearby. Once locked on, it will stay on that set until they are out of range and TubeWitch will then show &quot;?&quot;, indicating that no recent sensor broadcast has been received. It then waits for the Auto Switch Scan Delay, default 60 seconds, and resumes scanning all configured sensor sets for 10 seconds each. If locked on to the wrong sensor set initially, ride away from the other nearby configured sensor sets; Auto Switch should then lock on to the bike or wheelset actually being ridden.</p>
+          <p>When starting a ride, TubeWitch can lock onto any of the 5 configured sensor sets if they are active and nearby. Once locked on, it will stay on that set until they are out of range and TubeWitch will then show &quot;?&quot;, indicating that no valid pressure update has been received for 250 seconds (4 minutes, 10 seconds). It then waits for the Auto Switch Scan Delay, default 60 seconds, and resumes scanning all configured sensor sets for 10 seconds each. If locked on to the wrong sensor set initially, ride away from the other nearby configured sensor sets; Auto Switch should then lock on to the bike or wheelset actually being ridden.</p>
         </section>
       </div>
     </div>
