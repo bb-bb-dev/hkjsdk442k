@@ -29,7 +29,8 @@
   const route = (appKey, topic) => {
     const app = variants[appKey];
     if (['advanced', 'alerts', 'setup', 'settings', 'troubleshooting', 'faq'].includes(topic)) return app.docs + topic + '.html';
-    if (sharedPages.includes(topic)) return topic + '.html' + (appKey === 'ant' ? '' : '?app=' + appKey);
+    if (sharedPages.includes(topic)) return topic + '.html' + (appKey === 'ant' ? '' : '?app=' + appKey)
+      + (topic === 'compatible-tire-sensors' ? '#' + app.section : '');
     return app.home;
   };
   // Shared pages must adopt the requested navigation before app.js measures mobile rows.
@@ -44,7 +45,7 @@
       ['Home', variant.home, variant.homeKey],
       ['Features', route(key, 'advanced'), 'advanced'],
       ['Alerts', route(key, 'alerts'), 'alerts'],
-      ['Sensors', route(key, 'compatible-tire-sensors') + '#' + variant.section, 'compatible-tire-sensors'],
+      ['Sensors', route(key, 'compatible-tire-sensors'), 'compatible-tire-sensors'],
       ...['setup', 'settings', 'troubleshooting', 'faq', 'support', 'gallery'].map(topic => [
         topic === 'faq' ? 'FAQ' : topic[0].toUpperCase() + topic.slice(1), route(key, topic), topic,
       ]),
@@ -87,6 +88,30 @@
       if (target.origin === siteRoot.origin && ['advanced', 'alerts', 'setup', 'settings', 'troubleshooting', 'faq', 'support', 'gallery'].includes(topic)) {
         link.href = new URL(route(key, topic) + target.hash, siteRoot);
       }
+    });
+  }
+  if (page === 'compatible-tire-sensors') {
+    const identity = document.querySelector('.ble-version');
+    // Anchor targets must clear both the main header and the pinned app selector.
+    const measureIdentity = () => document.documentElement.style.setProperty(
+      '--sensor-version-height', `${Math.ceil(identity.getBoundingClientRect().height)}px`
+    );
+    measureIdentity();
+    new ResizeObserver(measureIdentity).observe(identity);
+    window.addEventListener('pageshow', event => {
+      const navigation = performance.getEntriesByType('navigation')[0];
+      if (event.persisted || navigation?.type === 'back_forward') return;
+      const target = document.getElementById(location.hash.slice(1));
+      if (!target?.matches('main section[id]')) return;
+      document.fonts.ready.then(() => requestAnimationFrame(() => requestAnimationFrame(() => {
+        // A reveal transform must not skew the native anchor's final position.
+        const transition = target.style.transition;
+        target.style.transition = 'none';
+        target.classList.add('in');
+        target.getBoundingClientRect();
+        target.scrollIntoView({ block: 'start', behavior: 'instant' });
+        requestAnimationFrame(() => { target.style.transition = transition; });
+      })));
     });
   }
   const appChoices = document.getElementById('choose-your-app');

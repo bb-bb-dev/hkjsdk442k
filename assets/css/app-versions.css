@@ -115,6 +115,32 @@
   border-bottom: 1px solid var(--line);
 }
 
+/* Sensors stays a shared catalog, with the selected app always accessible. */
+html[data-page="compatible-tire-sensors"] .ble-version {
+  position: sticky;
+  top: var(--site-header-height, 64px);
+  z-index: 19;
+  background: var(--bg);
+  box-shadow: 0 0 0 100vmax var(--bg);
+  clip-path: inset(0 -100vmax);
+}
+
+html[data-page="compatible-tire-sensors"] main section[id] {
+  scroll-margin-top: calc(var(--site-header-height, 64px) + var(--sensor-version-height, 90px) + 1rem);
+}
+
+.sensor-app-name {
+  font-weight: 700;
+}
+
+.sensor-app-name-tubolito {
+  color: #ff983f;
+}
+
+.sensor-app-name-airspy {
+  color: #ff795a;
+}
+
 .ble-version-identity {
   display: flex;
   align-items: center;
