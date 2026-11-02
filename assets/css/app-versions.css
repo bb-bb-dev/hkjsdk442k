@@ -129,8 +129,16 @@ html[data-page="compatible-tire-sensors"] main section[id] {
   scroll-margin-top: calc(var(--site-header-height, 64px) + var(--sensor-version-height, 90px) + 1rem);
 }
 
+html[data-page="compatible-tire-sensors"] .page-hero .sensor-app-name-link {
+  text-decoration: none;
+}
+
 .sensor-app-name {
   font-weight: 700;
+}
+
+.sensor-app-name-ant {
+  color: var(--accent);
 }
 
 .sensor-app-name-tubolito {

@@ -98,9 +98,7 @@
     );
     measureIdentity();
     new ResizeObserver(measureIdentity).observe(identity);
-    window.addEventListener('pageshow', event => {
-      const navigation = performance.getEntriesByType('navigation')[0];
-      if (event.persisted || navigation?.type === 'back_forward') return;
+    const scrollToSensorSection = () => {
       const target = document.getElementById(location.hash.slice(1));
       if (!target?.matches('main section[id]')) return;
       document.fonts.ready.then(() => requestAnimationFrame(() => requestAnimationFrame(() => {
@@ -112,7 +110,12 @@
         target.scrollIntoView({ block: 'start', behavior: 'instant' });
         requestAnimationFrame(() => { target.style.transition = transition; });
       })));
+    };
+    window.addEventListener('pageshow', event => {
+      const navigation = performance.getEntriesByType('navigation')[0];
+      if (!event.persisted && navigation?.type !== 'back_forward') scrollToSensorSection();
     });
+    window.addEventListener('hashchange', scrollToSensorSection);
   }
   const appChoices = document.getElementById('choose-your-app');
   if (appChoices) {
