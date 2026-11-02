@@ -50,13 +50,15 @@
       ]),
       ['Garmin App Store', variant.store, 'store'],
     ];
-    const appLink = ([label, href, navKey]) => {
+    const appLink = ([label, href, navKey], isFooter = false) => {
       const link = document.createElement('a');
       link.textContent = label;
       link.href = new URL(href, siteRoot);
       link.dataset.nav = navKey;
       if (navKey === 'store') {
-        link.className = 'btn-inline';
+        // Footer links stay plain text, even when the header uses a store button.
+        if (isFooter) link.textContent = 'Garmin Store / Release Notes';
+        else link.className = 'btn-inline';
         link.target = '_blank';
         link.rel = 'noopener noreferrer';
       }
@@ -64,9 +66,9 @@
     };
     const nav = header.querySelector('.nav-links');
     nav.setAttribute('aria-label', variant.app + ' primary');
-    nav.replaceChildren(...links.map(appLink));
+    nav.replaceChildren(...links.map(link => appLink(link)));
     const footer = document.querySelector('.footer-links');
-    footer.replaceChildren(...links.map(appLink), appLink(['YouTube', 'https://www.youtube.com/@TubeWitch', 'youtube']));
+    footer.replaceChildren(...links.map(link => appLink(link, true)), appLink(['YouTube', 'https://www.youtube.com/@TubeWitch', 'youtube'], true));
 
     const identity = document.querySelector('.ble-version');
     identity.classList.remove('ant-version');
