@@ -324,6 +324,12 @@ html[data-page="ble-home"] .ble-intro {
   color: var(--ble-orange);
 }
 
+.ble-edition code.sensor-id-example {
+  font-size: 1.125rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
 .ble-target-note h3 {
   margin-top: 0;
 }
