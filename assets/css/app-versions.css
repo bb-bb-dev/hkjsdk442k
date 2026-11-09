@@ -88,6 +88,11 @@
   object-fit: contain;
 }
 
+.app-choice-product-pair img:only-child {
+  width: 170px;
+  max-width: 100%;
+}
+
 .app-choice-ble .eyebrow {
   color: #ff983f;
 }
@@ -518,6 +523,10 @@ html[data-page="airspy-home"] .ble-intro {
   width: calc((100% - 0.3rem) / 2);
   height: 125px;
   object-fit: contain;
+}
+
+.sensor-home .hero-sensor-products img:only-child {
+  width: 100%;
 }
 
 .sensor-home .hero-points,
